@@ -1,0 +1,9 @@
+# Ignorar archivo que supera el límite de 100MB de GitHub
+riesgo_hidrico.shp
+
+# Archivos temporales y de bloqueo
+.~lock.*
+~$*
+*.tmp
+.DS_Store
+Thumbs.db
