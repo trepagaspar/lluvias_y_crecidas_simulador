@@ -1,0 +1,1074 @@
+{
+  "type": "FeatureCollection",
+  "name": "estaciones_bombeo_aprox",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 1,
+        "nombre": "Estación de Bombeo #1 (aprox.)",
+        "sector": "Noroeste / Reservorios",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.751004,
+        "lat": -31.56958
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.751004,
+          -31.56958
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 2,
+        "nombre": "Estación de Bombeo #2 (aprox.)",
+        "sector": "Noroeste / Reservorios",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.748899,
+        "lat": -31.569913
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.748899,
+          -31.569913
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 3,
+        "nombre": "Estación de Bombeo #3 (aprox.)",
+        "sector": "Noroeste / Reservorios",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.756942,
+        "lat": -31.574852
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.756942,
+          -31.574852
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 4,
+        "nombre": "Estación de Bombeo #4 (aprox.)",
+        "sector": "Noroeste / Reservorios",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.754951,
+        "lat": -31.575184
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.754951,
+          -31.575184
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 5,
+        "nombre": "Estación de Bombeo #5 (aprox.)",
+        "sector": "Noroeste / Reservorios",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.745063,
+        "lat": -31.576926
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.745063,
+          -31.576926
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 6,
+        "nombre": "Estación de Bombeo #6 (aprox.)",
+        "sector": "Noroeste / Reservorios",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.731693,
+        "lat": -31.579727
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.731693,
+          -31.579727
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 7,
+        "nombre": "Estación de Bombeo #7 (aprox.)",
+        "sector": "Noroeste / Reservorios",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.754267,
+        "lat": -31.584084
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.754267,
+          -31.584084
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 8,
+        "nombre": "Estación de Bombeo #8 (aprox.)",
+        "sector": "Este / Costanera - Guadalupe",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.676393,
+        "lat": -31.591632
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.676393,
+          -31.591632
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 9,
+        "nombre": "Estación de Bombeo #9 (aprox.)",
+        "sector": "Este / Costanera - Guadalupe",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.67921,
+        "lat": -31.598587
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.67921,
+          -31.598587
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 10,
+        "nombre": "Estación de Bombeo #10 (aprox.)",
+        "sector": "Este / Costanera - Guadalupe",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.678199,
+        "lat": -31.602613
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.678199,
+          -31.602613
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 11,
+        "nombre": "Estación de Bombeo #11 (aprox.)",
+        "sector": "Este / Costanera - Guadalupe",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.675066,
+        "lat": -31.604009
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.675066,
+          -31.604009
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 12,
+        "nombre": "Estación de Bombeo #12 (aprox.)",
+        "sector": "Este / Costanera - Guadalupe",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.681865,
+        "lat": -31.60812
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.681865,
+          -31.60812
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 13,
+        "nombre": "Estación de Bombeo #13 (aprox.)",
+        "sector": "Este / Costanera - Guadalupe",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.67212,
+        "lat": -31.608314
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.67212,
+          -31.608314
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 14,
+        "nombre": "Estación de Bombeo #14 (aprox.)",
+        "sector": "Oeste / Defensa Salado",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.737912,
+        "lat": -31.612232
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.737912,
+          -31.612232
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 15,
+        "nombre": "Estación de Bombeo #15 (aprox.)",
+        "sector": "Oeste / Defensa Salado",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.727897,
+        "lat": -31.616479
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.727897,
+          -31.616479
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 16,
+        "nombre": "Estación de Bombeo #16 (aprox.)",
+        "sector": "Este / Costanera - Guadalupe",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.67192,
+        "lat": -31.614598
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.67192,
+          -31.614598
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 17,
+        "nombre": "Estación de Bombeo #17 (aprox.)",
+        "sector": "Este / Costanera - Guadalupe",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.678608,
+        "lat": -31.622815
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.678608,
+          -31.622815
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 18,
+        "nombre": "Estación de Bombeo #18 (aprox.)",
+        "sector": "Este / Costanera - Guadalupe",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.677119,
+        "lat": -31.621313
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.677119,
+          -31.621313
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 19,
+        "nombre": "Estación de Bombeo #19 (aprox.)",
+        "sector": "La Guardia / Colastiné / Rincón",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.626815,
+        "lat": -31.621254
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.626815,
+          -31.621254
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 20,
+        "nombre": "Estación de Bombeo #20 (aprox.)",
+        "sector": "Este / Costanera - Guadalupe",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.682153,
+        "lat": -31.625783
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.682153,
+          -31.625783
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 21,
+        "nombre": "Estación de Bombeo #21 (aprox.)",
+        "sector": "Oeste / Defensa Salado",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.731588,
+        "lat": -31.630573
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.731588,
+          -31.630573
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 22,
+        "nombre": "Estación de Bombeo #22 (aprox.)",
+        "sector": "Este / Costanera - Guadalupe",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.683686,
+        "lat": -31.628767
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.683686,
+          -31.628767
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 23,
+        "nombre": "Estación de Bombeo #23 (aprox.)",
+        "sector": "La Guardia / Colastiné / Rincón",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.603696,
+        "lat": -31.630257
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.603696,
+          -31.630257
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 24,
+        "nombre": "Estación de Bombeo #24 (aprox.)",
+        "sector": "Este / Costanera - Guadalupe",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.69026,
+        "lat": -31.63517
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.69026,
+          -31.63517
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 25,
+        "nombre": "Estación de Bombeo #25 (aprox.)",
+        "sector": "Este / Costanera - Guadalupe",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.684543,
+        "lat": -31.632756
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.684543,
+          -31.632756
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 26,
+        "nombre": "Estación de Bombeo #26 (aprox.)",
+        "sector": "Este / Costanera - Guadalupe",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.68407,
+        "lat": -31.635441
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.68407,
+          -31.635441
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 27,
+        "nombre": "Estación de Bombeo #27 (aprox.)",
+        "sector": "Oeste / Defensa Salado",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.734417,
+        "lat": -31.637455
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.734417,
+          -31.637455
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 28,
+        "nombre": "Estación de Bombeo #28 (aprox.)",
+        "sector": "Este / Costanera - Guadalupe",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.686915,
+        "lat": -31.640139
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.686915,
+          -31.640139
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 29,
+        "nombre": "Estación de Bombeo #29 (aprox.)",
+        "sector": "La Guardia / Colastiné / Rincón",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.638931,
+        "lat": -31.636762
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.638931,
+          -31.636762
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 30,
+        "nombre": "Estación de Bombeo #30 (aprox.)",
+        "sector": "La Guardia / Colastiné / Rincón",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.610209,
+        "lat": -31.636892
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.610209,
+          -31.636892
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 31,
+        "nombre": "Estación de Bombeo #31 (aprox.)",
+        "sector": "Este / Costanera - Guadalupe",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.688517,
+        "lat": -31.643946
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.688517,
+          -31.643946
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 32,
+        "nombre": "Estación de Bombeo #32 (aprox.)",
+        "sector": "El Pozo / RN 168",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.671026,
+        "lat": -31.643512
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.671026,
+          -31.643512
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 33,
+        "nombre": "Estación de Bombeo #33 (aprox.)",
+        "sector": "La Guardia / Colastiné / Rincón",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.639846,
+        "lat": -31.643053
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.639846,
+          -31.643053
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 34,
+        "nombre": "Estación de Bombeo #34 (aprox.)",
+        "sector": "Oeste Urbano (Interior)",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.720236,
+        "lat": -31.646234
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.720236,
+          -31.646234
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 35,
+        "nombre": "Estación de Bombeo #35 (aprox.)",
+        "sector": "La Guardia / Colastiné / Rincón",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.650943,
+        "lat": -31.646282
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.650943,
+          -31.646282
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 36,
+        "nombre": "Estación de Bombeo #36 (aprox.)",
+        "sector": "La Guardia / Colastiné / Rincón",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.646723,
+        "lat": -31.646615
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.646723,
+          -31.646615
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 37,
+        "nombre": "Estación de Bombeo #37 (aprox.)",
+        "sector": "La Guardia / Colastiné / Rincón",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.626591,
+        "lat": -31.646747
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.626591,
+          -31.646747
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 38,
+        "nombre": "Estación de Bombeo #38 (aprox.)",
+        "sector": "La Guardia / Colastiné / Rincón",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.617939,
+        "lat": -31.645439
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.617939,
+          -31.645439
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 39,
+        "nombre": "Estación de Bombeo #39 (aprox.)",
+        "sector": "Oeste / Defensa Salado",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.74315,
+        "lat": -31.650962
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.74315,
+          -31.650962
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 40,
+        "nombre": "Estación de Bombeo #40 (aprox.)",
+        "sector": "Puerto / Sur",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.702906,
+        "lat": -31.651897
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.702906,
+          -31.651897
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 41,
+        "nombre": "Estación de Bombeo #41 (aprox.)",
+        "sector": "Puerto / Sur",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.698882,
+        "lat": -31.649954
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.698882,
+          -31.649954
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 42,
+        "nombre": "Estación de Bombeo #42 (aprox.)",
+        "sector": "La Guardia / Colastiné / Rincón",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.641041,
+        "lat": -31.650053
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.641041,
+          -31.650053
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 43,
+        "nombre": "Estación de Bombeo #43 (aprox.)",
+        "sector": "La Guardia / Colastiné / Rincón",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.638861,
+        "lat": -31.64974
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.638861,
+          -31.64974
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 44,
+        "nombre": "Estación de Bombeo #44 (aprox.)",
+        "sector": "La Guardia / Colastiné / Rincón",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.63275,
+        "lat": -31.650215
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.63275,
+          -31.650215
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 45,
+        "nombre": "Estación de Bombeo #45 (aprox.)",
+        "sector": "Puerto / Sur",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.705158,
+        "lat": -31.651961
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.705158,
+          -31.651961
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 46,
+        "nombre": "Estación de Bombeo #46 (aprox.)",
+        "sector": "Alto Verde",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.694612,
+        "lat": -31.653499
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.694612,
+          -31.653499
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 47,
+        "nombre": "Estación de Bombeo #47 (aprox.)",
+        "sector": "Puerto / Sur",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.708663,
+        "lat": -31.657984
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.708663,
+          -31.657984
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 48,
+        "nombre": "Estación de Bombeo #48 (aprox.)",
+        "sector": "Oeste / Defensa Salado",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.740764,
+        "lat": -31.66315
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.740764,
+          -31.66315
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 49,
+        "nombre": "Estación de Bombeo #49 (aprox.)",
+        "sector": "Alto Verde",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.703031,
+        "lat": -31.661904
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.703031,
+          -31.661904
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 50,
+        "nombre": "Estación de Bombeo #50 (aprox.)",
+        "sector": "Alto Verde",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.699895,
+        "lat": -31.662478
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.699895,
+          -31.662478
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 51,
+        "nombre": "Estación de Bombeo #51 (aprox.)",
+        "sector": "Laguna del Sauce / Colastiné Sur",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.613817,
+        "lat": -31.663172
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.613817,
+          -31.663172
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 52,
+        "nombre": "Estación de Bombeo #52 (aprox.)",
+        "sector": "Puerto / Sur",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.711966,
+        "lat": -31.666828
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.711966,
+          -31.666828
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 53,
+        "nombre": "Estación de Bombeo #53 (aprox.)",
+        "sector": "Laguna del Sauce / Colastiné Sur",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.617984,
+        "lat": -31.666533
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.617984,
+          -31.666533
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 54,
+        "nombre": "Estación de Bombeo #54 (aprox.)",
+        "sector": "Oeste / Defensa Salado",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.739795,
+        "lat": -31.668495
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.739795,
+          -31.668495
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 55,
+        "nombre": "Estación de Bombeo #55 (aprox.)",
+        "sector": "Alto Verde",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.704994,
+        "lat": -31.670427
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.704994,
+          -31.670427
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 56,
+        "nombre": "Estación de Bombeo #56 (aprox.)",
+        "sector": "Alto Verde",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.70048,
+        "lat": -31.668923
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.70048,
+          -31.668923
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 57,
+        "nombre": "Estación de Bombeo #57 (aprox.)",
+        "sector": "Oeste / Defensa Salado",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.730144,
+        "lat": -31.673402
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.730144,
+          -31.673402
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 58,
+        "nombre": "Estación de Bombeo #58 (aprox.)",
+        "sector": "Alto Verde",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.701507,
+        "lat": -31.673457
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.701507,
+          -31.673457
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 59,
+        "nombre": "Estación de Bombeo #59 (aprox.)",
+        "sector": "Alto Verde",
+        "fuente": "Calcado aproximado desde mapa de referencia",
+        "lon": -60.694975,
+        "lat": -31.680328
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.694975,
+          -31.680328
+        ]
+      }
+    }
+  ]
+}
