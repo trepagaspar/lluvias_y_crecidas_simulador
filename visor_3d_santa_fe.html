@@ -681,6 +681,7 @@
     const simRunoff = new Float32Array(S_N);
     const simDrain = new Float32Array(S_N);
     const simAcumBoost = new Float32Array(S_N);
+    const simPumpFactor = new Float32Array(S_N);
     const simType = new Uint8Array(S_N); // 0=terreno rural/bajo, 1=Paraná/Setúbal, 2=Reservorio, 3=Ciudad alta (IV), 4=Río Salado
     const waterTexBytes = new Uint8Array(S_N * 4);
     let totalResCells = 0;
@@ -717,6 +718,19 @@
           simType[si] = (riskId === 1) ? 3 : 0;
           simRunoff[si] = (riskId === 1) ? 0.88 : 0.72;
           simDrain[si] = (riskId === 1) ? 0.018 : 0.010;
+        }
+        if (simType[si] === 2 || simType[si] === 3 || (simType[si] === 0 && simZ[si] >= 16.0)) {
+          const pu = (sc + 0.5) / CFG.SW, pv = (sr + 0.5) / CFG.SH;
+          let bestInf = 0.0;
+          for (const cp of CITY_PUMPS) {
+            const dkm = Math.hypot((cp.u - pu) * CFG.worldW, (cp.v - pv) * CFG.worldH);
+            if (dkm < 2.2) {
+              const inf = Math.exp(-(dkm * dkm) / (1.05 * 1.05));
+              if (inf > bestInf) bestInf = inf;
+            }
+          }
+          if (simType[si] === 2) bestInf = Math.max(bestInf * 2.4, 0.90);
+          simPumpFactor[si] = bestInf;
         }
       }
     }
@@ -861,21 +875,14 @@
           simW[i] = w > 0 ? w : 0;
         }
 
-        // Estaciones de bombeo ciudad (59 puntos calcados aprox., extraen agua fuera del cauce)
+        // Estaciones de bombeo ciudad (59 puntos calcados aprox., drenan subcuencas urbanas y reservorios conectados)
         if (simState.cityPumpsActive) {
-          for (const cp of CITY_PUMPS) {
-            const px = cp.u * CFG.SW, py = cp.v * CFG.SH, rad = 3.2;
-            const x0 = Math.max(1, Math.floor(px - rad)), x1 = Math.min(CFG.SW - 2, Math.ceil(px + rad));
-            const y0 = Math.max(1, Math.floor(py - rad)), y1 = Math.min(CFG.SH - 2, Math.ceil(py + rad));
-            for (let r = y0; r <= y1; r++) {
-              for (let c = x0; c <= x1; c++) {
-                const d2 = (c - px)*(c - px) + (r - py)*(r - py);
-                if (d2 <= rad * rad) {
-                  const idx = r * CFG.SW + c;
-                  if (simType[idx] === 1 || simType[idx] === 4) continue;
-                  simW[idx] = Math.max(0, simW[idx] - 0.0038 * Math.exp(-d2 / 5.0));
-                }
-              }
+          const pumpStep = 0.22 * dtHr;
+          for (let i = 0; i < S_N; i++) {
+            const pf = simPumpFactor[i];
+            if (pf > 0 && simW[i] > 0) {
+              const nw = simW[i] - pumpStep * pf;
+              simW[i] = nw > 0 ? nw : 0;
             }
           }
         }
@@ -1557,7 +1564,9 @@
         btn.classList.add("active");
         simState.cityPumpsActive = (btn.dataset.cpump === "on");
         if (simState.cityPumpsActive && !simState.running && (simState.fallenMm > 0 || simState.paranaScale > 3.5 || simState.saladoScale > 3.5)) {
-          simState.pumpSettle = 75;
+          simState.pumpSettle = 120;
+        } else if (!simState.cityPumpsActive && !simState.running && simState.fallenMm >= simState.targetMm) {
+          document.getElementById("sim-status").textContent = "Bombeo apagado · re-simulá para ver acumulación";
         }
       });
     });
