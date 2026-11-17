@@ -275,29 +275,30 @@
       <div>
         <div class="section-title">Escenarios rápidos</div>
         <div class="dual-row">
-          <button class="scenario-btn active" data-sc="rain90">🌧️ Lluvia fuerte<span>90 mm · Ríos normales</span></button>
-          <button class="scenario-btn" data-sc="parana">🌊 Crecida Paraná<span>+3,2 m · Sin lluvia</span></button>
-          <button class="scenario-btn" data-sc="salado">🌊 Crecida Salado<span>+4,0 m · Sin lluvia</span></button>
-          <button class="scenario-btn" data-sc="combo">⚠️ Combo crítico<span>Lluvia + Ríos altos</span></button>
+          <button class="scenario-btn active" data-sc="hoy">🌊 Ríos hoy (5,80 m)<span>Paraná 5,8 · Salado 5,8</span></button>
+          <button class="scenario-btn" data-sc="rain_hoy">⛈️ Lluvia + Ríos hoy<span>90 mm · Ríos en 5,80 m</span></button>
+          <button class="scenario-btn" data-sc="rain90">🌧️ Lluvia normal<span>90 mm · Ríos en 3,30 m</span></button>
+          <button class="scenario-btn" data-sc="combo">⚠️ Crecida extrema<span>120 mm · Ríos &gt;7,0 m</span></button>
         </div>
       </div>
 
       <div class="card-box">
-        <div class="section-title" style="margin-bottom:0;">🌊 Nivel de los ríos (crecida)</div>
+        <div class="section-title" style="margin-bottom:0;">🌊 Nivel de los ríos (escala oficial)</div>
         <div class="slider-group">
           <div class="slider-head">
-            <span>Paraná / Setúbal</span>
-            <span><strong id="val-parana">+0.0 m</strong> <span id="tag-parana" class="badge-lvl lvl-ok">Normal</span></span>
+            <span>Paraná (Puerto SF)</span>
+            <span><strong id="val-parana">5.80 m</strong> <span id="tag-parana" class="badge-lvl lvl-crit">Evacuación</span></span>
           </div>
-          <input id="sl-parana" type="range" min="0" max="5" step="0.25" value="0">
+          <input id="sl-parana" type="range" min="2.0" max="7.5" step="0.1" value="5.8">
         </div>
         <div class="slider-group">
           <div class="slider-head">
-            <span>Río Salado (Oeste)</span>
-            <span><strong id="val-salado">+0.0 m</strong> <span id="tag-salado" class="badge-lvl lvl-ok">Normal</span></span>
+            <span>Salado (Sto. Tomé)</span>
+            <span><strong id="val-salado">5.80 m</strong> <span id="tag-salado" class="badge-lvl lvl-warn">Alerta</span></span>
           </div>
-          <input id="sl-salado" type="range" min="0" max="6" step="0.25" value="0">
+          <input id="sl-salado" type="range" min="2.0" max="8.0" step="0.1" value="5.8">
         </div>
+        <div class="tool-note" style="margin-top:2px;">Puerto SF: Alerta 5,30 m · Evac. 5,70 m | Salado: Alerta 4,70 m</div>
       </div>
 
       <div class="card-box">
@@ -460,7 +461,7 @@
   <div class="leg-item"><span class="leg-box" style="background:#0284c7"></span> Media (15–40 cm)</div>
   <div class="leg-item"><span class="leg-box" style="background:#1e3a8a"></span> Profunda (&gt; 40 cm)</div>
   <div class="disclaimer">
-    Modelo topográfico orientativo (MDE ~30 m). Crecidas relativas sobre nivel base MDE; no incluye compuertas ni reemplaza alertas oficiales.
+    Escalas Puerto SF (0 = 8,42 m IGN) y Sto. Tomé sobre MDE ~30 m. Orientativo; no incluye compuertas ni reemplaza partes oficiales.
   </div>
 </div>
 
@@ -474,8 +475,8 @@
     latMin: -31.72049460, latMax: -31.48953774,
     worldW: 26.57257, worldH: 25.71012,
     demMin: -10.00, demMax: 75.00,
-    BASE_PARANA: 15.20,
-    BASE_SALADO: 13.80
+    PARANA_NORMAL: 3.30,
+    SALADO_NORMAL: 3.20
   };
 
   const PLACES = [
@@ -673,6 +674,8 @@
     // --- MOTOR HIDRÁULICO COMBINADO: LLUVIA + RÍO PARANÁ + RÍO SALADO ---
     const S_N = CFG.SW * CFG.SH;
     const simZ = new Float32Array(S_N);
+    const simBaseP = new Float32Array(S_N);
+    const simBaseS = new Float32Array(S_N);
     const simW = new Float32Array(S_N);
     const simDW = new Float32Array(S_N);
     const simRunoff = new Float32Array(S_N);
@@ -691,6 +694,12 @@
         const si = sr * CFG.SW + sc;
         const li = (lr * CFG.W + lc) * 4;
         simZ[si] = heightsM[mr * CFG.MW + mc];
+        const rNorm = sr / Math.max(1, CFG.SH - 1);
+        const cNorm = sc / Math.max(1, CFG.SW - 1);
+        let bP = sr < 145 ? 15.66 : 15.66 - Math.min(1.45, (sr - 145) * 0.035);
+        if (cNorm > 0.646 && sr > 145) bP = Math.max(bP, simZ[si] - 0.15);
+        simBaseP[si] = bP;
+        simBaseS[si] = 14.05 - 1.00 * rNorm;
         const riskId = layersRGBA[li];
         const ctxId = layersRGBA[li + 1];
         const acLog = (((acumRGBA[li] << 8) | acumRGBA[li + 1]) / 65535.0) * 6.5;
@@ -720,8 +729,8 @@
       cityPumpsActive: true,
       targetMm: 90,
       durationHr: 2.0,
-      paranaRise: 0.0,
-      saladoRise: 0.0,
+      paranaScale: 5.80,
+      saladoScale: 5.80,
       drainMode: "partial",
       fallenMm: 0,
       elapsedHr: 0,
@@ -791,17 +800,32 @@
       simState.resFillPct = totalResCells > 0 ? Math.min(100, Math.round((resSum / totalResCells) * 100)) : 0;
     }
 
+    function scaleToParanaRise(sc) {
+      if (sc <= 3.50) return 0.0;
+      if (sc <= 5.30) return (sc - 3.50) * 0.145;
+      if (sc <= 6.00) return 0.261 + (sc - 5.30) * 0.42;
+      return 0.555 + (sc - 6.00) * 1.20;
+    }
+
+    function scaleToSaladoRise(sc) {
+      if (sc <= 3.50) return 0.0;
+      if (sc <= 4.70) return (sc - 3.50) * 0.15;
+      if (sc <= 6.20) return 0.18 + (sc - 4.70) * 0.30;
+      return 0.63 + (sc - 6.20) * 1.18;
+    }
+
     function stepSimulation(subSteps, rainEnabled = true) {
       const intensityMmHr = simState.targetMm / Math.max(0.25, simState.durationHr);
       const dtHr = 0.015;
-      // Efecto tapón: cuando cualquiera de los ríos sube > 1.5 m, los desagües por gravedad pierden capacidad
-      const maxRiver = Math.max(simState.paranaRise, simState.saladoRise);
-      const riverBackwater = maxRiver > 0.5 ? Math.max(0.15, 1.0 - maxRiver / 4.2) : 1.0;
+      // Efecto tapón: al superar ~4.2 m (Paraná) o ~4.0 m (Salado), los desagües por gravedad pierden capacidad
+      const backP = simState.paranaScale > 4.2 ? Math.max(0.15, 1.0 - (simState.paranaScale - 4.2) / 2.6) : 1.0;
+      const backS = simState.saladoScale > 4.0 ? Math.max(0.15, 1.0 - (simState.saladoScale - 4.0) / 3.0) : 1.0;
+      const riverBackwater = Math.min(backP, backS);
       const drainScale = (simState.drainMode === "saturated" ? 0.08 : 1.0) * riverBackwater;
       const INV_SQRT2 = 0.70710678;
 
-      const hParana = CFG.BASE_PARANA + simState.paranaRise;
-      const hSalado = CFG.BASE_SALADO + simState.saladoRise;
+      const riseP = scaleToParanaRise(simState.paranaScale);
+      const riseS = scaleToSaladoRise(simState.saladoScale);
 
       for (let s = 0; s < subSteps; s++) {
         let rainM = 0;
@@ -816,16 +840,16 @@
         for (let i = 0; i < S_N; i++) {
           const t = simType[i];
           if (t === 1) {
-            if (simState.paranaRise > 0.02) {
-              simW[i] = Math.max(0.0, hParana - simZ[i]);
+            if (riseP > 0.01) {
+              simW[i] = Math.max(0.0, (simBaseP[i] + riseP) - simZ[i]);
             } else {
               simW[i] *= 0.72;
             }
             continue;
           }
           if (t === 4) {
-            if (simState.saladoRise > 0.02) {
-              simW[i] = Math.max(0.0, hSalado - simZ[i]);
+            if (riseS > 0.01) {
+              simW[i] = Math.max(0.0, (simBaseS[i] + riseS) - simZ[i]);
             } else {
               simW[i] *= 0.72;
             }
@@ -911,6 +935,10 @@
         for (let i = 0; i < S_N; i++) {
           const nw = simW[i] + simDW[i];
           simW[i] = nw > 0 ? nw : 0;
+        }
+        for (let c = 0; c < SW; c++) {
+          simW[c] *= 0.5;
+          simW[(SH - 1) * SW + c] *= 0.5;
         }
       }
       updateSimMetrics();
@@ -1391,9 +1419,15 @@
       salado: document.getElementById("sl-salado")
     };
 
-    function setRiverTag(el, val) {
-      if (val < 1.5) { el.textContent = "Normal"; el.className = "badge-lvl lvl-ok"; }
-      else if (val < 3.5) { el.textContent = "Alerta"; el.className = "badge-lvl lvl-warn"; }
+    function setParanaTag(el, val) {
+      if (val < 5.30) { el.textContent = "Normal"; el.className = "badge-lvl lvl-ok"; }
+      else if (val < 5.70) { el.textContent = "Alerta"; el.className = "badge-lvl lvl-warn"; }
+      else { el.textContent = "Evacuación"; el.className = "badge-lvl lvl-crit"; }
+    }
+
+    function setSaladoTag(el, val) {
+      if (val < 4.70) { el.textContent = "Normal"; el.className = "badge-lvl lvl-ok"; }
+      else if (val < 6.00) { el.textContent = "Alerta"; el.className = "badge-lvl lvl-warn"; }
       else { el.textContent = "Crítica"; el.className = "badge-lvl lvl-crit"; }
     }
 
@@ -1405,15 +1439,15 @@
       document.getElementById("val-thresh").textContent = thVal.toLocaleString("es-AR");
       simState.targetMm = parseFloat(ui.rain.value);
       simState.durationHr = parseFloat(ui.dur.value);
-      simState.paranaRise = parseFloat(ui.parana.value);
-      simState.saladoRise = parseFloat(ui.salado.value);
+      simState.paranaScale = parseFloat(ui.parana.value);
+      simState.saladoScale = parseFloat(ui.salado.value);
       const rate = Math.round(simState.targetMm / simState.durationHr);
       document.getElementById("val-rain").textContent = simState.targetMm + " mm";
       document.getElementById("val-dur").textContent = simState.durationHr.toFixed(1) + " hs (" + rate + " mm/h)";
-      document.getElementById("val-parana").textContent = "+" + simState.paranaRise.toFixed(1) + " m";
-      document.getElementById("val-salado").textContent = "+" + simState.saladoRise.toFixed(1) + " m";
-      setRiverTag(document.getElementById("tag-parana"), simState.paranaRise);
-      setRiverTag(document.getElementById("tag-salado"), simState.saladoRise);
+      document.getElementById("val-parana").textContent = simState.paranaScale.toFixed(2) + " m";
+      document.getElementById("val-salado").textContent = simState.saladoScale.toFixed(2) + " m";
+      setParanaTag(document.getElementById("tag-parana"), simState.paranaScale);
+      setSaladoTag(document.getElementById("tag-salado"), simState.saladoScale);
       if (!simState.running && simState.fallenMm === 0) {
         document.getElementById("sim-mm").textContent = "0 / " + simState.targetMm + " mm";
       }
@@ -1429,8 +1463,9 @@
       document.getElementById("sim-bar").style.width = pct.toFixed(1) + "%";
       document.getElementById("sim-mm").textContent = Math.round(simState.fallenMm) + " / " + simState.targetMm + " mm";
       let stText = "Listo para simular";
+      const riverHigh = simState.paranaScale > 3.5 || simState.saladoScale > 3.5;
       if (simState.running) stText = simState.fallenMm < simState.targetMm ? "Lloviendo sobre la ciudad..." : "Escurriendo hacia bajos...";
-      else if (simState.paranaRise > 0 || simState.saladoRise > 0) stText = simState.fallenMm > 0 ? "Lluvia + crecida activa" : "Crecida de río simulada";
+      else if (riverHigh) stText = simState.fallenMm > 0 ? "Lluvia + crecida activa" : `Ríos en escala (${simState.paranaScale.toFixed(2)} / ${simState.saladoScale.toFixed(2)} m)`;
       else if (simState.fallenMm > 0) stText = "Simulación completada";
       document.getElementById("sim-status").textContent = stText;
       document.getElementById("kpi-ha").textContent = simState.urbanFloodHa.toLocaleString("es-AR") + " ha";
@@ -1448,7 +1483,8 @@
       simState.running = false;
       simState.riverSettle = 0;
       simState.pumpSettle = 0;
-      ui.parana.value = 0; ui.salado.value = 0;
+      ui.parana.value = CFG.PARANA_NORMAL; ui.salado.value = CFG.SALADO_NORMAL;
+      lastP = CFG.PARANA_NORMAL; lastS = CFG.SALADO_NORMAL;
       resetWaterOnly();
       updateTextLabels();
       updateSimMetrics();
@@ -1462,12 +1498,12 @@
     // Al mover slider de Paraná o Salado, propagar onda fluvial automáticamente
     function onRiverSliderChange(prevParana, prevSalado) {
       updateTextLabels();
-      const lowered = (simState.paranaRise < prevParana || simState.saladoRise < prevSalado) && simState.fallenMm === 0;
+      const lowered = (simState.paranaScale < prevParana || simState.saladoScale < prevSalado) && simState.fallenMm === 0;
       if (lowered) resetWaterOnly();
-      simState.riverSettle = 24; // ~24 frames * 8 substeps = propagación rápida y fluida
+      simState.riverSettle = 28;
       updateSimUI();
     }
-    let lastP = 0, lastS = 0;
+    let lastP = parseFloat(ui.parana.value), lastS = parseFloat(ui.salado.value);
     ui.parana.addEventListener("input", () => { const p = lastP; lastP = parseFloat(ui.parana.value); onRiverSliderChange(p, lastS); });
     ui.salado.addEventListener("input", () => { const s = lastS; lastS = parseFloat(ui.salado.value); onRiverSliderChange(lastP, s); });
 
@@ -1479,30 +1515,31 @@
         const sc = btn.dataset.sc;
         simState.running = false;
         resetWaterOnly();
-        if (sc === "rain90") {
-          ui.rain.value = 90; ui.dur.value = 2; ui.parana.value = 0; ui.salado.value = 0;
+        if (sc === "hoy") {
+          ui.rain.value = 0; ui.parana.value = 5.8; ui.salado.value = 5.8;
+          updateTextLabels();
+          setPreset("cap2");
+          simState.riverSettle = 32;
+        } else if (sc === "rain_hoy") {
+          ui.rain.value = 90; ui.dur.value = 2; ui.parana.value = 5.8; ui.salado.value = 5.8;
+          document.getElementById("btn-drain-ok").click();
+          updateTextLabels();
+          simState.riverSettle = 24;
+          simState.running = true;
+        } else if (sc === "rain90") {
+          ui.rain.value = 90; ui.dur.value = 2; ui.parana.value = CFG.PARANA_NORMAL; ui.salado.value = CFG.SALADO_NORMAL;
           document.getElementById("btn-drain-ok").click();
           updateTextLabels();
           simState.running = true;
-        } else if (sc === "parana") {
-          ui.rain.value = 0; ui.parana.value = 3.25; ui.salado.value = 0;
-          updateTextLabels();
-          setPreset("costa");
-          simState.riverSettle = 28;
-        } else if (sc === "salado") {
-          ui.rain.value = 0; ui.parana.value = 0; ui.salado.value = 4.0;
-          updateTextLabels();
-          setPreset("cap1");
-          simState.riverSettle = 28;
         } else if (sc === "combo") {
-          ui.rain.value = 120; ui.dur.value = 2.5; ui.parana.value = 3.0; ui.salado.value = 3.5;
+          ui.rain.value = 120; ui.dur.value = 2.5; ui.parana.value = 7.1; ui.salado.value = 7.3;
           document.getElementById("btn-drain-sat").click();
           updateTextLabels();
           setPreset("cap2");
-          simState.riverSettle = 22;
+          simState.riverSettle = 28;
           simState.running = true;
         }
-        lastP = simState.paranaRise; lastS = simState.saladoRise;
+        lastP = simState.paranaScale; lastS = simState.saladoScale;
         updateSimUI();
       });
     });
@@ -1519,7 +1556,7 @@
         document.querySelectorAll("[data-cpump]").forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
         simState.cityPumpsActive = (btn.dataset.cpump === "on");
-        if (simState.cityPumpsActive && !simState.running && (simState.fallenMm > 0 || simState.paranaRise > 0 || simState.saladoRise > 0)) {
+        if (simState.cityPumpsActive && !simState.running && (simState.fallenMm > 0 || simState.paranaScale > 3.5 || simState.saladoScale > 3.5)) {
           simState.pumpSettle = 75;
         }
       });
@@ -1527,7 +1564,7 @@
     document.getElementById("btn-sim-play").addEventListener("click", () => {
       if (simState.fallenMm >= simState.targetMm && !simState.running) {
         resetWaterOnly();
-        if (simState.paranaRise > 0 || simState.saladoRise > 0) simState.riverSettle = 20;
+        if (simState.paranaScale > 3.5 || simState.saladoScale > 3.5) simState.riverSettle = 24;
       }
       simState.running = !simState.running;
       updateSimUI();
@@ -1603,18 +1640,18 @@
         text: "Los 25 cuencos y reservorios (borde turquesa) reciben primero el agua de la ciudad ante una tormenta de 90 mm, amortiguando anegamientos en calles cercanas.",
         action: () => {
           setPreset("res");
-          ui.rain.value = 90; ui.dur.value = 2; ui.parana.value = 0; ui.salado.value = 0;
+          ui.rain.value = 90; ui.dur.value = 2; ui.parana.value = CFG.PARANA_NORMAL; ui.salado.value = CFG.SALADO_NORMAL;
           resetWaterOnly(); updateTextLabels();
           document.getElementById("btn-drain-ok").click();
           simState.running = true; updateSimUI();
         }
       },
       {
-        title: "4/5 · Crecida del Paraná y del Salado",
-        text: "Al subir el Paraná (+3,25 m) y el Salado (+3,75 m), el agua avanza sobre islas, zonas ribereñas bajas y el valle del Salado, pero las cotas altas y defensas protegen el interior urbano.",
+        title: "4/5 · Ríos actuales (5,80 m) vs. defensas",
+        text: "Con el Paraná en 5,80 m (sobre Evacuación 5,70 m) y el Salado en 5,80 m (sobre Alerta 4,70 m), el agua ocupa bañados e islas bajas sin defensa, mientras las defensas y cotas altas protegen la ciudad.",
         action: () => {
           setPreset("costa");
-          ui.rain.value = 0; ui.parana.value = 3.25; ui.salado.value = 3.75;
+          ui.rain.value = 0; ui.parana.value = 5.8; ui.salado.value = 5.8;
           resetWaterOnly(); updateTextLabels();
           for (let k = 0; k < 45; k++) stepSimulation(6, false);
           updateWaterBytes();
@@ -1625,10 +1662,10 @@
       },
       {
         title: "5/5 · El 'efecto tapón': lluvia con río alto",
-        text: "Si llueven 120 mm mientras los ríos están crecidos, el agua urbana no puede salir por gravedad hacia afuera y depende del bombeo. Probá la herramienta '🚰 Bomba' para drenar un sector.",
+        text: "Si llueven 120 mm mientras los ríos están crecidos (6,50 m), el agua urbana no puede salir por gravedad hacia afuera y depende de las 59 estaciones de bombeo.",
         action: () => {
           setPreset("cap2");
-          ui.rain.value = 120; ui.dur.value = 2.5; ui.parana.value = 3.0; ui.salado.value = 3.5;
+          ui.rain.value = 120; ui.dur.value = 2.5; ui.parana.value = 6.5; ui.salado.value = 6.5;
           resetWaterOnly(); updateTextLabels();
           document.getElementById("btn-drain-sat").click();
           for (let k = 0; k < 45; k++) stepSimulation(5, true);
@@ -1723,7 +1760,7 @@
       if (wCm >= 40) notes.push(`Lámina simulada de <strong>${wCm} cm</strong> (inundación profunda en el escenario actual).`);
       else if (wCm >= 15) notes.push(`Lámina simulada de <strong>${wCm} cm</strong> (anegamiento medio).`);
       else if (wCm >= 4) notes.push(`Encharcamiento somero de <strong>${wCm} cm</strong>.`);
-      else if (simState.fallenMm > 0 || simState.paranaRise > 0 || simState.saladoRise > 0) notes.push("Sector seco sin anegamiento significativo.");
+      else if (simState.fallenMm > 0 || simState.paranaScale > 3.5 || simState.saladoScale > 3.5) notes.push("Sector seco sin anegamiento significativo.");
 
       let nearPump = null, nearPumpD = 1e9;
       for (const cp of CITY_PUMPS) {
@@ -1891,16 +1928,25 @@
     setPreset(params.get("vista") || "cap1");
     if (animCam) { Object.assign(cam, animCam.end); animCam = null; }
     if (params.get("saturado") === "1") document.getElementById("btn-drain-sat").click();
-    if (params.has("parana")) ui.parana.value = parseFloat(params.get("parana")) || 0;
-    if (params.has("salado")) ui.salado.value = parseFloat(params.get("salado")) || 0;
+    if (params.has("parana")) ui.parana.value = parseFloat(params.get("parana")) || CFG.PARANA_NORMAL;
+    if (params.has("salado")) ui.salado.value = parseFloat(params.get("salado")) || CFG.SALADO_NORMAL;
     if (params.has("lluvia")) ui.rain.value = Math.max(0, Math.min(250, parseFloat(params.get("lluvia")) || 0));
     if (params.has("parana") || params.has("salado") || params.has("lluvia")) {
       document.querySelectorAll("[data-sc]").forEach(b => b.classList.remove("active"));
       updateTextLabels();
-      lastP = simState.paranaRise; lastS = simState.saladoRise;
+      lastP = simState.paranaScale; lastS = simState.saladoScale;
       sideCard.classList.add("hidden");
       const hasRain = simState.targetMm > 0 && params.has("lluvia");
       for (let k = 0; k < 55; k++) stepSimulation(6, hasRain);
+      updateWaterBytes();
+      gl.activeTexture(gl.TEXTURE2); gl.bindTexture(gl.TEXTURE_2D, waterTex);
+      gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, CFG.SW, CFG.SH, gl.RGBA, gl.UNSIGNED_BYTE, waterTexBytes);
+      updateSimUI();
+    } else {
+      // Estado actual por defecto: ríos en escala 5,80 m sin lluvia
+      updateTextLabels();
+      lastP = simState.paranaScale; lastS = simState.saladoScale;
+      for (let k = 0; k < 35; k++) stepSimulation(6, false);
       updateWaterBytes();
       gl.activeTexture(gl.TEXTURE2); gl.bindTexture(gl.TEXTURE_2D, waterTex);
       gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, CFG.SW, CFG.SH, gl.RGBA, gl.UNSIGNED_BYTE, waterTexBytes);
