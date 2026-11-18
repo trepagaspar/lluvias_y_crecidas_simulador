@@ -16,7 +16,10 @@
         "sector": "Noroeste / Reservorios",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.751004,
-        "lat": -31.56958
+        "lat": -31.56958,
+        "u": 0.24652,
+        "v": 0.34657,
+        "cota_fabdem_m": 16.5
       },
       "geometry": {
         "type": "Point",
@@ -34,7 +37,10 @@
         "sector": "Noroeste / Reservorios",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.748899,
-        "lat": -31.569913
+        "lat": -31.569913,
+        "u": 0.25403,
+        "v": 0.34801,
+        "cota_fabdem_m": 17.83
       },
       "geometry": {
         "type": "Point",
@@ -52,7 +58,10 @@
         "sector": "Noroeste / Reservorios",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.756942,
-        "lat": -31.574852
+        "lat": -31.574852,
+        "u": 0.22534,
+        "v": 0.36939,
+        "cota_fabdem_m": 11.76
       },
       "geometry": {
         "type": "Point",
@@ -70,7 +79,10 @@
         "sector": "Noroeste / Reservorios",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.754951,
-        "lat": -31.575184
+        "lat": -31.575184,
+        "u": 0.23244,
+        "v": 0.37083,
+        "cota_fabdem_m": 13.61
       },
       "geometry": {
         "type": "Point",
@@ -88,7 +100,10 @@
         "sector": "Noroeste / Reservorios",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.745063,
-        "lat": -31.576926
+        "lat": -31.576926,
+        "u": 0.26772,
+        "v": 0.37837,
+        "cota_fabdem_m": 17.89
       },
       "geometry": {
         "type": "Point",
@@ -106,7 +121,10 @@
         "sector": "Noroeste / Reservorios",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.731693,
-        "lat": -31.579727
+        "lat": -31.579727,
+        "u": 0.31542,
+        "v": 0.3905,
+        "cota_fabdem_m": 18.13
       },
       "geometry": {
         "type": "Point",
@@ -124,7 +142,10 @@
         "sector": "Noroeste / Reservorios",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.754267,
-        "lat": -31.584084
+        "lat": -31.584084,
+        "u": 0.23488,
+        "v": 0.40937,
+        "cota_fabdem_m": 14.24
       },
       "geometry": {
         "type": "Point",
@@ -142,7 +163,10 @@
         "sector": "Este / Costanera - Guadalupe",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.676393,
-        "lat": -31.591632
+        "lat": -31.591632,
+        "u": 0.51273,
+        "v": 0.44205,
+        "cota_fabdem_m": 17.53
       },
       "geometry": {
         "type": "Point",
@@ -160,7 +184,10 @@
         "sector": "Este / Costanera - Guadalupe",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.67921,
-        "lat": -31.598587
+        "lat": -31.598587,
+        "u": 0.50268,
+        "v": 0.47216,
+        "cota_fabdem_m": 17.14
       },
       "geometry": {
         "type": "Point",
@@ -178,7 +205,10 @@
         "sector": "Este / Costanera - Guadalupe",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.678199,
-        "lat": -31.602613
+        "lat": -31.602613,
+        "u": 0.50629,
+        "v": 0.48959,
+        "cota_fabdem_m": 17.33
       },
       "geometry": {
         "type": "Point",
@@ -196,7 +226,10 @@
         "sector": "Este / Costanera - Guadalupe",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.675066,
-        "lat": -31.604009
+        "lat": -31.604009,
+        "u": 0.51746,
+        "v": 0.49564,
+        "cota_fabdem_m": 17.76
       },
       "geometry": {
         "type": "Point",
@@ -214,7 +247,10 @@
         "sector": "Este / Costanera - Guadalupe",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.681865,
-        "lat": -31.60812
+        "lat": -31.60812,
+        "u": 0.49321,
+        "v": 0.51344,
+        "cota_fabdem_m": 17.72
       },
       "geometry": {
         "type": "Point",
@@ -232,7 +268,10 @@
         "sector": "Este / Costanera - Guadalupe",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.67212,
-        "lat": -31.608314
+        "lat": -31.608314,
+        "u": 0.52797,
+        "v": 0.51428,
+        "cota_fabdem_m": 18.83
       },
       "geometry": {
         "type": "Point",
@@ -250,7 +289,10 @@
         "sector": "Oeste / Defensa Salado",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.737912,
-        "lat": -31.612232
+        "lat": -31.612232,
+        "u": 0.29323,
+        "v": 0.53124,
+        "cota_fabdem_m": 11.03
       },
       "geometry": {
         "type": "Point",
@@ -268,7 +310,10 @@
         "sector": "Oeste / Defensa Salado",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.727897,
-        "lat": -31.616479
+        "lat": -31.616479,
+        "u": 0.32897,
+        "v": 0.54963,
+        "cota_fabdem_m": 12.49
       },
       "geometry": {
         "type": "Point",
@@ -286,7 +331,10 @@
         "sector": "Este / Costanera - Guadalupe",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.67192,
-        "lat": -31.614598
+        "lat": -31.614598,
+        "u": 0.52869,
+        "v": 0.54149,
+        "cota_fabdem_m": 18.71
       },
       "geometry": {
         "type": "Point",
@@ -304,7 +352,10 @@
         "sector": "Este / Costanera - Guadalupe",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.678608,
-        "lat": -31.622815
+        "lat": -31.622815,
+        "u": 0.50483,
+        "v": 0.57707,
+        "cota_fabdem_m": 18.97
       },
       "geometry": {
         "type": "Point",
@@ -322,7 +373,10 @@
         "sector": "Este / Costanera - Guadalupe",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.677119,
-        "lat": -31.621313
+        "lat": -31.621313,
+        "u": 0.51014,
+        "v": 0.57056,
+        "cota_fabdem_m": 19.66
       },
       "geometry": {
         "type": "Point",
@@ -340,7 +394,10 @@
         "sector": "La Guardia / Colastiné / Rincón",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.626815,
-        "lat": -31.621254
+        "lat": -31.621254,
+        "u": 0.68962,
+        "v": 0.57031,
+        "cota_fabdem_m": 13.01
       },
       "geometry": {
         "type": "Point",
@@ -358,7 +415,10 @@
         "sector": "Este / Costanera - Guadalupe",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.682153,
-        "lat": -31.625783
+        "lat": -31.625783,
+        "u": 0.49218,
+        "v": 0.58992,
+        "cota_fabdem_m": 20.66
       },
       "geometry": {
         "type": "Point",
@@ -376,7 +436,10 @@
         "sector": "Oeste / Defensa Salado",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.731588,
-        "lat": -31.630573
+        "lat": -31.630573,
+        "u": 0.3158,
+        "v": 0.61066,
+        "cota_fabdem_m": 13.08
       },
       "geometry": {
         "type": "Point",
@@ -394,7 +457,10 @@
         "sector": "Este / Costanera - Guadalupe",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.683686,
-        "lat": -31.628767
+        "lat": -31.628767,
+        "u": 0.48671,
+        "v": 0.60284,
+        "cota_fabdem_m": 20.29
       },
       "geometry": {
         "type": "Point",
@@ -412,7 +478,10 @@
         "sector": "La Guardia / Colastiné / Rincón",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.603696,
-        "lat": -31.630257
+        "lat": -31.630257,
+        "u": 0.77211,
+        "v": 0.60929,
+        "cota_fabdem_m": 16.08
       },
       "geometry": {
         "type": "Point",
@@ -430,7 +499,10 @@
         "sector": "Este / Costanera - Guadalupe",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.69026,
-        "lat": -31.63517
+        "lat": -31.63517,
+        "u": 0.46325,
+        "v": 0.63056,
+        "cota_fabdem_m": 20.71
       },
       "geometry": {
         "type": "Point",
@@ -448,7 +520,10 @@
         "sector": "Este / Costanera - Guadalupe",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.684543,
-        "lat": -31.632756
+        "lat": -31.632756,
+        "u": 0.48365,
+        "v": 0.62011,
+        "cota_fabdem_m": 20.82
       },
       "geometry": {
         "type": "Point",
@@ -466,7 +541,10 @@
         "sector": "Este / Costanera - Guadalupe",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.68407,
-        "lat": -31.635441
+        "lat": -31.635441,
+        "u": 0.48534,
+        "v": 0.63173,
+        "cota_fabdem_m": 20.93
       },
       "geometry": {
         "type": "Point",
@@ -484,7 +562,10 @@
         "sector": "Oeste / Defensa Salado",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.734417,
-        "lat": -31.637455
+        "lat": -31.637455,
+        "u": 0.3057,
+        "v": 0.64045,
+        "cota_fabdem_m": 13.16
       },
       "geometry": {
         "type": "Point",
@@ -502,7 +583,10 @@
         "sector": "Este / Costanera - Guadalupe",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.686915,
-        "lat": -31.640139
+        "lat": -31.640139,
+        "u": 0.47519,
+        "v": 0.65208,
+        "cota_fabdem_m": 21.56
       },
       "geometry": {
         "type": "Point",
@@ -520,7 +604,10 @@
         "sector": "La Guardia / Colastiné / Rincón",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.638931,
-        "lat": -31.636762
+        "lat": -31.636762,
+        "u": 0.64639,
+        "v": 0.63745,
+        "cota_fabdem_m": 12.25
       },
       "geometry": {
         "type": "Point",
@@ -538,7 +625,10 @@
         "sector": "La Guardia / Colastiné / Rincón",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.610209,
-        "lat": -31.636892
+        "lat": -31.636892,
+        "u": 0.74887,
+        "v": 0.63802,
+        "cota_fabdem_m": 18.23
       },
       "geometry": {
         "type": "Point",
@@ -556,7 +646,10 @@
         "sector": "Este / Costanera - Guadalupe",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.688517,
-        "lat": -31.643946
+        "lat": -31.643946,
+        "u": 0.46947,
+        "v": 0.66856,
+        "cota_fabdem_m": 17.69
       },
       "geometry": {
         "type": "Point",
@@ -574,7 +667,10 @@
         "sector": "El Pozo / RN 168",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.671026,
-        "lat": -31.643512
+        "lat": -31.643512,
+        "u": 0.53188,
+        "v": 0.66668,
+        "cota_fabdem_m": 13.57
       },
       "geometry": {
         "type": "Point",
@@ -592,7 +688,10 @@
         "sector": "La Guardia / Colastiné / Rincón",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.639846,
-        "lat": -31.643053
+        "lat": -31.643053,
+        "u": 0.64313,
+        "v": 0.66469,
+        "cota_fabdem_m": 16.73
       },
       "geometry": {
         "type": "Point",
@@ -610,7 +709,10 @@
         "sector": "Oeste Urbano (Interior)",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.720236,
-        "lat": -31.646234
+        "lat": -31.646234,
+        "u": 0.3563,
+        "v": 0.67847,
+        "cota_fabdem_m": 18.94
       },
       "geometry": {
         "type": "Point",
@@ -628,7 +730,10 @@
         "sector": "La Guardia / Colastiné / Rincón",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.650943,
-        "lat": -31.646282
+        "lat": -31.646282,
+        "u": 0.60353,
+        "v": 0.67867,
+        "cota_fabdem_m": 11.64
       },
       "geometry": {
         "type": "Point",
@@ -646,7 +751,10 @@
         "sector": "La Guardia / Colastiné / Rincón",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.646723,
-        "lat": -31.646615
+        "lat": -31.646615,
+        "u": 0.61859,
+        "v": 0.68012,
+        "cota_fabdem_m": 11.03
       },
       "geometry": {
         "type": "Point",
@@ -664,7 +772,10 @@
         "sector": "La Guardia / Colastiné / Rincón",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.626591,
-        "lat": -31.646747
+        "lat": -31.646747,
+        "u": 0.69042,
+        "v": 0.68069,
+        "cota_fabdem_m": 12.62
       },
       "geometry": {
         "type": "Point",
@@ -682,7 +793,10 @@
         "sector": "La Guardia / Colastiné / Rincón",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.617939,
-        "lat": -31.645439
+        "lat": -31.645439,
+        "u": 0.72129,
+        "v": 0.67502,
+        "cota_fabdem_m": 11.0
       },
       "geometry": {
         "type": "Point",
@@ -700,7 +814,10 @@
         "sector": "Oeste / Defensa Salado",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.74315,
-        "lat": -31.650962
+        "lat": -31.650962,
+        "u": 0.27454,
+        "v": 0.69894,
+        "cota_fabdem_m": 12.24
       },
       "geometry": {
         "type": "Point",
@@ -718,7 +835,10 @@
         "sector": "Puerto / Sur",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.702906,
-        "lat": -31.651897
+        "lat": -31.651897,
+        "u": 0.41813,
+        "v": 0.70299,
+        "cota_fabdem_m": 11.0
       },
       "geometry": {
         "type": "Point",
@@ -736,7 +856,10 @@
         "sector": "Puerto / Sur",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.698882,
-        "lat": -31.649954
+        "lat": -31.649954,
+        "u": 0.43249,
+        "v": 0.69457,
+        "cota_fabdem_m": 11.0
       },
       "geometry": {
         "type": "Point",
@@ -754,7 +877,10 @@
         "sector": "La Guardia / Colastiné / Rincón",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.641041,
-        "lat": -31.650053
+        "lat": -31.650053,
+        "u": 0.63886,
+        "v": 0.695,
+        "cota_fabdem_m": 13.36
       },
       "geometry": {
         "type": "Point",
@@ -772,7 +898,10 @@
         "sector": "La Guardia / Colastiné / Rincón",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.638861,
-        "lat": -31.64974
+        "lat": -31.64974,
+        "u": 0.64664,
+        "v": 0.69365,
+        "cota_fabdem_m": 13.62
       },
       "geometry": {
         "type": "Point",
@@ -790,7 +919,10 @@
         "sector": "La Guardia / Colastiné / Rincón",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.63275,
-        "lat": -31.650215
+        "lat": -31.650215,
+        "u": 0.66844,
+        "v": 0.6957,
+        "cota_fabdem_m": 12.35
       },
       "geometry": {
         "type": "Point",
@@ -808,7 +940,10 @@
         "sector": "Puerto / Sur",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.705158,
-        "lat": -31.651961
+        "lat": -31.651961,
+        "u": 0.4101,
+        "v": 0.70326,
+        "cota_fabdem_m": 17.16
       },
       "geometry": {
         "type": "Point",
@@ -826,7 +961,10 @@
         "sector": "Alto Verde",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.694612,
-        "lat": -31.653499
+        "lat": -31.653499,
+        "u": 0.44772,
+        "v": 0.70992,
+        "cota_fabdem_m": 16.59
       },
       "geometry": {
         "type": "Point",
@@ -844,7 +982,10 @@
         "sector": "Puerto / Sur",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.708663,
-        "lat": -31.657984
+        "lat": -31.657984,
+        "u": 0.39759,
+        "v": 0.72934,
+        "cota_fabdem_m": 18.73
       },
       "geometry": {
         "type": "Point",
@@ -862,7 +1003,10 @@
         "sector": "Oeste / Defensa Salado",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.740764,
-        "lat": -31.66315
+        "lat": -31.66315,
+        "u": 0.28306,
+        "v": 0.75171,
+        "cota_fabdem_m": 12.19
       },
       "geometry": {
         "type": "Point",
@@ -880,7 +1024,10 @@
         "sector": "Alto Verde",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.703031,
-        "lat": -31.661904
+        "lat": -31.661904,
+        "u": 0.41769,
+        "v": 0.74631,
+        "cota_fabdem_m": 11.0
       },
       "geometry": {
         "type": "Point",
@@ -898,7 +1045,10 @@
         "sector": "Alto Verde",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.699895,
-        "lat": -31.662478
+        "lat": -31.662478,
+        "u": 0.42888,
+        "v": 0.7488,
+        "cota_fabdem_m": 15.91
       },
       "geometry": {
         "type": "Point",
@@ -916,7 +1066,10 @@
         "sector": "Laguna del Sauce / Colastiné Sur",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.613817,
-        "lat": -31.663172
+        "lat": -31.663172,
+        "u": 0.736,
+        "v": 0.7518,
+        "cota_fabdem_m": 12.38
       },
       "geometry": {
         "type": "Point",
@@ -934,7 +1087,10 @@
         "sector": "Puerto / Sur",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.711966,
-        "lat": -31.666828
+        "lat": -31.666828,
+        "u": 0.38581,
+        "v": 0.76763,
+        "cota_fabdem_m": 15.27
       },
       "geometry": {
         "type": "Point",
@@ -952,7 +1108,10 @@
         "sector": "Laguna del Sauce / Colastiné Sur",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.617984,
-        "lat": -31.666533
+        "lat": -31.666533,
+        "u": 0.72113,
+        "v": 0.76636,
+        "cota_fabdem_m": 13.5
       },
       "geometry": {
         "type": "Point",
@@ -970,7 +1129,10 @@
         "sector": "Oeste / Defensa Salado",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.739795,
-        "lat": -31.668495
+        "lat": -31.668495,
+        "u": 0.28652,
+        "v": 0.77485,
+        "cota_fabdem_m": 11.73
       },
       "geometry": {
         "type": "Point",
@@ -988,7 +1150,10 @@
         "sector": "Alto Verde",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.704994,
-        "lat": -31.670427
+        "lat": -31.670427,
+        "u": 0.41068,
+        "v": 0.78322,
+        "cota_fabdem_m": 15.3
       },
       "geometry": {
         "type": "Point",
@@ -1006,7 +1171,10 @@
         "sector": "Alto Verde",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.70048,
-        "lat": -31.668923
+        "lat": -31.668923,
+        "u": 0.42679,
+        "v": 0.7767,
+        "cota_fabdem_m": 11.04
       },
       "geometry": {
         "type": "Point",
@@ -1024,7 +1192,10 @@
         "sector": "Oeste / Defensa Salado",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.730144,
-        "lat": -31.673402
+        "lat": -31.673402,
+        "u": 0.32095,
+        "v": 0.7961,
+        "cota_fabdem_m": 11.0
       },
       "geometry": {
         "type": "Point",
@@ -1042,7 +1213,10 @@
         "sector": "Alto Verde",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.701507,
-        "lat": -31.673457
+        "lat": -31.673457,
+        "u": 0.42312,
+        "v": 0.79634,
+        "cota_fabdem_m": 14.07
       },
       "geometry": {
         "type": "Point",
@@ -1060,7 +1234,10 @@
         "sector": "Alto Verde",
         "fuente": "Calcado aproximado desde mapa de referencia",
         "lon": -60.694975,
-        "lat": -31.680328
+        "lat": -31.680328,
+        "u": 0.44643,
+        "v": 0.82609,
+        "cota_fabdem_m": 14.54
       },
       "geometry": {
         "type": "Point",

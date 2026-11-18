@@ -9,7 +9,9 @@
         "tipo": "defensa",
         "subtipo": "dyke",
         "nombre": "Terraplén Rincón Oeste",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 5572.0,
+        "cota_media_fabdem_m": 15.51
       },
       "geometry": {
         "type": "LineString",
@@ -236,7 +238,9 @@
         "tipo": "defensa",
         "subtipo": "dyke",
         "nombre": "Terraplén",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 2940.4,
+        "cota_media_fabdem_m": 15.31
       },
       "geometry": {
         "type": "LineString",
@@ -579,7 +583,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 693.9,
+        "cota_media_fabdem_m": 13.0
       },
       "geometry": {
         "type": "LineString",
@@ -642,7 +648,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 942.8,
+        "cota_media_fabdem_m": 12.74
       },
       "geometry": {
         "type": "LineString",
@@ -717,7 +725,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 1000.7,
+        "cota_media_fabdem_m": 13.06
       },
       "geometry": {
         "type": "LineString",
@@ -856,7 +866,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 12.4,
+        "cota_media_fabdem_m": 12.72
       },
       "geometry": {
         "type": "LineString",
@@ -879,7 +891,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 271.1,
+        "cota_media_fabdem_m": 12.17
       },
       "geometry": {
         "type": "LineString",
@@ -910,7 +924,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 69.7,
+        "cota_media_fabdem_m": 13.4
       },
       "geometry": {
         "type": "LineString",
@@ -937,7 +953,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 147.6,
+        "cota_media_fabdem_m": 13.29
       },
       "geometry": {
         "type": "LineString",
@@ -960,7 +978,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 281.2,
+        "cota_media_fabdem_m": 14.33
       },
       "geometry": {
         "type": "LineString",
@@ -1071,7 +1091,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 1326.8,
+        "cota_media_fabdem_m": 12.61
       },
       "geometry": {
         "type": "LineString",
@@ -1094,7 +1116,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 868.0,
+        "cota_media_fabdem_m": 11.82
       },
       "geometry": {
         "type": "LineString",
@@ -1121,7 +1145,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 35.5,
+        "cota_media_fabdem_m": 12.53
       },
       "geometry": {
         "type": "LineString",
@@ -1144,7 +1170,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 9.2,
+        "cota_media_fabdem_m": 12.96
       },
       "geometry": {
         "type": "LineString",
@@ -1167,7 +1195,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 14.1,
+        "cota_media_fabdem_m": 12.56
       },
       "geometry": {
         "type": "LineString",
@@ -1190,7 +1220,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 50.9,
+        "cota_media_fabdem_m": 12.6
       },
       "geometry": {
         "type": "LineString",
@@ -1213,7 +1245,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 99.0,
+        "cota_media_fabdem_m": 12.71
       },
       "geometry": {
         "type": "LineString",
@@ -1240,7 +1274,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 272.1,
+        "cota_media_fabdem_m": 12.63
       },
       "geometry": {
         "type": "LineString",
@@ -1275,7 +1311,9 @@
         "tipo": "defensa",
         "subtipo": "dyke",
         "nombre": "Terraplen Oeste",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 1249.9,
+        "cota_media_fabdem_m": 15.13
       },
       "geometry": {
         "type": "LineString",
@@ -1342,7 +1380,9 @@
         "tipo": "defensa",
         "subtipo": "dyke",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 1396.2,
+        "cota_media_fabdem_m": 15.75
       },
       "geometry": {
         "type": "LineString",
@@ -1373,7 +1413,9 @@
         "tipo": "defensa",
         "subtipo": "dyke",
         "nombre": "Terraplén Rincón Este",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 1183.5,
+        "cota_media_fabdem_m": 16.08
       },
       "geometry": {
         "type": "LineString",
@@ -1544,7 +1586,9 @@
         "tipo": "defensa",
         "subtipo": "dyke",
         "nombre": "Terraplén Rincón Este",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 1606.0,
+        "cota_media_fabdem_m": 15.56
       },
       "geometry": {
         "type": "LineString",
@@ -1711,7 +1755,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 8178.7,
+        "cota_media_fabdem_m": 10.07
       },
       "geometry": {
         "type": "LineString",
@@ -1766,133 +1812,13 @@
     {
       "type": "Feature",
       "properties": {
-        "osm_id": "way/332078230",
-        "tipo": "canal_zanja",
-        "subtipo": "drain",
-        "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            -60.564169,
-            -31.712722
-          ],
-          [
-            -60.564402,
-            -31.712788
-          ],
-          [
-            -60.564646,
-            -31.712842
-          ],
-          [
-            -60.564689,
-            -31.712866
-          ],
-          [
-            -60.564947,
-            -31.713011
-          ],
-          [
-            -60.565156,
-            -31.713128
-          ],
-          [
-            -60.565347,
-            -31.713203
-          ],
-          [
-            -60.565577,
-            -31.713246
-          ],
-          [
-            -60.565729,
-            -31.713327
-          ],
-          [
-            -60.565821,
-            -31.713456
-          ],
-          [
-            -60.565917,
-            -31.713456
-          ],
-          [
-            -60.566104,
-            -31.713411
-          ],
-          [
-            -60.566278,
-            -31.71348
-          ],
-          [
-            -60.566448,
-            -31.713607
-          ],
-          [
-            -60.566745,
-            -31.713773
-          ],
-          [
-            -60.566989,
-            -31.713917
-          ],
-          [
-            -60.567187,
-            -31.713968
-          ],
-          [
-            -60.567201,
-            -31.713976
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "osm_id": "way/341785300",
-        "tipo": "canal_zanja",
-        "subtipo": "drain",
-        "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            -60.560714,
-            -31.713066
-          ],
-          [
-            -60.561552,
-            -31.712704
-          ],
-          [
-            -60.562106,
-            -31.712395
-          ],
-          [
-            -60.562901,
-            -31.712107
-          ],
-          [
-            -60.562913,
-            -31.712118
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "osm_id": "way/411779574",
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 1141.5,
+        "cota_media_fabdem_m": 13.04
       },
       "geometry": {
         "type": "LineString",
@@ -1923,7 +1849,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 221.3,
+        "cota_media_fabdem_m": 18.15
       },
       "geometry": {
         "type": "LineString",
@@ -1982,7 +1910,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 416.6,
+        "cota_media_fabdem_m": 18.2
       },
       "geometry": {
         "type": "LineString",
@@ -2097,7 +2027,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 1181.0,
+        "cota_media_fabdem_m": 13.33
       },
       "geometry": {
         "type": "LineString",
@@ -2224,7 +2156,9 @@
         "tipo": "defensa",
         "subtipo": "dyke",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 519.6,
+        "cota_media_fabdem_m": 15.28
       },
       "geometry": {
         "type": "LineString",
@@ -2259,7 +2193,9 @@
         "tipo": "defensa",
         "subtipo": "dyke",
         "nombre": "Terraplén",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 859.0,
+        "cota_media_fabdem_m": 15.89
       },
       "geometry": {
         "type": "LineString",
@@ -2366,7 +2302,9 @@
         "tipo": "defensa",
         "subtipo": "dyke",
         "nombre": "Terraplén Rincón Oeste",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 301.1,
+        "cota_media_fabdem_m": 15.77
       },
       "geometry": {
         "type": "LineString",
@@ -2409,7 +2347,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "Canal Las Mandarinas",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 51.2,
+        "cota_media_fabdem_m": 16.99
       },
       "geometry": {
         "type": "LineString",
@@ -2432,7 +2372,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "Canal Las Mandarinas",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 20.9,
+        "cota_media_fabdem_m": 17.0
       },
       "geometry": {
         "type": "LineString",
@@ -2455,7 +2397,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "Canal Las Mandarinas",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 989.3,
+        "cota_media_fabdem_m": 18.03
       },
       "geometry": {
         "type": "LineString",
@@ -2506,7 +2450,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 16.9,
+        "cota_media_fabdem_m": 16.44
       },
       "geometry": {
         "type": "LineString",
@@ -2529,7 +2475,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 299.3,
+        "cota_media_fabdem_m": 16.5
       },
       "geometry": {
         "type": "LineString",
@@ -2552,7 +2500,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 44.7,
+        "cota_media_fabdem_m": 16.64
       },
       "geometry": {
         "type": "LineString",
@@ -2575,7 +2525,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 17.9,
+        "cota_media_fabdem_m": 16.79
       },
       "geometry": {
         "type": "LineString",
@@ -2598,7 +2550,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 33.1,
+        "cota_media_fabdem_m": 16.44
       },
       "geometry": {
         "type": "LineString",
@@ -2621,7 +2575,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 290.3,
+        "cota_media_fabdem_m": 16.48
       },
       "geometry": {
         "type": "LineString",
@@ -2644,7 +2600,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 276.1,
+        "cota_media_fabdem_m": 16.76
       },
       "geometry": {
         "type": "LineString",
@@ -2667,7 +2625,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 34.4,
+        "cota_media_fabdem_m": 16.93
       },
       "geometry": {
         "type": "LineString",
@@ -2690,7 +2650,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 205.8,
+        "cota_media_fabdem_m": 16.97
       },
       "geometry": {
         "type": "LineString",
@@ -2713,7 +2675,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 32.6,
+        "cota_media_fabdem_m": 17.01
       },
       "geometry": {
         "type": "LineString",
@@ -2740,7 +2704,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 173.3,
+        "cota_media_fabdem_m": 17.18
       },
       "geometry": {
         "type": "LineString",
@@ -2763,7 +2729,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 33.3,
+        "cota_media_fabdem_m": 16.4
       },
       "geometry": {
         "type": "LineString",
@@ -2786,7 +2754,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 249.2,
+        "cota_media_fabdem_m": 16.44
       },
       "geometry": {
         "type": "LineString",
@@ -2809,7 +2779,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 724.6,
+        "cota_media_fabdem_m": 16.23
       },
       "geometry": {
         "type": "LineString",
@@ -2832,7 +2804,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 249.6,
+        "cota_media_fabdem_m": 16.73
       },
       "geometry": {
         "type": "LineString",
@@ -2859,7 +2833,9 @@
         "tipo": "defensa",
         "subtipo": "dyke",
         "nombre": "Terraplén Rincón Oeste",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 307.3,
+        "cota_media_fabdem_m": 17.22
       },
       "geometry": {
         "type": "LineString",
@@ -2910,7 +2886,9 @@
         "tipo": "defensa",
         "subtipo": "dyke",
         "nombre": "Ocampo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 38.9,
+        "cota_media_fabdem_m": 17.54
       },
       "geometry": {
         "type": "LineString",
@@ -2933,7 +2911,9 @@
         "tipo": "defensa",
         "subtipo": "dyke",
         "nombre": "Terraplén Rincón Este",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 1239.8,
+        "cota_media_fabdem_m": 15.38
       },
       "geometry": {
         "type": "LineString",
@@ -3060,7 +3040,9 @@
         "tipo": "defensa",
         "subtipo": "dyke",
         "nombre": "Terraplén Rincón Este",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 25.1,
+        "cota_media_fabdem_m": 17.44
       },
       "geometry": {
         "type": "LineString",
@@ -3083,7 +3065,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 274.5,
+        "cota_media_fabdem_m": 17.03
       },
       "geometry": {
         "type": "LineString",
@@ -3106,7 +3090,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "Canal Las Mandarinas",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 896.6,
+        "cota_media_fabdem_m": 17.0
       },
       "geometry": {
         "type": "LineString",
@@ -3129,7 +3115,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 35.6,
+        "cota_media_fabdem_m": 16.94
       },
       "geometry": {
         "type": "LineString",
@@ -3152,7 +3140,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 228.2,
+        "cota_media_fabdem_m": 16.95
       },
       "geometry": {
         "type": "LineString",
@@ -3175,7 +3165,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 36.3,
+        "cota_media_fabdem_m": 16.6
       },
       "geometry": {
         "type": "LineString",
@@ -3198,7 +3190,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 311.5,
+        "cota_media_fabdem_m": 16.13
       },
       "geometry": {
         "type": "LineString",
@@ -3221,7 +3215,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 12.1,
+        "cota_media_fabdem_m": 15.98
       },
       "geometry": {
         "type": "LineString",
@@ -3244,7 +3240,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 40.0,
+        "cota_media_fabdem_m": 14.78
       },
       "geometry": {
         "type": "LineString",
@@ -3267,7 +3265,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 433.4,
+        "cota_media_fabdem_m": 13.83
       },
       "geometry": {
         "type": "LineString",
@@ -3294,7 +3294,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 23.9,
+        "cota_media_fabdem_m": 16.33
       },
       "geometry": {
         "type": "LineString",
@@ -3317,7 +3319,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 924.8,
+        "cota_media_fabdem_m": 15.24
       },
       "geometry": {
         "type": "LineString",
@@ -3352,7 +3356,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "Canal Las Mandarinas",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 55.2,
+        "cota_media_fabdem_m": 14.83
       },
       "geometry": {
         "type": "LineString",
@@ -3375,7 +3381,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "Canal Las Mandarinas",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 16.9,
+        "cota_media_fabdem_m": 16.34
       },
       "geometry": {
         "type": "LineString",
@@ -3398,7 +3406,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 41.4,
+        "cota_media_fabdem_m": 13.62
       },
       "geometry": {
         "type": "LineString",
@@ -3421,7 +3431,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 43.1,
+        "cota_media_fabdem_m": 13.11
       },
       "geometry": {
         "type": "LineString",
@@ -3444,7 +3456,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 24.5,
+        "cota_media_fabdem_m": 14.16
       },
       "geometry": {
         "type": "LineString",
@@ -3467,7 +3481,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 7.6,
+        "cota_media_fabdem_m": 13.91
       },
       "geometry": {
         "type": "LineString",
@@ -3490,7 +3506,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 446.6,
+        "cota_media_fabdem_m": 13.95
       },
       "geometry": {
         "type": "LineString",
@@ -3565,7 +3583,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 46.0,
+        "cota_media_fabdem_m": 14.39
       },
       "geometry": {
         "type": "LineString",
@@ -3592,7 +3612,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 28.8,
+        "cota_media_fabdem_m": 15.75
       },
       "geometry": {
         "type": "LineString",
@@ -3615,7 +3637,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 25.9,
+        "cota_media_fabdem_m": 16.48
       },
       "geometry": {
         "type": "LineString",
@@ -3638,7 +3662,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 404.6,
+        "cota_media_fabdem_m": 13.45
       },
       "geometry": {
         "type": "LineString",
@@ -3673,7 +3699,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 10.2,
+        "cota_media_fabdem_m": 13.6
       },
       "geometry": {
         "type": "LineString",
@@ -3696,7 +3724,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 57.9,
+        "cota_media_fabdem_m": 14.25
       },
       "geometry": {
         "type": "LineString",
@@ -3731,7 +3761,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 8.0,
+        "cota_media_fabdem_m": 14.17
       },
       "geometry": {
         "type": "LineString",
@@ -3754,7 +3786,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "Canal Las Mandarinas",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 613.0,
+        "cota_media_fabdem_m": 17.74
       },
       "geometry": {
         "type": "LineString",
@@ -3781,7 +3815,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "Canal Las Mandarinas",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 15.9,
+        "cota_media_fabdem_m": 18.66
       },
       "geometry": {
         "type": "LineString",
@@ -3804,7 +3840,9 @@
         "tipo": "defensa",
         "subtipo": "dyke",
         "nombre": "Terraplén Rincón Este",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 698.0,
+        "cota_media_fabdem_m": 15.97
       },
       "geometry": {
         "type": "LineString",
@@ -3875,193 +3913,13 @@
     {
       "type": "Feature",
       "properties": {
-        "osm_id": "way/1060140735",
-        "tipo": "canal_zanja",
-        "subtipo": "drain",
-        "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            -60.563002,
-            -31.712204
-          ],
-          [
-            -60.563037,
-            -31.712238
-          ],
-          [
-            -60.563382,
-            -31.712883
-          ],
-          [
-            -60.563511,
-            -31.712977
-          ],
-          [
-            -60.56382,
-            -31.712888
-          ],
-          [
-            -60.564012,
-            -31.712796
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "osm_id": "way/1060140736",
-        "tipo": "canal_zanja",
-        "subtipo": "drain",
-        "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            -60.562913,
-            -31.712118
-          ],
-          [
-            -60.563002,
-            -31.712204
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "osm_id": "way/1060140743",
-        "tipo": "canal_zanja",
-        "subtipo": "drain",
-        "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            -60.564114,
-            -31.712748
-          ],
-          [
-            -60.564169,
-            -31.712722
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "osm_id": "way/1060140744",
-        "tipo": "canal_zanja",
-        "subtipo": "drain",
-        "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            -60.564012,
-            -31.712796
-          ],
-          [
-            -60.564114,
-            -31.712748
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "osm_id": "way/1060140747",
-        "tipo": "canal_zanja",
-        "subtipo": "drain",
-        "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            -60.567297,
-            -31.714029
-          ],
-          [
-            -60.567453,
-            -31.714149
-          ],
-          [
-            -60.567623,
-            -31.714248
-          ],
-          [
-            -60.567686,
-            -31.714357
-          ],
-          [
-            -60.567966,
-            -31.714531
-          ],
-          [
-            -60.568182,
-            -31.714658
-          ],
-          [
-            -60.568339,
-            -31.714879
-          ],
-          [
-            -60.568241,
-            -31.715308
-          ],
-          [
-            -60.567997,
-            -31.715671
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "osm_id": "way/1060140748",
-        "tipo": "canal_zanja",
-        "subtipo": "drain",
-        "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            -60.567201,
-            -31.713976
-          ],
-          [
-            -60.567297,
-            -31.714029
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "osm_id": "way/1076458927",
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 41.7,
+        "cota_media_fabdem_m": 14.94
       },
       "geometry": {
         "type": "LineString",
@@ -4084,7 +3942,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 34.7,
+        "cota_media_fabdem_m": 14.19
       },
       "geometry": {
         "type": "LineString",
@@ -4107,7 +3967,9 @@
         "tipo": "canal_zanja",
         "subtipo": "canal",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 3.9,
+        "cota_media_fabdem_m": 14.8
       },
       "geometry": {
         "type": "LineString",
@@ -4130,7 +3992,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 2900.0,
+        "cota_media_fabdem_m": 20.97
       },
       "geometry": {
         "type": "LineString",
@@ -4473,7 +4337,9 @@
         "tipo": "canal_zanja",
         "subtipo": "ditch",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 759.5,
+        "cota_media_fabdem_m": 17.46
       },
       "geometry": {
         "type": "LineString",
@@ -4600,7 +4466,9 @@
         "tipo": "canal_zanja",
         "subtipo": "ditch",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 45.8,
+        "cota_media_fabdem_m": 17.39
       },
       "geometry": {
         "type": "LineString",
@@ -4631,7 +4499,9 @@
         "tipo": "canal_zanja",
         "subtipo": "ditch",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 63.1,
+        "cota_media_fabdem_m": 17.4
       },
       "geometry": {
         "type": "LineString",
@@ -4670,7 +4540,9 @@
         "tipo": "canal_zanja",
         "subtipo": "ditch",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 14.3,
+        "cota_media_fabdem_m": 17.38
       },
       "geometry": {
         "type": "LineString",
@@ -4693,7 +4565,9 @@
         "tipo": "canal_zanja",
         "subtipo": "ditch",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 143.8,
+        "cota_media_fabdem_m": 16.4
       },
       "geometry": {
         "type": "LineString",
@@ -4728,7 +4602,9 @@
         "tipo": "canal_zanja",
         "subtipo": "ditch",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 111.8,
+        "cota_media_fabdem_m": 16.69
       },
       "geometry": {
         "type": "LineString",
@@ -4755,7 +4631,9 @@
         "tipo": "canal_zanja",
         "subtipo": "ditch",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 18.7,
+        "cota_media_fabdem_m": 17.27
       },
       "geometry": {
         "type": "LineString",
@@ -4778,7 +4656,9 @@
         "tipo": "canal_zanja",
         "subtipo": "ditch",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 282.8,
+        "cota_media_fabdem_m": 17.42
       },
       "geometry": {
         "type": "LineString",
@@ -4813,7 +4693,9 @@
         "tipo": "canal_zanja",
         "subtipo": "ditch",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 21.9,
+        "cota_media_fabdem_m": 17.02
       },
       "geometry": {
         "type": "LineString",
@@ -4836,7 +4718,9 @@
         "tipo": "canal_zanja",
         "subtipo": "ditch",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 19.1,
+        "cota_media_fabdem_m": 17.0
       },
       "geometry": {
         "type": "LineString",
@@ -4859,7 +4743,9 @@
         "tipo": "canal_zanja",
         "subtipo": "ditch",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 109.1,
+        "cota_media_fabdem_m": 16.81
       },
       "geometry": {
         "type": "LineString",
@@ -4882,7 +4768,9 @@
         "tipo": "canal_zanja",
         "subtipo": "ditch",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 171.7,
+        "cota_media_fabdem_m": 16.46
       },
       "geometry": {
         "type": "LineString",
@@ -4917,7 +4805,9 @@
         "tipo": "canal_zanja",
         "subtipo": "ditch",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 254.0,
+        "cota_media_fabdem_m": 17.62
       },
       "geometry": {
         "type": "LineString",
@@ -5008,7 +4898,9 @@
         "tipo": "canal_zanja",
         "subtipo": "ditch",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 24.6,
+        "cota_media_fabdem_m": 17.45
       },
       "geometry": {
         "type": "LineString",
@@ -5031,7 +4923,9 @@
         "tipo": "canal_zanja",
         "subtipo": "ditch",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 3.4,
+        "cota_media_fabdem_m": 17.48
       },
       "geometry": {
         "type": "LineString",
@@ -5054,7 +4948,9 @@
         "tipo": "canal_zanja",
         "subtipo": "ditch",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 97.9,
+        "cota_media_fabdem_m": 17.39
       },
       "geometry": {
         "type": "LineString",
@@ -5077,7 +4973,9 @@
         "tipo": "canal_zanja",
         "subtipo": "ditch",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 25.6,
+        "cota_media_fabdem_m": 17.41
       },
       "geometry": {
         "type": "LineString",
@@ -5100,7 +4998,9 @@
         "tipo": "defensa",
         "subtipo": "dyke",
         "nombre": "Callejón Acería",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 442.3,
+        "cota_media_fabdem_m": 15.94
       },
       "geometry": {
         "type": "LineString",
@@ -5171,7 +5071,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "Canal Lavaisse",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 89.3,
+        "cota_media_fabdem_m": 13.97
       },
       "geometry": {
         "type": "LineString",
@@ -5198,7 +5100,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "Canal Lavaisse",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 55.5,
+        "cota_media_fabdem_m": 14.28
       },
       "geometry": {
         "type": "LineString",
@@ -5221,7 +5125,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "Canal Lavaisse",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 6.2,
+        "cota_media_fabdem_m": 14.25
       },
       "geometry": {
         "type": "LineString",
@@ -5244,7 +5150,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "Canal Lavaisse",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 33.3,
+        "cota_media_fabdem_m": 14.47
       },
       "geometry": {
         "type": "LineString",
@@ -5271,7 +5179,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 168.8,
+        "cota_media_fabdem_m": 14.0
       },
       "geometry": {
         "type": "LineString",
@@ -5338,7 +5248,9 @@
         "tipo": "canal_zanja",
         "subtipo": "drain",
         "nombre": "Canal Lavaisse",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "longitud_m": 137.4,
+        "cota_media_fabdem_m": 13.99
       },
       "geometry": {
         "type": "LineString",

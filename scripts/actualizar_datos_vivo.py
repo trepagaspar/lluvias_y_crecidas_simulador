@@ -73,9 +73,9 @@ def fetch_open_meteo():
     precs = hourly.get("precipitation", [])
     probs = hourly.get("precipitation_probability", [])
 
-    # Separar pasadas (ultimas 24h) vs futuras (proximas 48h) usando prefijo hora actual
+    # Separar pasadas (ultimas 24h moviles) vs futuras (proximas 48h) usando prefijo hora actual
     cur_hour = cur_time[:13] if len(cur_time) >= 13 else ""
-    past_mm = 0.0
+    past_vals = []
     next24_mm = 0.0
     next48_mm = 0.0
     max_hr_mm = 0.0
@@ -86,7 +86,7 @@ def fetch_open_meteo():
         mm_v = float(mm or 0.0)
         pr_v = int(pr or 0)
         if cur_hour and t[:13] <= cur_hour:
-            past_mm += mm_v
+            past_vals.append(mm_v)
         else:
             if future_idx < 24:
                 next24_mm += mm_v
@@ -97,6 +97,8 @@ def fetch_open_meteo():
                 if pr_v > max_prob:
                     max_prob = pr_v
             future_idx += 1
+
+    past_mm = sum(past_vals[-24:])
 
     return {
         "fuente": "Open-Meteo (api.open-meteo.com)",

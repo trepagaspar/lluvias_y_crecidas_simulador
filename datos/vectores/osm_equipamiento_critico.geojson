@@ -10,7 +10,9 @@
         "subtipo": "police",
         "nombre": "Destacamento 14",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Garay",
+        "cota_fabdem_m": 24.94
       },
       "geometry": {
         "type": "Point",
@@ -28,7 +30,9 @@
         "subtipo": "police",
         "nombre": "Ministerio de seguridad",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 19.55
       },
       "geometry": {
         "type": "Point",
@@ -46,7 +50,9 @@
         "subtipo": "hospital",
         "nombre": "Samco Santo Tomé",
         "direccion": "Miguel de Azcuenaga",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 16.69
       },
       "geometry": {
         "type": "Point",
@@ -64,7 +70,9 @@
         "subtipo": "police",
         "nombre": "Comisaría 12",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 16.79
       },
       "geometry": {
         "type": "Point",
@@ -80,9 +88,11 @@
         "osm_id": "node/1899338599",
         "categoria": "emergencia",
         "subtipo": "police",
-        "nombre": "police (sin nombre)",
+        "nombre": "Comisaría / Destacamento Policial s/n (zona Colastiné / Rincón)",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Colastiné / Rincón",
+        "cota_fabdem_m": 16.14
       },
       "geometry": {
         "type": "Point",
@@ -100,7 +110,9 @@
         "subtipo": "school",
         "nombre": "Escuela Particular Incorporada 1001 San Francisco",
         "direccion": "San Martín",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque del Sur",
+        "cota_fabdem_m": 18.72
       },
       "geometry": {
         "type": "Point",
@@ -118,7 +130,9 @@
         "subtipo": "school",
         "nombre": "Escuela Especial 2009 Bernardo de Monteagudo",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque del Sur",
+        "cota_fabdem_m": 20.13
       },
       "geometry": {
         "type": "Point",
@@ -136,7 +150,9 @@
         "subtipo": "school",
         "nombre": "Escuela Roca Nº869",
         "direccion": "Ruta Provincial 1 Teófilo Madrejón",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Colastiné / Rincón",
+        "cota_fabdem_m": 17.86
       },
       "geometry": {
         "type": "Point",
@@ -154,7 +170,9 @@
         "subtipo": "police",
         "nombre": "Comisaría",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Colastiné / Rincón",
+        "cota_fabdem_m": 16.9
       },
       "geometry": {
         "type": "Point",
@@ -172,7 +190,9 @@
         "subtipo": "police",
         "nombre": "Comisaría",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Colastiné / Rincón",
+        "cota_fabdem_m": 17.79
       },
       "geometry": {
         "type": "Point",
@@ -190,7 +210,9 @@
         "subtipo": "school",
         "nombre": "Escuela de Educación Técnico Profesional 658 Maria Sánchez De Thompson",
         "direccion": "Busaniche",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Colastiné / Rincón",
+        "cota_fabdem_m": 16.53
       },
       "geometry": {
         "type": "Point",
@@ -208,7 +230,9 @@
         "subtipo": "police",
         "nombre": "Prefectura Santa Fe",
         "direccion": "Mendoza",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 16.38
       },
       "geometry": {
         "type": "Point",
@@ -226,7 +250,9 @@
         "subtipo": "police",
         "nombre": "Jefatura de Policía",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Centenario",
+        "cota_fabdem_m": 17.01
       },
       "geometry": {
         "type": "Point",
@@ -244,7 +270,9 @@
         "subtipo": "school",
         "nombre": "Escuela N°312 \"Fray Justo Santa María de Oro\"",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Reservorio Norte",
+        "cota_fabdem_m": 21.86
       },
       "geometry": {
         "type": "Point",
@@ -262,7 +290,9 @@
         "subtipo": "school",
         "nombre": "E.E.T. 322 \"Obispo Gelabert\"",
         "direccion": "J Macía",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.03
       },
       "geometry": {
         "type": "Point",
@@ -280,7 +310,9 @@
         "subtipo": "school",
         "nombre": "Escuela Media Nro 340",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 16.66
       },
       "geometry": {
         "type": "Point",
@@ -298,7 +330,9 @@
         "subtipo": "school",
         "nombre": "Colegio Nuestra Señora del Huerto",
         "direccion": "San Jerónimo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 21.07
       },
       "geometry": {
         "type": "Point",
@@ -316,7 +350,9 @@
         "subtipo": "kindergarten",
         "nombre": "jardin 224 Monseñor Rodriguez",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Loyola / Los Troncos",
+        "cota_fabdem_m": 18.25
       },
       "geometry": {
         "type": "Point",
@@ -334,7 +370,9 @@
         "subtipo": "police",
         "nombre": "Sub Comisaría 3°",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Las Flores / Hipódromo",
+        "cota_fabdem_m": 17.43
       },
       "geometry": {
         "type": "Point",
@@ -352,7 +390,9 @@
         "subtipo": "school",
         "nombre": "Escuela Primaria 1106 General San Martín",
         "direccion": "7 de Marzo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 16.77
       },
       "geometry": {
         "type": "Point",
@@ -370,7 +410,9 @@
         "subtipo": "school",
         "nombre": "Escuela Nº 27 \"José Gálvez\"",
         "direccion": "Avenida Blas Parera",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Cabaña Leiva",
+        "cota_fabdem_m": 18.16
       },
       "geometry": {
         "type": "Point",
@@ -388,7 +430,9 @@
         "subtipo": "school",
         "nombre": "Escuela 14 Doctor Nicolás Avellaneda",
         "direccion": "Santiago de Chile",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Garay",
+        "cota_fabdem_m": 16.57
       },
       "geometry": {
         "type": "Point",
@@ -406,7 +450,9 @@
         "subtipo": "police",
         "nombre": "Bomberos Zapadores de Santa Fe",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Loyola / Los Troncos",
+        "cota_fabdem_m": 18.2
       },
       "geometry": {
         "type": "Point",
@@ -424,7 +470,9 @@
         "subtipo": "hospital",
         "nombre": "Sanatorio Mayo",
         "direccion": "Suipacha",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 18.92
       },
       "geometry": {
         "type": "Point",
@@ -442,7 +490,9 @@
         "subtipo": "school",
         "nombre": "Escuela 1110 Doctor Simón de Iriondo",
         "direccion": "Roque Saenz Peña",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 16.58
       },
       "geometry": {
         "type": "Point",
@@ -460,7 +510,9 @@
         "subtipo": "school",
         "nombre": "San Martin",
         "direccion": "Espora",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Las Flores / Hipódromo",
+        "cota_fabdem_m": 17.35
       },
       "geometry": {
         "type": "Point",
@@ -478,7 +530,9 @@
         "subtipo": "school",
         "nombre": "Agustín del Castillo",
         "direccion": "Espora",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Las Flores / Hipódromo",
+        "cota_fabdem_m": 17.35
       },
       "geometry": {
         "type": "Point",
@@ -496,7 +550,9 @@
         "subtipo": "school",
         "nombre": "Escuela Malvinas Argentinas Nº 1255",
         "direccion": "Padre Genesio",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Las Flores / Hipódromo",
+        "cota_fabdem_m": 17.46
       },
       "geometry": {
         "type": "Point",
@@ -512,9 +568,11 @@
         "osm_id": "node/3735401801",
         "categoria": "escuela",
         "subtipo": "school",
-        "nombre": "school (sin nombre)",
+        "nombre": "Escuela s/n (zona Santo Tomé)",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 16.64
       },
       "geometry": {
         "type": "Point",
@@ -532,7 +590,9 @@
         "subtipo": "school",
         "nombre": "Escuela Primaria 166 Ignacio Crespo",
         "direccion": "Mariano Candioti",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 18.11
       },
       "geometry": {
         "type": "Point",
@@ -550,7 +610,9 @@
         "subtipo": "kindergarten",
         "nombre": "Escuela 43 Leandro Alem",
         "direccion": "Avenida General Paz",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Guadalupe",
+        "cota_fabdem_m": 17.35
       },
       "geometry": {
         "type": "Point",
@@ -568,7 +630,9 @@
         "subtipo": "school",
         "nombre": "Escuela 43 Leandro Alem",
         "direccion": "Avenida General Paz",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Guadalupe",
+        "cota_fabdem_m": 17.35
       },
       "geometry": {
         "type": "Point",
@@ -586,7 +650,9 @@
         "subtipo": "school",
         "nombre": "Escuela Primaria Juan José Paso",
         "direccion": "San Martín",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 19.04
       },
       "geometry": {
         "type": "Point",
@@ -604,7 +670,9 @@
         "subtipo": "kindergarten",
         "nombre": "Escuela de Nivel Inicial \"La Ronda\"",
         "direccion": "9 de Julio",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 19.48
       },
       "geometry": {
         "type": "Point",
@@ -622,7 +690,9 @@
         "subtipo": "clinic",
         "nombre": "Centro de Disgnóstico",
         "direccion": "25 de Mayo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 19.43
       },
       "geometry": {
         "type": "Point",
@@ -640,7 +710,9 @@
         "subtipo": "school",
         "nombre": "Escuela 136 Gregoria Pérez de Denis",
         "direccion": "1 de Mayo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Las Flores / Hipódromo",
+        "cota_fabdem_m": 18.26
       },
       "geometry": {
         "type": "Point",
@@ -658,7 +730,9 @@
         "subtipo": "school",
         "nombre": "Escuela Primaria 140 Profesor Marcelino Martínez",
         "direccion": "Juan Bautista Alberdi",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 16.97
       },
       "geometry": {
         "type": "Point",
@@ -676,7 +750,9 @@
         "subtipo": "hospital",
         "nombre": "Centro Odontológico Privado",
         "direccion": "Belgrano",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 17.95
       },
       "geometry": {
         "type": "Point",
@@ -694,7 +770,9 @@
         "subtipo": "hospital",
         "nombre": "Centro de Alergia, Asma e Inmunidad",
         "direccion": "Belgrano",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 17.95
       },
       "geometry": {
         "type": "Point",
@@ -712,7 +790,9 @@
         "subtipo": "school",
         "nombre": "Escuela 24 Constancio C. Vigil",
         "direccion": "Avenida de la Bandera",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.42
       },
       "geometry": {
         "type": "Point",
@@ -730,7 +810,9 @@
         "subtipo": "school",
         "nombre": "Escuela 48 Profesor Maximio Sabá Victoria",
         "direccion": "Callejon El Sable",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Cabaña Leiva",
+        "cota_fabdem_m": 17.25
       },
       "geometry": {
         "type": "Point",
@@ -748,7 +830,9 @@
         "subtipo": "doctors",
         "nombre": "Centro Integral de Salud de la Costa",
         "direccion": "Ruta Provincial 1 Teófilo Madrejón",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Colastiné / Rincón",
+        "cota_fabdem_m": 17.84
       },
       "geometry": {
         "type": "Point",
@@ -766,7 +850,9 @@
         "subtipo": "hospital",
         "nombre": "Sanatorio Santa Fe",
         "direccion": "Belgrano",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 18.26
       },
       "geometry": {
         "type": "Point",
@@ -784,7 +870,9 @@
         "subtipo": "school",
         "nombre": "Escuela Primaria Comun Nº 269 Carlos Higinio Laguzzi",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 16.57
       },
       "geometry": {
         "type": "Point",
@@ -802,7 +890,9 @@
         "subtipo": "kindergarten",
         "nombre": "Escuela Especial Francisco Castellano 2032",
         "direccion": "Jose Dios Mena",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 16.58
       },
       "geometry": {
         "type": "Point",
@@ -820,7 +910,9 @@
         "subtipo": "school",
         "nombre": "Escuela Primaria 1233 \"Fidela Valdez Frutos\"",
         "direccion": "Colon",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.19
       },
       "geometry": {
         "type": "Point",
@@ -838,7 +930,9 @@
         "subtipo": "school",
         "nombre": "Escuela 579 \"Profesor José Jacinto Berutti\"",
         "direccion": "Iriondo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.35
       },
       "geometry": {
         "type": "Point",
@@ -856,7 +950,9 @@
         "subtipo": "school",
         "nombre": "Escuela Particular Incorporada 1224 \"Nuestra Señora de Itatí\"",
         "direccion": "Nicasio Oroño",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Centenario",
+        "cota_fabdem_m": 15.16
       },
       "geometry": {
         "type": "Point",
@@ -874,7 +970,9 @@
         "subtipo": "school",
         "nombre": "Escuela N° 1392",
         "direccion": "Mendoza",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santa Rosa de Lima",
+        "cota_fabdem_m": 15.83
       },
       "geometry": {
         "type": "Point",
@@ -892,7 +990,9 @@
         "subtipo": "school",
         "nombre": "Escuela Primaria Modalidad Domiciliaria y Hospitalaria N° 1392",
         "direccion": "Bulevar Pellegrini",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Garay",
+        "cota_fabdem_m": 18.05
       },
       "geometry": {
         "type": "Point",
@@ -910,7 +1010,9 @@
         "subtipo": "school",
         "nombre": "Escuela N° 1250 \"Almirante Guillermo Brown\"",
         "direccion": "25 de Mayo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 19.02
       },
       "geometry": {
         "type": "Point",
@@ -928,7 +1030,9 @@
         "subtipo": "school",
         "nombre": "EIB Nº 1338 \"Com Caia\"",
         "direccion": "Santiago de Chile",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Monte Vera",
+        "cota_fabdem_m": 19.24
       },
       "geometry": {
         "type": "Point",
@@ -946,7 +1050,9 @@
         "subtipo": "school",
         "nombre": "Sagrado Corazón de Jesús",
         "direccion": "San José",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santa Rosa de Lima",
+        "cota_fabdem_m": 18.06
       },
       "geometry": {
         "type": "Point",
@@ -964,7 +1070,9 @@
         "subtipo": "school",
         "nombre": "José R. Aldao N°1277",
         "direccion": "Juan XXIII",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Monte Vera",
+        "cota_fabdem_m": 18.91
       },
       "geometry": {
         "type": "Point",
@@ -982,7 +1090,9 @@
         "subtipo": "school",
         "nombre": "Escuela de Educación Secundaria Orientada 3138 Santa Lucía",
         "direccion": "Juan de Garay",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santa Rosa de Lima",
+        "cota_fabdem_m": 14.55
       },
       "geometry": {
         "type": "Point",
@@ -1000,7 +1110,9 @@
         "subtipo": "school",
         "nombre": "Escuela Esperanza Solidaria Nº 6341",
         "direccion": "Gorriti",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Las Flores / Hipódromo",
+        "cota_fabdem_m": 18.33
       },
       "geometry": {
         "type": "Point",
@@ -1018,7 +1130,9 @@
         "subtipo": "clinic",
         "nombre": "Enefro",
         "direccion": "Avenida Gobernador Freyre",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Garay",
+        "cota_fabdem_m": 18.77
       },
       "geometry": {
         "type": "Point",
@@ -1036,7 +1150,9 @@
         "subtipo": "clinic",
         "nombre": "Enefro",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 17.94
       },
       "geometry": {
         "type": "Point",
@@ -1054,7 +1170,9 @@
         "subtipo": "school",
         "nombre": "Escuela Primaria 6395 Sargento Pedro Bustamante",
         "direccion": "Avenida Nuestra Señora de Luján",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.7
       },
       "geometry": {
         "type": "Point",
@@ -1072,7 +1190,9 @@
         "subtipo": "school",
         "nombre": "Escuela Educación secundaria Orientada 443 \"José Manuel Estrada\"",
         "direccion": "Iriondo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.04
       },
       "geometry": {
         "type": "Point",
@@ -1085,66 +1205,14 @@
     {
       "type": "Feature",
       "properties": {
-        "osm_id": "node/4376575236",
-        "categoria": "salud",
-        "subtipo": "hospital",
-        "nombre": "Hospital Gerardo Domagk",
-        "direccion": "Avenida José Manuel de Estrada",
-        "fuente": "OpenStreetMap (Overpass API)"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -60.56664,
-          -31.707121
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "osm_id": "node/4376575237",
-        "categoria": "escuela",
-        "subtipo": "school",
-        "nombre": "Escuela 16 Doctor Francisco Soler",
-        "direccion": "Avenida José Manuel de Estrada",
-        "fuente": "OpenStreetMap (Overpass API)"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -60.56728,
-          -31.706966
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "osm_id": "node/4376575238",
-        "categoria": "emergencia",
-        "subtipo": "police",
-        "nombre": "Comisaría XI",
-        "direccion": "Avenida José Manuel de Estrada",
-        "fuente": "OpenStreetMap (Overpass API)"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -60.566707,
-          -31.706694
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "osm_id": "node/4379630941",
         "categoria": "escuela",
         "subtipo": "school",
         "nombre": "Escuela de Educación Secundaria 340 República Del Perú",
         "direccion": "Obispo Galabert",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 16.72
       },
       "geometry": {
         "type": "Point",
@@ -1162,7 +1230,9 @@
         "subtipo": "school",
         "nombre": "Antonia María Verna",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 18.57
       },
       "geometry": {
         "type": "Point",
@@ -1180,7 +1250,9 @@
         "subtipo": "centre",
         "nombre": "Centro de Vías Respiratorias",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 19.63
       },
       "geometry": {
         "type": "Point",
@@ -1198,7 +1270,9 @@
         "subtipo": "police",
         "nombre": "Policía Federal",
         "direccion": "San Martín",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 19.35
       },
       "geometry": {
         "type": "Point",
@@ -1216,7 +1290,9 @@
         "subtipo": "school",
         "nombre": "Escuela Particular Incorporada 1196 Santa Rosa de Lima",
         "direccion": "Liniers",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santa Rosa de Lima",
+        "cota_fabdem_m": 14.37
       },
       "geometry": {
         "type": "Point",
@@ -1232,9 +1308,11 @@
         "osm_id": "node/4498746541",
         "categoria": "salud",
         "subtipo": "hospital",
-        "nombre": "hospital (sin nombre)",
+        "nombre": "Hospital / Sanatorio s/n (zona Reservorio Norte)",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Reservorio Norte",
+        "cota_fabdem_m": 21.39
       },
       "geometry": {
         "type": "Point",
@@ -1250,9 +1328,11 @@
         "osm_id": "node/4498746548",
         "categoria": "emergencia",
         "subtipo": "police",
-        "nombre": "police (sin nombre)",
+        "nombre": "Comisaría / Destacamento Policial s/n (zona Reservorio Norte)",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Reservorio Norte",
+        "cota_fabdem_m": 18.56
       },
       "geometry": {
         "type": "Point",
@@ -1270,7 +1350,9 @@
         "subtipo": "kindergarten",
         "nombre": "Pelotero La Jungla",
         "direccion": "Avenida Facundo Zuviría",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Las Flores / Hipódromo",
+        "cota_fabdem_m": 17.39
       },
       "geometry": {
         "type": "Point",
@@ -1286,9 +1368,11 @@
         "osm_id": "node/4672363516",
         "categoria": "escuela",
         "subtipo": "school",
-        "nombre": "school (sin nombre)",
+        "nombre": "Escuela s/n (zona Parque Federal)",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 18.96
       },
       "geometry": {
         "type": "Point",
@@ -1306,7 +1390,9 @@
         "subtipo": "school",
         "nombre": "Liceo Municipal “Antonio Fuentes del Arco”",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Puerto",
+        "cota_fabdem_m": 17.36
       },
       "geometry": {
         "type": "Point",
@@ -1324,7 +1410,9 @@
         "subtipo": "fire_station",
         "nombre": "Asociación Bomberos Voluntarios de Recreo",
         "direccion": "Avenida Mitre",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Monte Vera",
+        "cota_fabdem_m": 19.32
       },
       "geometry": {
         "type": "Point",
@@ -1342,7 +1430,9 @@
         "subtipo": "school",
         "nombre": "Escuela Media 266",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Monte Vera",
+        "cota_fabdem_m": 19.17
       },
       "geometry": {
         "type": "Point",
@@ -1360,7 +1450,9 @@
         "subtipo": "hospital",
         "nombre": "Samco Recreo",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Monte Vera",
+        "cota_fabdem_m": 19.18
       },
       "geometry": {
         "type": "Point",
@@ -1378,7 +1470,9 @@
         "subtipo": "school",
         "nombre": "Escuela 884 Ignacio Rodríguez",
         "direccion": "Vélez Sarsfield",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 20.59
       },
       "geometry": {
         "type": "Point",
@@ -1396,7 +1490,9 @@
         "subtipo": "school",
         "nombre": "Escuela Primaria 1356 Monseñor Vicente Zazpe",
         "direccion": "Hipólito Yrigoyen",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 16.7
       },
       "geometry": {
         "type": "Point",
@@ -1414,7 +1510,9 @@
         "subtipo": "kindergarten",
         "nombre": "Veo-veo",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 19.07
       },
       "geometry": {
         "type": "Point",
@@ -1432,7 +1530,9 @@
         "subtipo": "kindergarten",
         "nombre": "Santa María Goretti",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Garay",
+        "cota_fabdem_m": 16.5
       },
       "geometry": {
         "type": "Point",
@@ -1450,7 +1550,9 @@
         "subtipo": "fire_station",
         "nombre": "Bomberos Voluntarios de Santo Tome",
         "direccion": "Rienzo Bedetti",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 16.79
       },
       "geometry": {
         "type": "Point",
@@ -1468,7 +1570,9 @@
         "subtipo": "school",
         "nombre": "Escuela Primaria 1259 Nilce Uviedo Rassetto",
         "direccion": "Tucumán",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 15.85
       },
       "geometry": {
         "type": "Point",
@@ -1486,7 +1590,9 @@
         "subtipo": "school",
         "nombre": "E.E.S. Orientada Part. Inc. Nro 3071 La Inmaculada",
         "direccion": "Saavedra",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.06
       },
       "geometry": {
         "type": "Point",
@@ -1504,7 +1610,9 @@
         "subtipo": "school",
         "nombre": "Instituto 1200 San Jose",
         "direccion": "Saavedra",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.02
       },
       "geometry": {
         "type": "Point",
@@ -1522,7 +1630,9 @@
         "subtipo": "school",
         "nombre": "Escuela Secundaria 3186 Alberto Monti",
         "direccion": "Bernardo de Irigoyen",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Las Flores / Hipódromo",
+        "cota_fabdem_m": 17.65
       },
       "geometry": {
         "type": "Point",
@@ -1540,7 +1650,9 @@
         "subtipo": "school",
         "nombre": "Escuela Particular Incorporada 1305 Nils Eber",
         "direccion": "Gorriti",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Las Flores / Hipódromo",
+        "cota_fabdem_m": 17.59
       },
       "geometry": {
         "type": "Point",
@@ -1558,7 +1670,9 @@
         "subtipo": "school",
         "nombre": "Escuela 6341 Juan de Garay",
         "direccion": "Avenida Blas Parera",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Loyola / Los Troncos",
+        "cota_fabdem_m": 17.92
       },
       "geometry": {
         "type": "Point",
@@ -1576,7 +1690,9 @@
         "subtipo": "fire_station",
         "nombre": "bomberos",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Loyola / Los Troncos",
+        "cota_fabdem_m": 18.09
       },
       "geometry": {
         "type": "Point",
@@ -1594,7 +1710,9 @@
         "subtipo": "school",
         "nombre": "Escuela Particular Incorporada 1441 Alberto Monti",
         "direccion": "Valentín Alsina",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Las Flores / Hipódromo",
+        "cota_fabdem_m": 17.84
       },
       "geometry": {
         "type": "Point",
@@ -1612,7 +1730,9 @@
         "subtipo": "college",
         "nombre": "Centro de Formación Poeta",
         "direccion": "Avenida Rivadavia",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 19.58
       },
       "geometry": {
         "type": "Point",
@@ -1630,7 +1750,9 @@
         "subtipo": "school",
         "nombre": "Colegio Niño Jesús y San Ezequiel Moreno",
         "direccion": "4 de Enero",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Garay",
+        "cota_fabdem_m": 19.51
       },
       "geometry": {
         "type": "Point",
@@ -1648,7 +1770,9 @@
         "subtipo": "school",
         "nombre": "Colegio Nuestra Señora del Calvario",
         "direccion": "Salvador Caputo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Garay",
+        "cota_fabdem_m": 18.96
       },
       "geometry": {
         "type": "Point",
@@ -1666,7 +1790,9 @@
         "subtipo": "school",
         "nombre": "EESO 262 \"República Argentina\"",
         "direccion": "Cassanello",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 19.54
       },
       "geometry": {
         "type": "Point",
@@ -1684,7 +1810,9 @@
         "subtipo": "school",
         "nombre": "EESO 684 \"Mariano Quiroga\"",
         "direccion": "Avenida Aristóbulo del Valle",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 19.32
       },
       "geometry": {
         "type": "Point",
@@ -1702,7 +1830,9 @@
         "subtipo": "police",
         "nombre": "Policía de Investigación",
         "direccion": "San Jerónimo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 19.6
       },
       "geometry": {
         "type": "Point",
@@ -1720,7 +1850,9 @@
         "subtipo": "police",
         "nombre": "subsecretaría de control",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 19.28
       },
       "geometry": {
         "type": "Point",
@@ -1738,7 +1870,9 @@
         "subtipo": "school",
         "nombre": "Escuela Taller de Educ Manual N°189 \"Prof. Carlos Vergara\"",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Alto Verde",
+        "cota_fabdem_m": 17.54
       },
       "geometry": {
         "type": "Point",
@@ -1756,7 +1890,9 @@
         "subtipo": "school",
         "nombre": "Escuela de Educación Técnica 645 Martín Jacobo Thompson",
         "direccion": "Ramón Rivero",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque del Sur",
+        "cota_fabdem_m": 18.45
       },
       "geometry": {
         "type": "Point",
@@ -1774,7 +1910,9 @@
         "subtipo": "college",
         "nombre": "Instituto SOL",
         "direccion": "Salvador Caputo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Garay",
+        "cota_fabdem_m": 18.85
       },
       "geometry": {
         "type": "Point",
@@ -1792,7 +1930,9 @@
         "subtipo": "clinic",
         "nombre": "CS Barrio Barranquitas Oeste",
         "direccion": "Artigas",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Barranquitas",
+        "cota_fabdem_m": 14.55
       },
       "geometry": {
         "type": "Point",
@@ -1810,7 +1950,9 @@
         "subtipo": "hospital",
         "nombre": "SAMCO",
         "direccion": "Busaniche",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Colastiné / Rincón",
+        "cota_fabdem_m": 16.83
       },
       "geometry": {
         "type": "Point",
@@ -1828,7 +1970,9 @@
         "subtipo": "hospital",
         "nombre": "Centro de Acción Familiar N° 10 \"Azahares\"",
         "direccion": "San Martín",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Colastiné / Rincón",
+        "cota_fabdem_m": 16.78
       },
       "geometry": {
         "type": "Point",
@@ -1846,7 +1990,9 @@
         "subtipo": "college",
         "nombre": "Instituto Superior Particular Incorporado 4033",
         "direccion": "San Martín",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque del Sur",
+        "cota_fabdem_m": 19.73
       },
       "geometry": {
         "type": "Point",
@@ -1862,9 +2008,11 @@
         "osm_id": "node/6830978535",
         "categoria": "escuela",
         "subtipo": "school",
-        "nombre": "school (sin nombre)",
+        "nombre": "Escuela s/n (zona Candioti)",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 20.76
       },
       "geometry": {
         "type": "Point",
@@ -1882,7 +2030,9 @@
         "subtipo": "clinic",
         "nombre": "Centro Médico La Española",
         "direccion": "Derqui",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.21
       },
       "geometry": {
         "type": "Point",
@@ -1900,7 +2050,9 @@
         "subtipo": "doctors",
         "nombre": "Consultorio de Rehabilitación",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 21.02
       },
       "geometry": {
         "type": "Point",
@@ -1918,7 +2070,9 @@
         "subtipo": "university",
         "nombre": "Facultad de Ingeniería Química",
         "direccion": "Santiago del Estero",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 19.67
       },
       "geometry": {
         "type": "Point",
@@ -1936,7 +2090,9 @@
         "subtipo": "school",
         "nombre": "Escuela Industrial Superior",
         "direccion": "Junín",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 19.73
       },
       "geometry": {
         "type": "Point",
@@ -1954,7 +2110,9 @@
         "subtipo": "school",
         "nombre": "Centro de alfetización para jóvenes y adultos nº 83",
         "direccion": "Gorriti",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Loyola / Los Troncos",
+        "cota_fabdem_m": 18.17
       },
       "geometry": {
         "type": "Point",
@@ -1972,7 +2130,9 @@
         "subtipo": "clinic",
         "nombre": "SAMCo El Pozo",
         "direccion": "Alejandro Greca",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Alto Verde",
+        "cota_fabdem_m": 17.77
       },
       "geometry": {
         "type": "Point",
@@ -1990,7 +2150,9 @@
         "subtipo": "police",
         "nombre": "Seccional 25",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Alto Verde",
+        "cota_fabdem_m": 17.67
       },
       "geometry": {
         "type": "Point",
@@ -2008,7 +2170,9 @@
         "subtipo": "hospital",
         "nombre": "Hospital de Rehabilitación Doctor Vera Candioti",
         "direccion": "Monseñor Zaspe",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Centenario",
+        "cota_fabdem_m": 16.23
       },
       "geometry": {
         "type": "Point",
@@ -2026,7 +2190,9 @@
         "subtipo": "clinic",
         "nombre": "Centro de salud Alto Verde",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Puerto",
+        "cota_fabdem_m": 16.94
       },
       "geometry": {
         "type": "Point",
@@ -2044,7 +2210,9 @@
         "subtipo": "university",
         "nombre": "Facultad de Humanidades y Ciencias",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Alto Verde",
+        "cota_fabdem_m": 17.08
       },
       "geometry": {
         "type": "Point",
@@ -2062,7 +2230,9 @@
         "subtipo": "university",
         "nombre": "Universidad Tecnológica Nacional Santa Fe",
         "direccion": "Lavaisse",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 19.59
       },
       "geometry": {
         "type": "Point",
@@ -2080,7 +2250,9 @@
         "subtipo": "clinic",
         "nombre": "BioTec",
         "direccion": "9 de Julio",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 19.71
       },
       "geometry": {
         "type": "Point",
@@ -2098,7 +2270,9 @@
         "subtipo": "clinic",
         "nombre": "Diagnóstico San Gerónimo",
         "direccion": "9 de Julio",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 19.59
       },
       "geometry": {
         "type": "Point",
@@ -2116,7 +2290,9 @@
         "subtipo": "police",
         "nombre": "Comando Radioeléctrico de Santo Tomé",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.91
       },
       "geometry": {
         "type": "Point",
@@ -2134,7 +2310,9 @@
         "subtipo": "clinic",
         "nombre": "Clinica Ulibarrie",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.79
       },
       "geometry": {
         "type": "Point",
@@ -2152,7 +2330,9 @@
         "subtipo": "doctors",
         "nombre": "Centro Médico Belgrano",
         "direccion": "Belgrano",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.49
       },
       "geometry": {
         "type": "Point",
@@ -2170,7 +2350,9 @@
         "subtipo": "clinic",
         "nombre": "Sanatorio Santo Tomé",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.75
       },
       "geometry": {
         "type": "Point",
@@ -2188,7 +2370,9 @@
         "subtipo": "clinic",
         "nombre": "Clinica San Martín",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.68
       },
       "geometry": {
         "type": "Point",
@@ -2206,7 +2390,9 @@
         "subtipo": "doctors",
         "nombre": "Centro Medico BioMedic",
         "direccion": "7 de Marzo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 16.88
       },
       "geometry": {
         "type": "Point",
@@ -2224,7 +2410,9 @@
         "subtipo": "clinic",
         "nombre": "Dispensario",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 16.87
       },
       "geometry": {
         "type": "Point",
@@ -2242,7 +2430,9 @@
         "subtipo": "doctors",
         "nombre": "Consultorios Odontológicos",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.75
       },
       "geometry": {
         "type": "Point",
@@ -2260,7 +2450,9 @@
         "subtipo": "clinic",
         "nombre": "Consultorios 7 de Marzo",
         "direccion": "Avenida 7 de Marzo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.78
       },
       "geometry": {
         "type": "Point",
@@ -2278,7 +2470,9 @@
         "subtipo": "doctors",
         "nombre": "Consultorios Odontológicos",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.6
       },
       "geometry": {
         "type": "Point",
@@ -2296,7 +2490,9 @@
         "subtipo": "clinic",
         "nombre": "Servicios Médicos",
         "direccion": "Avenida 7 de Marzo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.72
       },
       "geometry": {
         "type": "Point",
@@ -2314,7 +2510,9 @@
         "subtipo": "doctors",
         "nombre": "Consultorios Odontológicos",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.25
       },
       "geometry": {
         "type": "Point",
@@ -2332,7 +2530,9 @@
         "subtipo": "doctors",
         "nombre": "Consultorios Combi",
         "direccion": "Avenida del Trabajo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.1
       },
       "geometry": {
         "type": "Point",
@@ -2350,7 +2550,9 @@
         "subtipo": "doctors",
         "nombre": "Consultorios Yossen",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 16.93
       },
       "geometry": {
         "type": "Point",
@@ -2368,7 +2570,9 @@
         "subtipo": "doctors",
         "nombre": "Consultorios Medicos Sur",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 16.69
       },
       "geometry": {
         "type": "Point",
@@ -2386,7 +2590,9 @@
         "subtipo": "clinic",
         "nombre": "Centro De Salud Jorge Newbery",
         "direccion": "Sauces",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.59
       },
       "geometry": {
         "type": "Point",
@@ -2404,7 +2610,9 @@
         "subtipo": "school",
         "nombre": "Escuela 1301 Juan de San Martín",
         "direccion": "Ruta Provincial 5",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 18.54
       },
       "geometry": {
         "type": "Point",
@@ -2417,84 +2625,14 @@
     {
       "type": "Feature",
       "properties": {
-        "osm_id": "node/9397057034",
-        "categoria": "escuela",
-        "subtipo": "school",
-        "nombre": "Escuela Secundaria 78 Intendente Juan Carlos Esparza",
-        "direccion": "Avenida Larramendi",
-        "fuente": "OpenStreetMap (Overpass API)"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -60.560837,
-          -31.710926
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "osm_id": "node/9397057035",
-        "categoria": "escuela",
-        "subtipo": "school",
-        "nombre": "Escuela Secundaria 15 De La Baxada Del Parana",
-        "direccion": "Avenida Larramendi",
-        "fuente": "OpenStreetMap (Overpass API)"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -60.560131,
-          -31.711204
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "osm_id": "node/9408357693",
-        "categoria": "escuela",
-        "subtipo": "kindergarten",
-        "nombre": "Jardín Maternal Municipal Patito Sirirí",
-        "direccion": "Avenida José Manuel de Estrada",
-        "fuente": "OpenStreetMap (Overpass API)"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -60.566465,
-          -31.70687
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "osm_id": "node/9419610334",
-        "categoria": "escuela",
-        "subtipo": "kindergarten",
-        "nombre": "Unidad Educativa De Nivel Inicial 34 Mojarritas",
-        "direccion": "Asturias",
-        "fuente": "OpenStreetMap (Overpass API)"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -60.540414,
-          -31.716461
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "osm_id": "node/9958097898",
         "categoria": "escuela",
         "subtipo": "school",
         "nombre": "Escuela 16 Fray Francisco De Paula Castañeda",
         "direccion": "Castañeda",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Colastiné / Rincón",
+        "cota_fabdem_m": 17.75
       },
       "geometry": {
         "type": "Point",
@@ -2512,7 +2650,9 @@
         "subtipo": "university",
         "nombre": "UNL - Secretaría de Extensión y Cultura",
         "direccion": "San Jerónimo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 19.6
       },
       "geometry": {
         "type": "Point",
@@ -2530,7 +2670,9 @@
         "subtipo": "school",
         "nombre": "Escuela 95 Simón De Iriondo",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque del Sur",
+        "cota_fabdem_m": 14.99
       },
       "geometry": {
         "type": "Point",
@@ -2548,7 +2690,9 @@
         "subtipo": "school",
         "nombre": "Escuela 8 Cristóbal Colón",
         "direccion": "Francia",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Centenario",
+        "cota_fabdem_m": 19.05
       },
       "geometry": {
         "type": "Point",
@@ -2566,7 +2710,9 @@
         "subtipo": "school",
         "nombre": "EETP Nº 651",
         "direccion": "Bulevar Pellegrini",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Garay",
+        "cota_fabdem_m": 15.12
       },
       "geometry": {
         "type": "Point",
@@ -2584,7 +2730,9 @@
         "subtipo": "school",
         "nombre": "Escuela 1299 Padre Osvaldo Catena",
         "direccion": "Bulevar Pellegrini",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Garay",
+        "cota_fabdem_m": 15.5
       },
       "geometry": {
         "type": "Point",
@@ -2602,7 +2750,9 @@
         "subtipo": "school",
         "nombre": "Escuela Especial Particular Incorporada 1429 Doctora Sara Faisal",
         "direccion": "Urquiza",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Centenario",
+        "cota_fabdem_m": 18.24
       },
       "geometry": {
         "type": "Point",
@@ -2620,7 +2770,9 @@
         "subtipo": "school",
         "nombre": "Escuela de Educación Técnico Profesional 601 Leandro N. Alem",
         "direccion": "Santiago de Chile",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santa Rosa de Lima",
+        "cota_fabdem_m": 17.02
       },
       "geometry": {
         "type": "Point",
@@ -2638,7 +2790,9 @@
         "subtipo": "school",
         "nombre": "Escuela de Educación Secundaria Orientada 507 Juan Pablo Mendoza",
         "direccion": "Monseñor Zaspe",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santa Rosa de Lima",
+        "cota_fabdem_m": 12.75
       },
       "geometry": {
         "type": "Point",
@@ -2656,7 +2810,9 @@
         "subtipo": "school",
         "nombre": "Escuela de Educación Secundaria Orientada Particular Incorporada 3083 Dante Alighieri",
         "direccion": "4 de Enero",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 19.43
       },
       "geometry": {
         "type": "Point",
@@ -2674,7 +2830,9 @@
         "subtipo": "school",
         "nombre": "Escuela de Educación Secundaria Orientada 265 Yapeyú",
         "direccion": "12 de Octubre",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Loyola / Los Troncos",
+        "cota_fabdem_m": 18.29
       },
       "geometry": {
         "type": "Point",
@@ -2692,7 +2850,9 @@
         "subtipo": "school",
         "nombre": "Escuela De Educación Técnico Profesional 387 San Agustín",
         "direccion": "Fray de Aroca",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Reservorio Norte",
+        "cota_fabdem_m": 18.16
       },
       "geometry": {
         "type": "Point",
@@ -2710,7 +2870,9 @@
         "subtipo": "school",
         "nombre": "Escuela Particular Incorporada 1415 Santa Mónica",
         "direccion": "Santa Cruz",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Loyola / Los Troncos",
+        "cota_fabdem_m": 18.13
       },
       "geometry": {
         "type": "Point",
@@ -2728,7 +2890,9 @@
         "subtipo": "school",
         "nombre": "Escuela Particular Incorporada 1342 Juan Marcos",
         "direccion": "Matheu",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Reservorios Oeste",
+        "cota_fabdem_m": 18.25
       },
       "geometry": {
         "type": "Point",
@@ -2746,7 +2910,9 @@
         "subtipo": "school",
         "nombre": "Escuela 1258 Simón Bolivar",
         "direccion": "Islas Malvinas",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Centenario",
+        "cota_fabdem_m": 15.41
       },
       "geometry": {
         "type": "Point",
@@ -2764,7 +2930,9 @@
         "subtipo": "school",
         "nombre": "Escuela 38 Brigadier Estanislao López",
         "direccion": "Avenida General Paz",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Guadalupe",
+        "cota_fabdem_m": 17.75
       },
       "geometry": {
         "type": "Point",
@@ -2782,7 +2950,9 @@
         "subtipo": "school",
         "nombre": "Escuela De Educación Secundaria Orientada Particular Incorporada 8150 Nuestra Señora De Guadalupe",
         "direccion": "Patricio Cullen",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Guadalupe",
+        "cota_fabdem_m": 18.72
       },
       "geometry": {
         "type": "Point",
@@ -2800,7 +2970,9 @@
         "subtipo": "school",
         "nombre": "Escuela 5 Doctor Vicente López y Planes",
         "direccion": "Tucumán",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Garay",
+        "cota_fabdem_m": 18.87
       },
       "geometry": {
         "type": "Point",
@@ -2818,7 +2990,9 @@
         "subtipo": "kindergarten",
         "nombre": "Jardín de Infantes 188 Juan Capiello",
         "direccion": "Tucumán",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Garay",
+        "cota_fabdem_m": 18.92
       },
       "geometry": {
         "type": "Point",
@@ -2836,7 +3010,9 @@
         "subtipo": "school",
         "nombre": "Escuela 4 Sargento Cabral",
         "direccion": "General Las Heras",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 19.23
       },
       "geometry": {
         "type": "Point",
@@ -2854,7 +3030,9 @@
         "subtipo": "school",
         "nombre": "Escuela 465 Doctor Wenceslao Escalante",
         "direccion": "Martín Zapata",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 18.1
       },
       "geometry": {
         "type": "Point",
@@ -2872,7 +3050,9 @@
         "subtipo": "school",
         "nombre": "Escuela 19 Juan De Garay",
         "direccion": "Avenida Blas Parera",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Las Flores / Hipódromo",
+        "cota_fabdem_m": 18.03
       },
       "geometry": {
         "type": "Point",
@@ -2890,7 +3070,9 @@
         "subtipo": "school",
         "nombre": "Escuela 1336 Combate Del Quebracho",
         "direccion": "Valentín Alsina",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Loyola / Los Troncos",
+        "cota_fabdem_m": 17.73
       },
       "geometry": {
         "type": "Point",
@@ -2908,7 +3090,9 @@
         "subtipo": "school",
         "nombre": "Escuela Particular Incorporada 1341 Santa Rita De Casia",
         "direccion": "Florencio Fernández",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Loyola / Los Troncos",
+        "cota_fabdem_m": 18.09
       },
       "geometry": {
         "type": "Point",
@@ -2926,7 +3110,9 @@
         "subtipo": "school",
         "nombre": "Escuela 7 Presidente Beleno",
         "direccion": "Salvador Caputo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Garay",
+        "cota_fabdem_m": 18.9
       },
       "geometry": {
         "type": "Point",
@@ -2944,7 +3130,9 @@
         "subtipo": "school",
         "nombre": "Escuela Especial 2083",
         "direccion": "Calcena",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 20.57
       },
       "geometry": {
         "type": "Point",
@@ -2962,7 +3150,9 @@
         "subtipo": "school",
         "nombre": "Escuela 1138 Mateo Booz",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Alto Verde",
+        "cota_fabdem_m": 13.7
       },
       "geometry": {
         "type": "Point",
@@ -2980,7 +3170,9 @@
         "subtipo": "school",
         "nombre": "Escuela 533 Victoriano Montes",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque del Sur",
+        "cota_fabdem_m": 16.02
       },
       "geometry": {
         "type": "Point",
@@ -2998,7 +3190,9 @@
         "subtipo": "school",
         "nombre": "Escuela Particular Incorporada 1205 Jaim Najman Bialik",
         "direccion": "4 de Enero",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 19.52
       },
       "geometry": {
         "type": "Point",
@@ -3016,7 +3210,9 @@
         "subtipo": "school",
         "nombre": "Escuela Particular Incorporada 1132 Cristo Obrero",
         "direccion": "Padre Catena",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Garay",
+        "cota_fabdem_m": 14.73
       },
       "geometry": {
         "type": "Point",
@@ -3034,7 +3230,9 @@
         "subtipo": "school",
         "nombre": "Escuela De Educación Orientada 231 República De Nicaragua",
         "direccion": "José María Zuviría",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 18.6
       },
       "geometry": {
         "type": "Point",
@@ -3052,7 +3250,9 @@
         "subtipo": "school",
         "nombre": "Escuela Particular Incorporada 1502 San Martín De Porres",
         "direccion": "Estanislao Zeballos",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Reservorios Oeste",
+        "cota_fabdem_m": 17.51
       },
       "geometry": {
         "type": "Point",
@@ -3070,7 +3270,9 @@
         "subtipo": "school",
         "nombre": "Escuela Particular Incorporada 1416 Doctor Gilberto Beltramino",
         "direccion": "Jacinto Viñas",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Reservorios Oeste",
+        "cota_fabdem_m": 18.22
       },
       "geometry": {
         "type": "Point",
@@ -3088,7 +3290,9 @@
         "subtipo": "school",
         "nombre": "Escuela 578 Balbina Domínguez",
         "direccion": "Avenida Aristóbulo del Valle",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 19.29
       },
       "geometry": {
         "type": "Point",
@@ -3106,7 +3310,9 @@
         "subtipo": "school",
         "nombre": "Escuela 139 Jorge Stephenson",
         "direccion": "General Las Heras",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Guadalupe",
+        "cota_fabdem_m": 18.0
       },
       "geometry": {
         "type": "Point",
@@ -3124,7 +3330,9 @@
         "subtipo": "school",
         "nombre": "Escuela 26 Patricio Cullen",
         "direccion": "Urquiza",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 17.89
       },
       "geometry": {
         "type": "Point",
@@ -3142,7 +3350,9 @@
         "subtipo": "school",
         "nombre": "Escuela 1250 Almirante Guillermo Brown",
         "direccion": "25 de Mayo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 19.14
       },
       "geometry": {
         "type": "Point",
@@ -3160,7 +3370,9 @@
         "subtipo": "school",
         "nombre": "Escuela 618 Ingeniero Julio Bello",
         "direccion": "Ricardo Aldao",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 18.51
       },
       "geometry": {
         "type": "Point",
@@ -3178,7 +3390,9 @@
         "subtipo": "school",
         "nombre": "Escuela Nº 13 Dr. Dalmacio Velez Sársfield",
         "direccion": "Güemes",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 20.76
       },
       "geometry": {
         "type": "Point",
@@ -3196,7 +3410,9 @@
         "subtipo": "school",
         "nombre": "Escuela 1111 Luis Borruat",
         "direccion": "Aguado",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santa Rosa de Lima",
+        "cota_fabdem_m": 13.35
       },
       "geometry": {
         "type": "Point",
@@ -3214,7 +3430,9 @@
         "subtipo": "school",
         "nombre": "Escuela 880 Domingo Guzmán Silva",
         "direccion": "Regimiento 12 de Infantería",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Guadalupe",
+        "cota_fabdem_m": 17.76
       },
       "geometry": {
         "type": "Point",
@@ -3232,7 +3450,9 @@
         "subtipo": "school",
         "nombre": "Escuela 42 General Gregorio Las Heras",
         "direccion": "Avenida Aristóbulo del Valle",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Guadalupe",
+        "cota_fabdem_m": 18.11
       },
       "geometry": {
         "type": "Point",
@@ -3250,7 +3470,9 @@
         "subtipo": "school",
         "nombre": "Escuela Particular Incorporada 1162 San Antonio De Padua",
         "direccion": "Avenida Juan José Paso",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Centenario",
+        "cota_fabdem_m": 17.81
       },
       "geometry": {
         "type": "Point",
@@ -3268,7 +3490,9 @@
         "subtipo": "school",
         "nombre": "Escuela Particular Incorporada 1259 Dante Alighieri",
         "direccion": "25 de Mayo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 21.33
       },
       "geometry": {
         "type": "Point",
@@ -3286,7 +3510,9 @@
         "subtipo": "school",
         "nombre": "Escuela Particular Incorporada 1287 San Luis Gonzaga",
         "direccion": "Fray Domingo de Oro",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Reservorio Norte",
+        "cota_fabdem_m": 18.09
       },
       "geometry": {
         "type": "Point",
@@ -3302,9 +3528,11 @@
         "osm_id": "node/10744194242",
         "categoria": "escuela",
         "subtipo": "school",
-        "nombre": "school (sin nombre)",
+        "nombre": "Escuela s/n (zona Reservorio Norte)",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Reservorio Norte",
+        "cota_fabdem_m": 17.91
       },
       "geometry": {
         "type": "Point",
@@ -3322,7 +3550,9 @@
         "subtipo": "school",
         "nombre": "Escuela Particular Incorporada 1147 Nuestra Señora de Guadalupe",
         "direccion": "Patricio Cullen",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Guadalupe",
+        "cota_fabdem_m": 18.73
       },
       "geometry": {
         "type": "Point",
@@ -3340,7 +3570,9 @@
         "subtipo": "school",
         "nombre": "Escuela Particular Incorporada 1133 Francisco Ramos Mejia",
         "direccion": "1 de Mayo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 19.56
       },
       "geometry": {
         "type": "Point",
@@ -3358,7 +3590,9 @@
         "subtipo": "school",
         "nombre": "Escuela Particular Incorporada 1408 Colegio Vision De Futuro",
         "direccion": "Pasaje Manuel Leiva",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Garay",
+        "cota_fabdem_m": 16.58
       },
       "geometry": {
         "type": "Point",
@@ -3376,7 +3610,9 @@
         "subtipo": "school",
         "nombre": "Escuela 809 Brigadier Estanislao López",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santa Rosa de Lima",
+        "cota_fabdem_m": 14.82
       },
       "geometry": {
         "type": "Point",
@@ -3394,7 +3630,9 @@
         "subtipo": "school",
         "nombre": "Escuela Primaria Particular Incorporada Nº1145",
         "direccion": "Fray Cayetano Rodríguez",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Barranquitas",
+        "cota_fabdem_m": 17.55
       },
       "geometry": {
         "type": "Point",
@@ -3412,7 +3650,9 @@
         "subtipo": "school",
         "nombre": "Escuela 567 República Oriental Del Uruguay",
         "direccion": "Avenida López y Planes",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Barranquitas",
+        "cota_fabdem_m": 17.96
       },
       "geometry": {
         "type": "Point",
@@ -3430,7 +3670,9 @@
         "subtipo": "school",
         "nombre": "Escuela Especial 2012 General San Martín",
         "direccion": "Laprida",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 26.45
       },
       "geometry": {
         "type": "Point",
@@ -3448,7 +3690,9 @@
         "subtipo": "school",
         "nombre": "Escuela De Educación Secundaria Orientada 391 Doctor Agustín Zapata Gollán",
         "direccion": "Pedro de Vega",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Guadalupe",
+        "cota_fabdem_m": 19.5
       },
       "geometry": {
         "type": "Point",
@@ -3466,7 +3710,9 @@
         "subtipo": "kindergarten",
         "nombre": "Jardín De Infantes 142 Santa Fe De La Vera Cruz",
         "direccion": "Pedro de Vega",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Las Flores / Hipódromo",
+        "cota_fabdem_m": 17.5
       },
       "geometry": {
         "type": "Point",
@@ -3484,7 +3730,9 @@
         "subtipo": "kindergarten",
         "nombre": "Escuela de Educación Secundaria Orientada 707",
         "direccion": "Vieytes",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Las Flores / Hipódromo",
+        "cota_fabdem_m": 17.6
       },
       "geometry": {
         "type": "Point",
@@ -3502,7 +3750,9 @@
         "subtipo": "school",
         "nombre": "Escuela de Educación Secundaria Orientada 599",
         "direccion": "Avenida Peñaloza",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Cabaña Leiva",
+        "cota_fabdem_m": 17.84
       },
       "geometry": {
         "type": "Point",
@@ -3520,7 +3770,9 @@
         "subtipo": "school",
         "nombre": "Escuela Especial 2028 Profesora Raquel Pietranera",
         "direccion": "25 de Mayo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 20.9
       },
       "geometry": {
         "type": "Point",
@@ -3538,7 +3790,9 @@
         "subtipo": "kindergarten",
         "nombre": "Jardín De Infantes 26 San Luis Gonzaga",
         "direccion": "1 de Mayo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 19.58
       },
       "geometry": {
         "type": "Point",
@@ -3556,7 +3810,9 @@
         "subtipo": "school",
         "nombre": "Escuela De Educación Secundaria Orientada 510 La Esmeralda",
         "direccion": "San Martín",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Guadalupe",
+        "cota_fabdem_m": 18.14
       },
       "geometry": {
         "type": "Point",
@@ -3574,7 +3830,9 @@
         "subtipo": "school",
         "nombre": "Escuela De Educación Secundaria Orientada 511 Generala Juana Azurduy",
         "direccion": "Entre Ríos",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Centenario",
+        "cota_fabdem_m": 16.12
       },
       "geometry": {
         "type": "Point",
@@ -3592,7 +3850,9 @@
         "subtipo": "school",
         "nombre": "Escuela Pascual Echagüe",
         "direccion": "Entre Ríos",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Centenario",
+        "cota_fabdem_m": 16.81
       },
       "geometry": {
         "type": "Point",
@@ -3610,7 +3870,9 @@
         "subtipo": "school",
         "nombre": "Escuela De Educación Secundaria Orientada 512 Alfredo Pedro Bravo",
         "direccion": "Juan Manuel Estrada",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santa Rosa de Lima",
+        "cota_fabdem_m": 14.69
       },
       "geometry": {
         "type": "Point",
@@ -3628,7 +3890,9 @@
         "subtipo": "school",
         "nombre": "Escuela De Educación Secundaria Orientada 528",
         "direccion": "Regimiento 12 de Infantería",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Las Flores / Hipódromo",
+        "cota_fabdem_m": 17.11
       },
       "geometry": {
         "type": "Point",
@@ -3646,7 +3910,9 @@
         "subtipo": "school",
         "nombre": "Escuela De Educación Secundaria Orientada Particular Incorporada 3131 San Eugenio De Mazenod",
         "direccion": "Bernardino Rivadavia",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 18.84
       },
       "geometry": {
         "type": "Point",
@@ -3664,7 +3930,9 @@
         "subtipo": "school",
         "nombre": "Escuela 1149 Nuestra Señora de Lujan",
         "direccion": "Bernardino Rivadavia",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 18.93
       },
       "geometry": {
         "type": "Point",
@@ -3682,7 +3950,9 @@
         "subtipo": "school",
         "nombre": "Escuela 3025 Cristo Obrero",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Garay",
+        "cota_fabdem_m": 14.58
       },
       "geometry": {
         "type": "Point",
@@ -3700,7 +3970,9 @@
         "subtipo": "school",
         "nombre": "Escuela Fiscal 137",
         "direccion": "Juan del Campillo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 20.24
       },
       "geometry": {
         "type": "Point",
@@ -3718,7 +3990,9 @@
         "subtipo": "kindergarten",
         "nombre": "Jardín De Infantes 150 Juan Arancio",
         "direccion": "Rector Pedro Martínez",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Alto Verde",
+        "cota_fabdem_m": 17.06
       },
       "geometry": {
         "type": "Point",
@@ -3736,7 +4010,9 @@
         "subtipo": "school",
         "nombre": "Escuela de Educación Secundaria Particular Incorporada 2035 Santa Rosa De Lima",
         "direccion": "Liniers",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santa Rosa de Lima",
+        "cota_fabdem_m": 14.43
       },
       "geometry": {
         "type": "Point",
@@ -3754,7 +4030,9 @@
         "subtipo": "kindergarten",
         "nombre": "Jardín De Infantes 173 Padre Luis Quiroga",
         "direccion": "Mendoza",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santa Rosa de Lima",
+        "cota_fabdem_m": 14.72
       },
       "geometry": {
         "type": "Point",
@@ -3772,7 +4050,9 @@
         "subtipo": "school",
         "nombre": "Escuela 100 Marcos Sastre",
         "direccion": "Avenida Antonio Berutti",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Reservorios Oeste",
+        "cota_fabdem_m": 18.51
       },
       "geometry": {
         "type": "Point",
@@ -3790,7 +4070,9 @@
         "subtipo": "kindergarten",
         "nombre": "Jardín de Infantes 33 Juana Paula Manso",
         "direccion": "Edmundo Rosas",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Reservorios Oeste",
+        "cota_fabdem_m": 18.54
       },
       "geometry": {
         "type": "Point",
@@ -3808,7 +4090,9 @@
         "subtipo": "school",
         "nombre": "Escuela de Educación Secundaria 3159 Moseñor Alfonso Durán",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Guadalupe",
+        "cota_fabdem_m": 16.33
       },
       "geometry": {
         "type": "Point",
@@ -3826,7 +4110,9 @@
         "subtipo": "clinic",
         "nombre": "Rizzoli",
         "direccion": "Avenida Facundo Zuviría",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 18.05
       },
       "geometry": {
         "type": "Point",
@@ -3844,7 +4130,9 @@
         "subtipo": "hospital",
         "nombre": "Sanatorio Americano",
         "direccion": "Cándido Pujato",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Garay",
+        "cota_fabdem_m": 18.83
       },
       "geometry": {
         "type": "Point",
@@ -3862,7 +4150,9 @@
         "subtipo": "kindergarten",
         "nombre": "Huellitas",
         "direccion": "San Jerónimo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 18.57
       },
       "geometry": {
         "type": "Point",
@@ -3880,7 +4170,9 @@
         "subtipo": "school",
         "nombre": "Escuela 4089 Uan Enrique Pestalozzi",
         "direccion": "Balcarce",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 16.81
       },
       "geometry": {
         "type": "Point",
@@ -3898,7 +4190,9 @@
         "subtipo": "school",
         "nombre": "Centro de Educación Física 33",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 16.79
       },
       "geometry": {
         "type": "Point",
@@ -3916,7 +4210,9 @@
         "subtipo": "school",
         "nombre": "Escuela Técnica 614",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 16.65
       },
       "geometry": {
         "type": "Point",
@@ -3934,7 +4230,9 @@
         "subtipo": "kindergarten",
         "nombre": "Rosario Vera Peñaloza",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 18.55
       },
       "geometry": {
         "type": "Point",
@@ -3952,7 +4250,9 @@
         "subtipo": "school",
         "nombre": "Escuela 1412 Nuestra Señora De La Paz",
         "direccion": "Cornelio Saavedra",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 16.57
       },
       "geometry": {
         "type": "Point",
@@ -3970,7 +4270,9 @@
         "subtipo": "school",
         "nombre": "Escuela 1298 Señor Y Virgen Del Milagro",
         "direccion": "San Martín",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.7
       },
       "geometry": {
         "type": "Point",
@@ -3988,7 +4290,9 @@
         "subtipo": "school",
         "nombre": "Jardín De Infantes 163 Juan Carlos Nava",
         "direccion": "Solís",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 16.89
       },
       "geometry": {
         "type": "Point",
@@ -4006,7 +4310,9 @@
         "subtipo": "clinic",
         "nombre": "Centro de Salud Adelina Oeste Doctora Débora Ferrandini",
         "direccion": "Corrientes",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.39
       },
       "geometry": {
         "type": "Point",
@@ -4024,7 +4330,9 @@
         "subtipo": "clinic",
         "nombre": "Centro De Salud San Cayetano",
         "direccion": "Pasaje 16",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.09
       },
       "geometry": {
         "type": "Point",
@@ -4042,7 +4350,9 @@
         "subtipo": "clinic",
         "nombre": "Centro De Salud Lisandro De La Torre",
         "direccion": "Agustín Delgado",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.02
       },
       "geometry": {
         "type": "Point",
@@ -4060,7 +4370,9 @@
         "subtipo": "clinic",
         "nombre": "Comunidad Terapéutica Nuestra Señora Del Pilar",
         "direccion": "Avenida Ejército Argentino",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.55
       },
       "geometry": {
         "type": "Point",
@@ -4078,7 +4390,9 @@
         "subtipo": "clinic",
         "nombre": "Centro De Salud Juan Domingo Peron",
         "direccion": "7 de Marzo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 16.96
       },
       "geometry": {
         "type": "Point",
@@ -4096,7 +4410,9 @@
         "subtipo": "clinic",
         "nombre": "Centro De Salud Presidente Raul Ricardo Alfonsín",
         "direccion": "Roverano",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.1
       },
       "geometry": {
         "type": "Point",
@@ -4114,7 +4430,9 @@
         "subtipo": "clinic",
         "nombre": "Centro De Salud Eva Duarte De Perón",
         "direccion": "Córdoba",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 16.05
       },
       "geometry": {
         "type": "Point",
@@ -4132,7 +4450,9 @@
         "subtipo": "school",
         "nombre": "Escuela 1297 Presidente Perón",
         "direccion": "Los Paraísos",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.41
       },
       "geometry": {
         "type": "Point",
@@ -4150,7 +4470,9 @@
         "subtipo": "school",
         "nombre": "Escuela Pilares",
         "direccion": "Calle 18",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 18.63
       },
       "geometry": {
         "type": "Point",
@@ -4168,7 +4490,9 @@
         "subtipo": "school",
         "nombre": "Escuela Secundaria Pilares",
         "direccion": "Calle 18",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 18.73
       },
       "geometry": {
         "type": "Point",
@@ -4186,7 +4510,9 @@
         "subtipo": "police",
         "nombre": "Destacamento 12mo de Empalme San Carlos",
         "direccion": "San Martín",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Reservorio Norte",
+        "cota_fabdem_m": 18.88
       },
       "geometry": {
         "type": "Point",
@@ -4204,7 +4530,9 @@
         "subtipo": "doctors",
         "nombre": "Consultorios Gonzalez Portier",
         "direccion": "San Martín",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 19.52
       },
       "geometry": {
         "type": "Point",
@@ -4222,7 +4550,9 @@
         "subtipo": "clinic",
         "nombre": "Unidad de Terapia Oncológica",
         "direccion": "Saavedra",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 19.47
       },
       "geometry": {
         "type": "Point",
@@ -4240,7 +4570,9 @@
         "subtipo": "clinic",
         "nombre": "Kinerv",
         "direccion": "San Jerónimo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 18.63
       },
       "geometry": {
         "type": "Point",
@@ -4258,7 +4590,9 @@
         "subtipo": "police",
         "nombre": "Policía-Seccional 1°",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Centenario",
+        "cota_fabdem_m": 16.54
       },
       "geometry": {
         "type": "Point",
@@ -4276,7 +4610,9 @@
         "subtipo": "police",
         "nombre": "Policía-Seccional 2°",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Centenario",
+        "cota_fabdem_m": 18.94
       },
       "geometry": {
         "type": "Point",
@@ -4294,7 +4630,9 @@
         "subtipo": "police",
         "nombre": "Centro Territorial de Deduncias",
         "direccion": "Avenida Aristóbulo del Valle",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Guadalupe",
+        "cota_fabdem_m": 18.66
       },
       "geometry": {
         "type": "Point",
@@ -4312,7 +4650,9 @@
         "subtipo": "school",
         "nombre": "Escuela 39 9 De Julio",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Colastiné / Rincón",
+        "cota_fabdem_m": 17.66
       },
       "geometry": {
         "type": "Point",
@@ -4330,7 +4670,9 @@
         "subtipo": "school",
         "nombre": "Escuela un mundo especial",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Colastiné / Rincón",
+        "cota_fabdem_m": 16.73
       },
       "geometry": {
         "type": "Point",
@@ -4348,7 +4690,9 @@
         "subtipo": "doctors",
         "nombre": "Soini",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Garay",
+        "cota_fabdem_m": 19.18
       },
       "geometry": {
         "type": "Point",
@@ -4366,7 +4710,9 @@
         "subtipo": "clinic",
         "nombre": "Grupo MIT",
         "direccion": "Avenida Gobernador Freyre",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Garay",
+        "cota_fabdem_m": 18.74
       },
       "geometry": {
         "type": "Point",
@@ -4384,7 +4730,9 @@
         "subtipo": "clinic",
         "nombre": "Centro Médico Jerárquicos",
         "direccion": "Estanislao López",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Monte Vera",
+        "cota_fabdem_m": 17.84
       },
       "geometry": {
         "type": "Point",
@@ -4402,7 +4750,9 @@
         "subtipo": "hospital",
         "nombre": "SAMCO",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Monte Vera",
+        "cota_fabdem_m": 17.39
       },
       "geometry": {
         "type": "Point",
@@ -4418,9 +4768,11 @@
         "osm_id": "node/12560279609",
         "categoria": "emergencia",
         "subtipo": "police",
-        "nombre": "police (sin nombre)",
+        "nombre": "Comisaría / Destacamento Policial s/n (zona Monte Vera)",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Monte Vera",
+        "cota_fabdem_m": 17.39
       },
       "geometry": {
         "type": "Point",
@@ -4438,7 +4790,9 @@
         "subtipo": "school",
         "nombre": "Escuela Técnica 324",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Monte Vera",
+        "cota_fabdem_m": 17.32
       },
       "geometry": {
         "type": "Point",
@@ -4456,7 +4810,9 @@
         "subtipo": "doctors",
         "nombre": "Grupo MIT",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santa Rosa de Lima",
+        "cota_fabdem_m": 17.27
       },
       "geometry": {
         "type": "Point",
@@ -4474,7 +4830,9 @@
         "subtipo": "college",
         "nombre": "Facultad de Ciencias Económicas de la Universidad Nacional del Litoral",
         "direccion": "Moreno",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 19.02
       },
       "geometry": {
         "type": "Point",
@@ -4492,7 +4850,9 @@
         "subtipo": "school",
         "nombre": "CREI Extensión Áulica",
         "direccion": "Mendoza",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 19.7
       },
       "geometry": {
         "type": "Point",
@@ -4510,7 +4870,9 @@
         "subtipo": "school",
         "nombre": "Escuela de Educación Secundaria Orientada 440  Simón de Iriondo",
         "direccion": "Mendoza",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 19.68
       },
       "geometry": {
         "type": "Point",
@@ -4528,7 +4890,9 @@
         "subtipo": "school",
         "nombre": "Escuela de Educación Secundaria Orientada 441 Doctor victoriano montes",
         "direccion": "Mendoza",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 19.69
       },
       "geometry": {
         "type": "Point",
@@ -4546,7 +4910,9 @@
         "subtipo": "school",
         "nombre": "Escuela Especial 2117 Valentin Haüy de Discapacidad Visuales",
         "direccion": "Primera Junta",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 19.69
       },
       "geometry": {
         "type": "Point",
@@ -4564,7 +4930,9 @@
         "subtipo": "school",
         "nombre": "Escuela Provincial de Musica 9902 C.R.e.I",
         "direccion": "Primera Junta",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 19.58
       },
       "geometry": {
         "type": "Point",
@@ -4582,7 +4950,9 @@
         "subtipo": "kindergarten",
         "nombre": "Jardín de Infantes 246",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 16.4
       },
       "geometry": {
         "type": "Point",
@@ -4600,7 +4970,9 @@
         "subtipo": "clinic",
         "nombre": "Centro de Salud Barrio las Delicias",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Guadalupe",
+        "cota_fabdem_m": 16.9
       },
       "geometry": {
         "type": "Point",
@@ -4613,30 +4985,14 @@
     {
       "type": "Feature",
       "properties": {
-        "osm_id": "node/14159828201",
-        "categoria": "escuela",
-        "subtipo": "school",
-        "nombre": "Aula Verde",
-        "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -60.560193,
-          -31.710522
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "osm_id": "way/190344778",
         "categoria": "salud",
         "subtipo": "hospital",
         "nombre": "Centro de Salud Nuevo Horizonte",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Cabaña Leiva",
+        "cota_fabdem_m": 18.01
       },
       "geometry": {
         "type": "Point",
@@ -4654,7 +5010,9 @@
         "subtipo": "school",
         "nombre": "Inmaculada Concepción",
         "direccion": "San Martín",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque del Sur",
+        "cota_fabdem_m": 19.63
       },
       "geometry": {
         "type": "Point",
@@ -4672,7 +5030,9 @@
         "subtipo": "school",
         "nombre": "Ateneo Inmaculada",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque del Sur",
+        "cota_fabdem_m": 18.02
       },
       "geometry": {
         "type": "Point",
@@ -4690,7 +5050,9 @@
         "subtipo": "school",
         "nombre": "Escuela de la Nueva Cultura La Cecilia",
         "direccion": "RP5",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Monte Vera",
+        "cota_fabdem_m": 18.89
       },
       "geometry": {
         "type": "Point",
@@ -4708,7 +5070,9 @@
         "subtipo": "school",
         "nombre": "La Salle Jobson",
         "direccion": "Pasaje Hermanos de La Salle",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 20.69
       },
       "geometry": {
         "type": "Point",
@@ -4726,7 +5090,9 @@
         "subtipo": "university",
         "nombre": "Universidad Nacional del Litoral (Rectorado)",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 18.79
       },
       "geometry": {
         "type": "Point",
@@ -4744,7 +5110,9 @@
         "subtipo": "school",
         "nombre": "Escuela Tecnica 527",
         "direccion": "Avenida Blas Parera",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Cabaña Leiva",
+        "cota_fabdem_m": 18.18
       },
       "geometry": {
         "type": "Point",
@@ -4762,7 +5130,9 @@
         "subtipo": "university",
         "nombre": "Facultad de Ciencias Jurídicas y Sociales de la Universidad Nacional del Litoral",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 18.66
       },
       "geometry": {
         "type": "Point",
@@ -4780,7 +5150,9 @@
         "subtipo": "fire_station",
         "nombre": "Agrupacion Bomberos Zapadores Santa Fe",
         "direccion": "9 de Julio",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 19.64
       },
       "geometry": {
         "type": "Point",
@@ -4798,7 +5170,9 @@
         "subtipo": "school",
         "nombre": "IPEI",
         "direccion": "Avenida López y Planes",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Garay",
+        "cota_fabdem_m": 18.12
       },
       "geometry": {
         "type": "Point",
@@ -4816,7 +5190,9 @@
         "subtipo": "police",
         "nombre": "Seccional 3ra",
         "direccion": "General Juan Lavalle",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 21.22
       },
       "geometry": {
         "type": "Point",
@@ -4834,7 +5210,9 @@
         "subtipo": "hospital",
         "nombre": "Centro de Especialidades Médicas de Santa Fe \"Héroes de Malvinas\"",
         "direccion": "Avenida 27 de Febrero",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 16.95
       },
       "geometry": {
         "type": "Point",
@@ -4850,9 +5228,11 @@
         "osm_id": "way/338395767",
         "categoria": "escuela",
         "subtipo": "school",
-        "nombre": "school (sin nombre)",
+        "nombre": "Escuela s/n (zona Las Flores / Hipódromo)",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Las Flores / Hipódromo",
+        "cota_fabdem_m": 17.66
       },
       "geometry": {
         "type": "Point",
@@ -4870,7 +5250,9 @@
         "subtipo": "school",
         "nombre": "Escuela Particular Incorporada 1414 San Arnoldo Janssen",
         "direccion": "Avenida Vera Peñaloza",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Las Flores / Hipódromo",
+        "cota_fabdem_m": 17.43
       },
       "geometry": {
         "type": "Point",
@@ -4888,7 +5270,9 @@
         "subtipo": "school",
         "nombre": "Escuela Especial 2026 Jardín de la Esperanza",
         "direccion": "Avenida Vera Peñaloza",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Las Flores / Hipódromo",
+        "cota_fabdem_m": 18.15
       },
       "geometry": {
         "type": "Point",
@@ -4906,7 +5290,9 @@
         "subtipo": "school",
         "nombre": "Escuela de Educación Técnico Profesional 478 Doctor Nicolás Avellaneda",
         "direccion": "Calcena",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 21.17
       },
       "geometry": {
         "type": "Point",
@@ -4924,7 +5310,9 @@
         "subtipo": "school",
         "nombre": "Escuela 15 Juan de Garay",
         "direccion": "Sarmiento",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 16.83
       },
       "geometry": {
         "type": "Point",
@@ -4940,9 +5328,11 @@
         "osm_id": "way/363328890",
         "categoria": "emergencia",
         "subtipo": "police",
-        "nombre": "police (sin nombre)",
+        "nombre": "Comisaría / Destacamento Policial s/n (zona Puerto)",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Puerto",
+        "cota_fabdem_m": 16.51
       },
       "geometry": {
         "type": "Point",
@@ -4960,7 +5350,9 @@
         "subtipo": "fire_station",
         "nombre": "Bomberos voluntarios Las Flores",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Loyola / Los Troncos",
+        "cota_fabdem_m": 18.09
       },
       "geometry": {
         "type": "Point",
@@ -4978,7 +5370,9 @@
         "subtipo": "police",
         "nombre": "Subcomisaría 14",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Loyola / Los Troncos",
+        "cota_fabdem_m": 18.09
       },
       "geometry": {
         "type": "Point",
@@ -4996,7 +5390,9 @@
         "subtipo": "school",
         "nombre": "Escuela Nº 508 Cecilia Grierson",
         "direccion": "Valentín Alsina",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Loyola / Los Troncos",
+        "cota_fabdem_m": 17.6
       },
       "geometry": {
         "type": "Point",
@@ -5014,7 +5410,9 @@
         "subtipo": "hospital",
         "nombre": "Sanatorio Garay",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 18.68
       },
       "geometry": {
         "type": "Point",
@@ -5032,7 +5430,9 @@
         "subtipo": "police",
         "nombre": "Seccional 1",
         "direccion": "Primera Junta",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 20.11
       },
       "geometry": {
         "type": "Point",
@@ -5050,7 +5450,9 @@
         "subtipo": "police",
         "nombre": "Seccional 2da",
         "direccion": "General López",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Centenario",
+        "cota_fabdem_m": 18.88
       },
       "geometry": {
         "type": "Point",
@@ -5068,7 +5470,9 @@
         "subtipo": "police",
         "nombre": "Seccional Cuarta",
         "direccion": "Tucumán",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Garay",
+        "cota_fabdem_m": 18.84
       },
       "geometry": {
         "type": "Point",
@@ -5086,7 +5490,9 @@
         "subtipo": "police",
         "nombre": "Seccional 5ta",
         "direccion": "Salvador del Carril",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 19.75
       },
       "geometry": {
         "type": "Point",
@@ -5104,7 +5510,9 @@
         "subtipo": "police",
         "nombre": "Seccional 6ta",
         "direccion": "Avenida López y Planes",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Garay",
+        "cota_fabdem_m": 18.19
       },
       "geometry": {
         "type": "Point",
@@ -5122,7 +5530,9 @@
         "subtipo": "police",
         "nombre": "Seccional 7ma",
         "direccion": "12 de Octubre",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Loyola / Los Troncos",
+        "cota_fabdem_m": 18.38
       },
       "geometry": {
         "type": "Point",
@@ -5140,7 +5550,9 @@
         "subtipo": "police",
         "nombre": "Seccional 8va",
         "direccion": "Avenida General Paz",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Guadalupe",
+        "cota_fabdem_m": 17.81
       },
       "geometry": {
         "type": "Point",
@@ -5158,7 +5570,9 @@
         "subtipo": "police",
         "nombre": "Seccional 9na",
         "direccion": "Avenida Facundo Zuviría",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 17.95
       },
       "geometry": {
         "type": "Point",
@@ -5176,7 +5590,9 @@
         "subtipo": "police",
         "nombre": "Seccional 10ma",
         "direccion": "Estanislao Zeballos",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Las Flores / Hipódromo",
+        "cota_fabdem_m": 17.43
       },
       "geometry": {
         "type": "Point",
@@ -5194,7 +5610,9 @@
         "subtipo": "school",
         "nombre": "Complejo Educativo \"Luis María Monti\"",
         "direccion": "Avenida Juan José Paso",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Centenario",
+        "cota_fabdem_m": 18.82
       },
       "geometry": {
         "type": "Point",
@@ -5212,7 +5630,9 @@
         "subtipo": "school",
         "nombre": "Escuela de Nivel Primario de la Universidad Nacional del Litoral",
         "direccion": "9 de Julio",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 19.57
       },
       "geometry": {
         "type": "Point",
@@ -5230,7 +5650,9 @@
         "subtipo": "hospital",
         "nombre": "Hospital Italiano",
         "direccion": "Doctor Zavalla",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Garay",
+        "cota_fabdem_m": 18.17
       },
       "geometry": {
         "type": "Point",
@@ -5248,7 +5670,9 @@
         "subtipo": "kindergarten",
         "nombre": "Jardín Jesús Sacramentado",
         "direccion": "Ricardo Aldao",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 18.42
       },
       "geometry": {
         "type": "Point",
@@ -5266,7 +5690,9 @@
         "subtipo": "school",
         "nombre": "Escuela Macagno",
         "direccion": "Pedro de Vega",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 18.63
       },
       "geometry": {
         "type": "Point",
@@ -5284,7 +5710,9 @@
         "subtipo": "school",
         "nombre": "Escuela 1304 Paz, pan y trabajo",
         "direccion": "San Jerónimo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque del Sur",
+        "cota_fabdem_m": 20.02
       },
       "geometry": {
         "type": "Point",
@@ -5302,7 +5730,9 @@
         "subtipo": "school",
         "nombre": "Escuela 6341 Juan de Garay",
         "direccion": "Avenida Blas Parera",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Loyola / Los Troncos",
+        "cota_fabdem_m": 17.87
       },
       "geometry": {
         "type": "Point",
@@ -5320,7 +5750,9 @@
         "subtipo": "school",
         "nombre": "Escuela Primaria 49 Doctor Agustín Araya",
         "direccion": "Avenida Richieri",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 16.68
       },
       "geometry": {
         "type": "Point",
@@ -5338,7 +5770,9 @@
         "subtipo": "kindergarten",
         "nombre": "Barranquitas Sur",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Barranquitas",
+        "cota_fabdem_m": 14.61
       },
       "geometry": {
         "type": "Point",
@@ -5356,7 +5790,9 @@
         "subtipo": "school",
         "nombre": "Escuela Falucho",
         "direccion": "Avenida López y Planes",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Garay",
+        "cota_fabdem_m": 17.94
       },
       "geometry": {
         "type": "Point",
@@ -5374,7 +5810,9 @@
         "subtipo": "school",
         "nombre": "Colegio Don Bosco Santa Fe",
         "direccion": "Avenida Facundo Zuviría",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Las Flores / Hipódromo",
+        "cota_fabdem_m": 17.39
       },
       "geometry": {
         "type": "Point",
@@ -5392,7 +5830,9 @@
         "subtipo": "hospital",
         "nombre": "Hospital José Bernardo Iturraspe",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Reservorios Oeste",
+        "cota_fabdem_m": 18.21
       },
       "geometry": {
         "type": "Point",
@@ -5410,7 +5850,9 @@
         "subtipo": "kindergarten",
         "nombre": "Jardín de Infantes 1263 Maria Goretti",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Garay",
+        "cota_fabdem_m": 17.95
       },
       "geometry": {
         "type": "Point",
@@ -5428,7 +5870,9 @@
         "subtipo": "school",
         "nombre": "Escuela Superior de Enfermería \"Rosa Carmen All\"",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 19.49
       },
       "geometry": {
         "type": "Point",
@@ -5446,7 +5890,9 @@
         "subtipo": "school",
         "nombre": "jardín de infantes Nº 221 Doctor René Favarolo",
         "direccion": "Avenida Blas Parera",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Cabaña Leiva",
+        "cota_fabdem_m": 18.24
       },
       "geometry": {
         "type": "Point",
@@ -5464,7 +5910,9 @@
         "subtipo": "school",
         "nombre": "Escuela de Vuelo",
         "direccion": "Bulevar Gálvez",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 19.89
       },
       "geometry": {
         "type": "Point",
@@ -5482,7 +5930,9 @@
         "subtipo": "kindergarten",
         "nombre": "Jardín de Infantes Jean Piaget No. 3",
         "direccion": "Avenida Aristóbulo del Valle",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 19.0
       },
       "geometry": {
         "type": "Point",
@@ -5500,7 +5950,9 @@
         "subtipo": "school",
         "nombre": "Escuela \"W. Escalante\" No. 465",
         "direccion": "Agustin Delgado",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 18.1
       },
       "geometry": {
         "type": "Point",
@@ -5518,7 +5970,9 @@
         "subtipo": "clinic",
         "nombre": "Centro Medico Verna",
         "direccion": "Hernandarias",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Guadalupe",
+        "cota_fabdem_m": 18.5
       },
       "geometry": {
         "type": "Point",
@@ -5536,7 +5990,9 @@
         "subtipo": "doctors",
         "nombre": "Clínica del Valle",
         "direccion": "Avenida Aristóbulo del Valle",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 19.1
       },
       "geometry": {
         "type": "Point",
@@ -5554,7 +6010,9 @@
         "subtipo": "school",
         "nombre": "Escuela Especial N° 2008 Dr. Juan Vazquez",
         "direccion": "Salvador del Carril",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 18.43
       },
       "geometry": {
         "type": "Point",
@@ -5572,7 +6030,9 @@
         "subtipo": "school",
         "nombre": "E.E.T N° 479 Doctor Manuel de Pizarro",
         "direccion": "Avenida General Paz",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 19.62
       },
       "geometry": {
         "type": "Point",
@@ -5590,7 +6050,9 @@
         "subtipo": "school",
         "nombre": "Auto Escuela",
         "direccion": "1 de Mayo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 19.58
       },
       "geometry": {
         "type": "Point",
@@ -5608,7 +6070,9 @@
         "subtipo": "school",
         "nombre": "E.E.T. No 480 Manuel Belgrano",
         "direccion": "Urquiza",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 19.08
       },
       "geometry": {
         "type": "Point",
@@ -5626,7 +6090,9 @@
         "subtipo": "school",
         "nombre": "Escuela de Enseñamza Media No 261 José Hernandez",
         "direccion": "General López",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Centenario",
+        "cota_fabdem_m": 19.1
       },
       "geometry": {
         "type": "Point",
@@ -5642,9 +6108,11 @@
         "osm_id": "way/556852010",
         "categoria": "emergencia",
         "subtipo": "police",
-        "nombre": "police (sin nombre)",
+        "nombre": "Comisaría / Destacamento Policial (Iturraspe, Barranquitas)",
         "direccion": "Iturraspe",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Barranquitas",
+        "cota_fabdem_m": 14.85
       },
       "geometry": {
         "type": "Point",
@@ -5662,7 +6130,9 @@
         "subtipo": "school",
         "nombre": "Podiatry College of the Province of Santa Fe",
         "direccion": "Pasaje Liniers",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 18.82
       },
       "geometry": {
         "type": "Point",
@@ -5680,7 +6150,9 @@
         "subtipo": "school",
         "nombre": "Escuela 534 República de Bolivia",
         "direccion": "Avenida Facundo Zuviría",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 18.35
       },
       "geometry": {
         "type": "Point",
@@ -5698,7 +6170,9 @@
         "subtipo": "hospital",
         "nombre": "Hospital Protomédico Manuel Rodríguez",
         "direccion": "Ruta Provincial 5",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Cabaña Leiva",
+        "cota_fabdem_m": 19.51
       },
       "geometry": {
         "type": "Point",
@@ -5716,7 +6190,9 @@
         "subtipo": "school",
         "nombre": "Escuela 2 Manuel Belgrano",
         "direccion": "Amenabar",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque del Sur",
+        "cota_fabdem_m": 20.36
       },
       "geometry": {
         "type": "Point",
@@ -5734,7 +6210,9 @@
         "subtipo": "school",
         "nombre": "Escuela Nº 1042 Sagrada Familia",
         "direccion": "4 de Enero",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque del Sur",
+        "cota_fabdem_m": 20.06
       },
       "geometry": {
         "type": "Point",
@@ -5752,7 +6230,9 @@
         "subtipo": "hospital",
         "nombre": "Sayago",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Reservorios Oeste",
+        "cota_fabdem_m": 18.14
       },
       "geometry": {
         "type": "Point",
@@ -5770,7 +6250,9 @@
         "subtipo": "hospital",
         "nombre": "Sayago",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Reservorios Oeste",
+        "cota_fabdem_m": 18.07
       },
       "geometry": {
         "type": "Point",
@@ -5788,7 +6270,9 @@
         "subtipo": "hospital",
         "nombre": "Sayago",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Las Flores / Hipódromo",
+        "cota_fabdem_m": 18.02
       },
       "geometry": {
         "type": "Point",
@@ -5806,7 +6290,9 @@
         "subtipo": "hospital",
         "nombre": "Sayago",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Las Flores / Hipódromo",
+        "cota_fabdem_m": 17.97
       },
       "geometry": {
         "type": "Point",
@@ -5824,7 +6310,9 @@
         "subtipo": "hospital",
         "nombre": "Sayago",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Las Flores / Hipódromo",
+        "cota_fabdem_m": 17.89
       },
       "geometry": {
         "type": "Point",
@@ -5842,7 +6330,9 @@
         "subtipo": "school",
         "nombre": "Liceo Municipal “Antonio Fuentes del Arco”",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 20.18
       },
       "geometry": {
         "type": "Point",
@@ -5860,7 +6350,9 @@
         "subtipo": "clinic",
         "nombre": "Clinica Laureano Maradona",
         "direccion": "Bulevar Pellegrini",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 18.88
       },
       "geometry": {
         "type": "Point",
@@ -5878,7 +6370,9 @@
         "subtipo": "school",
         "nombre": "Colegio Ntra Sra de Fátima",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Garay",
+        "cota_fabdem_m": 18.16
       },
       "geometry": {
         "type": "Point",
@@ -5894,9 +6388,11 @@
         "osm_id": "way/709316612",
         "categoria": "escuela",
         "subtipo": "school",
-        "nombre": "school (sin nombre)",
+        "nombre": "Escuela s/n (zona Reservorios Oeste)",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Reservorios Oeste",
+        "cota_fabdem_m": 18.25
       },
       "geometry": {
         "type": "Point",
@@ -5912,9 +6408,11 @@
         "osm_id": "way/709316613",
         "categoria": "emergencia",
         "subtipo": "police",
-        "nombre": "police (sin nombre)",
+        "nombre": "Comisaría / Destacamento Policial s/n (zona Reservorios Oeste)",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Reservorios Oeste",
+        "cota_fabdem_m": 18.23
       },
       "geometry": {
         "type": "Point",
@@ -5932,7 +6430,9 @@
         "subtipo": "school",
         "nombre": "Escuela 1321 Doctor Agustín Zapata Gollan",
         "direccion": "Bernard",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Reservorios Oeste",
+        "cota_fabdem_m": 18.2
       },
       "geometry": {
         "type": "Point",
@@ -5950,7 +6450,9 @@
         "subtipo": "school",
         "nombre": "Escuela 1190 IV Centenario de Santa Fe",
         "direccion": "Bulevar Gálvez",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 21.28
       },
       "geometry": {
         "type": "Point",
@@ -5968,7 +6470,9 @@
         "subtipo": "college",
         "nombre": "Edificio Etica Unl",
         "direccion": "Facundo Zuviría",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 18.83
       },
       "geometry": {
         "type": "Point",
@@ -5986,7 +6490,9 @@
         "subtipo": "hospital",
         "nombre": "Radio en la Mira",
         "direccion": "Avenida Blas Parera",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Loyola / Los Troncos",
+        "cota_fabdem_m": 18.28
       },
       "geometry": {
         "type": "Point",
@@ -6004,7 +6510,9 @@
         "subtipo": "hospital",
         "nombre": "Hospital General Polivalente Doctor Mira Y López",
         "direccion": "Avenida Blas Parera",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Loyola / Los Troncos",
+        "cota_fabdem_m": 18.45
       },
       "geometry": {
         "type": "Point",
@@ -6022,7 +6530,9 @@
         "subtipo": "school",
         "nombre": "Colegio Nuestra Señora del Huerto",
         "direccion": "San Jerónimo",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 20.62
       },
       "geometry": {
         "type": "Point",
@@ -6040,7 +6550,9 @@
         "subtipo": "fire_station",
         "nombre": "Salvamento y Extinción (SEI)",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.19
       },
       "geometry": {
         "type": "Point",
@@ -6058,7 +6570,9 @@
         "subtipo": "police",
         "nombre": "Guardia PSA",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 17.25
       },
       "geometry": {
         "type": "Point",
@@ -6076,7 +6590,9 @@
         "subtipo": "school",
         "nombre": "E.E.T. Nro 637 Domingo Cullen",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 20.48
       },
       "geometry": {
         "type": "Point",
@@ -6094,7 +6610,9 @@
         "subtipo": "clinic",
         "nombre": "Diagnóstico por Imágenes",
         "direccion": "9 de Julio",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 19.71
       },
       "geometry": {
         "type": "Point",
@@ -6112,7 +6630,9 @@
         "subtipo": "school",
         "nombre": "Escuela de Educación Secundaria Orientada 8002 San José",
         "direccion": "Patricio Cullen",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Guadalupe",
+        "cota_fabdem_m": 18.48
       },
       "geometry": {
         "type": "Point",
@@ -6130,7 +6650,9 @@
         "subtipo": "school",
         "nombre": "Escuela de Educación Técnico Profesional 655 Paula Albarracín De Sarmiento",
         "direccion": "Antonia Godoy",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Guadalupe",
+        "cota_fabdem_m": 18.3
       },
       "geometry": {
         "type": "Point",
@@ -6146,9 +6668,11 @@
         "osm_id": "way/858601750",
         "categoria": "escuela",
         "subtipo": "school",
-        "nombre": "school (sin nombre)",
+        "nombre": "Escuela s/n (zona Loyola / Los Troncos)",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Loyola / Los Troncos",
+        "cota_fabdem_m": 17.81
       },
       "geometry": {
         "type": "Point",
@@ -6164,9 +6688,11 @@
         "osm_id": "way/858601752",
         "categoria": "emergencia",
         "subtipo": "police",
-        "nombre": "police (sin nombre)",
+        "nombre": "Comisaría / Destacamento Policial s/n (zona Reservorios Oeste)",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Reservorios Oeste",
+        "cota_fabdem_m": 17.67
       },
       "geometry": {
         "type": "Point",
@@ -6182,9 +6708,11 @@
         "osm_id": "way/858601758",
         "categoria": "escuela",
         "subtipo": "school",
-        "nombre": "school (sin nombre)",
+        "nombre": "Escuela s/n (zona Reservorios Oeste)",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Reservorios Oeste",
+        "cota_fabdem_m": 18.01
       },
       "geometry": {
         "type": "Point",
@@ -6202,7 +6730,9 @@
         "subtipo": "clinic",
         "nombre": "Centro de Ortopedia y Traumatología - Centro de Diagnóstico y Rehabilitación",
         "direccion": "San Martín",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 19.63
       },
       "geometry": {
         "type": "Point",
@@ -6220,7 +6750,9 @@
         "subtipo": "hospital",
         "nombre": "Hospital Doctor José María Cullen",
         "direccion": "Avenida Gobernador Freyre",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Microcentro",
+        "cota_fabdem_m": 19.7
       },
       "geometry": {
         "type": "Point",
@@ -6238,7 +6770,9 @@
         "subtipo": "school",
         "nombre": "Escuela 25 Doctor Luis María Drago",
         "direccion": "Avenida General Paz",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 20.3
       },
       "geometry": {
         "type": "Point",
@@ -6256,7 +6790,9 @@
         "subtipo": "hospital",
         "nombre": "Centro de Salud San Martín",
         "direccion": "Alberti",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Las Flores / Hipódromo",
+        "cota_fabdem_m": 17.33
       },
       "geometry": {
         "type": "Point",
@@ -6274,7 +6810,9 @@
         "subtipo": "school",
         "nombre": "Escuela 633 Centenario de Bolivia",
         "direccion": "Avenida Blas Parera",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Las Flores / Hipódromo",
+        "cota_fabdem_m": 17.77
       },
       "geometry": {
         "type": "Point",
@@ -6292,7 +6830,9 @@
         "subtipo": "hospital",
         "nombre": "Hospital de Niños Dr. Orlando Alassia",
         "direccion": "Mendoza",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santa Rosa de Lima",
+        "cota_fabdem_m": 15.59
       },
       "geometry": {
         "type": "Point",
@@ -6308,9 +6848,11 @@
         "osm_id": "way/1109167251",
         "categoria": "escuela",
         "subtipo": "kindergarten",
-        "nombre": "kindergarten (sin nombre)",
+        "nombre": "Jardín de Infantes s/n (zona Santo Tomé)",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Santo Tomé",
+        "cota_fabdem_m": 16.86
       },
       "geometry": {
         "type": "Point",
@@ -6328,7 +6870,9 @@
         "subtipo": "police",
         "nombre": "Comisaría 16va",
         "direccion": "Avenida Mitre",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Monte Vera",
+        "cota_fabdem_m": 19.22
       },
       "geometry": {
         "type": "Point",
@@ -6346,7 +6890,9 @@
         "subtipo": "clinic",
         "nombre": "R I A M Sanatorio La Merced",
         "direccion": "3 de Febrero",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Centenario",
+        "cota_fabdem_m": 16.19
       },
       "geometry": {
         "type": "Point",
@@ -6364,7 +6910,9 @@
         "subtipo": "school",
         "nombre": "Escuela 29 Sgto Pédro Bustamante",
         "direccion": "Aristóbulo del Valle",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 18.88
       },
       "geometry": {
         "type": "Point",
@@ -6382,7 +6930,9 @@
         "subtipo": "clinic",
         "nombre": "I.O.R.L. S.A.",
         "direccion": "Santiago del Estero",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 19.6
       },
       "geometry": {
         "type": "Point",
@@ -6400,7 +6950,9 @@
         "subtipo": "hospital",
         "nombre": "Centro de Salud Barrio San José",
         "direccion": "Estanislao Zeballos",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Las Flores / Hipódromo",
+        "cota_fabdem_m": 17.3
       },
       "geometry": {
         "type": "Point",
@@ -6418,7 +6970,9 @@
         "subtipo": "school",
         "nombre": "Escuela de Enseñaza Media Julio Migno",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Alto Verde",
+        "cota_fabdem_m": 17.6
       },
       "geometry": {
         "type": "Point",
@@ -6436,7 +6990,9 @@
         "subtipo": "school",
         "nombre": "Mariano Moreno",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Candioti",
+        "cota_fabdem_m": 20.2
       },
       "geometry": {
         "type": "Point",
@@ -6454,7 +7010,9 @@
         "subtipo": "police",
         "nombre": "Seccional 11ra",
         "direccion": "Avenida Aristóbulo del Valle",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Parque Federal",
+        "cota_fabdem_m": 19.99
       },
       "geometry": {
         "type": "Point",
@@ -6472,7 +7030,9 @@
         "subtipo": "school",
         "nombre": "Universidad Catolica de Santa Fe",
         "direccion": "C. Echagüe",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Guadalupe",
+        "cota_fabdem_m": 18.74
       },
       "geometry": {
         "type": "Point",
@@ -6490,7 +7050,9 @@
         "subtipo": "school",
         "nombre": "Escuela Normal Superior n° 32 \"General San Martín\"",
         "direccion": "Saavedra",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Centenario",
+        "cota_fabdem_m": 18.99
       },
       "geometry": {
         "type": "Point",
@@ -6508,7 +7070,9 @@
         "subtipo": "university",
         "nombre": "Ciudad Universitaria",
         "direccion": "",
-        "fuente": "OpenStreetMap (Overpass API)"
+        "fuente": "OpenStreetMap (Overpass API)",
+        "barrio_cercano": "Alto Verde",
+        "cota_fabdem_m": 16.45
       },
       "geometry": {
         "type": "Point",

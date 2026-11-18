@@ -9,13 +9,13 @@ Visor topográfico 3D interactivo y análisis de acumulación hídrica para la c
 
 ## Qué incluye el visor 3D (`visor_3d_santa_fe.html`)
 
-* **Relieve 3D "suelo desnudo" (FABDEM V1-2 ~30 m):** reemplaza el MDE satelital anterior eliminando falsos pozos por techos/árboles y el salto vertical entre hojas IGN (`3160-26` / `3160-32`), con cotas ortométricas reales (Laguna Setúbal ~10,5 m; casco urbano ~17–20 m) y sombreado topográfico multidireccional.
-* **Datos en vivo (gratuitos):** consulta automática de alturas oficiales de ríos desde la API del **INA** (`alerta.ina.gob.ar/a5`, Puerto Santa Fe `series_id=30` y Río Salado en Santo Tomé `series_id=3044`) y pronóstico de lluvia a 48 h desde **Open-Meteo** (`api.open-meteo.com`).
+* **Relieve 3D "suelo desnudo" + hidrología D8 continua (FABDEM V1-2 ~30 m):** reemplaza el MDE satelital anterior eliminando falsos pozos por techos/árboles y la costura entre hojas IGN (`3160-26` / `3160-32` en `lat = -31,6666°`), con cotas ortométricas reales (Laguna Setúbal ~10,5 m; casco urbano ~17–20 m), llenado de depresiones Priority-Flood (`acumulacion_flujo_fabdem.tif`), red principal continua de norte a sur (`flujo_binario_fabdem.tif`) y sombreado topográfico multidireccional.
+* **Datos en vivo (gratuitos):** consulta automática de alturas oficiales de ríos desde la API del **INA** (`alerta.ina.gob.ar/a5`, Puerto Santa Fe `series_id=30` y Río Salado en Santo Tomé `series_id=3044`) y lluvia de últimas 24 h móviles + pronóstico a 48 h desde **Open-Meteo** (`api.open-meteo.com`).
 * **Escalas hidrométricas reales + anillo de defensas:** sliders calibrados en metros de escala oficial (Puerto SF: `0 = 8,42 m IGN`, Alerta 5,30 m / Evacuación 5,70 m · Salado Sto. Tomé: Alerta 4,70 m), modelando el anillo de defensa urbano y el "efecto tapón" sobre los desagües por gravedad.
-* **59 estaciones de bombeo** (`datos/vectores/estaciones_bombeo_aprox.geojson`, ubicación aproximada) con encendido/apagado para evaluar su impacto en subcuencas urbanas y reservorios.
-* **Equipamiento crítico y desagües abiertos (OpenStreetMap):**
-  * **362 puntos críticos** (`80` centros de salud/hospitales/CAPS, `236` escuelas/jardines/universidades, `46` bomberos/comisarías) con **indicadores en vivo de impacto (>10 cm)** y reporte en el diagnóstico puntual.
-  * **116 trazas** (`101` canales/zanjas a cielo abierto y `15` terraplenes/defensas) visibles como capa superpuesta en el 3D.
+* **59 estaciones de bombeo** (`datos/vectores/estaciones_bombeo_aprox.geojson`, con cota FABDEM y coordenadas normalizadas) con encendido/apagado en un clic para evaluar su impacto en subcuencas urbanas y reservorios.
+* **Equipamiento crítico y desagües abiertos (OpenStreetMap — Gran Santa Fe):**
+  * **354 puntos críticos curados del Gran Santa Fe** (`79` centros de salud/hospitales/CAPS, `230` escuelas/jardines/universidades, `45` bomberos/comisarías, excluyendo la margen entrerriana y enriquecidos con barrio y cota FABDEM) con **píldoras interactivas en vivo de impacto (>10 cm)** que al hacer clic listan los establecimientos afectados.
+  * **108 trazas** (`93` canales/zanjas a cielo abierto y `15` terraplenes/defensas, con longitud en metros y cota media FABDEM) visibles como capa superpuesta en el 3D e integradas al ruteo superficial.
 
 ---
 
