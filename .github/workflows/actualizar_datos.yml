@@ -1,0 +1,36 @@
+name: Actualizar datos en vivo (INA + Open-Meteo)
+
+on:
+  schedule:
+    - cron: "15 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Consultar INA y Open-Meteo
+        run: python scripts/actualizar_datos_vivo.py
+
+      - name: Guardar cambios si hubo actualización
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet datos_en_vivo.json; then
+            git add datos_en_vivo.json
+            git commit -m "chore: actualizar datos en vivo INA + Open-Meteo"
+            git push
+          else
+            echo "Sin cambios en datos_en_vivo.json"
+          fi

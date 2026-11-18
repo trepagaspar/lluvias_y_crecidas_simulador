@@ -122,6 +122,17 @@
   .lvl-warn { background: rgba(245,158,11,0.25); color: #fcd34d; }
   .lvl-crit { background: rgba(239,68,68,0.28); color: #fca5a5; }
 
+  .live-box {
+    background: rgba(14, 116, 144, 0.14); border: 1px solid rgba(56, 189, 248, 0.28);
+    border-radius: 9px; padding: 7px 9px; display: flex; flex-direction: column; gap: 4px;
+  }
+  .live-head { display: flex; align-items: center; justify-content: space-between; gap: 6px; font-size: 10.5px; font-weight: 700; color: #bae6fd; }
+  .live-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #f59e0b; margin-right: 5px; vertical-align: middle; }
+  .live-dot.ok { background: #10b981; box-shadow: 0 0 6px #10b981; }
+  .live-line { font-size: 10.5px; color: #e2e8f0; line-height: 1.32; display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .live-meta { font-size: 9.5px; color: #94a3b8; line-height: 1.25; }
+  .btn-mini { padding: 2px 7px; font-size: 10px; border-radius: 5px; background: rgba(30, 41, 59, 0.9); }
+
   input[type="range"] { width: 100%; accent-color: var(--accent); cursor: pointer; margin: 2px 0; }
   input[type="checkbox"] { accent-color: var(--accent); width: 14px; height: 14px; cursor: pointer; }
 
@@ -275,11 +286,24 @@
       <div>
         <div class="section-title">Escenarios rápidos</div>
         <div class="dual-row">
-          <button class="scenario-btn active" data-sc="hoy">🌊 Ríos hoy (5,80 m)<span>Paraná 5,8 · Salado 5,8</span></button>
-          <button class="scenario-btn" data-sc="rain_hoy">⛈️ Lluvia + Ríos hoy<span>90 mm · Ríos en 5,80 m</span></button>
+          <button class="scenario-btn active" data-sc="hoy">🌊 Ríos hoy<span id="sc-hoy-sub">Paraná 5,83 · Salado 5,84</span></button>
+          <button class="scenario-btn" data-sc="rain_hoy">⛈️ Lluvia + Ríos hoy<span id="sc-rhoy-sub">90 mm · Ríos hoy</span></button>
           <button class="scenario-btn" data-sc="rain90">🌧️ Lluvia normal<span>90 mm · Ríos en 3,30 m</span></button>
           <button class="scenario-btn" data-sc="combo">⚠️ Crecida extrema<span>120 mm · Ríos &gt;7,0 m</span></button>
         </div>
+      </div>
+
+      <div class="live-box">
+        <div class="live-head">
+          <span><span id="live-dot" class="live-dot"></span><span id="live-title">Datos en vivo · INA + Open-Meteo</span></span>
+          <button id="btn-refresh-live" class="btn-mini" title="Actualizar desde INA y Open-Meteo">↻</button>
+        </div>
+        <div class="live-line" id="live-rivers">Consultando alturas oficiales (INA)...</div>
+        <div class="live-line">
+          <span id="live-weather">Consultando lluvia 48 h (Open-Meteo)...</span>
+          <button id="btn-load-forecast" class="btn-mini" title="Cargar lluvia pronosticada en el simulador">Usar prón.</button>
+        </div>
+        <div class="live-meta" id="live-meta">Referencia inicial: Paraná 5,83 m · Salado 5,84 m</div>
       </div>
 
       <div class="card-box">
@@ -287,16 +311,16 @@
         <div class="slider-group">
           <div class="slider-head">
             <span>Paraná (Puerto SF)</span>
-            <span><strong id="val-parana">5.80 m</strong> <span id="tag-parana" class="badge-lvl lvl-crit">Evacuación</span></span>
+            <span><strong id="val-parana">5.83 m</strong> <span id="tag-parana" class="badge-lvl lvl-crit">Evacuación</span></span>
           </div>
-          <input id="sl-parana" type="range" min="2.0" max="7.5" step="0.1" value="5.8">
+          <input id="sl-parana" type="range" min="2.0" max="7.5" step="0.01" value="5.83">
         </div>
         <div class="slider-group">
           <div class="slider-head">
             <span>Salado (Sto. Tomé)</span>
-            <span><strong id="val-salado">5.80 m</strong> <span id="tag-salado" class="badge-lvl lvl-warn">Alerta</span></span>
+            <span><strong id="val-salado">5.84 m</strong> <span id="tag-salado" class="badge-lvl lvl-warn">Alerta</span></span>
           </div>
-          <input id="sl-salado" type="range" min="2.0" max="8.0" step="0.1" value="5.8">
+          <input id="sl-salado" type="range" min="2.0" max="8.0" step="0.01" value="5.84">
         </div>
         <div class="tool-note" style="margin-top:2px;">Puerto SF: Alerta 5,30 m · Evac. 5,70 m | Salado: Alerta 4,70 m</div>
       </div>
@@ -743,8 +767,8 @@
       cityPumpsActive: true,
       targetMm: 90,
       durationHr: 2.0,
-      paranaScale: 5.80,
-      saladoScale: 5.80,
+      paranaScale: 5.83,
+      saladoScale: 5.84,
       drainMode: "partial",
       fallenMm: 0,
       elapsedHr: 0,
@@ -1514,6 +1538,214 @@
     ui.parana.addEventListener("input", () => { const p = lastP; lastP = parseFloat(ui.parana.value); onRiverSliderChange(p, lastS); });
     ui.salado.addEventListener("input", () => { const s = lastS; lastS = parseFloat(ui.salado.value); onRiverSliderChange(lastP, s); });
 
+    // --- DATOS EN VIVO (INA alerta.ina.gob.ar + Open-Meteo + fallback datos_en_vivo.json) ---
+    const liveState = {
+      parana: 5.83,
+      paranaDelta: 0.06,
+      paranaDate: null,
+      salado: 5.84,
+      saladoDelta: 0.06,
+      saladoDate: null,
+      tempC: null,
+      rain24h: 0,
+      forecast24h: 0,
+      forecast48h: 0,
+      peakHr: 0,
+      probMax: 0,
+      source: "referencia"
+    };
+
+    function fmtDelta(d) {
+      if (d === null || d === undefined || Math.abs(d) < 0.005) return "(=)";
+      return (d > 0 ? "(↑ +" : "(↓ ") + Math.abs(d).toFixed(2) + " m)";
+    }
+
+    function fmtShortDate(iso) {
+      if (!iso) return "";
+      const dt = new Date(iso);
+      if (isNaN(dt.getTime())) return iso.slice(0, 10);
+      return dt.toLocaleString("es-AR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
+    }
+
+    function renderLiveBox() {
+      const pTxt = liveState.parana.toFixed(2).replace(".", ",");
+      const sTxt = liveState.salado.toFixed(2).replace(".", ",");
+      document.getElementById("sc-hoy-sub").textContent = `Paraná ${pTxt} · Salado ${sTxt}`;
+      document.getElementById("sc-rhoy-sub").textContent = `90 mm · Ríos ${pTxt}/${sTxt}`;
+      document.getElementById("live-rivers").innerHTML =
+        `<span>Paraná <strong>${liveState.parana.toFixed(2)} m</strong> <small style="color:#94a3b8">${fmtDelta(liveState.paranaDelta)}</small></span>` +
+        `<span>Salado <strong>${liveState.salado.toFixed(2)} m</strong> <small style="color:#94a3b8">${fmtDelta(liveState.saladoDelta)}</small></span>`;
+      if (liveState.tempC !== null) {
+        document.getElementById("live-weather").innerHTML =
+          `${liveState.tempC.toFixed(1)} °C · Prón. 48 h: <strong>${liveState.forecast48h.toFixed(1)} mm</strong> (${liveState.probMax}%)`;
+      } else {
+        document.getElementById("live-weather").textContent = "Clima en vivo no disponible (offline)";
+      }
+      const dot = document.getElementById("live-dot");
+      dot.classList.toggle("ok", liveState.source === "live" || liveState.source === "cache");
+      const dtStr = fmtShortDate(liveState.saladoDate || liveState.paranaDate);
+      if (liveState.source === "live") {
+        document.getElementById("live-meta").textContent = `INA + Open-Meteo en vivo${dtStr ? " · últ. registro río " + dtStr : ""}`;
+      } else if (liveState.source === "cache") {
+        document.getElementById("live-meta").textContent = `Caché automático GitHub (datos_en_vivo.json)${dtStr ? " · " + dtStr : ""}`;
+      } else {
+        document.getElementById("live-meta").textContent = "Sin conexión: usando últimos valores de referencia";
+      }
+    }
+
+    async function fetchWithTimeout(url, ms = 8500) {
+      const ctrl = new AbortController();
+      const t = setTimeout(() => ctrl.abort(), ms);
+      try {
+        const res = await fetch(url, { signal: ctrl.signal });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return await res.json();
+      } finally {
+        clearTimeout(t);
+      }
+    }
+
+    async function fetchINASeries(seriesId) {
+      const now = new Date();
+      const start = new Date(now.getTime() - 10 * 86400000).toISOString().slice(0, 10);
+      const end = new Date(now.getTime() + 2 * 86400000).toISOString().slice(0, 10);
+      const url = `https://alerta.ina.gob.ar/a5/obs/puntual/series/${seriesId}/observaciones?timestart=${start}&timeend=${end}`;
+      const rows = await fetchWithTimeout(url, 8500);
+      const valid = (Array.isArray(rows) ? rows : []).filter(r => r && r.valor !== null && r.valor !== undefined);
+      if (!valid.length) return null;
+      valid.sort((a, b) => String(a.timestart || "").localeCompare(String(b.timestart || "")));
+      const last = valid[valid.length - 1];
+      const prev = valid.length >= 2 ? valid[valid.length - 2] : null;
+      const val = Number(last.valor);
+      return {
+        val: Math.round(val * 100) / 100,
+        delta: prev ? Math.round((val - Number(prev.valor)) * 100) / 100 : 0,
+        date: last.timestart
+      };
+    }
+
+    async function fetchOpenMeteo() {
+      const url = "https://api.open-meteo.com/v1/forecast?latitude=-31.6333&longitude=-60.7000&current=temperature_2m,precipitation&hourly=precipitation,precipitation_probability&past_days=1&forecast_days=2&timezone=America%2FArgentina%2FCordoba";
+      const d = await fetchWithTimeout(url, 8000);
+      const cur = d.current || {};
+      const curHour = String(cur.time || "").slice(0, 13);
+      const times = (d.hourly && d.hourly.time) || [];
+      const precs = (d.hourly && d.hourly.precipitation) || [];
+      const probs = (d.hourly && d.hourly.precipitation_probability) || [];
+      let past = 0, n24 = 0, n48 = 0, peak = 0, pmax = 0, fIdx = 0;
+      for (let i = 0; i < times.length; i++) {
+        const mm = Number(precs[i] || 0);
+        const pr = Number(probs[i] || 0);
+        if (curHour && String(times[i]).slice(0, 13) <= curHour) {
+          past += mm;
+        } else {
+          if (fIdx < 24) n24 += mm;
+          if (fIdx < 48) { n48 += mm; if (mm > peak) peak = mm; if (pr > pmax) pmax = pr; }
+          fIdx++;
+        }
+      }
+      return {
+        tempC: cur.temperature_2m !== undefined ? Number(cur.temperature_2m) : null,
+        rain24h: Math.round(past * 10) / 10,
+        forecast24h: Math.round(n24 * 10) / 10,
+        forecast48h: Math.round(n48 * 10) / 10,
+        peakHr: Math.round(peak * 10) / 10,
+        probMax: Math.round(pmax)
+      };
+    }
+
+    async function loadLiveData(applyRivers = false) {
+      document.getElementById("live-meta").textContent = "Actualizando desde INA y Open-Meteo...";
+      let gotLive = false;
+      const [pRes, sRes, wRes] = await Promise.allSettled([
+        fetchINASeries(30),
+        fetchINASeries(3044),
+        fetchOpenMeteo()
+      ]);
+      if (pRes.status === "fulfilled" && pRes.value) {
+        liveState.parana = Math.max(2.0, Math.min(7.5, pRes.value.val));
+        liveState.paranaDelta = pRes.value.delta;
+        liveState.paranaDate = pRes.value.date;
+        gotLive = true;
+      }
+      if (sRes.status === "fulfilled" && sRes.value) {
+        liveState.salado = Math.max(2.0, Math.min(8.0, sRes.value.val));
+        liveState.saladoDelta = sRes.value.delta;
+        liveState.saladoDate = sRes.value.date;
+        gotLive = true;
+      }
+      if (wRes.status === "fulfilled" && wRes.value) {
+        Object.assign(liveState, wRes.value);
+        gotLive = true;
+      }
+      if (gotLive) {
+        liveState.source = "live";
+      } else if (window.location.protocol !== "file:") {
+        try {
+          const cached = await fetchWithTimeout("./datos_en_vivo.json?t=" + Date.now(), 5000);
+          if (cached && cached.rios) {
+            if (cached.rios.parana_santa_fe) {
+              liveState.parana = cached.rios.parana_santa_fe.valor_m;
+              liveState.paranaDelta = cached.rios.parana_santa_fe.delta_m;
+              liveState.paranaDate = cached.rios.parana_santa_fe.fecha_utc;
+            }
+            if (cached.rios.salado_santo_tome) {
+              liveState.salado = cached.rios.salado_santo_tome.valor_m;
+              liveState.saladoDelta = cached.rios.salado_santo_tome.delta_m;
+              liveState.saladoDate = cached.rios.salado_santo_tome.fecha_utc;
+            }
+            if (cached.clima) {
+              liveState.tempC = cached.clima.temperatura_c;
+              liveState.rain24h = cached.clima.lluvia_ultimas_24h_mm || 0;
+              liveState.forecast24h = cached.clima.pronostico_24h_mm || 0;
+              liveState.forecast48h = cached.clima.pronostico_48h_mm || 0;
+              liveState.peakHr = cached.clima.pico_horario_48h_mm || 0;
+              liveState.probMax = cached.clima.prob_max_48h_pct || 0;
+            }
+            liveState.source = "cache";
+          }
+        } catch (_) {
+          liveState.source = "referencia";
+        }
+      } else {
+        liveState.source = "referencia";
+      }
+      renderLiveBox();
+      if (applyRivers) {
+        const changed = Math.abs(simState.paranaScale - liveState.parana) > 0.02 || Math.abs(simState.saladoScale - liveState.salado) > 0.02;
+        ui.parana.value = liveState.parana.toFixed(2);
+        ui.salado.value = liveState.salado.toFixed(2);
+        lastP = liveState.parana; lastS = liveState.salado;
+        updateTextLabels();
+        if (changed && !simState.running && simState.fallenMm === 0) {
+          resetWaterOnly();
+          simState.riverSettle = 28;
+        }
+        updateSimUI();
+      }
+    }
+
+    document.getElementById("btn-refresh-live").addEventListener("click", () => loadLiveData(true));
+    document.getElementById("btn-load-forecast").addEventListener("click", () => {
+      const mm = Math.round(liveState.forecast48h);
+      ui.parana.value = liveState.parana.toFixed(2);
+      ui.salado.value = liveState.salado.toFixed(2);
+      lastP = liveState.parana; lastS = liveState.salado;
+      if (mm < 2) {
+        document.getElementById("live-meta").textContent = `Pronóstico 48 h seco (${liveState.forecast48h.toFixed(1)} mm) · ajustá lluvia manual para simular tormenta.`;
+        updateTextLabels();
+        return;
+      }
+      simState.running = false;
+      resetWaterOnly();
+      ui.rain.value = Math.min(250, Math.max(5, Math.round(mm / 5) * 5));
+      ui.dur.value = mm >= 60 ? 3.0 : 1.5;
+      updateTextLabels();
+      simState.riverSettle = 24;
+      simState.running = true;
+      updateSimUI();
+    });
+
     // Escenarios rápidos combinados
     document.querySelectorAll("[data-sc]").forEach(btn => {
       btn.addEventListener("click", () => {
@@ -1523,12 +1755,12 @@
         simState.running = false;
         resetWaterOnly();
         if (sc === "hoy") {
-          ui.rain.value = 0; ui.parana.value = 5.8; ui.salado.value = 5.8;
+          ui.rain.value = 0; ui.parana.value = liveState.parana.toFixed(2); ui.salado.value = liveState.salado.toFixed(2);
           updateTextLabels();
           setPreset("cap2");
           simState.riverSettle = 32;
         } else if (sc === "rain_hoy") {
-          ui.rain.value = 90; ui.dur.value = 2; ui.parana.value = 5.8; ui.salado.value = 5.8;
+          ui.rain.value = 90; ui.dur.value = 2; ui.parana.value = liveState.parana.toFixed(2); ui.salado.value = liveState.salado.toFixed(2);
           document.getElementById("btn-drain-ok").click();
           updateTextLabels();
           simState.riverSettle = 24;
@@ -1940,7 +2172,8 @@
     if (params.has("parana")) ui.parana.value = parseFloat(params.get("parana")) || CFG.PARANA_NORMAL;
     if (params.has("salado")) ui.salado.value = parseFloat(params.get("salado")) || CFG.SALADO_NORMAL;
     if (params.has("lluvia")) ui.rain.value = Math.max(0, Math.min(250, parseFloat(params.get("lluvia")) || 0));
-    if (params.has("parana") || params.has("salado") || params.has("lluvia")) {
+    const hasCustomParams = params.has("parana") || params.has("salado") || params.has("lluvia");
+    if (hasCustomParams) {
       document.querySelectorAll("[data-sc]").forEach(b => b.classList.remove("active"));
       updateTextLabels();
       lastP = simState.paranaScale; lastS = simState.saladoScale;
@@ -1952,7 +2185,7 @@
       gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, CFG.SW, CFG.SH, gl.RGBA, gl.UNSIGNED_BYTE, waterTexBytes);
       updateSimUI();
     } else {
-      // Estado actual por defecto: ríos en escala 5,80 m sin lluvia
+      // Estado actual por defecto: ríos en escala actual sin lluvia
       updateTextLabels();
       lastP = simState.paranaScale; lastS = simState.saladoScale;
       for (let k = 0; k < 35; k++) stepSimulation(6, false);
@@ -1968,6 +2201,8 @@
     }
 
     document.getElementById("loading").style.display = "none";
+    renderLiveBox();
+    loadLiveData(!hasCustomParams && !params.has("paso"));
 
     let frameIdx = 0;
     const pumpFlat = new Float32Array(10);

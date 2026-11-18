@@ -1,0 +1,142 @@
+{
+  "actualizado_utc": "2026-11-18T12:05:22.260335+00:00",
+  "rios": {
+    "parana_santa_fe": {
+      "series_id": 30,
+      "valor_m": 5.83,
+      "delta_m": 0.06,
+      "fecha_utc": "2026-11-17T03:00:00.000Z",
+      "ultimos_registros": [
+        {
+          "fecha_utc": "2026-11-11T03:00:00.000Z",
+          "valor_m": 5.18
+        },
+        {
+          "fecha_utc": "2026-11-12T03:00:00.000Z",
+          "valor_m": 5.39
+        },
+        {
+          "fecha_utc": "2026-11-13T03:00:00.000Z",
+          "valor_m": 5.54
+        },
+        {
+          "fecha_utc": "2026-11-14T03:00:00.000Z",
+          "valor_m": 5.66
+        },
+        {
+          "fecha_utc": "2026-11-15T03:00:00.000Z",
+          "valor_m": 5.77
+        },
+        {
+          "fecha_utc": "2026-11-16T03:00:00.000Z",
+          "valor_m": 5.77
+        },
+        {
+          "fecha_utc": "2026-11-17T03:00:00.000Z",
+          "valor_m": 5.83
+        }
+      ],
+      "nombre": "Paraná — Puerto Santa Fe",
+      "alerta_m": 5.3,
+      "evacuacion_m": 5.7,
+      "fuente": "INA (alerta.ina.gob.ar)"
+    },
+    "salado_santo_tome": {
+      "series_id": 3044,
+      "valor_m": 5.84,
+      "delta_m": 0.06,
+      "fecha_utc": "2026-11-17T12:43:00.000Z",
+      "ultimos_registros": [
+        {
+          "fecha_utc": "2026-11-11T15:23:00.000Z",
+          "valor_m": 5.27
+        },
+        {
+          "fecha_utc": "2026-11-12T12:26:00.000Z",
+          "valor_m": 5.41
+        },
+        {
+          "fecha_utc": "2026-11-13T12:31:00.000Z",
+          "valor_m": 5.54
+        },
+        {
+          "fecha_utc": "2026-11-14T13:22:00.000Z",
+          "valor_m": 5.64
+        },
+        {
+          "fecha_utc": "2026-11-15T10:15:00.000Z",
+          "valor_m": 5.72
+        },
+        {
+          "fecha_utc": "2026-11-16T11:35:00.000Z",
+          "valor_m": 5.78
+        },
+        {
+          "fecha_utc": "2026-11-17T12:43:00.000Z",
+          "valor_m": 5.84
+        }
+      ],
+      "nombre": "Río Salado — Santo Tomé",
+      "alerta_m": 4.7,
+      "evacuacion_m": null,
+      "fuente": "INA (alerta.ina.gob.ar)"
+    },
+    "salado_recreo_rp70": {
+      "series_id": 103,
+      "valor_m": 2.9,
+      "delta_m": 0.04,
+      "fecha_utc": "2026-11-17T12:43:00.000Z",
+      "ultimos_registros": [
+        {
+          "fecha_utc": "2026-11-11T15:23:00.000Z",
+          "valor_m": 2.35
+        },
+        {
+          "fecha_utc": "2026-11-12T12:25:00.000Z",
+          "valor_m": 2.47
+        },
+        {
+          "fecha_utc": "2026-11-13T12:31:00.000Z",
+          "valor_m": 2.59
+        },
+        {
+          "fecha_utc": "2026-11-14T13:21:00.000Z",
+          "valor_m": 2.72
+        },
+        {
+          "fecha_utc": "2026-11-15T10:15:00.000Z",
+          "valor_m": 2.87
+        },
+        {
+          "fecha_utc": "2026-11-16T11:34:00.000Z",
+          "valor_m": 2.86
+        },
+        {
+          "fecha_utc": "2026-11-17T12:43:00.000Z",
+          "valor_m": 2.9
+        }
+      ],
+      "nombre": "Río Salado — Recreo RP 70",
+      "alerta_m": null,
+      "evacuacion_m": null,
+      "fuente": "INA (alerta.ina.gob.ar)"
+    }
+  },
+  "clima": {
+    "fuente": "Open-Meteo (api.open-meteo.com)",
+    "ubicacion": {
+      "lat": -31.6333,
+      "lon": -60.7,
+      "ciudad": "Santa Fe"
+    },
+    "fecha_local": "2026-11-18T09:00",
+    "temperatura_c": 24.6,
+    "lluvia_actual_mm": 0.1,
+    "lluvia_ultimas_24h_mm": 1.4,
+    "pronostico_24h_mm": 0.5,
+    "pronostico_48h_mm": 2.1,
+    "pico_horario_48h_mm": 0.5,
+    "prob_max_48h_pct": 52
+  },
+  "errores": []
+}
