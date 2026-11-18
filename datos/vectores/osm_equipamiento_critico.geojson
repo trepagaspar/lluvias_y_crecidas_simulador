@@ -1,0 +1,6522 @@
+{
+  "type": "FeatureCollection",
+  "name": "osm_equipamiento_critico",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/862120948",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Destacamento 14",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.720359,
+          -31.634901
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/862140694",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Ministerio de seguridad",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.709855,
+          -31.647447
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/997446236",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "Samco Santo Tomé",
+        "direccion": "Miguel de Azcuenaga",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.777721,
+          -31.678809
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/1102191139",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Comisaría 12",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.767737,
+          -31.667756
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/1899338599",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "police (sin nombre)",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.5878,
+          -31.66549
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/1909481131",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Particular Incorporada 1001 San Francisco",
+        "direccion": "San Martín",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.710205,
+          -31.660082
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/2157974639",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Especial 2009 Bernardo de Monteagudo",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.714579,
+          -31.662852
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/2844182356",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Roca Nº869",
+        "direccion": "Ruta Provincial 1 Teófilo Madrejón",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.593522,
+          -31.620545
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/2844210765",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Comisaría",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.606779,
+          -31.626686
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3012112893",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Comisaría",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.566517,
+          -31.604455
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3012125310",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela de Educación Técnico Profesional 658 Maria Sánchez De Thompson",
+        "direccion": "Busaniche",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.574061,
+          -31.609116
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3273863573",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Prefectura Santa Fe",
+        "direccion": "Mendoza",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.704242,
+          -31.650256
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3357596820",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Jefatura de Policía",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.719054,
+          -31.664793
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3398708369",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela N°312 \"Fray Justo Santa María de Oro\"",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.813264,
+          -31.547136
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3444661748",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "E.E.T. 322 \"Obispo Gelabert\"",
+        "direccion": "J Macía",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.756604,
+          -31.666978
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3444661749",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Media Nro 340",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.771325,
+          -31.662536
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3454090976",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Colegio Nuestra Señora del Huerto",
+        "direccion": "San Jerónimo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.709309,
+          -31.650587
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3455017688",
+        "categoria": "escuela",
+        "subtipo": "kindergarten",
+        "nombre": "jardin 224 Monseñor Rodriguez",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.741356,
+          -31.570976
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3552802288",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Sub Comisaría 3°",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.712954,
+          -31.59292
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3587979188",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Primaria 1106 General San Martín",
+        "direccion": "7 de Marzo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.769819,
+          -31.666148
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3589852233",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Nº 27 \"José Gálvez\"",
+        "direccion": "Avenida Blas Parera",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.730823,
+          -31.5621
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3596526775",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 14 Doctor Nicolás Avellaneda",
+        "direccion": "Santiago de Chile",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.72238,
+          -31.638772
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3684910393",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Bomberos Zapadores de Santa Fe",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.729066,
+          -31.582363
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3723554428",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "Sanatorio Mayo",
+        "direccion": "Suipacha",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.702945,
+          -31.640598
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3733418400",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 1110 Doctor Simón de Iriondo",
+        "direccion": "Roque Saenz Peña",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.778646,
+          -31.657773
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3734384302",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "San Martin",
+        "direccion": "Espora",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.716319,
+          -31.598974
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3734412226",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Agustín del Castillo",
+        "direccion": "Espora",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.716284,
+          -31.598989
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3735266728",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Malvinas Argentinas Nº 1255",
+        "direccion": "Padre Genesio",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.719582,
+          -31.592488
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3735401801",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "school (sin nombre)",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.77634,
+          -31.6596
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3736824433",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Primaria 166 Ignacio Crespo",
+        "direccion": "Mariano Candioti",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.758594,
+          -31.689819
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3739049143",
+        "categoria": "escuela",
+        "subtipo": "kindergarten",
+        "nombre": "Escuela 43 Leandro Alem",
+        "direccion": "Avenida General Paz",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.661694,
+          -31.567907
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3739049144",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 43 Leandro Alem",
+        "direccion": "Avenida General Paz",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.661673,
+          -31.567752
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3741493465",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Primaria Juan José Paso",
+        "direccion": "San Martín",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.70348,
+          -31.636095
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3743611073",
+        "categoria": "escuela",
+        "subtipo": "kindergarten",
+        "nombre": "Escuela de Nivel Inicial \"La Ronda\"",
+        "direccion": "9 de Julio",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.707861,
+          -31.642247
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3756102906",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Centro de Disgnóstico",
+        "direccion": "25 de Mayo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.703324,
+          -31.638696
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3812744926",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 136 Gregoria Pérez de Denis",
+        "direccion": "1 de Mayo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.698469,
+          -31.603931
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3813294680",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Primaria 140 Profesor Marcelino Martínez",
+        "direccion": "Juan Bautista Alberdi",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.774146,
+          -31.680533
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3814151869",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "Centro Odontológico Privado",
+        "direccion": "Belgrano",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.699805,
+          -31.641009
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3814151870",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "Centro de Alergia, Asma e Inmunidad",
+        "direccion": "Belgrano",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.699859,
+          -31.640899
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3824997479",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 24 Constancio C. Vigil",
+        "direccion": "Avenida de la Bandera",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.807339,
+          -31.715747
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3825562057",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 48 Profesor Maximio Sabá Victoria",
+        "direccion": "Callejon El Sable",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.712327,
+          -31.574406
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3827454755",
+        "categoria": "salud",
+        "subtipo": "doctors",
+        "nombre": "Centro Integral de Salud de la Costa",
+        "direccion": "Ruta Provincial 1 Teófilo Madrejón",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.594609,
+          -31.621036
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/3902948803",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "Sanatorio Santa Fe",
+        "direccion": "Belgrano",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.700341,
+          -31.641541
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4029096428",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Primaria Comun Nº 269 Carlos Higinio Laguzzi",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.776823,
+          -31.658608
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4090313242",
+        "categoria": "escuela",
+        "subtipo": "kindergarten",
+        "nombre": "Escuela Especial Francisco Castellano 2032",
+        "direccion": "Jose Dios Mena",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.760197,
+          -31.672487
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4095879245",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Primaria 1233 \"Fidela Valdez Frutos\"",
+        "direccion": "Colon",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.754315,
+          -31.669576
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4095887810",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 579 \"Profesor José Jacinto Berutti\"",
+        "direccion": "Iriondo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.758892,
+          -31.669651
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4098140421",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Particular Incorporada 1224 \"Nuestra Señora de Itatí\"",
+        "direccion": "Nicasio Oroño",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.724731,
+          -31.669796
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4098196706",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela N° 1392",
+        "direccion": "Mendoza",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.727131,
+          -31.644722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4098218105",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Primaria Modalidad Domiciliaria y Hospitalaria N° 1392",
+        "direccion": "Bulevar Pellegrini",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.716485,
+          -31.633252
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4098236937",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela N° 1250 \"Almirante Guillermo Brown\"",
+        "direccion": "25 de Mayo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.701275,
+          -31.632668
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4098725223",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "EIB Nº 1338 \"Com Caia\"",
+        "direccion": "Santiago de Chile",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.722488,
+          -31.498746
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4109485021",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Sagrado Corazón de Jesús",
+        "direccion": "San José",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.722774,
+          -31.644983
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4113094352",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "José R. Aldao N°1277",
+        "direccion": "Juan XXIII",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.727471,
+          -31.491596
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4214584747",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela de Educación Secundaria Orientada 3138 Santa Lucía",
+        "direccion": "Juan de Garay",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.728803,
+          -31.648929
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4214646253",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Esperanza Solidaria Nº 6341",
+        "direccion": "Gorriti",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.708474,
+          -31.586346
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4347496689",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Enefro",
+        "direccion": "Avenida Gobernador Freyre",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.715756,
+          -31.637801
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4370100880",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Enefro",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.703004,
+          -31.618483
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4375091825",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Primaria 6395 Sargento Pedro Bustamante",
+        "direccion": "Avenida Nuestra Señora de Luján",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.764228,
+          -31.667047
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4375091826",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Educación secundaria Orientada 443 \"José Manuel Estrada\"",
+        "direccion": "Iriondo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.757824,
+          -31.662799
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4376575236",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "Hospital Gerardo Domagk",
+        "direccion": "Avenida José Manuel de Estrada",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.56664,
+          -31.707121
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4376575237",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 16 Doctor Francisco Soler",
+        "direccion": "Avenida José Manuel de Estrada",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.56728,
+          -31.706966
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4376575238",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Comisaría XI",
+        "direccion": "Avenida José Manuel de Estrada",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.566707,
+          -31.706694
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4379630941",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela de Educación Secundaria 340 República Del Perú",
+        "direccion": "Obispo Galabert",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.772007,
+          -31.661704
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4379996334",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Antonia María Verna",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.698167,
+          -31.61026
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4417980492",
+        "categoria": "salud",
+        "subtipo": "centre",
+        "nombre": "Centro de Vías Respiratorias",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.70713,
+          -31.640841
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4423850310",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Policía Federal",
+        "direccion": "San Martín",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.703797,
+          -31.637061
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4476025751",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Particular Incorporada 1196 Santa Rosa de Lima",
+        "direccion": "Liniers",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.734371,
+          -31.643756
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4498746541",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "hospital (sin nombre)",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.74837,
+          -31.560476
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4498746548",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "police (sin nombre)",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.748495,
+          -31.562038
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4557924989",
+        "categoria": "escuela",
+        "subtipo": "kindergarten",
+        "nombre": "Pelotero La Jungla",
+        "direccion": "Avenida Facundo Zuviría",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.702374,
+          -31.603544
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4672363516",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "school (sin nombre)",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.700588,
+          -31.62989
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4783774554",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Liceo Municipal “Antonio Fuentes del Arco”",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.698289,
+          -31.651153
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4884055461",
+        "categoria": "emergencia",
+        "subtipo": "fire_station",
+        "nombre": "Asociación Bomberos Voluntarios de Recreo",
+        "direccion": "Avenida Mitre",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.732774,
+          -31.491881
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4886712480",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Media 266",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.736601,
+          -31.491575
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4886712948",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "Samco Recreo",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.736183,
+          -31.491694
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4895791625",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 884 Ignacio Rodríguez",
+        "direccion": "Vélez Sarsfield",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.682139,
+          -31.625325
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4895960194",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Primaria 1356 Monseñor Vicente Zazpe",
+        "direccion": "Hipólito Yrigoyen",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.767211,
+          -31.684559
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/4966830865",
+        "categoria": "escuela",
+        "subtipo": "kindergarten",
+        "nombre": "Veo-veo",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.693521,
+          -31.607239
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/5045203976",
+        "categoria": "escuela",
+        "subtipo": "kindergarten",
+        "nombre": "Santa María Goretti",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.716994,
+          -31.628628
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/5196519110",
+        "categoria": "emergencia",
+        "subtipo": "fire_station",
+        "nombre": "Bomberos Voluntarios de Santo Tome",
+        "direccion": "Rienzo Bedetti",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.7677,
+          -31.668131
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/5196647220",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Primaria 1259 Nilce Uviedo Rassetto",
+        "direccion": "Tucumán",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.771888,
+          -31.656718
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/5196647721",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "E.E.S. Orientada Part. Inc. Nro 3071 La Inmaculada",
+        "direccion": "Saavedra",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.767142,
+          -31.664307
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/5196647726",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Instituto 1200 San Jose",
+        "direccion": "Saavedra",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.76713,
+          -31.664008
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/5897220010",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Secundaria 3186 Alberto Monti",
+        "direccion": "Bernardo de Irigoyen",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.72114,
+          -31.585685
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/5897238405",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Particular Incorporada 1305 Nils Eber",
+        "direccion": "Gorriti",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.717395,
+          -31.584617
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/5897238406",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 6341 Juan de Garay",
+        "direccion": "Avenida Blas Parera",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.727939,
+          -31.579599
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/5897238407",
+        "categoria": "emergencia",
+        "subtipo": "fire_station",
+        "nombre": "bomberos",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.726869,
+          -31.580054
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/5900875900",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Particular Incorporada 1441 Alberto Monti",
+        "direccion": "Valentín Alsina",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.721866,
+          -31.585587
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/5948644592",
+        "categoria": "escuela",
+        "subtipo": "college",
+        "nombre": "Centro de Formación Poeta",
+        "direccion": "Avenida Rivadavia",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.704575,
+          -31.646476
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/5987329914",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Colegio Niño Jesús y San Ezequiel Moreno",
+        "direccion": "4 de Enero",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.709132,
+          -31.636187
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/5987329915",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Colegio Nuestra Señora del Calvario",
+        "direccion": "Salvador Caputo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.711811,
+          -31.638426
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/6082411664",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "EESO 262 \"República Argentina\"",
+        "direccion": "Cassanello",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.69158,
+          -31.610116
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/6082417390",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "EESO 684 \"Mariano Quiroga\"",
+        "direccion": "Avenida Aristóbulo del Valle",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.694701,
+          -31.610126
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/6262670890",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Policía de Investigación",
+        "direccion": "San Jerónimo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.70572,
+          -31.638241
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/6262711106",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "subsecretaría de control",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.703739,
+          -31.636655
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/6407948376",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Taller de Educ Manual N°189 \"Prof. Carlos Vergara\"",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.657406,
+          -31.637332
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/6407948378",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela de Educación Técnica 645 Martín Jacobo Thompson",
+        "direccion": "Ramón Rivero",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.6765,
+          -31.694599
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/6480698316",
+        "categoria": "escuela",
+        "subtipo": "college",
+        "nombre": "Instituto SOL",
+        "direccion": "Salvador Caputo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.714411,
+          -31.638037
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/6590184129",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "CS Barrio Barranquitas Oeste",
+        "direccion": "Artigas",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.719613,
+          -31.62044
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/6591736020",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "SAMCO",
+        "direccion": "Busaniche",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.571906,
+          -31.605427
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/6591749486",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "Centro de Acción Familiar N° 10 \"Azahares\"",
+        "direccion": "San Martín",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.571697,
+          -31.605303
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/6771847546",
+        "categoria": "escuela",
+        "subtipo": "college",
+        "nombre": "Instituto Superior Particular Incorporado 4033",
+        "direccion": "San Martín",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.709657,
+          -31.65739
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/6830978535",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "school (sin nombre)",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.687544,
+          -31.632346
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/6840744348",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Centro Médico La Española",
+        "direccion": "Derqui",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.765593,
+          -31.670126
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/6848974711",
+        "categoria": "salud",
+        "subtipo": "doctors",
+        "nombre": "Consultorio de Rehabilitación",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.691735,
+          -31.637875
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/6880173261",
+        "categoria": "escuela",
+        "subtipo": "university",
+        "nombre": "Facultad de Ingeniería Química",
+        "direccion": "Santiago del Estero",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.707198,
+          -31.637327
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/6880173284",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Industrial Superior",
+        "direccion": "Junín",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.707357,
+          -31.637895
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/6948111915",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Centro de alfetización para jóvenes y adultos nº 83",
+        "direccion": "Gorriti",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.732288,
+          -31.581925
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/6951452580",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "SAMCo El Pozo",
+        "direccion": "Alejandro Greca",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.659018,
+          -31.635655
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/6951452581",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Seccional 25",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.658531,
+          -31.635632
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/7412993974",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "Hospital de Rehabilitación Doctor Vera Candioti",
+        "direccion": "Monseñor Zaspe",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.724931,
+          -31.653125
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/7644566785",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Centro de salud Alto Verde",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.697146,
+          -31.656084
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/7821611087",
+        "categoria": "escuela",
+        "subtipo": "university",
+        "nombre": "Facultad de Humanidades y Ciencias",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.673734,
+          -31.640308
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/7873785790",
+        "categoria": "escuela",
+        "subtipo": "university",
+        "nombre": "Universidad Tecnológica Nacional Santa Fe",
+        "direccion": "Lavaisse",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.675237,
+          -31.616756
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/8138402135",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "BioTec",
+        "direccion": "9 de Julio",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.706528,
+          -31.637687
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/8140054770",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Diagnóstico San Gerónimo",
+        "direccion": "9 de Julio",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.706321,
+          -31.636945
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/8332452142",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Comando Radioeléctrico de Santo Tomé",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.762609,
+          -31.663906
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/8332452146",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Clinica Ulibarrie",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.759512,
+          -31.666961
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/8332679940",
+        "categoria": "salud",
+        "subtipo": "doctors",
+        "nombre": "Centro Médico Belgrano",
+        "direccion": "Belgrano",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.760498,
+          -31.665165
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/8332679941",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Sanatorio Santo Tomé",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.763379,
+          -31.665604
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/8332679942",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Clinica San Martín",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.763067,
+          -31.66428
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/8332679945",
+        "categoria": "salud",
+        "subtipo": "doctors",
+        "nombre": "Centro Medico BioMedic",
+        "direccion": "7 de Marzo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.769538,
+          -31.665896
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/8332679946",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Dispensario",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.776383,
+          -31.664979
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/8332679947",
+        "categoria": "salud",
+        "subtipo": "doctors",
+        "nombre": "Consultorios Odontológicos",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.761769,
+          -31.666728
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/8332679948",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Consultorios 7 de Marzo",
+        "direccion": "Avenida 7 de Marzo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.761962,
+          -31.666973
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/8332679949",
+        "categoria": "salud",
+        "subtipo": "doctors",
+        "nombre": "Consultorios Odontológicos",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.760961,
+          -31.666505
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/8332679950",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Servicios Médicos",
+        "direccion": "Avenida 7 de Marzo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.761194,
+          -31.667052
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/8332679951",
+        "categoria": "salud",
+        "subtipo": "doctors",
+        "nombre": "Consultorios Odontológicos",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.760412,
+          -31.670318
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/8332679952",
+        "categoria": "salud",
+        "subtipo": "doctors",
+        "nombre": "Consultorios Combi",
+        "direccion": "Avenida del Trabajo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.768168,
+          -31.671515
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/8332679953",
+        "categoria": "salud",
+        "subtipo": "doctors",
+        "nombre": "Consultorios Yossen",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.770415,
+          -31.672243
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/8332679954",
+        "categoria": "salud",
+        "subtipo": "doctors",
+        "nombre": "Consultorios Medicos Sur",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.76191,
+          -31.675311
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/8332679955",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Centro De Salud Jorge Newbery",
+        "direccion": "Sauces",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.799576,
+          -31.71845
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/8833840106",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 1301 Juan de San Martín",
+        "direccion": "Ruta Provincial 5",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.797891,
+          -31.628785
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/9397057034",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Secundaria 78 Intendente Juan Carlos Esparza",
+        "direccion": "Avenida Larramendi",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.560837,
+          -31.710926
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/9397057035",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Secundaria 15 De La Baxada Del Parana",
+        "direccion": "Avenida Larramendi",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.560131,
+          -31.711204
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/9408357693",
+        "categoria": "escuela",
+        "subtipo": "kindergarten",
+        "nombre": "Jardín Maternal Municipal Patito Sirirí",
+        "direccion": "Avenida José Manuel de Estrada",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.566465,
+          -31.70687
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/9419610334",
+        "categoria": "escuela",
+        "subtipo": "kindergarten",
+        "nombre": "Unidad Educativa De Nivel Inicial 34 Mojarritas",
+        "direccion": "Asturias",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.540414,
+          -31.716461
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/9958097898",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 16 Fray Francisco De Paula Castañeda",
+        "direccion": "Castañeda",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.567615,
+          -31.607021
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/9990670068",
+        "categoria": "escuela",
+        "subtipo": "university",
+        "nombre": "UNL - Secretaría de Extensión y Cultura",
+        "direccion": "San Jerónimo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.705695,
+          -31.638109
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10693246776",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 95 Simón De Iriondo",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.700124,
+          -31.65892
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10728637450",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 8 Cristóbal Colón",
+        "direccion": "Francia",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.717787,
+          -31.656023
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10728637451",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "EETP Nº 651",
+        "direccion": "Bulevar Pellegrini",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.719874,
+          -31.632675
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10728637452",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 1299 Padre Osvaldo Catena",
+        "direccion": "Bulevar Pellegrini",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.719297,
+          -31.632431
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10731640097",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Especial Particular Incorporada 1429 Doctora Sara Faisal",
+        "direccion": "Urquiza",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.718559,
+          -31.662845
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10731640098",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela de Educación Técnico Profesional 601 Leandro N. Alem",
+        "direccion": "Santiago de Chile",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.724524,
+          -31.645686
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10731642457",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela de Educación Secundaria Orientada 507 Juan Pablo Mendoza",
+        "direccion": "Monseñor Zaspe",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.734574,
+          -31.651558
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10731642458",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela de Educación Secundaria Orientada Particular Incorporada 3083 Dante Alighieri",
+        "direccion": "4 de Enero",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.713169,
+          -31.651093
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10731642459",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela de Educación Secundaria Orientada 265 Yapeyú",
+        "direccion": "12 de Octubre",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.740472,
+          -31.571647
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10731642472",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela De Educación Técnico Profesional 387 San Agustín",
+        "direccion": "Fray de Aroca",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.74961,
+          -31.566068
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10731642495",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Particular Incorporada 1415 Santa Mónica",
+        "direccion": "Santa Cruz",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.741481,
+          -31.57175
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10731642601",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Particular Incorporada 1342 Juan Marcos",
+        "direccion": "Matheu",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.735253,
+          -31.584829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10731893274",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 1258 Simón Bolivar",
+        "direccion": "Islas Malvinas",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.729608,
+          -31.665586
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10731893275",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 38 Brigadier Estanislao López",
+        "direccion": "Avenida General Paz",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.675982,
+          -31.605352
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10731893280",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela De Educación Secundaria Orientada Particular Incorporada 8150 Nuestra Señora De Guadalupe",
+        "direccion": "Patricio Cullen",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.671614,
+          -31.604996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10731893281",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 5 Doctor Vicente López y Planes",
+        "direccion": "Tucumán",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.719004,
+          -31.643474
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10731893282",
+        "categoria": "escuela",
+        "subtipo": "kindergarten",
+        "nombre": "Jardín de Infantes 188 Juan Capiello",
+        "direccion": "Tucumán",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.718792,
+          -31.643634
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10731893304",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 4 Sargento Cabral",
+        "direccion": "General Las Heras",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.694117,
+          -31.62537
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10731895923",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 465 Doctor Wenceslao Escalante",
+        "direccion": "Martín Zapata",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.701866,
+          -31.619504
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10731896038",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 19 Juan De Garay",
+        "direccion": "Avenida Blas Parera",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.724014,
+          -31.591141
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10733235831",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 1336 Combate Del Quebracho",
+        "direccion": "Valentín Alsina",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.721306,
+          -31.578756
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10733235884",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Particular Incorporada 1341 Santa Rita De Casia",
+        "direccion": "Florencio Fernández",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.724309,
+          -31.576339
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10735448512",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 7 Presidente Beleno",
+        "direccion": "Salvador Caputo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.71335,
+          -31.63827
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10735448541",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Especial 2083",
+        "direccion": "Calcena",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.682513,
+          -31.625523
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10735448604",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 1138 Mateo Booz",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.668787,
+          -31.643553
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10735454914",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 533 Victoriano Montes",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.692851,
+          -31.677158
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10735454931",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Particular Incorporada 1205 Jaim Najman Bialik",
+        "direccion": "4 de Enero",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.711672,
+          -31.64507
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10738320180",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Particular Incorporada 1132 Cristo Obrero",
+        "direccion": "Padre Catena",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.720553,
+          -31.631092
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10738320181",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela De Educación Orientada 231 República De Nicaragua",
+        "direccion": "José María Zuviría",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.696264,
+          -31.617793
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10739763524",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Particular Incorporada 1502 San Martín De Porres",
+        "direccion": "Estanislao Zeballos",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.73935,
+          -31.59622
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10739808493",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Particular Incorporada 1416 Doctor Gilberto Beltramino",
+        "direccion": "Jacinto Viñas",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.734066,
+          -31.582791
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10739808494",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 578 Balbina Domínguez",
+        "direccion": "Avenida Aristóbulo del Valle",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.694931,
+          -31.610002
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10739808531",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 139 Jorge Stephenson",
+        "direccion": "General Las Heras",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.688609,
+          -31.605473
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10739808578",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 26 Patricio Cullen",
+        "direccion": "Urquiza",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.703161,
+          -31.610594
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10742065120",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 1250 Almirante Guillermo Brown",
+        "direccion": "25 de Mayo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.701268,
+          -31.632562
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10742065134",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 618 Ingeniero Julio Bello",
+        "direccion": "Ricardo Aldao",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.68533,
+          -31.612421
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10742065145",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Nº 13 Dr. Dalmacio Velez Sársfield",
+        "direccion": "Güemes",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.687622,
+          -31.632246
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10742489535",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 1111 Luis Borruat",
+        "direccion": "Aguado",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.730257,
+          -31.637752
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10742489536",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 880 Domingo Guzmán Silva",
+        "direccion": "Regimiento 12 de Infantería",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.686132,
+          -31.599681
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10742489537",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 42 General Gregorio Las Heras",
+        "direccion": "Avenida Aristóbulo del Valle",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.691364,
+          -31.589043
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10743299068",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Particular Incorporada 1162 San Antonio De Padua",
+        "direccion": "Avenida Juan José Paso",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.721525,
+          -31.661955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10744194235",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Particular Incorporada 1259 Dante Alighieri",
+        "direccion": "25 de Mayo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.705878,
+          -31.646185
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10744194240",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Particular Incorporada 1287 San Luis Gonzaga",
+        "direccion": "Fray Domingo de Oro",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.747035,
+          -31.565233
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10744194242",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "school (sin nombre)",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.751024,
+          -31.563855
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10744194253",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Particular Incorporada 1147 Nuestra Señora de Guadalupe",
+        "direccion": "Patricio Cullen",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.671911,
+          -31.604946
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10744194264",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Particular Incorporada 1133 Francisco Ramos Mejia",
+        "direccion": "1 de Mayo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.7094,
+          -31.642013
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10744194269",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Particular Incorporada 1408 Colegio Vision De Futuro",
+        "direccion": "Pasaje Manuel Leiva",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.717207,
+          -31.627419
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10747103372",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 809 Brigadier Estanislao López",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.730128,
+          -31.643642
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10749643627",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Primaria Particular Incorporada Nº1145",
+        "direccion": "Fray Cayetano Rodríguez",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.715412,
+          -31.618095
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10749651993",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 567 República Oriental Del Uruguay",
+        "direccion": "Avenida López y Planes",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.713703,
+          -31.618275
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10754820622",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Especial 2012 General San Martín",
+        "direccion": "Laprida",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.680823,
+          -31.625119
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10754820623",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela De Educación Secundaria Orientada 391 Doctor Agustín Zapata Gollán",
+        "direccion": "Pedro de Vega",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.674116,
+          -31.6158
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10754820637",
+        "categoria": "escuela",
+        "subtipo": "kindergarten",
+        "nombre": "Jardín De Infantes 142 Santa Fe De La Vera Cruz",
+        "direccion": "Pedro de Vega",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.713361,
+          -31.607244
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10757700625",
+        "categoria": "escuela",
+        "subtipo": "kindergarten",
+        "nombre": "Escuela de Educación Secundaria Orientada 707",
+        "direccion": "Vieytes",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.728567,
+          -31.596024
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10757700626",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela de Educación Secundaria Orientada 599",
+        "direccion": "Avenida Peñaloza",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.710935,
+          -31.574996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10757700642",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Especial 2028 Profesora Raquel Pietranera",
+        "direccion": "25 de Mayo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.706513,
+          -31.648394
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10757700643",
+        "categoria": "escuela",
+        "subtipo": "kindergarten",
+        "nombre": "Jardín De Infantes 26 San Luis Gonzaga",
+        "direccion": "1 de Mayo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.710929,
+          -31.647866
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10757700672",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela De Educación Secundaria Orientada 510 La Esmeralda",
+        "direccion": "San Martín",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.690367,
+          -31.588766
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10757700689",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela De Educación Secundaria Orientada 511 Generala Juana Azurduy",
+        "direccion": "Entre Ríos",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.724486,
+          -31.657265
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10757700690",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Pascual Echagüe",
+        "direccion": "Entre Ríos",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.72392,
+          -31.657355
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10757700691",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela De Educación Secundaria Orientada 512 Alfredo Pedro Bravo",
+        "direccion": "Juan Manuel Estrada",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.730614,
+          -31.643786
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10757838629",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela De Educación Secundaria Orientada 528",
+        "direccion": "Regimiento 12 de Infantería",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.710171,
+          -31.594399
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10757838644",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela De Educación Secundaria Orientada Particular Incorporada 3131 San Eugenio De Mazenod",
+        "direccion": "Bernardino Rivadavia",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.694456,
+          -31.612859
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10757838645",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 1149 Nuestra Señora de Lujan",
+        "direccion": "Bernardino Rivadavia",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.694424,
+          -31.612705
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10764863508",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 3025 Cristo Obrero",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.720934,
+          -31.63042
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10764870249",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Fiscal 137",
+        "direccion": "Juan del Campillo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.682415,
+          -31.63394
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10769808109",
+        "categoria": "escuela",
+        "subtipo": "kindergarten",
+        "nombre": "Jardín De Infantes 150 Juan Arancio",
+        "direccion": "Rector Pedro Martínez",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.656815,
+          -31.636513
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10769808114",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela de Educación Secundaria Particular Incorporada 2035 Santa Rosa De Lima",
+        "direccion": "Liniers",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.73415,
+          -31.643823
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10769808115",
+        "categoria": "escuela",
+        "subtipo": "kindergarten",
+        "nombre": "Jardín De Infantes 173 Padre Luis Quiroga",
+        "direccion": "Mendoza",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.730422,
+          -31.64352
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10769808116",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 100 Marcos Sastre",
+        "direccion": "Avenida Antonio Berutti",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.730393,
+          -31.584047
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10769808117",
+        "categoria": "escuela",
+        "subtipo": "kindergarten",
+        "nombre": "Jardín de Infantes 33 Juana Paula Manso",
+        "direccion": "Edmundo Rosas",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.730677,
+          -31.583999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10778326507",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela de Educación Secundaria 3159 Moseñor Alfonso Durán",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.683634,
+          -31.573284
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10800150602",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Rizzoli",
+        "direccion": "Avenida Facundo Zuviría",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.70525,
+          -31.617546
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10919430936",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "Sanatorio Americano",
+        "direccion": "Cándido Pujato",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.708255,
+          -31.632882
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/10959602360",
+        "categoria": "escuela",
+        "subtipo": "kindergarten",
+        "nombre": "Huellitas",
+        "direccion": "San Jerónimo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.704042,
+          -31.633557
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11014979977",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 4089 Uan Enrique Pestalozzi",
+        "direccion": "Balcarce",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.766002,
+          -31.67751
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11014979987",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Centro de Educación Física 33",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.766022,
+          -31.678383
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11023465196",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Técnica 614",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.759991,
+          -31.682861
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11027675003",
+        "categoria": "escuela",
+        "subtipo": "kindergarten",
+        "nombre": "Rosario Vera Peñaloza",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.696661,
+          -31.617607
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11033323987",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 1412 Nuestra Señora De La Paz",
+        "direccion": "Cornelio Saavedra",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.770459,
+          -31.678649
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11033338228",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 1298 Señor Y Virgen Del Milagro",
+        "direccion": "San Martín",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.803537,
+          -31.657854
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11033338244",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Jardín De Infantes 163 Juan Carlos Nava",
+        "direccion": "Solís",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.774506,
+          -31.664474
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11064040930",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Centro de Salud Adelina Oeste Doctora Débora Ferrandini",
+        "direccion": "Corrientes",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.788285,
+          -31.69475
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11064040941",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Centro De Salud San Cayetano",
+        "direccion": "Pasaje 16",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.786235,
+          -31.703556
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11064040944",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Centro De Salud Lisandro De La Torre",
+        "direccion": "Agustín Delgado",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.797375,
+          -31.67643
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11064040945",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Comunidad Terapéutica Nuestra Señora Del Pilar",
+        "direccion": "Avenida Ejército Argentino",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.803733,
+          -31.668104
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11064041139",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Centro De Salud Juan Domingo Peron",
+        "direccion": "7 de Marzo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.76735,
+          -31.666298
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11064041140",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Centro De Salud Presidente Raul Ricardo Alfonsín",
+        "direccion": "Roverano",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.775197,
+          -31.693432
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11064041143",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Centro De Salud Eva Duarte De Perón",
+        "direccion": "Córdoba",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.76669,
+          -31.65896
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11064111452",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 1297 Presidente Perón",
+        "direccion": "Los Paraísos",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.787862,
+          -31.694783
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11064111477",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Pilares",
+        "direccion": "Calle 18",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.797079,
+          -31.701979
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11064121106",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Secundaria Pilares",
+        "direccion": "Calle 18",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.796604,
+          -31.701865
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11148415781",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Destacamento 12mo de Empalme San Carlos",
+        "direccion": "San Martín",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.811818,
+          -31.547954
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11170856904",
+        "categoria": "salud",
+        "subtipo": "doctors",
+        "nombre": "Consultorios Gonzalez Portier",
+        "direccion": "San Martín",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.704438,
+          -31.639086
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11214154367",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Unidad de Terapia Oncológica",
+        "direccion": "Saavedra",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.716707,
+          -31.649001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11246022371",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Kinerv",
+        "direccion": "San Jerónimo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.701803,
+          -31.625771
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11619084127",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Policía-Seccional 1°",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.728038,
+          -31.664468
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11619084128",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Policía-Seccional 2°",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.71876,
+          -31.655573
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11762007223",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Centro Territorial de Deduncias",
+        "direccion": "Avenida Aristóbulo del Valle",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.692158,
+          -31.600043
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11764492509",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 39 9 De Julio",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.608747,
+          -31.637979
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11764492514",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela un mundo especial",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.613911,
+          -31.635954
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11983620406",
+        "categoria": "salud",
+        "subtipo": "doctors",
+        "nombre": "Soini",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.717259,
+          -31.642149
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/11983625682",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Grupo MIT",
+        "direccion": "Avenida Gobernador Freyre",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.716051,
+          -31.637881
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/12560204244",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Centro Médico Jerárquicos",
+        "direccion": "Estanislao López",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.679338,
+          -31.517313
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/12560279608",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "SAMCO",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.679083,
+          -31.518511
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/12560279609",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "police (sin nombre)",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.679057,
+          -31.518314
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/12560279626",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Técnica 324",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.67756,
+          -31.520886
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/12788254529",
+        "categoria": "salud",
+        "subtipo": "doctors",
+        "nombre": "Grupo MIT",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.774696,
+          -31.629375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/13002256518",
+        "categoria": "escuela",
+        "subtipo": "college",
+        "nombre": "Facultad de Ciencias Económicas de la Universidad Nacional del Litoral",
+        "direccion": "Moreno",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.708227,
+          -31.653844
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/14118707074",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "CREI Extensión Áulica",
+        "direccion": "Mendoza",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.713206,
+          -31.648607
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/14118707075",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela de Educación Secundaria Orientada 440  Simón de Iriondo",
+        "direccion": "Mendoza",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.712985,
+          -31.647877
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/14118707076",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela de Educación Secundaria Orientada 441 Doctor victoriano montes",
+        "direccion": "Mendoza",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.713111,
+          -31.648203
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/14118707077",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Especial 2117 Valentin Haüy de Discapacidad Visuales",
+        "direccion": "Primera Junta",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.712614,
+          -31.646615
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/14118820841",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Provincial de Musica 9902 C.R.e.I",
+        "direccion": "Primera Junta",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.710566,
+          -31.647535
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/14129988232",
+        "categoria": "escuela",
+        "subtipo": "kindergarten",
+        "nombre": "Jardín de Infantes 246",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.784502,
+          -31.679088
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/14139953906",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Centro de Salud Barrio las Delicias",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.695295,
+          -31.582742
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "node/14159828201",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Aula Verde",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.560193,
+          -31.710522
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/190344778",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "Centro de Salud Nuevo Horizonte",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.732705,
+          -31.561217
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/205816540",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Inmaculada Concepción",
+        "direccion": "San Martín",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.709526,
+          -31.657651
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/205817733",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Ateneo Inmaculada",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.707864,
+          -31.657635
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/264249435",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela de la Nueva Cultura La Cecilia",
+        "direccion": "RP5",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.693229,
+          -31.537423
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/271928531",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "La Salle Jobson",
+        "direccion": "Pasaje Hermanos de La Salle",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.693511,
+          -31.640153
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/283705332",
+        "categoria": "escuela",
+        "subtipo": "university",
+        "nombre": "Universidad Nacional del Litoral (Rectorado)",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.705144,
+          -31.634664
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/301806557",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Tecnica 527",
+        "direccion": "Avenida Blas Parera",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.7308,
+          -31.562967
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/309838526",
+        "categoria": "escuela",
+        "subtipo": "university",
+        "nombre": "Facultad de Ciencias Jurídicas y Sociales de la Universidad Nacional del Litoral",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.705,
+          -31.634172
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/329916426",
+        "categoria": "emergencia",
+        "subtipo": "fire_station",
+        "nombre": "Agrupacion Bomberos Zapadores Santa Fe",
+        "direccion": "9 de Julio",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.709109,
+          -31.64696
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/333301490",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "IPEI",
+        "direccion": "Avenida López y Planes",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.714812,
+          -31.632534
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/334879320",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Seccional 3ra",
+        "direccion": "General Juan Lavalle",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.690171,
+          -31.639265
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/334888558",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "Centro de Especialidades Médicas de Santa Fe \"Héroes de Malvinas\"",
+        "direccion": "Avenida 27 de Febrero",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.705493,
+          -31.650195
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/338395767",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "school (sin nombre)",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.721266,
+          -31.585827
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/349373814",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Particular Incorporada 1414 San Arnoldo Janssen",
+        "direccion": "Avenida Vera Peñaloza",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.710898,
+          -31.587478
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/349377001",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Especial 2026 Jardín de la Esperanza",
+        "direccion": "Avenida Vera Peñaloza",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.71035,
+          -31.585403
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/356338228",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela de Educación Técnico Profesional 478 Doctor Nicolás Avellaneda",
+        "direccion": "Calcena",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.681317,
+          -31.626418
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/363199171",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 15 Juan de Garay",
+        "direccion": "Sarmiento",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.761436,
+          -31.661188
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/363328890",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "police (sin nombre)",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.702917,
+          -31.647909
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/363800271",
+        "categoria": "emergencia",
+        "subtipo": "fire_station",
+        "nombre": "Bomberos voluntarios Las Flores",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.726884,
+          -31.580046
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/364444419",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Subcomisaría 14",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.729359,
+          -31.582194
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/366601653",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Nº 508 Cecilia Grierson",
+        "direccion": "Valentín Alsina",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.722058,
+          -31.578669
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/368496306",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "Sanatorio Garay",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.70184,
+          -31.640345
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/368959296",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Seccional 1",
+        "direccion": "Primera Junta",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.705968,
+          -31.647943
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/368962542",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Seccional 2da",
+        "direccion": "General López",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.718747,
+          -31.655756
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/368962831",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Seccional Cuarta",
+        "direccion": "Tucumán",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.719283,
+          -31.643906
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/368963233",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Seccional 5ta",
+        "direccion": "Salvador del Carril",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.691677,
+          -31.619612
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/368963837",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Seccional 6ta",
+        "direccion": "Avenida López y Planes",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.71332,
+          -31.625665
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/368964065",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Seccional 7ma",
+        "direccion": "12 de Octubre",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.739808,
+          -31.571473
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/368967746",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Seccional 8va",
+        "direccion": "Avenida General Paz",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.674973,
+          -31.604347
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/368968155",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Seccional 9na",
+        "direccion": "Avenida Facundo Zuviría",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.704831,
+          -31.61309
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/368969057",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Seccional 10ma",
+        "direccion": "Estanislao Zeballos",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.715421,
+          -31.601116
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/369745831",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Complejo Educativo \"Luis María Monti\"",
+        "direccion": "Avenida Juan José Paso",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.718928,
+          -31.661735
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/370664926",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela de Nivel Primario de la Universidad Nacional del Litoral",
+        "direccion": "9 de Julio",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.7077,
+          -31.642397
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/371931374",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "Hospital Italiano",
+        "direccion": "Doctor Zavalla",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.717112,
+          -31.634272
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/377690509",
+        "categoria": "escuela",
+        "subtipo": "kindergarten",
+        "nombre": "Jardín Jesús Sacramentado",
+        "direccion": "Ricardo Aldao",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.684521,
+          -31.612625
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/377690511",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Macagno",
+        "direccion": "Pedro de Vega",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.684441,
+          -31.613071
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/422879603",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 1304 Paz, pan y trabajo",
+        "direccion": "San Jerónimo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.711687,
+          -31.659689
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/439394677",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 6341 Juan de Garay",
+        "direccion": "Avenida Blas Parera",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.728013,
+          -31.579433
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/444038848",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Primaria 49 Doctor Agustín Araya",
+        "direccion": "Avenida Richieri",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.792113,
+          -31.683465
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/444310689",
+        "categoria": "escuela",
+        "subtipo": "kindergarten",
+        "nombre": "Barranquitas Sur",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.721155,
+          -31.626368
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/444472012",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Falucho",
+        "direccion": "Avenida López y Planes",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.714496,
+          -31.62673
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/454720886",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Colegio Don Bosco Santa Fe",
+        "direccion": "Avenida Facundo Zuviría",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.704043,
+          -31.603909
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/456864450",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "Hospital José Bernardo Iturraspe",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.727716,
+          -31.583787
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/459094061",
+        "categoria": "escuela",
+        "subtipo": "kindergarten",
+        "nombre": "Jardín de Infantes 1263 Maria Goretti",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.709929,
+          -31.627955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/484425368",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Superior de Enfermería \"Rosa Carmen All\"",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.716987,
+          -31.649037
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/497005052",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "jardín de infantes Nº 221 Doctor René Favarolo",
+        "direccion": "Avenida Blas Parera",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.730395,
+          -31.562678
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/531996634",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela de Vuelo",
+        "direccion": "Bulevar Gálvez",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.685573,
+          -31.639563
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/556029218",
+        "categoria": "escuela",
+        "subtipo": "kindergarten",
+        "nombre": "Jardín de Infantes Jean Piaget No. 3",
+        "direccion": "Avenida Aristóbulo del Valle",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.700845,
+          -31.630806
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/556046961",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela \"W. Escalante\" No. 465",
+        "direccion": "Agustin Delgado",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.702172,
+          -31.620031
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/556076631",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Centro Medico Verna",
+        "direccion": "Hernandarias",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.689445,
+          -31.608321
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/556076638",
+        "categoria": "salud",
+        "subtipo": "doctors",
+        "nombre": "Clínica del Valle",
+        "direccion": "Avenida Aristóbulo del Valle",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.692971,
+          -31.607375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/556118001",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Especial N° 2008 Dr. Juan Vazquez",
+        "direccion": "Salvador del Carril",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.69653,
+          -31.618396
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/556811449",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "E.E.T N° 479 Doctor Manuel de Pizarro",
+        "direccion": "Avenida General Paz",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.692788,
+          -31.63051
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/556838846",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Auto Escuela",
+        "direccion": "1 de Mayo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.709936,
+          -31.642854
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/556844717",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "E.E.T. No 480 Manuel Belgrano",
+        "direccion": "Urquiza",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.714977,
+          -31.65352
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/556844719",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela de Enseñamza Media No 261 José Hernandez",
+        "direccion": "General López",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.717958,
+          -31.655837
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/556852010",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "police (sin nombre)",
+        "direccion": "Iturraspe",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.719517,
+          -31.625448
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/557097418",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Podiatry College of the Province of Santa Fe",
+        "direccion": "Pasaje Liniers",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.722039,
+          -31.646866
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/557131594",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 534 República de Bolivia",
+        "direccion": "Avenida Facundo Zuviría",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.705459,
+          -31.626994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/576497734",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "Hospital Protomédico Manuel Rodríguez",
+        "direccion": "Ruta Provincial 5",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.712557,
+          -31.534615
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/588188610",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 2 Manuel Belgrano",
+        "direccion": "Amenabar",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.712053,
+          -31.659173
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/588206614",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Nº 1042 Sagrada Familia",
+        "direccion": "4 de Enero",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.715352,
+          -31.659969
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/625135959",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "Sayago",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.723489,
+          -31.585663
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/625135960",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "Sayago",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.723202,
+          -31.585674
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/625135961",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "Sayago",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.722925,
+          -31.585702
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/625135962",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "Sayago",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.722651,
+          -31.585775
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/625135963",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "Sayago",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.722365,
+          -31.585815
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/649708682",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Liceo Municipal “Antonio Fuentes del Arco”",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.706136,
+          -31.648482
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/668765769",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Clinica Laureano Maradona",
+        "direccion": "Bulevar Pellegrini",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.704043,
+          -31.634968
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/669636914",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Colegio Ntra Sra de Fátima",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.709597,
+          -31.629567
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/709316612",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "school (sin nombre)",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.735358,
+          -31.584233
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/709316613",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "police (sin nombre)",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.735696,
+          -31.584355
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/709316616",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 1321 Doctor Agustín Zapata Gollan",
+        "direccion": "Bernard",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.735929,
+          -31.583889
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/722027246",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 1190 IV Centenario de Santa Fe",
+        "direccion": "Bulevar Gálvez",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.689931,
+          -31.638712
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/728812872",
+        "categoria": "escuela",
+        "subtipo": "college",
+        "nombre": "Edificio Etica Unl",
+        "direccion": "Facundo Zuviría",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.705919,
+          -31.634171
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/729092130",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "Radio en la Mira",
+        "direccion": "Avenida Blas Parera",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.728462,
+          -31.582243
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/729092798",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "Hospital General Polivalente Doctor Mira Y López",
+        "direccion": "Avenida Blas Parera",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.727861,
+          -31.581826
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/734022567",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Colegio Nuestra Señora del Huerto",
+        "direccion": "San Jerónimo",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.709728,
+          -31.650728
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/742230262",
+        "categoria": "emergencia",
+        "subtipo": "fire_station",
+        "nombre": "Salvamento y Extinción (SEI)",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.806011,
+          -31.710557
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/742230264",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Guardia PSA",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.805794,
+          -31.710507
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/767356236",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "E.E.T. Nro 637 Domingo Cullen",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.689048,
+          -31.641393
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/785415306",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Diagnóstico por Imágenes",
+        "direccion": "9 de Julio",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.706412,
+          -31.637888
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/845522097",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela de Educación Secundaria Orientada 8002 San José",
+        "direccion": "Patricio Cullen",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.670494,
+          -31.603513
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/845522100",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela de Educación Técnico Profesional 655 Paula Albarracín De Sarmiento",
+        "direccion": "Antonia Godoy",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.672434,
+          -31.603317
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/858601750",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "school (sin nombre)",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.745802,
+          -31.581996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/858601752",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "police (sin nombre)",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.746139,
+          -31.582666
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/858601758",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "school (sin nombre)",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.733461,
+          -31.58411
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/998236064",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "Centro de Ortopedia y Traumatología - Centro de Diagnóstico y Rehabilitación",
+        "direccion": "San Martín",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.70457,
+          -31.639283
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/1052914563",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "Hospital Doctor José María Cullen",
+        "direccion": "Avenida Gobernador Freyre",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.718012,
+          -31.648833
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/1052955408",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 25 Doctor Luis María Drago",
+        "direccion": "Avenida General Paz",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.686018,
+          -31.621283
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/1053212291",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "Centro de Salud San Martín",
+        "direccion": "Alberti",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.717078,
+          -31.596899
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/1053548316",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 633 Centenario de Bolivia",
+        "direccion": "Avenida Blas Parera",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.72341,
+          -31.591995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/1056604024",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "Hospital de Niños Dr. Orlando Alassia",
+        "direccion": "Mendoza",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.727965,
+          -31.645105
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/1109167251",
+        "categoria": "escuela",
+        "subtipo": "kindergarten",
+        "nombre": "kindergarten (sin nombre)",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.774097,
+          -31.673885
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/1182601758",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Comisaría 16va",
+        "direccion": "Avenida Mitre",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.735748,
+          -31.49182
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/1212554066",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "R I A M Sanatorio La Merced",
+        "direccion": "3 de Febrero",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.725106,
+          -31.655376
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/1214228308",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela 29 Sgto Pédro Bustamante",
+        "direccion": "Aristóbulo del Valle",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.700955,
+          -31.626831
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/1549115303",
+        "categoria": "salud",
+        "subtipo": "clinic",
+        "nombre": "I.O.R.L. S.A.",
+        "direccion": "Santiago del Estero",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.705723,
+          -31.637325
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "way/1554863237",
+        "categoria": "salud",
+        "subtipo": "hospital",
+        "nombre": "Centro de Salud Barrio San José",
+        "direccion": "Estanislao Zeballos",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.704604,
+          -31.603098
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "relation/4226690",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela de Enseñaza Media Julio Migno",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.658822,
+          -31.637747
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "relation/5407847",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Mariano Moreno",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.695219,
+          -31.639038
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "relation/6669091",
+        "categoria": "emergencia",
+        "subtipo": "police",
+        "nombre": "Seccional 11ra",
+        "direccion": "Avenida Aristóbulo del Valle",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.699139,
+          -31.623707
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "relation/7948976",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Universidad Catolica de Santa Fe",
+        "direccion": "C. Echagüe",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.671517,
+          -31.606681
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "relation/7949340",
+        "categoria": "escuela",
+        "subtipo": "school",
+        "nombre": "Escuela Normal Superior n° 32 \"General San Martín\"",
+        "direccion": "Saavedra",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.718941,
+          -31.653743
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "osm_id": "relation/11201114",
+        "categoria": "escuela",
+        "subtipo": "university",
+        "nombre": "Ciudad Universitaria",
+        "direccion": "",
+        "fuente": "OpenStreetMap (Overpass API)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.671589,
+          -31.639864
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+name: Actualizar capas OpenStreetMap
+
+on:
+  schedule:
+    - cron: "0 6 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  actualizar_osm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Descargar equipamiento critico y canales/defensas desde OSM
+        run: python scripts/descargar_osm.py
+
+      - name: Guardar cambios si hubo actualizacion
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet datos/vectores/osm_equipamiento_critico.geojson datos/vectores/osm_canales_defensas.geojson; then
+            git add datos/vectores/osm_equipamiento_critico.geojson datos/vectores/osm_canales_defensas.geojson
+            git commit -m "chore: actualizar capas OSM (equipamiento critico y canales/defensas)"
+            git push
+          else
+            echo "Sin cambios en capas OSM"
+          fi

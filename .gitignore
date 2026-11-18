@@ -7,3 +7,5 @@ riesgo_hidrico.shp
 *.tmp
 .DS_Store
 Thumbs.db
+__pycache__/
+*.pyc
