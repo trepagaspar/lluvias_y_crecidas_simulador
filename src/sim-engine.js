@@ -73,6 +73,8 @@ export function createSimEngine({
   const simType = new Uint8Array(S_N);      // 0=rural/bajo, 1=Paraná/Setúbal, 2=Reservorio, 3=Ciudad alta (IV), 4=Salado
   const simProtected = new Uint8Array(S_N); // 1=protegido por anillo de defensa
   const simDefenseCrown = new Float32Array(S_N);
+  const simWSurf = new Float32Array(S_N);
+  const simProb = new Float32Array(S_N);
   const waterTexBytes = new Uint8Array(S_N * 4);
   for (let i = 3; i < waterTexBytes.length; i += 4) waterTexBytes[i] = 255;
 
@@ -291,15 +293,71 @@ export function createSimEngine({
     return (w00 * (1 - tx) + w10 * tx) * (1 - ty) + (w01 * (1 - tx) + w11 * tx) * ty;
   }
 
+  function sampleProbAtUV(u, v) {
+    if (u < 0 || u > 1 || v < 0 || v > 1) return 0;
+    const fx = u * (SW - 1), fy = v * (SH - 1);
+    const x0 = Math.floor(fx), y0 = Math.floor(fy);
+    const x1 = Math.min(x0 + 1, SW - 1), y1 = Math.min(y0 + 1, SH - 1);
+    const tx = fx - x0, ty = fy - y0;
+    const p00 = simProb[y0 * SW + x0], p10 = simProb[y0 * SW + x1];
+    const p01 = simProb[y1 * SW + x0], p11 = simProb[y1 * SW + x1];
+    return (p00 * (1 - tx) + p10 * tx) * (1 - ty) + (p01 * (1 - tx) + p11 * tx) * ty;
+  }
+
   function updateWaterBytes() {
     const scale = 65535.0 / 6.0;
+    const SIGMA_M = 0.60; // Incertidumbre vertical típica de FABDEM (~30 m) en entorno urbano/ribereño
+    const visM = WATER_THRESHOLDS.VISIBLE_M;
+
     for (let i = 0; i < S_N; i++) {
       const w = simW[i];
       const u16 = w <= 0 ? 0 : w >= 6.0 ? 65535 : (w * scale + 0.5) | 0;
       const j = i << 2;
       waterTexBytes[j] = u16 >> 8;
       waterTexBytes[j + 1] = u16 & 0xff;
+      if (w >= visM) {
+        simWSurf[i] = simZ[i] + w;
+        const p = Math.min(1.0, 0.45 + 0.55 * ((w - visM) / 0.55));
+        simProb[i] = p;
+        waterTexBytes[j + 2] = (p * 255 + 0.5) | 0;
+      } else {
+        simWSurf[i] = -1e9;
+        simProb[i] = 0.0;
+        waterTexBytes[j + 2] = 0;
+      }
     }
+
+    // Franja sensible (±0,60 m): celdas secas en la corrida base pero a <= 0,60 m de cota respecto al agua vecina
+    for (let r = 1; r < SH - 1; r++) {
+      const rowOff = r * SW;
+      for (let c = 1; c < SW - 1; c++) {
+        const i = rowOff + c;
+        if (simW[i] >= visM) continue;
+        const zi = simZ[i];
+        const dstProt = simProtected[i];
+        const crown = simDefenseCrown[i] - SIGMA_M;
+        let bestMargin = -1e9;
+
+        const n0 = i - 1, n1 = i + 1, n2 = i - SW, n3 = i + SW;
+        const n4 = i - SW - 1, n5 = i - SW + 1, n6 = i + SW - 1, n7 = i + SW + 1;
+        const nbrs = [n0, n1, n2, n3, n4, n5, n6, n7];
+        for (let k = 0; k < 8; k++) {
+          const nb = nbrs[k];
+          const hs = simWSurf[nb];
+          if (hs < -1e8) continue;
+          if (dstProt && !simProtected[nb] && hs < crown) continue;
+          const margin = hs - zi;
+          if (margin > bestMargin) bestMargin = margin;
+        }
+        if (bestMargin > -SIGMA_M) {
+          const t = Math.min(1.0, (bestMargin + SIGMA_M) / SIGMA_M);
+          const p = 0.15 + 0.28 * t;
+          simProb[i] = p;
+          waterTexBytes[(i << 2) + 2] = (p * 255 + 0.5) | 0;
+        }
+      }
+    }
+
     return waterTexBytes;
   }
 
@@ -344,6 +402,7 @@ export function createSimEngine({
     state.elapsedHr = 0;
     simAccSec = 0;
     simW.fill(0);
+    simProb.fill(0);
     state.massBalance.rainInM3 = 0;
     state.massBalance.drainOutM3 = 0;
     state.massBalance.pumpOutM3 = 0;
@@ -622,13 +681,14 @@ export function createSimEngine({
     const elev = sampleHeightAtUV(u, v);
     const wM = sampleWaterAtUV(u, v);
     const wCm = Math.round(wM * 100);
+    const prob = sampleProbAtUV(u, v);
     const px = Math.min(cfg.W - 1, Math.max(0, Math.round(u * (cfg.W - 1))));
     const py = Math.min(cfg.H - 1, Math.max(0, Math.round(v * (cfg.H - 1))));
     const idx = (py * cfg.W + px) * 4;
     const rId = layersRGBA[idx], cId = layersRGBA[idx + 1], binVal = layersRGBA[idx + 2];
     const acU16 = (acumRGBA[idx] << 8) | acumRGBA[idx + 1];
     const acVal = acU16 === 0 ? 0 : Math.pow(10, (acU16 / 65535.0) * 6.5);
-    return { lon, lat, elev, wM, wCm, rId, cId, binVal, acVal };
+    return { lon, lat, elev, wM, wCm, prob, rId, cId, binVal, acVal };
   }
 
   function getPointDiagnostics(u, v, places, forcedName = null) {
@@ -675,6 +735,7 @@ export function createSimEngine({
     waterTexBytes,
     sampleHeightAtUV,
     sampleWaterAtUV,
+    sampleProbAtUV,
     getQuickSample,
     updateWaterBytes,
     updateMetrics,

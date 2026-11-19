@@ -127,6 +127,7 @@ uniform sampler2D uOsmLinesTex;
 uniform float uShowOsmLines;
 uniform sampler2D uOsmFacTex;
 uniform float uShowOsmFac;
+uniform float uUncertaintyMode;
 out vec4 outColor;
 
 float sampleAcumLog(vec2 uv) {
@@ -230,9 +231,33 @@ void main() {
     if (ol.a > 0.02) col = mix(col, ol.rgb, ol.a * 0.92);
   }
 
-  vec2 wTex = texture(uWater, vUV).rg;
+  vec3 wTex = texture(uWater, vUV).rgb;
   float wM = ((wTex.r * 255.0 * 256.0 + wTex.g * 255.0) / 65535.0) * 6.0;
-  if (wM >= ${WATER_THRESHOLDS.VISIBLE_M.toFixed(2)}) {
+  float wProb = wTex.b;
+  if (uUncertaintyMode > 0.5) {
+    if (wProb >= 0.15) {
+      vec3 sensC = vec3(0.96, 0.62, 0.04); // #f59e0b Franja sensible (±0,6 m FABDEM)
+      vec3 midC  = vec3(0.06, 0.65, 0.91); // #0ea5e9 Probabilidad media (40-80%)
+      vec3 highC = vec3(0.12, 0.25, 0.69); // #1e40af Alta confianza (>80%)
+      vec3 uc;
+      float uAlpha;
+      if (wProb < 0.44) {
+        float t = clamp((wProb - 0.15) / 0.29, 0.0, 1.0);
+        uc = sensC;
+        uAlpha = mix(0.28, 0.54, t);
+      } else if (wProb < 0.80) {
+        float t = clamp((wProb - 0.44) / 0.36, 0.0, 1.0);
+        uc = mix(vec3(0.22, 0.74, 0.97), midC, t);
+        uAlpha = mix(0.58, 0.82, t);
+      } else {
+        float t = clamp((wProb - 0.80) / 0.20, 0.0, 1.0);
+        uc = mix(midC, highC, t);
+        uAlpha = mix(0.84, 0.94, t);
+      }
+      vec3 waterLit = uc * mix(0.88, 1.06, hs);
+      col = mix(col, clamp(waterLit, 0.0, 1.0), uAlpha);
+    }
+  } else if (wM >= ${WATER_THRESHOLDS.VISIBLE_M.toFixed(2)}) {
     vec3 shallowC = vec3(0.49, 0.83, 0.99); // #7dd3fc (4–15 cm)
     vec3 medC     = vec3(0.01, 0.52, 0.78); // #0284c7 (15–40 cm)
     vec3 deepC    = vec3(0.12, 0.23, 0.54); // #1e3a8a (> 40 cm)
@@ -573,7 +598,7 @@ export function createWebGLRenderer({
       "uBaseMix", "uTexSize", "uHSStrength", "uRiskAlpha", "uRiskMask", "uShowBin", "uShowAcum",
       "uThreshLog", "uShowWater", "uShowParks", "uShowLandfill", "uShowRes", "uShowContours",
       "uPinUV", "uHasPin", "uPumps", "uPumpCount", "uCityPumpsTex", "uShowCityPumps",
-      "uCityPumpsActive", "uOsmLinesTex", "uShowOsmLines", "uOsmFacTex", "uShowOsmFac",
+      "uCityPumpsActive", "uOsmLinesTex", "uShowOsmLines", "uOsmFacTex", "uShowOsmFac", "uUncertaintyMode",
     ];
     loc = Object.fromEntries(names.map(n => [n, gl.getUniformLocation(prog, n)]));
     gl.uniform1i(loc.uLayers, 0);
@@ -964,6 +989,7 @@ export function createWebGLRenderer({
     gl.uniform1f(loc.uCityPumpsActive, sim.state.cityPumpsActive ? 1.0 : 0.0);
     gl.uniform1f(loc.uShowOsmLines, vis.showOsmLines ? 1.0 : 0.0);
     gl.uniform1f(loc.uShowOsmFac, vis.showOsmFac ? 1.0 : 0.0);
+    gl.uniform1f(loc.uUncertaintyMode, vis.uncertaintyMode !== false ? 1.0 : 0.0);
 
     const drawLod = useLod || lightMode;
     gl.bindVertexArray(drawLod ? vaoLod : vaoFull);

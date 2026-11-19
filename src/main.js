@@ -149,6 +149,7 @@ async function bootstrap() {
             showCityPumps: true,
             showOsmLines: true,
             showOsmFac: false,
+            uncertaintyMode: true,
             lightMode: false,
             showLabels: true,
             sidebarOpen: window.innerWidth > 920,

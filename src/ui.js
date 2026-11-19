@@ -72,6 +72,7 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
 
   let activeMode = "sim";
   let activeTool = "inspect";
+  let uncertaintyMode = true;
   let storyIdx = -1;
   let toastTimer = null;
 
@@ -152,6 +153,7 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
       showCityPumps: ui.cityPumps.checked,
       showOsmLines: ui.osmCanales.checked,
       showOsmFac: ui.osmSalud.checked || ui.osmEscuelas.checked || ui.osmEmerg.checked,
+      uncertaintyMode,
       lightMode: ui.lightMode.checked,
       showLabels: ui.labels.checked,
       sidebarOpen: !sidebar.classList.contains("collapsed"),
@@ -344,7 +346,14 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     const d = sim.getQuickSample(u, v);
     $("i-coord").textContent = `${fmtNum(d.lat, 4)}, ${fmtNum(d.lon, 4)}`;
     $("i-elev").textContent = `${fmtNum(d.elev, 1)} m`;
-    $("i-water").textContent = `${d.wCm} cm`;
+    if (uncertaintyMode) {
+      $("i-water").textContent =
+        d.prob >= 0.80 ? "Alta (>80%)" :
+        d.prob >= 0.44 ? "Media" :
+        d.prob >= 0.15 ? "Sensible" : "Bajo";
+    } else {
+      $("i-water").textContent = `${d.wCm} cm`;
+    }
     $("i-risk").textContent = RISK_NAMES[d.rId] || "--";
     $("i-acum").textContent =
       (d.acVal >= 1 ? `${fmtInt(d.acVal)} cel.` : "0") + (d.binVal > 128 ? " (Corredor)" : "");
@@ -358,7 +367,7 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     $("diag-list").classList.add("hidden");
 
     const parts = [
-      el("div", {}, "Cota FABDEM: ", el("strong", { text: `${fmtNum(d.elev, 1)} m` }), ` · ${RISK_DESC[d.rId] || ""}`),
+      el("div", {}, "Cota FABDEM: ", el("strong", { text: `${fmtNum(d.elev, 1)} m` }), ` (±0,6 m) · ${RISK_DESC[d.rId] || ""}`),
     ];
 
     if (d.cId === 7 || d.cId === 8) {
@@ -369,11 +378,25 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
       parts.push(el("div", { text: "Pasa un corredor principal de escurrimiento D8 por este punto." }));
     }
 
-    if (d.wCm >= 40) parts.push(el("div", {}, "Lámina simulada: ", el("strong", { text: `${d.wCm} cm` }), " (inundación profunda)."));
-    else if (d.wCm >= 15) parts.push(el("div", {}, "Lámina simulada: ", el("strong", { text: `${d.wCm} cm` }), " (anegamiento medio)."));
-    else if (d.wCm >= 4) parts.push(el("div", {}, "Encharcamiento somero: ", el("strong", { text: `${d.wCm} cm` }), "."));
-    else if (sim.state.fallenMm > 0 || sim.state.paranaScale > 3.5 || sim.state.saladoScale > 3.5) {
-      parts.push(el("div", { text: "Sector seco (< 4 cm) en el escenario actual." }));
+    if (uncertaintyMode) {
+      if (d.prob >= 0.80) {
+        const lo = Math.max(15, d.wCm - 20), hi = d.wCm + 25;
+        parts.push(el("div", {}, "Confianza ", el("strong", { text: "alta (>80%)" }), `: bajo estructural · rango orientativo ~${lo}–${hi} cm.`));
+      } else if (d.prob >= 0.44) {
+        const lo = Math.max(0, d.wCm - 15), hi = d.wCm + 20;
+        parts.push(el("div", {}, "Probabilidad ", el("strong", { text: "media (40–80%)" }), `: rango orientativo ~${lo}–${hi} cm (sensible a desagües u obras locales).`));
+      } else if (d.prob >= 0.15) {
+        parts.push(el("div", {}, "Franja ", el("strong", { text: "sensible (±0,6 m FABDEM)" }), ": el modelo marca seco, pero el terreno está próximo a la cota de agua vecina; requiere verificación en campo."));
+      } else if (sim.state.fallenMm > 0 || sim.state.paranaScale > 3.5 || sim.state.saladoScale > 3.5) {
+        parts.push(el("div", { text: "Baja probabilidad de anegamiento (< 15%) en el escenario actual." }));
+      }
+    } else {
+      if (d.wCm >= 40) parts.push(el("div", {}, "Lámina estimada: ", el("strong", { text: `${d.wCm} cm` }), " (inundación profunda, orientativa)."));
+      else if (d.wCm >= 15) parts.push(el("div", {}, "Lámina estimada: ", el("strong", { text: `${d.wCm} cm` }), " (anegamiento medio, orientativo)."));
+      else if (d.wCm >= 4) parts.push(el("div", {}, "Encharcamiento somero estimado: ", el("strong", { text: `${d.wCm} cm` }), "."));
+      else if (sim.state.fallenMm > 0 || sim.state.paranaScale > 3.5 || sim.state.saladoScale > 3.5) {
+        parts.push(el("div", { text: "Sector seco (< 4 cm) en el escenario actual." }));
+      }
     }
 
     if (d.nearPump) {
@@ -689,6 +712,20 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
   );
   document.querySelectorAll("[data-soil]").forEach(btn =>
     btn.addEventListener("click", () => setSoilMode(btn.dataset.soil))
+  );
+  document.querySelectorAll("[data-wvis]").forEach(btn =>
+    btn.addEventListener("click", () => {
+      uncertaintyMode = btn.dataset.wvis !== "depth";
+      document.querySelectorAll("[data-wvis]").forEach(b =>
+        b.classList.toggle("active", (b.dataset.wvis !== "depth") === uncertaintyMode)
+      );
+      const pin = renderer.getPin();
+      if (pin) {
+        updateInspector(pin.u, pin.v);
+        showPointDiagnosis(pin.u, pin.v, null, false);
+      }
+      renderer.requestRender();
+    })
   );
 
   function togglePlay() {

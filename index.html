@@ -195,6 +195,13 @@
                 <span>Reiniciar</span>
               </button>
             </div>
+            <div>
+              <div class="section-label" style="margin-bottom:4px;">Visualización del agua</div>
+              <div class="grid-2">
+                <button class="active btn-xs" data-wvis="uncertainty" title="Bandas de confianza asumiendo margen ±0,6 m de FABDEM">Incertidumbre (±0,6 m)</button>
+                <button class="btn-xs" data-wvis="depth" title="Lámina estimada en cm (orientativa)">Lámina est. (cm)</button>
+              </div>
+            </div>
             <div class="hint-line">Puerto SF: Alerta 5,30 m · Evac. 5,70 m | Salado: Alerta 4,70 m</div>
           </div>
 
@@ -510,7 +517,12 @@
             <span data-icon="close" data-icon-size="13"></span>
           </button>
         </h3>
-        <div class="leg-group-title">Agua simulada (escala unificada)</div>
+        <div class="leg-group-title">Bandas de incertidumbre (FABDEM ±0,6 m)</div>
+        <div class="leg-row"><span class="leg-box" style="background:rgba(245,158,11,0.65);border-color:#f59e0b"></span>Franja sensible (verificar en campo)</div>
+        <div class="leg-row"><span class="leg-box" style="background:#0ea5e9"></span>Probabilidad media (40–80%)</div>
+        <div class="leg-row"><span class="leg-box" style="background:#1e40af"></span>Alta confianza (&gt; 80% · bajos)</div>
+
+        <div class="leg-group-title">Lámina estimada (modo cm)</div>
         <div class="leg-row"><span class="leg-box" style="background:#7dd3fc"></span>Somera (4–15 cm)</div>
         <div class="leg-row"><span class="leg-box" style="background:#0284c7"></span>Media (15–40 cm)</div>
         <div class="leg-row"><span class="leg-box" style="background:#1e3a8a"></span>Profunda (&gt; 40 cm)</div>

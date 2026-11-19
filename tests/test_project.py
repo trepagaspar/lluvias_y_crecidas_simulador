@@ -117,6 +117,7 @@ class TestFrontendQualityAndSecurity(unittest.TestCase):
             m = re.search(rf'<input[^>]*id="{cid}"[^>]*>', html)
             self.assertIsNotNone(m, f"Falta el checkbox {cid} en index.html")
             self.assertNotIn("checked", m.group(0), f"{cid} debe iniciar desactivado por defecto")
+        self.assertRegex(html, r'<button[^>]*class="[^"]*active[^"]*"[^>]*data-wvis="uncertainty"')
         for js in sorted((ROOT / "src").glob("*.js")):
             txt = js.read_text(encoding="utf-8")
             self.assertNotIn("cartocdn.com", txt, f"Referencia rota cartocdn.com en {js.name}")
