@@ -151,7 +151,8 @@ void main() {
     : mix(midTerrace, highUrban, (tElev - 0.45) / 0.55);
   float shade = mix(1.0, 0.56 + 0.58 * hs, uHSStrength);
   if (uBaseMix > 0.01) baseCol = mix(baseCol, texture(uBasemap, vUV).rgb, uBaseMix);
-  vec3 col = baseCol * shade;
+  float effShade = mix(shade, mix(1.0, 0.80 + 0.28 * hs, uHSStrength), uBaseMix);
+  vec3 col = baseCol * effShade;
 
   if (uShowContours > 0.5 && vHeightM > 6.0 && vHeightM < 40.0) {
     float stepM = 2.0;
@@ -163,12 +164,14 @@ void main() {
   if (uShowWater > 0.5 && (ctxId == 1 || ctxId == 2 || ctxId == 9 || ctxId == 10)) {
     bool isEdge = (ctxId == 2 || ctxId == 10);
     vec3 wCol = isEdge ? vec3(0.12, 0.33, 0.60) : vec3(0.20, 0.46, 0.74);
-    col = mix(col, wCol * shade, isEdge ? 0.72 : 0.46);
+    float wAlpha = (isEdge ? 0.72 : 0.46) * (1.0 - 0.50 * uBaseMix);
+    col = mix(col, wCol * effShade, wAlpha);
   }
 
   if (uShowParks > 0.5 && (ctxId == 3 || ctxId == 4)) {
     vec3 pCol = (ctxId == 4) ? vec3(0.22, 0.44, 0.25) : vec3(0.38, 0.60, 0.40);
-    col = mix(col, pCol * shade, (ctxId == 4) ? 0.78 : 0.42);
+    float pAlpha = ((ctxId == 4) ? 0.78 : 0.42) * (1.0 - 0.50 * uBaseMix);
+    col = mix(col, pCol * effShade, pAlpha);
   }
 
   if (uShowLandfill > 0.5 && (ctxId == 5 || ctxId == 6)) {
@@ -177,14 +180,16 @@ void main() {
   }
 
   int maskInt = int(floor(uRiskMask + 0.5));
-  vec3 riskCol = vec3(0.0);
-  float rA = 0.0;
-  if (riskId == 5 && (maskInt & 1) != 0) { riskCol = vec3(0.04, 0.09, 0.85); rA = uRiskAlpha; }
-  else if (riskId == 4 && (maskInt & 2) != 0) { riskCol = vec3(0.24, 0.84, 1.00); rA = uRiskAlpha * 0.80; }
-  else if (riskId == 3 && (maskInt & 2) != 0 && (maskInt & 4) != 0) { riskCol = vec3(0.20, 0.88, 0.70); rA = uRiskAlpha * 0.78; }
-  else if (riskId == 2 && (maskInt & 4) != 0) { riskCol = vec3(0.20, 0.88, 0.54); rA = uRiskAlpha * 0.74; }
-  else if (riskId == 1 && (maskInt & 8) != 0) { riskCol = vec3(0.99, 0.98, 0.96); rA = uRiskAlpha * (uBaseMix > 0.1 ? 0.04 : 0.22); }
-  col = mix(col, riskCol * mix(0.78, 1.08, hs), rA);
+  if (maskInt != 0 && uRiskAlpha > 0.005) {
+    vec3 riskCol = vec3(0.0);
+    float rA = 0.0;
+    if (riskId == 5 && (maskInt & 1) != 0) { riskCol = vec3(0.04, 0.09, 0.85); rA = uRiskAlpha; }
+    else if (riskId == 4 && (maskInt & 2) != 0) { riskCol = vec3(0.24, 0.84, 1.00); rA = uRiskAlpha * 0.80; }
+    else if (riskId == 3 && (maskInt & 2) != 0 && (maskInt & 4) != 0) { riskCol = vec3(0.20, 0.88, 0.70); rA = uRiskAlpha * 0.78; }
+    else if (riskId == 2 && (maskInt & 4) != 0) { riskCol = vec3(0.20, 0.88, 0.54); rA = uRiskAlpha * 0.74; }
+    else if (riskId == 1 && (maskInt & 8) != 0) { riskCol = vec3(0.99, 0.98, 0.96); rA = uRiskAlpha * (uBaseMix > 0.1 ? 0.04 : 0.22); }
+    col = mix(col, riskCol * mix(0.78, 1.08, hs), rA);
+  }
 
   if (uShowRes > 0.5 && (ctxId == 7 || ctxId == 8)) {
     vec3 resCol = (ctxId == 8) ? vec3(0.05, 0.80, 0.72) : vec3(0.08, 0.65, 0.62);
@@ -256,13 +261,15 @@ void main() {
     }
   }
 
-  for (int k = 0; k < 5; k++) {
-    if (k >= uPumpCount) break;
-    float pd = length((vUV - uPumps[k]) * vec2(26.5, 25.7));
-    if (pd < 0.50) {
-      float halo = smoothstep(0.42, 0.46, pd) * (1.0 - smoothstep(0.46, 0.50, pd));
-      float core = 1.0 - smoothstep(0.08, 0.14, pd);
-      col = mix(col, vec3(0.05, 0.92, 0.72), max(halo * 0.85, core));
+  if (uPumpCount > 0) {
+    for (int k = 0; k < 5; k++) {
+      if (k >= uPumpCount) break;
+      float pd = length((vUV - uPumps[k]) * vec2(26.5, 25.7));
+      if (pd < 0.50) {
+        float halo = smoothstep(0.42, 0.46, pd) * (1.0 - smoothstep(0.46, 0.50, pd));
+        float core = 1.0 - smoothstep(0.08, 0.14, pd);
+        col = mix(col, vec3(0.05, 0.92, 0.72), max(halo * 0.85, core));
+      }
     }
   }
 
@@ -298,8 +305,14 @@ export function createWebGLRenderer({
   onPresetChange,
   onContextStatus,
 }) {
-  // Sin preserveDrawingBuffer: mejor rendimiento en GPUs móviles/integradas
-  const gl = canvas.getContext("webgl2", { antialias: true, powerPreference: "high-performance" });
+  // Contexto WebGL2 liviano (sin alpha/stencil de canvas completo sobre el compositor)
+  const gl = canvas.getContext("webgl2", {
+    antialias: true,
+    alpha: false,
+    depth: true,
+    stencil: false,
+    powerPreference: "high-performance",
+  });
   if (!gl) {
     throw new Error("Este navegador no soporta WebGL2.");
   }
@@ -347,6 +360,7 @@ export function createWebGLRenderer({
   const osmFacCanvas = document.createElement("canvas");
   osmFacCanvas.width = cfg.W; osmFacCanvas.height = cfg.H;
   const ofCtx = osmFacCanvas.getContext("2d");
+  const facMask = { s: false, e: false, x: false };
   const drawFacLayer = (code, fill, stroke, rOuter, rInner) => {
     for (const f of osmFacilities) {
       if (f.t !== code) continue;
@@ -355,11 +369,15 @@ export function createWebGLRenderer({
       ofCtx.beginPath(); ofCtx.arc(x, y, rInner, 0, Math.PI * 2); ofCtx.fillStyle = fill; ofCtx.fill();
     }
   };
-  drawFacLayer("e", "#f59e0b", "#0f172a", 4.1, 2.7);
-  drawFacLayer("x", "#a855f7", "#0f172a", 4.5, 3.0);
-  drawFacLayer("s", "#f43f5e", "#ffffff", 5.0, 3.4);
+  function redrawOsmFacCanvas() {
+    ofCtx.clearRect(0, 0, cfg.W, cfg.H);
+    if (facMask.e) drawFacLayer("e", "#f59e0b", "#0f172a", 4.1, 2.7);
+    if (facMask.x) drawFacLayer("x", "#a855f7", "#0f172a", 4.5, 3.0);
+    if (facMask.s) drawFacLayer("s", "#f43f5e", "#ffffff", 5.0, 3.4);
+  }
+  redrawOsmFacCanvas();
 
-  // Geometría de malla 3D (CPU buffers persistentes ante context restore)
+  // Geometría de malla 3D con LOD de 2 niveles compartiendo un único VBO
   const nGrid = cfg.MW * cfg.MH;
   const perimCount = 2 * cfg.MW + 2 * (cfg.MH - 2);
   const verts = new Float32Array((nGrid + perimCount) * 4);
@@ -379,38 +397,94 @@ export function createWebGLRenderer({
   for (let r = 1; r < cfg.MH; r++) ring.push(r * cfg.MW + (cfg.MW - 1));
   for (let c = cfg.MW - 2; c >= 0; c--) ring.push((cfg.MH - 1) * cfg.MW + c);
   for (let r = cfg.MH - 2; r >= 1; r--) ring.push(r * cfg.MW);
+  const gridToSkirtIdx = new Int32Array(nGrid).fill(-1);
   for (let i = 0; i < ring.length; i++) {
     const gi = ring[i], vi = nGrid + i;
+    gridToSkirtIdx[gi] = vi;
     verts[vi * 4] = verts[gi * 4];
     verts[vi * 4 + 1] = verts[gi * 4 + 1];
     verts[vi * 4 + 2] = 0.0;
     verts[vi * 4 + 3] = 1.0;
   }
-  const indices = new Uint32Array(((cfg.MW - 1) * (cfg.MH - 1) * 2 + ring.length * 2) * 3);
+  const indicesFull = new Uint32Array(((cfg.MW - 1) * (cfg.MH - 1) * 2 + ring.length * 2) * 3);
   let ptr = 0;
   for (let r = 0; r < cfg.MH - 1; r++) {
     for (let c = 0; c < cfg.MW - 1; c++) {
       const i0 = r * cfg.MW + c, i1 = i0 + 1, i2 = i0 + cfg.MW, i3 = i2 + 1;
-      indices[ptr++] = i0; indices[ptr++] = i2; indices[ptr++] = i1;
-      indices[ptr++] = i1; indices[ptr++] = i2; indices[ptr++] = i3;
+      indicesFull[ptr++] = i0; indicesFull[ptr++] = i2; indicesFull[ptr++] = i1;
+      indicesFull[ptr++] = i1; indicesFull[ptr++] = i2; indicesFull[ptr++] = i3;
     }
   }
   for (let i = 0; i < ring.length; i++) {
     const nx = (i + 1) % ring.length;
     const t0 = ring[i], t1 = ring[nx], b0 = nGrid + i, b1 = nGrid + nx;
-    indices[ptr++] = t0; indices[ptr++] = b0; indices[ptr++] = t1;
-    indices[ptr++] = t1; indices[ptr++] = b0; indices[ptr++] = b1;
+    indicesFull[ptr++] = t0; indicesFull[ptr++] = b0; indicesFull[ptr++] = t1;
+    indicesFull[ptr++] = t1; indicesFull[ptr++] = b0; indicesFull[ptr++] = b1;
   }
 
-  let prog = null, vao = null, loc = null;
-  let waterTex = null, basemapTex = null;
+  // Índices LOD (stride = 2 -> ~75% menos triángulos durante arrastre o simulación)
+  const lodCols = [];
+  for (let c = 0; c < cfg.MW; c += 2) lodCols.push(c);
+  if (lodCols[lodCols.length - 1] !== cfg.MW - 1) lodCols.push(cfg.MW - 1);
+  const lodRows = [];
+  for (let r = 0; r < cfg.MH; r += 2) lodRows.push(r);
+  if (lodRows[lodRows.length - 1] !== cfg.MH - 1) lodRows.push(cfg.MH - 1);
+  const lodRing = [];
+  for (let i = 0; i < lodCols.length; i++) lodRing.push(lodCols[i]);
+  for (let i = 1; i < lodRows.length; i++) lodRing.push(lodRows[i] * cfg.MW + (cfg.MW - 1));
+  for (let i = lodCols.length - 2; i >= 0; i--) lodRing.push((cfg.MH - 1) * cfg.MW + lodCols[i]);
+  for (let i = lodRows.length - 2; i >= 1; i--) lodRing.push(lodRows[i] * cfg.MW);
+  const indicesLod = new Uint32Array(((lodCols.length - 1) * (lodRows.length - 1) * 2 + lodRing.length * 2) * 3);
+  let lPtr = 0;
+  for (let ri = 0; ri < lodRows.length - 1; ri++) {
+    const r0 = lodRows[ri], r1 = lodRows[ri + 1];
+    for (let ci = 0; ci < lodCols.length - 1; ci++) {
+      const c0 = lodCols[ci], c1 = lodCols[ci + 1];
+      const i0 = r0 * cfg.MW + c0, i1 = r0 * cfg.MW + c1;
+      const i2 = r1 * cfg.MW + c0, i3 = r1 * cfg.MW + c1;
+      indicesLod[lPtr++] = i0; indicesLod[lPtr++] = i2; indicesLod[lPtr++] = i1;
+      indicesLod[lPtr++] = i1; indicesLod[lPtr++] = i2; indicesLod[lPtr++] = i3;
+    }
+  }
+  for (let i = 0; i < lodRing.length; i++) {
+    const nx = (i + 1) % lodRing.length;
+    const t0 = lodRing[i], t1 = lodRing[nx];
+    const b0 = gridToSkirtIdx[t0], b1 = gridToSkirtIdx[t1];
+    indicesLod[lPtr++] = t0; indicesLod[lPtr++] = b0; indicesLod[lPtr++] = t1;
+    indicesLod[lPtr++] = t1; indicesLod[lPtr++] = b0; indicesLod[lPtr++] = b1;
+  }
+
+  let prog = null, vaoFull = null, vaoLod = null, loc = null;
+  let waterTex = null, basemapTex = null, osmFacTex = null;
   let contextLost = false;
+  let lightMode = false;
+  let anisoExt = null, maxAniso = 1, maxTexSize = 4096;
   let baseMixTarget = 0.0;
   let activeBasemapMode = "relief";
   const basemapCache = {};
   let basemapReqId = 0;
 
+  function bindBasemapSource(sourceCanvas) {
+    if (contextLost || !basemapTex) return;
+    gl.activeTexture(gl.TEXTURE3);
+    gl.bindTexture(gl.TEXTURE_2D, basemapTex);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, sourceCanvas);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
+    gl.generateMipmap(gl.TEXTURE_2D);
+    if (anisoExt && maxAniso > 1) {
+      gl.texParameterf(gl.TEXTURE_2D, anisoExt.TEXTURE_MAX_ANISOTROPY_EXT, maxAniso);
+    }
+  }
+
   function initGPU() {
+    maxTexSize = gl.getParameter(gl.MAX_TEXTURE_SIZE) || 4096;
+    anisoExt =
+      gl.getExtension("EXT_texture_filter_anisotropic") ||
+      gl.getExtension("WEBKIT_EXT_texture_filter_anisotropic") ||
+      gl.getExtension("MOZ_EXT_texture_filter_anisotropic");
+    maxAniso = anisoExt ? Math.min(8, gl.getParameter(anisoExt.MAX_TEXTURE_MAX_ANISOTROPY_EXT) || 1) : 1;
+
     function compile(type, src) {
       const s = gl.createShader(type);
       gl.shaderSource(s, src);
@@ -459,26 +533,40 @@ export function createWebGLRenderer({
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
     if (basemapCache[activeBasemapMode]) {
-      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, basemapCache[activeBasemapMode]);
+      bindBasemapSource(basemapCache[activeBasemapMode].canvas);
     } else {
       gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([255, 255, 255, 255]));
     }
 
     makeTex(4, cpCanvas, gl.LINEAR);
     makeTex(5, osmLineCanvas, gl.LINEAR);
-    makeTex(6, osmFacCanvas, gl.LINEAR);
+    osmFacTex = makeTex(6, osmFacCanvas, gl.LINEAR);
 
-    vao = gl.createVertexArray();
-    gl.bindVertexArray(vao);
     const vbo = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
     gl.bufferData(gl.ARRAY_BUFFER, verts, gl.STATIC_DRAW);
-    gl.enableVertexAttribArray(0); gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 16, 0);
-    gl.enableVertexAttribArray(1); gl.vertexAttribPointer(1, 1, gl.FLOAT, false, 16, 8);
-    gl.enableVertexAttribArray(2); gl.vertexAttribPointer(2, 1, gl.FLOAT, false, 16, 12);
-    const ebo = gl.createBuffer();
-    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ebo);
-    gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, indices, gl.STATIC_DRAW);
+
+    const bindAttrib = () => {
+      gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
+      gl.enableVertexAttribArray(0); gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 16, 0);
+      gl.enableVertexAttribArray(1); gl.vertexAttribPointer(1, 1, gl.FLOAT, false, 16, 8);
+      gl.enableVertexAttribArray(2); gl.vertexAttribPointer(2, 1, gl.FLOAT, false, 16, 12);
+    };
+
+    vaoFull = gl.createVertexArray();
+    gl.bindVertexArray(vaoFull);
+    bindAttrib();
+    const eboFull = gl.createBuffer();
+    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, eboFull);
+    gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, indicesFull, gl.STATIC_DRAW);
+
+    vaoLod = gl.createVertexArray();
+    gl.bindVertexArray(vaoLod);
+    bindAttrib();
+    const eboLod = gl.createBuffer();
+    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, eboLod);
+    gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, indicesLod, gl.STATIC_DRAW);
+    gl.bindVertexArray(null);
 
     const names = [
       "uMVP", "uWorldSize", "uZScale", "uBaseM", "uLayers", "uAcum", "uWater", "uBasemap",
@@ -581,6 +669,48 @@ export function createWebGLRenderer({
     gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, cfg.SW, cfg.SH, gl.RGBA, gl.UNSIGNED_BYTE, sim.waterTexBytes);
   }
 
+  async function downloadTileMosaic({ tx0, tx1, ty0, ty1, urlFn, label, onProgress, isCancelled }) {
+    const mercC = document.createElement("canvas");
+    mercC.width = (tx1 - tx0 + 1) * 256;
+    mercC.height = (ty1 - ty0 + 1) * 256;
+    const mctx = mercC.getContext("2d");
+    const coords = [];
+    for (let ty = ty0; ty <= ty1; ty++) {
+      for (let tx = tx0; tx <= tx1; tx++) coords.push({ tx, ty });
+    }
+    const total = coords.length;
+    let ok = 0, done = 0;
+    const CONCURRENCY = 16;
+
+    for (let i = 0; i < total; i += CONCURRENCY) {
+      if (isCancelled()) return { ok: 0, total, mercC: null, cancelled: true };
+      const batch = coords.slice(i, i + CONCURRENCY);
+      await Promise.all(
+        batch.map(
+          ({ tx, ty }) =>
+            new Promise(res => {
+              const im = new Image();
+              im.crossOrigin = "anonymous";
+              im.onload = () => {
+                if (!isCancelled()) mctx.drawImage(im, (tx - tx0) * 256, (ty - ty0) * 256);
+                ok++;
+                done++;
+                res();
+              };
+              im.onerror = () => {
+                done++;
+                res();
+              };
+              im.src = urlFn(tx, ty);
+            })
+        )
+      );
+      if (isCancelled()) return { ok: 0, total, mercC: null, cancelled: true };
+      onProgress?.(`${label} (${done}/${total})...`);
+    }
+    return { ok, total, mercC, cancelled: false };
+  }
+
   async function loadOnlineBasemap(mode, onStatus) {
     const myReq = ++basemapReqId;
     activeBasemapMode = mode;
@@ -590,53 +720,57 @@ export function createWebGLRenderer({
       requestRender();
       return;
     }
-    const attr = mode === "sat" ? "Imagen: © Esri World Imagery" : "Mapa: © CARTO · © OpenStreetMap";
-    if (basemapCache[mode]) {
-      if (!contextLost) {
-        gl.activeTexture(gl.TEXTURE3);
-        gl.bindTexture(gl.TEXTURE_2D, basemapTex);
-        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, basemapCache[mode]);
-      }
-      baseMixTarget = mode === "sat" ? 0.90 : 0.85;
-      onStatus?.({ status: mode === "sat" ? "Imagen satelital activa." : "Mapa de calles activo.", attribution: attr, mode, ok: true });
+
+    const cached = basemapCache[mode];
+    if (cached) {
+      bindBasemapSource(cached.canvas);
+      baseMixTarget = mode === "sat" ? 0.98 : 0.95;
+      onStatus?.({
+        status: mode === "sat" ? "Imagen satelital HD activa." : "Mapa de calles activo.",
+        attribution: cached.attr,
+        mode,
+        ok: true,
+      });
       requestRender();
       return;
     }
 
-    onStatus?.({ status: "Descargando tiles (requiere internet)...", attribution: "", mode, ok: true });
-    const z = 13, n = 8192;
+    const z = 14, n = 16384;
     const lon2tx = lon => ((lon + 180) / 360) * n;
     const lat2ty = lat => ((1 - Math.asinh(Math.tan((lat * Math.PI) / 180)) / Math.PI) / 2) * n;
     const tx0 = Math.floor(lon2tx(cfg.lonMin)), tx1 = Math.floor(lon2tx(cfg.lonMax));
     const ty0 = Math.floor(lat2ty(cfg.latMax)), ty1 = Math.floor(lat2ty(cfg.latMin));
-    const mercC = document.createElement("canvas");
-    mercC.width = (tx1 - tx0 + 1) * 256;
-    mercC.height = (ty1 - ty0 + 1) * 256;
-    const mctx = mercC.getContext("2d");
-    let ok = 0;
-    const total = (tx1 - tx0 + 1) * (ty1 - ty0 + 1);
-    const jobs = [];
-    for (let ty = ty0; ty <= ty1; ty++) {
-      for (let tx = tx0; tx <= tx1; tx++) {
-        const url =
-          mode === "sat"
-            ? `https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${z}/${ty}/${tx}`
-            : `https://basemaps.cartocdn.com/rastertiles/voyager/${z}/${tx}/${ty}.png`;
-        jobs.push(
-          new Promise(res => {
-            const im = new Image();
-            im.crossOrigin = "anonymous";
-            im.onload = () => { mctx.drawImage(im, (tx - tx0) * 256, (ty - ty0) * 256); ok++; res(); };
-            im.onerror = () => res();
-            im.src = url;
-          })
-        );
-      }
-    }
-    await Promise.all(jobs);
-    if (myReq !== basemapReqId) return; // Cancelado por selección posterior (sin race condition)
+    const isCancelled = () => myReq !== basemapReqId;
+    const label = mode === "sat" ? "Descargando satélite HD" : "Descargando calles HD";
+    onStatus?.({ status: `${label}...`, attribution: "", mode, ok: true });
 
-    if (ok < total * 0.5) {
+    let usedAttr = mode === "sat" ? "Imagen: © Esri World Imagery (HD)" : "Mapa: © Esri · © OpenStreetMap";
+    let res = await downloadTileMosaic({
+      tx0, tx1, ty0, ty1,
+      urlFn: (tx, ty) =>
+        mode === "sat"
+          ? `https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${z}/${ty}/${tx}`
+          : `https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/${z}/${ty}/${tx}`,
+      label,
+      onProgress: msg => onStatus?.({ status: msg, attribution: "", mode, ok: true }),
+      isCancelled,
+    });
+    if (res.cancelled) return;
+
+    if (mode === "streets" && res.ok < res.total * 0.5) {
+      usedAttr = "Mapa: © OpenStreetMap";
+      onStatus?.({ status: "Usando respaldo OpenStreetMap...", attribution: "", mode, ok: true });
+      res = await downloadTileMosaic({
+        tx0, tx1, ty0, ty1,
+        urlFn: (tx, ty) => `https://tile.openstreetmap.org/${z}/${tx}/${ty}.png`,
+        label: "Descargando OSM",
+        onProgress: msg => onStatus?.({ status: msg, attribution: "", mode, ok: true }),
+        isCancelled,
+      });
+      if (res.cancelled) return;
+    }
+
+    if (res.ok < res.total * 0.5) {
       baseMixTarget = 0.0;
       activeBasemapMode = "relief";
       onStatus?.({ status: "Sin conexión: se mantiene relieve offline.", attribution: "", mode: "relief", ok: false });
@@ -644,23 +778,35 @@ export function createWebGLRenderer({
       return;
     }
 
+    const targetW = Math.min(maxTexSize, mode === "sat" ? 2560 : 2048);
+    const targetH = Math.min(maxTexSize, Math.round(targetW * (cfg.worldH / cfg.worldW)));
     const wgsC = document.createElement("canvas");
-    wgsC.width = cfg.W; wgsC.height = cfg.H;
+    wgsC.width = targetW; wgsC.height = targetH;
     const wctx = wgsC.getContext("2d");
+    wctx.imageSmoothingEnabled = true;
+    wctx.imageSmoothingQuality = "high";
     const sx0 = (lon2tx(cfg.lonMin) - tx0) * 256;
     const sw = (lon2tx(cfg.lonMax) - lon2tx(cfg.lonMin)) * 256;
-    for (let r = 0; r < cfg.H; r++) {
-      const lat = cfg.latMax - ((r + 0.5) / cfg.H) * (cfg.latMax - cfg.latMin);
-      wctx.drawImage(mercC, sx0, (lat2ty(lat) - ty0) * 256, sw, 1, 0, r, cfg.W, 1);
+    const strips = 16;
+    for (let s = 0; s < strips; s++) {
+      const dr0 = Math.floor((s * targetH) / strips);
+      const dr1 = Math.floor(((s + 1) * targetH) / strips);
+      const latTop = cfg.latMax - (dr0 / targetH) * (cfg.latMax - cfg.latMin);
+      const latBot = cfg.latMax - (dr1 / targetH) * (cfg.latMax - cfg.latMin);
+      const sy0 = (lat2ty(latTop) - ty0) * 256;
+      const sy1 = (lat2ty(latBot) - ty0) * 256;
+      wctx.drawImage(res.mercC, sx0, sy0, sw, Math.max(0.5, sy1 - sy0), 0, dr0, targetW, dr1 - dr0);
     }
-    basemapCache[mode] = wgsC;
-    if (!contextLost) {
-      gl.activeTexture(gl.TEXTURE3);
-      gl.bindTexture(gl.TEXTURE_2D, basemapTex);
-      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, wgsC);
-    }
-    baseMixTarget = mode === "sat" ? 0.90 : 0.85;
-    onStatus?.({ status: mode === "sat" ? "Imagen satelital activa." : "Mapa de calles activo.", attribution: attr, mode, ok: true });
+
+    basemapCache[mode] = { canvas: wgsC, attr: usedAttr };
+    bindBasemapSource(wgsC);
+    baseMixTarget = mode === "sat" ? 0.98 : 0.95;
+    onStatus?.({
+      status: mode === "sat" ? "Imagen satelital HD activa." : "Mapa de calles activo.",
+      attribution: usedAttr,
+      mode,
+      ok: true,
+    });
     requestRender();
   }
 
@@ -690,14 +836,14 @@ export function createWebGLRenderer({
     const halfW = cfg.worldW * 0.5, halfH = cfg.worldH * 0.5;
     const surfY = (u, v) => (sim.sampleHeightAtUV(u, v) + sim.sampleWaterAtUV(u, v) - 10.0) * 0.001 * zScale;
 
-    for (let step = 0; step < 120; step++) {
-      const t = 0.05 + 89.95 * (step / 120);
+    for (let step = 0; step < 80; step++) {
+      const t = 0.05 + 89.95 * (step / 80);
       const px = p0[0] + rx * t, py = p0[1] + ry * t, pz = p0[2] + rz * t;
       const u = px / cfg.worldW + 0.5, v = pz / cfg.worldH + 0.5;
       if (u >= 0 && u <= 1 && v >= 0 && v <= 1) {
         if (py <= surfY(u, v)) {
-          let lo = 0.05 + 89.95 * (Math.max(0, step - 1) / 120), hi = t;
-          for (let k = 0; k < 10; k++) {
+          let lo = 0.05 + 89.95 * (Math.max(0, step - 1) / 80), hi = t;
+          for (let k = 0; k < 8; k++) {
             const mid = 0.5 * (lo + hi);
             const mu = (p0[0] + rx * mid) / cfg.worldW + 0.5;
             const mv = (p0[2] + rz * mid) / cfg.worldH + 0.5;
@@ -730,7 +876,7 @@ export function createWebGLRenderer({
         if (lm.visible) { lm.el.style.display = "none"; lm.visible = false; }
         continue;
       }
-      const wy = (lm.hM - 10.0) * 0.001 * vis.zScale + 0.06;
+      const wy = (lm.hM - 10.0) * 0.001 * vis.zScale + 0.02;
       const cx = currentMVP[0] * lm.wx + currentMVP[4] * wy + currentMVP[8] * lm.wz + currentMVP[12];
       const cy = currentMVP[1] * lm.wx + currentMVP[5] * wy + currentMVP[9] * lm.wz + currentMVP[13];
       const cw = currentMVP[3] * lm.wx + currentMVP[7] * wy + currentMVP[11] * lm.wz + currentMVP[15];
@@ -759,8 +905,23 @@ export function createWebGLRenderer({
   let rafId = null;
   let lastTickMs = 0;
   let simFrameCounter = 0;
+  let lastRenderedLod = false;
+  let hiResTimer = null;
+  let wheelUntil = 0;
+  let dragMode = null, lastX = 0, lastY = 0, downX = 0, downY = 0;
+  let hoverQueued = false, hoverX = 0, hoverY = 0, lastHoverMs = 0;
+  let touchState = null;
 
-  function renderNow() {
+  function scheduleHiRes() {
+    if (lightMode) return;
+    clearTimeout(hiResTimer);
+    hiResTimer = setTimeout(() => {
+      hiResTimer = null;
+      requestRender();
+    }, 140);
+  }
+
+  function renderNow(useLod = false) {
     if (contextLost) return;
     const vis = getVisualState();
 
@@ -804,8 +965,10 @@ export function createWebGLRenderer({
     gl.uniform1f(loc.uShowOsmLines, vis.showOsmLines ? 1.0 : 0.0);
     gl.uniform1f(loc.uShowOsmFac, vis.showOsmFac ? 1.0 : 0.0);
 
-    gl.bindVertexArray(vao);
-    gl.drawElements(gl.TRIANGLES, indices.length, gl.UNSIGNED_INT, 0);
+    const drawLod = useLod || lightMode;
+    gl.bindVertexArray(drawLod ? vaoLod : vaoFull);
+    gl.drawElements(gl.TRIANGLES, drawLod ? indicesLod.length : indicesFull.length, gl.UNSIGNED_INT, 0);
+    lastRenderedLod = drawLod;
 
     if (labelsDirty) updateLabels(vis);
     stats.framesRendered++;
@@ -832,20 +995,28 @@ export function createWebGLRenderer({
 
     const simActive = sim.state.running || sim.state.riverSettle > 0 || sim.state.pumpSettle > 0;
     if (simActive) {
-      const stepped = sim.advanceWall(dtSec);
+      const wantMetrics = simFrameCounter % 4 === 0;
+      const stepped = sim.advanceWall(dtSec, { updateMetricsNow: wantMetrics });
       if (stepped) {
         uploadWaterTexture();
         dirty = true;
         simFrameCounter++;
         const doneNow = !sim.state.running && sim.state.riverSettle === 0 && sim.state.pumpSettle === 0;
-        if (simFrameCounter % 3 === 0 || doneNow) {
-          onSimTick?.(doneNow);
-        }
+        if (doneNow && !wantMetrics) sim.updateMetrics();
+        if (wantMetrics || doneNow) onSimTick?.(doneNow);
       }
     }
 
+    const interacting =
+      dragMode !== null ||
+      touchState !== null ||
+      animCam !== null ||
+      simActive ||
+      lightMode ||
+      now < wheelUntil;
+
     if (dirty || labelsDirty) {
-      renderNow();
+      renderNow(interacting);
     }
 
     const stillActive =
@@ -863,10 +1034,15 @@ export function createWebGLRenderer({
       stats.isIdle = true;
       canvas.dataset.idle = "true";
       lastTickMs = 0;
+      if (lastRenderedLod && !lightMode && !interacting) {
+        scheduleHiRes();
+      }
     }
   }
 
   function requestRender(markLabels = false) {
+    clearTimeout(hiResTimer);
+    hiResTimer = null;
     dirty = true;
     if (markLabels) labelsDirty = true;
     if (rafId === null) {
@@ -876,7 +1052,8 @@ export function createWebGLRenderer({
   }
 
   function resize() {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const maxDpr = lightMode ? 1.0 : 1.5;
+    const dpr = Math.min(window.devicePixelRatio || 1, maxDpr);
     canvas.width = Math.max(1, Math.floor(window.innerWidth * dpr));
     canvas.height = Math.max(1, Math.floor(window.innerHeight * dpr));
     if (!contextLost) gl.viewport(0, 0, canvas.width, canvas.height);
@@ -886,10 +1063,25 @@ export function createWebGLRenderer({
   window.addEventListener("resize", resize);
   resize();
 
-  // Controles de ratón (con hover throttled por rAF), tacto y teclado
-  let dragMode = null, lastX = 0, lastY = 0, downX = 0, downY = 0;
-  let hoverQueued = false, hoverX = 0, hoverY = 0;
+  function setLightMode(enabled) {
+    lightMode = !!enabled;
+    resize();
+  }
 
+  function updateOsmFacilitiesMask(showSalud, showEscuelas, showEmerg) {
+    facMask.s = !!showSalud;
+    facMask.e = !!showEscuelas;
+    facMask.x = !!showEmerg;
+    redrawOsmFacCanvas();
+    if (!contextLost && osmFacTex) {
+      gl.activeTexture(gl.TEXTURE6);
+      gl.bindTexture(gl.TEXTURE_2D, osmFacTex);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, osmFacCanvas);
+    }
+    requestRender();
+  }
+
+  // Controles de ratón (con hover throttled a ~16/s), tacto y teclado
   canvas.addEventListener("contextmenu", e => e.preventDefault());
   canvas.addEventListener("mousedown", e => {
     animCam = null;
@@ -909,6 +1101,7 @@ export function createWebGLRenderer({
     }
     dragMode = null;
     canvas.classList.remove("dragging");
+    if (lastRenderedLod && !lightMode) scheduleHiRes();
   });
 
   window.addEventListener("mousemove", e => {
@@ -927,10 +1120,12 @@ export function createWebGLRenderer({
       requestRender(true);
     } else if (!pin && e.target === canvas) {
       hoverX = e.clientX; hoverY = e.clientY;
-      if (!hoverQueued) {
+      const now = performance.now();
+      if (!hoverQueued && now - lastHoverMs >= 60) {
         hoverQueued = true;
         requestAnimationFrame(() => {
           hoverQueued = false;
+          lastHoverMs = performance.now();
           if (!dragMode && !pin) {
             const hit = pickTerrain(hoverX, hoverY);
             if (hit) onHoverTerrain?.(hit);
@@ -943,11 +1138,12 @@ export function createWebGLRenderer({
   canvas.addEventListener("wheel", e => {
     e.preventDefault();
     animCam = null;
+    wheelUntil = performance.now() + 120;
     cam.dist = Math.max(1.4, Math.min(48.0, cam.dist * Math.exp(e.deltaY * 0.0011)));
     requestRender(true);
+    if (!lightMode) scheduleHiRes();
   }, { passive: false });
 
-  let touchState = null;
   canvas.addEventListener("touchstart", e => {
     animCam = null;
     if (e.touches.length === 1) {
@@ -1004,6 +1200,7 @@ export function createWebGLRenderer({
       onClickTerrain?.(hit);
     }
     touchState = null;
+    if (lastRenderedLod && !lightMode) scheduleHiRes();
   });
 
   // Navegación por teclado cuando el canvas tiene foco
@@ -1027,10 +1224,12 @@ export function createWebGLRenderer({
     getPin: () => pin,
     uploadWaterTexture,
     loadOnlineBasemap,
+    setLightMode,
+    updateOsmFacilitiesMask,
     requestRender,
     renderNow,
     capturePNG: () => {
-      renderNow();
+      renderNow(false);
       return canvas.toDataURL("image/png");
     },
   };

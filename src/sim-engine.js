@@ -74,6 +74,7 @@ export function createSimEngine({
   const simProtected = new Uint8Array(S_N); // 1=protegido por anillo de defensa
   const simDefenseCrown = new Float32Array(S_N);
   const waterTexBytes = new Uint8Array(S_N * 4);
+  for (let i = 3; i < waterTexBytes.length; i += 4) waterTexBytes[i] = 255;
 
   const defaultDefenseCrown = Number(researchOverrides?.defensas?.cota_defecto_m) || 16.20;
   const resDesignDepthM = Number(researchOverrides?.reservorios?.profundidad_defecto_m) || 1.20;
@@ -101,13 +102,8 @@ export function createSimEngine({
 
       simZ[si] = heightsM[mr * cfg.MW + mc];
       const rNorm = sr / Math.max(1, SH - 1);
-      const bP =
-        sr < 40
-          ? 11.10 + (40 - sr) * 0.03
-          : sr < 150
-            ? 11.10
-            : 11.10 - Math.min(1.10, (sr - 150) * 0.022);
-      simBaseP[si] = bP;
+      // Pendiente hidráulica realista del Paraná (~4,2 cm/km, anclada en Puerto SF sr=145 -> 11,10 m)
+      simBaseP[si] = 11.10 + (145 - sr) * 0.005;
       simBaseS[si] = 14.00 - 1.90 * rNorm;
 
       const riskId = layersRGBA[li];
@@ -204,6 +200,22 @@ export function createSimEngine({
     }
   }
 
+  // Pre-indexar celdas con bombeo activo para evitar recorrer 55 900 celdas en cada subpaso
+  let activePumpCount = 0;
+  for (let i = 0; i < S_N; i++) {
+    if (simPumpRateMhr[i] > 0) activePumpCount++;
+  }
+  const pumpIdxArr = new Int32Array(activePumpCount);
+  const pumpRateArr = new Float32Array(activePumpCount);
+  let pPtr = 0;
+  for (let i = 0; i < S_N; i++) {
+    if (simPumpRateMhr[i] > 0) {
+      pumpIdxArr[pPtr] = i;
+      pumpRateArr[pPtr] = simPumpRateMhr[i];
+      pPtr++;
+    }
+  }
+
   const manualPumps = [];
   const state = {
     running: false,
@@ -232,12 +244,13 @@ export function createSimEngine({
       drainOutM3: 0,
       pumpOutM3: 0,
       borderOutM3: 0,
+      riverOutM3: 0,
       storedM3: 0,
     },
   };
 
   let simAccSec = 0;
-  const SUBSTEPS_PER_SEC = 240; // Independiente de 60Hz / 120Hz / 144Hz
+  const SUBSTEPS_PER_SEC = 160; // Independiente de 60Hz / 120Hz / 144Hz
 
   function getSoilRunoffMultiplier() {
     if (state.soilMode === "dry") return 0.86;
@@ -279,12 +292,13 @@ export function createSimEngine({
   }
 
   function updateWaterBytes() {
+    const scale = 65535.0 / 6.0;
     for (let i = 0; i < S_N; i++) {
-      const u16 = Math.round((Math.min(6.0, Math.max(0.0, simW[i])) / 6.0) * 65535.0);
-      waterTexBytes[i * 4] = u16 >> 8;
-      waterTexBytes[i * 4 + 1] = u16 & 0xff;
-      waterTexBytes[i * 4 + 2] = 0;
-      waterTexBytes[i * 4 + 3] = 255;
+      const w = simW[i];
+      const u16 = w <= 0 ? 0 : w >= 6.0 ? 65535 : (w * scale + 0.5) | 0;
+      const j = i << 2;
+      waterTexBytes[j] = u16 >> 8;
+      waterTexBytes[j + 1] = u16 & 0xff;
     }
     return waterTexBytes;
   }
@@ -334,6 +348,7 @@ export function createSimEngine({
     state.massBalance.drainOutM3 = 0;
     state.massBalance.pumpOutM3 = 0;
     state.massBalance.borderOutM3 = 0;
+    state.massBalance.riverOutM3 = 0;
     state.massBalance.storedM3 = 0;
   }
 
@@ -388,7 +403,9 @@ export function createSimEngine({
     return true;
   }
 
-  function stepSubsteps(subSteps, rainEnabled = true) {
+  function stepSubsteps(subSteps, rainEnabled = true, options = {}) {
+    const { skipMetrics = false, maxMs = 0 } = options;
+    const t0 = maxMs > 0 && typeof performance !== "undefined" ? performance.now() : 0;
     const durHr = Math.max(0.25, state.durationHr);
     const meanRateMmHr = state.targetMm / durHr;
     const dtHr = 0.015;
@@ -442,10 +459,10 @@ export function createSimEngine({
       }
 
       if (state.cityPumpsActive) {
-        for (let i = 0; i < S_N; i++) {
-          const pr = simPumpRateMhr[i];
-          if (pr > 0 && simW[i] > 0) {
-            const rem = Math.min(simW[i], pr * dtHr);
+        for (let k = 0; k < pumpIdxArr.length; k++) {
+          const i = pumpIdxArr[k];
+          if (simW[i] > 0) {
+            const rem = Math.min(simW[i], pumpRateArr[k] * dtHr);
             simW[i] -= rem;
             state.massBalance.pumpOutM3 += rem * cellAreaM2;
           }
@@ -519,6 +536,12 @@ export function createSimEngine({
       }
 
       for (let i = 0; i < S_N; i++) {
+        const t = simType[i];
+        if ((t === 1 && riseP <= 0.01) || (t === 4 && riseS <= 0.01)) {
+          if (simDW[i] > 0) state.massBalance.riverOutM3 += simDW[i] * cellAreaM2;
+          simW[i] = 0;
+          continue;
+        }
         const nw = simW[i] + simDW[i];
         simW[i] = nw > 0 ? nw : 0;
       }
@@ -542,9 +565,11 @@ export function createSimEngine({
           const loss = simW[right] * 0.5; simW[right] -= loss; state.massBalance.borderOutM3 += loss * cellAreaM2;
         }
       }
+
+      if (maxMs > 0 && s + 1 < subSteps && performance.now() - t0 >= maxMs) break;
     }
 
-    updateMetrics();
+    if (!skipMetrics) updateMetrics();
     if (
       rainEnabled &&
       state.fallenMm >= state.targetMm &&
@@ -555,21 +580,21 @@ export function createSimEngine({
     }
   }
 
-  // Avance independiente de la tasa de refresco (60 Hz / 120 Hz / 144 Hz)
-  function advanceWall(dtWallSec) {
+  // Avance independiente de la tasa de refresco (60 Hz / 120 Hz / 144 Hz) con presupuesto anti-lag
+  function advanceWall(dtWallSec, { updateMetricsNow = true } = {}) {
     if (!state.running && state.riverSettle <= 0 && state.pumpSettle <= 0) return false;
     const clampedDt = Math.min(0.05, Math.max(0.001, dtWallSec));
     simAccSec += clampedDt;
     const targetSubsteps = Math.floor(simAccSec * SUBSTEPS_PER_SEC);
     if (targetSubsteps <= 0) return false;
     simAccSec -= targetSubsteps / SUBSTEPS_PER_SEC;
-    const steps = Math.min(12, targetSubsteps);
+    const steps = Math.min(4, targetSubsteps);
 
     if (state.running) {
-      stepSubsteps(steps, true);
+      stepSubsteps(steps, true, { skipMetrics: !updateMetricsNow, maxMs: 9 });
     } else {
-      const settleSteps = state.riverSettle > 0 ? Math.max(steps, 8) : steps;
-      stepSubsteps(settleSteps, false);
+      const settleSteps = state.riverSettle > 0 ? Math.min(5, Math.max(steps, 4)) : steps;
+      stepSubsteps(settleSteps, false, { skipMetrics: !updateMetricsNow, maxMs: 9 });
       if (state.riverSettle > 0) state.riverSettle = Math.max(0, state.riverSettle - 1);
       if (state.pumpSettle > 0) state.pumpSettle = Math.max(0, state.pumpSettle - 1);
     }
@@ -591,7 +616,7 @@ export function createSimEngine({
     return { hits, totalCat };
   }
 
-  function getPointDiagnostics(u, v, places, forcedName = null) {
+  function getQuickSample(u, v) {
     const lon = cfg.lonMin + u * (cfg.lonMax - cfg.lonMin);
     const lat = cfg.latMax - v * (cfg.latMax - cfg.latMin);
     const elev = sampleHeightAtUV(u, v);
@@ -603,6 +628,12 @@ export function createSimEngine({
     const rId = layersRGBA[idx], cId = layersRGBA[idx + 1], binVal = layersRGBA[idx + 2];
     const acU16 = (acumRGBA[idx] << 8) | acumRGBA[idx + 1];
     const acVal = acU16 === 0 ? 0 : Math.pow(10, (acU16 / 65535.0) * 6.5);
+    return { lon, lat, elev, wM, wCm, rId, cId, binVal, acVal };
+  }
+
+  function getPointDiagnostics(u, v, places, forcedName = null) {
+    const base = getQuickSample(u, v);
+    const { lon, lat } = base;
 
     let placeName = forcedName;
     if (!placeName) {
@@ -631,7 +662,7 @@ export function createSimEngine({
     }
 
     return {
-      u, v, lon, lat, elev, wM, wCm, rId, cId, binVal, acVal,
+      u, v, ...base,
       placeName,
       nearPump: nearPump && nearPumpD < 0.55 ? { ...nearPump, distM: Math.round(nearPumpD * 1000) } : null,
       nearFac: nearFac && nearFacD < 0.55 ? { ...nearFac, distM: Math.round(nearFacD * 1000) } : null,
@@ -644,6 +675,7 @@ export function createSimEngine({
     waterTexBytes,
     sampleHeightAtUV,
     sampleWaterAtUV,
+    getQuickSample,
     updateWaterBytes,
     updateMetrics,
     resetWaterOnly,

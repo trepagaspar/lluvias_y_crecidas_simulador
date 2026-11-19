@@ -2,8 +2,8 @@
 :root {
   --bg-deep: #070b14;
   --bg-radial: #0f192d;
-  --surface: rgba(11, 17, 32, 0.84);
-  --surface-elevated: rgba(15, 23, 42, 0.94);
+  --surface: rgba(11, 17, 32, 0.94);
+  --surface-elevated: rgba(15, 23, 42, 0.97);
   --surface-subtle: rgba(30, 41, 59, 0.56);
   --surface-hover: rgba(51, 65, 85, 0.72);
   --border: rgba(148, 163, 184, 0.14);
@@ -23,7 +23,6 @@
   --radius-md: 10px;
   --radius-lg: 12px;
   --shadow: 0 10px 30px rgba(2, 6, 23, 0.52);
-  --blur: blur(16px) saturate(135%);
   --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
 }
 
@@ -79,10 +78,9 @@ html, body {
   top: 0;
   left: 0;
   display: none;
-  will-change: transform;
-  background: rgba(11, 17, 32, 0.80);
+  background: rgba(11, 17, 32, 0.88);
   color: var(--text-1);
-  border: 1px solid rgba(148, 163, 184, 0.25);
+  border: 1px solid rgba(148, 163, 184, 0.28);
   padding: 2px 7px;
   border-radius: 5px;
   font-family: var(--font-sans);
@@ -95,11 +93,25 @@ html, body {
   cursor: pointer;
   transition: border-color 0.14s ease, background 0.14s ease;
 }
+.map-label::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  width: 6px;
+  height: 6px;
+  background: inherit;
+  border-right: 1px solid rgba(148, 163, 184, 0.32);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.32);
+  transform: translateX(-50%) rotate(45deg);
+  pointer-events: none;
+}
 .map-label:hover { border-color: var(--accent); background: rgba(15, 23, 42, 0.96); }
 .map-label.res-lbl {
-  background: rgba(13, 148, 136, 0.86);
+  background: rgba(13, 148, 136, 0.90);
   border-color: rgba(153, 246, 228, 0.55);
 }
+.map-label.res-lbl::after { border-color: rgba(153, 246, 228, 0.55); }
 .map-label.res-lbl:hover { background: rgba(15, 118, 110, 0.98); border-color: #99f6e4; }
 
 /* Base Controls */
@@ -193,7 +205,6 @@ button.btn-xs {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  backdrop-filter: var(--blur);
   box-shadow: var(--shadow);
   pointer-events: auto;
 }
@@ -312,7 +323,6 @@ button.btn-xs {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  backdrop-filter: var(--blur);
   box-shadow: var(--shadow);
   padding: 6px 4px;
   display: flex;
@@ -364,7 +374,6 @@ button.btn-xs {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  backdrop-filter: var(--blur);
   box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
@@ -730,7 +739,6 @@ details.accordion[open] summary .acc-chev { transform: rotate(180deg); }
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  backdrop-filter: var(--blur);
   box-shadow: var(--shadow);
   pointer-events: auto;
 }
@@ -808,7 +816,6 @@ details.accordion[open] summary .acc-chev { transform: rotate(180deg); }
   border-radius: var(--radius-lg);
   padding: 11px 13px;
   box-shadow: var(--shadow);
-  backdrop-filter: var(--blur);
   z-index: 22;
 }
 #legend-popover h3 {
@@ -877,7 +884,6 @@ details.accordion[open] summary .acc-chev { transform: rotate(180deg); }
   border-radius: var(--radius-lg);
   padding: 13px 14px;
   box-shadow: var(--shadow);
-  backdrop-filter: var(--blur);
 }
 .tour-head {
   display: flex;

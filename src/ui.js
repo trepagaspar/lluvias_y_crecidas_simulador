@@ -45,13 +45,16 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     hs: $("sl-hs"),
     contours: $("chk-contours"),
     riskAlpha: $("sl-risk-alpha"),
+    riskLayer: $("chk-risk-layer"),
     r1: $("chk-r1"),
     r2: $("chk-r2"),
     r3: $("chk-r3"),
     r4: $("chk-r4"),
     cityPumps: $("chk-city-pumps"),
     osmCanales: $("chk-osm-canales"),
-    osmEquip: $("chk-osm-equip"),
+    osmSalud: $("chk-osm-salud"),
+    osmEscuelas: $("chk-osm-escuelas"),
+    osmEmerg: $("chk-osm-emerg"),
     res: $("chk-res"),
     bin: $("chk-bin"),
     acflow: $("chk-acflow"),
@@ -60,6 +63,7 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     parks: $("chk-parks"),
     landfill: $("chk-landfill"),
     labels: $("chk-labels"),
+    lightMode: $("chk-light-mode"),
     rain: $("sl-rain"),
     dur: $("sl-dur"),
     parana: $("sl-parana"),
@@ -126,11 +130,12 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
 
   // Visual state provider para el renderer WebGL2
   function getVisualState() {
-    const rMask =
-      (ui.r1.checked ? 1 : 0) |
-      (ui.r2.checked ? 2 : 0) |
-      (ui.r3.checked ? 4 : 0) |
-      (ui.r4.checked ? 8 : 0);
+    const rMask = !ui.riskLayer.checked
+      ? 0
+      : (ui.r1.checked ? 1 : 0) |
+        (ui.r2.checked ? 2 : 0) |
+        (ui.r3.checked ? 4 : 0) |
+        (ui.r4.checked ? 8 : 0);
     return {
       zScale: parseFloat(ui.z.value),
       hsStrength: parseFloat(ui.hs.value) / 100.0,
@@ -146,7 +151,8 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
       showContours: ui.contours.checked,
       showCityPumps: ui.cityPumps.checked,
       showOsmLines: ui.osmCanales.checked,
-      showOsmFac: ui.osmEquip.checked,
+      showOsmFac: ui.osmSalud.checked || ui.osmEscuelas.checked || ui.osmEmerg.checked,
+      lightMode: ui.lightMode.checked,
       showLabels: ui.labels.checked,
       sidebarOpen: !sidebar.classList.contains("collapsed"),
     };
@@ -333,9 +339,9 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     sim.state.antecedentRain24h = liveState.rain24h || 0;
   }
 
-  // Inspector inferior
+  // Inspector inferior (muestreo liviano sin iterar equipamiento/lugares en hover)
   function updateInspector(u, v) {
-    const d = sim.getPointDiagnostics(u, v, places);
+    const d = sim.getQuickSample(u, v);
     $("i-coord").textContent = `${fmtNum(d.lat, 4)}, ${fmtNum(d.lon, 4)}`;
     $("i-elev").textContent = `${fmtNum(d.elev, 1)} m`;
     $("i-water").textContent = `${d.wCm} cm`;
@@ -558,7 +564,7 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
       sim.stepSubsteps(preRunSubsteps, true);
       renderer.uploadWaterTexture();
     } else {
-      if (sim.state.paranaScale > 3.5 || sim.state.saladoScale > 3.5) sim.state.riverSettle = 28;
+      if (sim.state.paranaScale > 3.5 || sim.state.saladoScale > 3.5) sim.state.riverSettle = 18;
       if (runRain) sim.state.running = true;
     }
     updateSimUI();
@@ -621,6 +627,34 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     });
   });
 
+  const syncOsmFacLayer = () => {
+    renderer.updateOsmFacilitiesMask(ui.osmSalud.checked, ui.osmEscuelas.checked, ui.osmEmerg.checked);
+    renderer.requestRender();
+  };
+  ui.osmSalud.addEventListener("change", syncOsmFacLayer);
+  ui.osmEscuelas.addEventListener("change", syncOsmFacLayer);
+  ui.osmEmerg.addEventListener("change", syncOsmFacLayer);
+
+  ui.riskLayer.addEventListener("change", () => {
+    if (ui.riskLayer.checked && !ui.r1.checked && !ui.r2.checked && !ui.r3.checked && !ui.r4.checked) {
+      ui.r1.checked = ui.r2.checked = ui.r3.checked = ui.r4.checked = true;
+    }
+    renderer.requestRender();
+  });
+
+  [ui.r1, ui.r2, ui.r3, ui.r4].forEach(chk => {
+    chk.addEventListener("change", () => {
+      const anyChecked = ui.r1.checked || ui.r2.checked || ui.r3.checked || ui.r4.checked;
+      if (anyChecked && !ui.riskLayer.checked) ui.riskLayer.checked = true;
+      else if (!anyChecked) ui.riskLayer.checked = false;
+      renderer.requestRender();
+    });
+  });
+
+  ui.lightMode.addEventListener("change", () => {
+    renderer.setLightMode(ui.lightMode.checked);
+  });
+
   let lastP = parseFloat(ui.parana.value);
   let lastS = parseFloat(ui.salado.value);
 
@@ -628,7 +662,7 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     clearActiveScenario();
     const lowered = (sim.state.paranaScale < prevP || sim.state.saladoScale < prevS) && sim.state.fallenMm === 0;
     if (lowered) sim.resetWaterOnly();
-    sim.state.riverSettle = 28;
+    sim.state.riverSettle = 18;
     updateSimUI();
     renderer.requestRender();
   }
@@ -991,7 +1025,7 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     updateTextLabels();
     if (changed && !sim.state.running && sim.state.fallenMm === 0) {
       sim.resetWaterOnly();
-      sim.state.riverSettle = 28;
+      sim.state.riverSettle = 18;
     }
     updateSimUI();
     renderer.requestRender();

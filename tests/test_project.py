@@ -26,9 +26,18 @@ class TestConfigAndAssets(unittest.TestCase):
         cfg = json.loads((ROOT / "config" / "region_santa_fe.json").read_text(encoding="utf-8"))
         for key in ("bbox", "grid", "entre_rios_filter", "hydrometry", "weather", "places", "research_overrides"):
             self.assertIn(key, cfg)
+        self.assertIn("puntos_criticos_empiricos", cfg["research_overrides"])
         self.assertEqual(len(cfg["hydrometry"]["stations"]), 3)
         self.assertGreaterEqual(len(cfg["places"]), 19)
         self.assertGreaterEqual(sum(1 for p in cfg["places"] if p.get("barrio_ref")), 19)
+        places_by_name = {p["name"]: p for p in cfg["places"]}
+        self.assertIn("Alto Verde", places_by_name)
+        av = places_by_name["Alto Verde"]
+        self.assertGreaterEqual(av["lon"], -60.705)
+        self.assertLessEqual(av["lon"], -60.690)
+        self.assertGreaterEqual(av["lat"], -31.675)
+        self.assertLessEqual(av["lat"], -31.652)
+        self.assertIn("La Boca (Alto Verde)", places_by_name)
 
     def test_geojson_and_assets_sync(self):
         eq_gj = json.loads((ROOT / "datos/vectores/osm_equipamiento_critico.geojson").read_text(encoding="utf-8"))
@@ -101,6 +110,23 @@ class TestFrontendQualityAndSecurity(unittest.TestCase):
         for js in sorted((ROOT / "src").glob("*.js")):
             res = subprocess.run(["node", "--check", str(js)], capture_output=True, text=True)
             self.assertEqual(res.returncode, 0, f"Error de sintaxis en {js.name}: {res.stderr}")
+
+    def test_default_layers_unchecked_and_no_carto(self):
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        for cid in ("chk-osm-salud", "chk-osm-escuelas", "chk-osm-emerg", "chk-risk-layer"):
+            m = re.search(rf'<input[^>]*id="{cid}"[^>]*>', html)
+            self.assertIsNotNone(m, f"Falta el checkbox {cid} en index.html")
+            self.assertNotIn("checked", m.group(0), f"{cid} debe iniciar desactivado por defecto")
+        for js in sorted((ROOT / "src").glob("*.js")):
+            txt = js.read_text(encoding="utf-8")
+            self.assertNotIn("cartocdn.com", txt, f"Referencia rota cartocdn.com en {js.name}")
+
+    def test_validar_eventos_mass_balance(self):
+        res = subprocess.run([sys.executable, str(ROOT / "scripts" / "validar_eventos.py")], cwd=str(ROOT), capture_output=True, text=True)
+        self.assertEqual(res.returncode, 0, res.stdout + "\n" + res.stderr)
+        m = re.search(r"Error:\s*([0-9.]+)%", res.stdout)
+        self.assertIsNotNone(m, res.stdout)
+        self.assertLess(float(m.group(1)), 1.0)
 
 
 class TestScriptsBehavior(unittest.TestCase):

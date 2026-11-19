@@ -88,10 +88,10 @@
         "osm_id": "node/1899338599",
         "categoria": "emergencia",
         "subtipo": "police",
-        "nombre": "Comisaría / Destacamento Policial s/n (zona Colastiné / Rincón)",
+        "nombre": "Comisaría / Destacamento Policial s/n (zona Colastiné)",
         "direccion": "",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Colastiné / Rincón",
+        "barrio_cercano": "Colastiné",
         "cota_fabdem_m": 16.14
       },
       "geometry": {
@@ -151,7 +151,7 @@
         "nombre": "Escuela Roca Nº869",
         "direccion": "Ruta Provincial 1 Teófilo Madrejón",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Colastiné / Rincón",
+        "barrio_cercano": "Colastiné",
         "cota_fabdem_m": 17.86
       },
       "geometry": {
@@ -171,7 +171,7 @@
         "nombre": "Comisaría",
         "direccion": "",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Colastiné / Rincón",
+        "barrio_cercano": "Colastiné",
         "cota_fabdem_m": 16.9
       },
       "geometry": {
@@ -191,7 +191,7 @@
         "nombre": "Comisaría",
         "direccion": "",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Colastiné / Rincón",
+        "barrio_cercano": "Rincón",
         "cota_fabdem_m": 17.79
       },
       "geometry": {
@@ -211,7 +211,7 @@
         "nombre": "Escuela de Educación Técnico Profesional 658 Maria Sánchez De Thompson",
         "direccion": "Busaniche",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Colastiné / Rincón",
+        "barrio_cercano": "Rincón",
         "cota_fabdem_m": 16.53
       },
       "geometry": {
@@ -231,7 +231,7 @@
         "nombre": "Prefectura Santa Fe",
         "direccion": "Mendoza",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Microcentro",
+        "barrio_cercano": "Puerto",
         "cota_fabdem_m": 16.38
       },
       "geometry": {
@@ -711,7 +711,7 @@
         "nombre": "Escuela 136 Gregoria Pérez de Denis",
         "direccion": "1 de Mayo",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Las Flores / Hipódromo",
+        "barrio_cercano": "Parque Federal",
         "cota_fabdem_m": 18.26
       },
       "geometry": {
@@ -831,7 +831,7 @@
         "nombre": "Centro Integral de Salud de la Costa",
         "direccion": "Ruta Provincial 1 Teófilo Madrejón",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Colastiné / Rincón",
+        "barrio_cercano": "Colastiné",
         "cota_fabdem_m": 17.84
       },
       "geometry": {
@@ -1531,7 +1531,7 @@
         "nombre": "Santa María Goretti",
         "direccion": "",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Parque Garay",
+        "barrio_cercano": "Barranquitas",
         "cota_fabdem_m": 16.5
       },
       "geometry": {
@@ -1831,7 +1831,7 @@
         "nombre": "Policía de Investigación",
         "direccion": "San Jerónimo",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Candioti",
+        "barrio_cercano": "Microcentro",
         "cota_fabdem_m": 19.6
       },
       "geometry": {
@@ -1871,7 +1871,7 @@
         "nombre": "Escuela Taller de Educ Manual N°189 \"Prof. Carlos Vergara\"",
         "direccion": "",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Alto Verde",
+        "barrio_cercano": "El Pozo",
         "cota_fabdem_m": 17.54
       },
       "geometry": {
@@ -1891,7 +1891,7 @@
         "nombre": "Escuela de Educación Técnica 645 Martín Jacobo Thompson",
         "direccion": "Ramón Rivero",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Parque del Sur",
+        "barrio_cercano": "La Boca",
         "cota_fabdem_m": 18.45
       },
       "geometry": {
@@ -1951,7 +1951,7 @@
         "nombre": "SAMCO",
         "direccion": "Busaniche",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Colastiné / Rincón",
+        "barrio_cercano": "Rincón",
         "cota_fabdem_m": 16.83
       },
       "geometry": {
@@ -1971,7 +1971,7 @@
         "nombre": "Centro de Acción Familiar N° 10 \"Azahares\"",
         "direccion": "San Martín",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Colastiné / Rincón",
+        "barrio_cercano": "Rincón",
         "cota_fabdem_m": 16.78
       },
       "geometry": {
@@ -2071,7 +2071,7 @@
         "nombre": "Facultad de Ingeniería Química",
         "direccion": "Santiago del Estero",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Microcentro",
+        "barrio_cercano": "Parque Garay",
         "cota_fabdem_m": 19.67
       },
       "geometry": {
@@ -2091,7 +2091,7 @@
         "nombre": "Escuela Industrial Superior",
         "direccion": "Junín",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Microcentro",
+        "barrio_cercano": "Parque Garay",
         "cota_fabdem_m": 19.73
       },
       "geometry": {
@@ -2131,7 +2131,7 @@
         "nombre": "SAMCo El Pozo",
         "direccion": "Alejandro Greca",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Alto Verde",
+        "barrio_cercano": "El Pozo",
         "cota_fabdem_m": 17.77
       },
       "geometry": {
@@ -2151,7 +2151,7 @@
         "nombre": "Seccional 25",
         "direccion": "",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Alto Verde",
+        "barrio_cercano": "El Pozo",
         "cota_fabdem_m": 17.67
       },
       "geometry": {
@@ -2211,7 +2211,7 @@
         "nombre": "Facultad de Humanidades y Ciencias",
         "direccion": "",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Alto Verde",
+        "barrio_cercano": "El Pozo",
         "cota_fabdem_m": 17.08
       },
       "geometry": {
@@ -2231,7 +2231,7 @@
         "nombre": "Universidad Tecnológica Nacional Santa Fe",
         "direccion": "Lavaisse",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Parque Federal",
+        "barrio_cercano": "Guadalupe",
         "cota_fabdem_m": 19.59
       },
       "geometry": {
@@ -2251,7 +2251,7 @@
         "nombre": "BioTec",
         "direccion": "9 de Julio",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Candioti",
+        "barrio_cercano": "Microcentro",
         "cota_fabdem_m": 19.71
       },
       "geometry": {
@@ -2271,7 +2271,7 @@
         "nombre": "Diagnóstico San Gerónimo",
         "direccion": "9 de Julio",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Candioti",
+        "barrio_cercano": "Parque Garay",
         "cota_fabdem_m": 19.59
       },
       "geometry": {
@@ -2631,7 +2631,7 @@
         "nombre": "Escuela 16 Fray Francisco De Paula Castañeda",
         "direccion": "Castañeda",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Colastiné / Rincón",
+        "barrio_cercano": "Rincón",
         "cota_fabdem_m": 17.75
       },
       "geometry": {
@@ -2651,7 +2651,7 @@
         "nombre": "UNL - Secretaría de Extensión y Cultura",
         "direccion": "San Jerónimo",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Candioti",
+        "barrio_cercano": "Microcentro",
         "cota_fabdem_m": 19.6
       },
       "geometry": {
@@ -2671,7 +2671,7 @@
         "nombre": "Escuela 95 Simón De Iriondo",
         "direccion": "",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Parque del Sur",
+        "barrio_cercano": "Alto Verde",
         "cota_fabdem_m": 14.99
       },
       "geometry": {
@@ -2691,7 +2691,7 @@
         "nombre": "Escuela 8 Cristóbal Colón",
         "direccion": "Francia",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Centenario",
+        "barrio_cercano": "Parque del Sur",
         "cota_fabdem_m": 19.05
       },
       "geometry": {
@@ -3071,7 +3071,7 @@
         "nombre": "Escuela 1336 Combate Del Quebracho",
         "direccion": "Valentín Alsina",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Loyola / Los Troncos",
+        "barrio_cercano": "Cabaña Leiva",
         "cota_fabdem_m": 17.73
       },
       "geometry": {
@@ -3091,7 +3091,7 @@
         "nombre": "Escuela Particular Incorporada 1341 Santa Rita De Casia",
         "direccion": "Florencio Fernández",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Loyola / Los Troncos",
+        "barrio_cercano": "Cabaña Leiva",
         "cota_fabdem_m": 18.09
       },
       "geometry": {
@@ -3151,7 +3151,7 @@
         "nombre": "Escuela 1138 Mateo Booz",
         "direccion": "",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Alto Verde",
+        "barrio_cercano": "El Pozo",
         "cota_fabdem_m": 13.7
       },
       "geometry": {
@@ -3171,7 +3171,7 @@
         "nombre": "Escuela 533 Victoriano Montes",
         "direccion": "",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Parque del Sur",
+        "barrio_cercano": "Alto Verde",
         "cota_fabdem_m": 16.02
       },
       "geometry": {
@@ -3271,7 +3271,7 @@
         "nombre": "Escuela Particular Incorporada 1416 Doctor Gilberto Beltramino",
         "direccion": "Jacinto Viñas",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Reservorios Oeste",
+        "barrio_cercano": "Loyola / Los Troncos",
         "cota_fabdem_m": 18.22
       },
       "geometry": {
@@ -3591,7 +3591,7 @@
         "nombre": "Escuela Particular Incorporada 1408 Colegio Vision De Futuro",
         "direccion": "Pasaje Manuel Leiva",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Parque Garay",
+        "barrio_cercano": "Barranquitas",
         "cota_fabdem_m": 16.58
       },
       "geometry": {
@@ -3991,7 +3991,7 @@
         "nombre": "Jardín De Infantes 150 Juan Arancio",
         "direccion": "Rector Pedro Martínez",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Alto Verde",
+        "barrio_cercano": "El Pozo",
         "cota_fabdem_m": 17.06
       },
       "geometry": {
@@ -4051,7 +4051,7 @@
         "nombre": "Escuela 100 Marcos Sastre",
         "direccion": "Avenida Antonio Berutti",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Reservorios Oeste",
+        "barrio_cercano": "Loyola / Los Troncos",
         "cota_fabdem_m": 18.51
       },
       "geometry": {
@@ -4071,7 +4071,7 @@
         "nombre": "Jardín de Infantes 33 Juana Paula Manso",
         "direccion": "Edmundo Rosas",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Reservorios Oeste",
+        "barrio_cercano": "Loyola / Los Troncos",
         "cota_fabdem_m": 18.54
       },
       "geometry": {
@@ -4651,7 +4651,7 @@
         "nombre": "Escuela 39 9 De Julio",
         "direccion": "",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Colastiné / Rincón",
+        "barrio_cercano": "Colastiné",
         "cota_fabdem_m": 17.66
       },
       "geometry": {
@@ -4671,7 +4671,7 @@
         "nombre": "Escuela un mundo especial",
         "direccion": "",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Colastiné / Rincón",
+        "barrio_cercano": "Colastiné",
         "cota_fabdem_m": 16.73
       },
       "geometry": {
@@ -4811,7 +4811,7 @@
         "nombre": "Grupo MIT",
         "direccion": "",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Santa Rosa de Lima",
+        "barrio_cercano": "Santo Tomé",
         "cota_fabdem_m": 17.27
       },
       "geometry": {
@@ -4971,7 +4971,7 @@
         "nombre": "Centro de Salud Barrio las Delicias",
         "direccion": "",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Guadalupe",
+        "barrio_cercano": "Las Flores / Hipódromo",
         "cota_fabdem_m": 16.9
       },
       "geometry": {
@@ -5391,7 +5391,7 @@
         "nombre": "Escuela Nº 508 Cecilia Grierson",
         "direccion": "Valentín Alsina",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Loyola / Los Troncos",
+        "barrio_cercano": "Cabaña Leiva",
         "cota_fabdem_m": 17.6
       },
       "geometry": {
@@ -5511,7 +5511,7 @@
         "nombre": "Seccional 6ta",
         "direccion": "Avenida López y Planes",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Parque Garay",
+        "barrio_cercano": "Barranquitas",
         "cota_fabdem_m": 18.19
       },
       "geometry": {
@@ -5791,7 +5791,7 @@
         "nombre": "Escuela Falucho",
         "direccion": "Avenida López y Planes",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Parque Garay",
+        "barrio_cercano": "Barranquitas",
         "cota_fabdem_m": 17.94
       },
       "geometry": {
@@ -5831,7 +5831,7 @@
         "nombre": "Hospital José Bernardo Iturraspe",
         "direccion": "",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Reservorios Oeste",
+        "barrio_cercano": "Las Flores / Hipódromo",
         "cota_fabdem_m": 18.21
       },
       "geometry": {
@@ -5851,7 +5851,7 @@
         "nombre": "Jardín de Infantes 1263 Maria Goretti",
         "direccion": "",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Parque Garay",
+        "barrio_cercano": "Barranquitas",
         "cota_fabdem_m": 17.95
       },
       "geometry": {
@@ -5971,7 +5971,7 @@
         "nombre": "Centro Medico Verna",
         "direccion": "Hernandarias",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Guadalupe",
+        "barrio_cercano": "Parque Federal",
         "cota_fabdem_m": 18.5
       },
       "geometry": {
@@ -6031,7 +6031,7 @@
         "nombre": "E.E.T N° 479 Doctor Manuel de Pizarro",
         "direccion": "Avenida General Paz",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Parque Federal",
+        "barrio_cercano": "Candioti",
         "cota_fabdem_m": 19.62
       },
       "geometry": {
@@ -6091,7 +6091,7 @@
         "nombre": "Escuela de Enseñamza Media No 261 José Hernandez",
         "direccion": "General López",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Centenario",
+        "barrio_cercano": "Parque del Sur",
         "cota_fabdem_m": 19.1
       },
       "geometry": {
@@ -6131,7 +6131,7 @@
         "nombre": "Podiatry College of the Province of Santa Fe",
         "direccion": "Pasaje Liniers",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Microcentro",
+        "barrio_cercano": "Santa Rosa de Lima",
         "cota_fabdem_m": 18.82
       },
       "geometry": {
@@ -6231,7 +6231,7 @@
         "nombre": "Sayago",
         "direccion": "",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Reservorios Oeste",
+        "barrio_cercano": "Las Flores / Hipódromo",
         "cota_fabdem_m": 18.14
       },
       "geometry": {
@@ -6251,7 +6251,7 @@
         "nombre": "Sayago",
         "direccion": "",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Reservorios Oeste",
+        "barrio_cercano": "Las Flores / Hipódromo",
         "cota_fabdem_m": 18.07
       },
       "geometry": {
@@ -6371,7 +6371,7 @@
         "nombre": "Colegio Ntra Sra de Fátima",
         "direccion": "",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Parque Garay",
+        "barrio_cercano": "Barranquitas",
         "cota_fabdem_m": 18.16
       },
       "geometry": {
@@ -6431,7 +6431,7 @@
         "nombre": "Escuela 1321 Doctor Agustín Zapata Gollan",
         "direccion": "Bernard",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Reservorios Oeste",
+        "barrio_cercano": "Loyola / Los Troncos",
         "cota_fabdem_m": 18.2
       },
       "geometry": {
@@ -6471,7 +6471,7 @@
         "nombre": "Edificio Etica Unl",
         "direccion": "Facundo Zuviría",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Candioti",
+        "barrio_cercano": "Parque Garay",
         "cota_fabdem_m": 18.83
       },
       "geometry": {
@@ -6611,7 +6611,7 @@
         "nombre": "Diagnóstico por Imágenes",
         "direccion": "9 de Julio",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Candioti",
+        "barrio_cercano": "Microcentro",
         "cota_fabdem_m": 19.71
       },
       "geometry": {
@@ -6708,10 +6708,10 @@
         "osm_id": "way/858601758",
         "categoria": "escuela",
         "subtipo": "school",
-        "nombre": "Escuela s/n (zona Reservorios Oeste)",
+        "nombre": "Escuela s/n (zona Loyola / Los Troncos)",
         "direccion": "",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Reservorios Oeste",
+        "barrio_cercano": "Loyola / Los Troncos",
         "cota_fabdem_m": 18.01
       },
       "geometry": {
@@ -6731,7 +6731,7 @@
         "nombre": "Centro de Ortopedia y Traumatología - Centro de Diagnóstico y Rehabilitación",
         "direccion": "San Martín",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Candioti",
+        "barrio_cercano": "Microcentro",
         "cota_fabdem_m": 19.63
       },
       "geometry": {
@@ -6971,7 +6971,7 @@
         "nombre": "Escuela de Enseñaza Media Julio Migno",
         "direccion": "",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Alto Verde",
+        "barrio_cercano": "El Pozo",
         "cota_fabdem_m": 17.6
       },
       "geometry": {
@@ -7051,7 +7051,7 @@
         "nombre": "Escuela Normal Superior n° 32 \"General San Martín\"",
         "direccion": "Saavedra",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Centenario",
+        "barrio_cercano": "Microcentro",
         "cota_fabdem_m": 18.99
       },
       "geometry": {
@@ -7071,7 +7071,7 @@
         "nombre": "Ciudad Universitaria",
         "direccion": "",
         "fuente": "OpenStreetMap (Overpass API)",
-        "barrio_cercano": "Alto Verde",
+        "barrio_cercano": "El Pozo",
         "cota_fabdem_m": 16.45
       },
       "geometry": {

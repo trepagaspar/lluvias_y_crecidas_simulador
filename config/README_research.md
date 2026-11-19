@@ -9,7 +9,8 @@ Para activar cualquier calibración, colocá el archivo JSON en `config/` y regi
   "defensas": "./config/defensas.json",
   "bombeo_capacidades": "./config/bombeo_capacidades.json",
   "reservorios": "./config/reservorios.json",
-  "eventos_calibracion": "./config/eventos_calibracion.json"
+  "eventos_calibracion": "./config/eventos_calibracion.json",
+  "puntos_criticos_empiricos": "./config/puntos_criticos_empiricos.json"
 }
 ```
 
@@ -69,6 +70,26 @@ Para activar cualquier calibración, colocá el archivo JSON en `config/` y regi
       "parana_m": 4.20,
       "salado_m": 4.10,
       "barrios_anegados_reales": ["Santa Rosa de Lima", "Barranquitas", "Centenario"]
+    }
+  ]
+}
+```
+
+## 5. `config/puntos_criticos_empiricos.json` — Puntos críticos con umbral observado en campo
+```json
+{
+  "puntos": [
+    {
+      "id": "alto_verde_la_boca_acceso",
+      "nombre": "Camino a La Boca (Alto Verde)",
+      "lon": -60.6845,
+      "lat": -31.6860,
+      "umbral_rio": "parana_santa_fe",
+      "umbral_hidrometrico_m": 5.70,
+      "umbral_lluvia_mm": null,
+      "efecto_operativo": "Camino intransitable / aislamiento vehicular de La Boca",
+      "evidencia_campo": "Informe territorial Hábitat · corte verificado con Puerto SF >= 5,70 m",
+      "fecha_registro": "2026-11-16"
     }
   ]
 }
