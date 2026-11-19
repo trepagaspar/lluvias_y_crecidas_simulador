@@ -30,6 +30,7 @@ from PIL import Image, ImageDraw
 gdal.UseExceptions()
 
 ROOT = Path(__file__).resolve().parent.parent
+CONFIG_PATH = ROOT / "config" / "region_santa_fe.json"
 HTML_PATH = ROOT / "visor_3d_santa_fe.html"
 FABDEM_PATH = ROOT / "datos" / "dem" / "fabdem_santa_fe.tif"
 OUT_ACUM_TIF = ROOT / "datos" / "dem" / "acumulacion_flujo_fabdem.tif"
@@ -38,11 +39,16 @@ OSM_EQUIP_PATH = ROOT / "datos" / "vectores" / "osm_equipamiento_critico.geojson
 OSM_LINES_PATH = ROOT / "datos" / "vectores" / "osm_canales_defensas.geojson"
 PUMPS_PATH = ROOT / "datos" / "vectores" / "estaciones_bombeo_aprox.geojson"
 
-LON_MIN, LON_MAX = -60.82009781, -60.53982345
-LAT_MIN, LAT_MAX = -31.72049460, -31.48953774
-DEM_MIN, DEM_MAX = -10.0, 75.0
-MW, MH = 520, 429
-W, H = 1040, 857
+_CFG = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+_BB = _CFG["bbox"]
+_GR = _CFG["grid"]
+_ER = _CFG["entre_rios_filter"]
+
+LON_MIN, LON_MAX = float(_BB["lon_min"]), float(_BB["lon_max"])
+LAT_MIN, LAT_MAX = float(_BB["lat_min"]), float(_BB["lat_max"])
+DEM_MIN, DEM_MAX = float(_GR["dem_min_m"]), float(_GR["dem_max_m"])
+MW, MH = int(_GR["mw"]), int(_GR["mh"])
+W, H = int(_GR["w"]), int(_GR["h"])
 
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -369,7 +375,11 @@ def main():
     m_lay = re.search(r'const LAYERS_SRC = "data:image/png;base64,([^"]+)";', html)
     assert m_lay
     lay_arr = np.array(Image.open(io.BytesIO(base64.b64decode(m_lay.group(1)))).convert("RGBA"))
-    se_cliff = (dem_hi > 16.5) & (np.arange(H)[:, None] > int(H * 0.72)) & (np.arange(W)[None, :] > int(W * 0.68))
+    se_cliff = (
+        (dem_hi > float(_ER["cliff_dem_gt_m"]))
+        & (np.arange(H)[:, None] > int(H * float(_ER["cliff_row_frac_gt"])))
+        & (np.arange(W)[None, :] > int(W * float(_ER["cliff_col_frac_gt"])))
+    )
     cleaned_cliff_px = int((se_cliff & ((lay_arr[..., 1] == 1) | (lay_arr[..., 1] == 2))).sum())
     lay_arr[..., 1] = np.where(se_cliff & ((lay_arr[..., 1] == 1) | (lay_arr[..., 1] == 2)), 0, lay_arr[..., 1])
 

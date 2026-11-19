@@ -5,6 +5,10 @@ on:
     - cron: "15 */6 * * *"
   workflow_dispatch:
 
+concurrency:
+  group: actualizar-datos-vivo
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
@@ -23,7 +27,7 @@ jobs:
       - name: Consultar INA y Open-Meteo
         run: python scripts/actualizar_datos_vivo.py
 
-      - name: Guardar cambios si hubo actualización
+      - name: Guardar cambios si hubo actualización real
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -32,5 +36,5 @@ jobs:
             git commit -m "chore: actualizar datos en vivo INA + Open-Meteo"
             git push
           else
-            echo "Sin cambios en datos_en_vivo.json"
+            echo "Sin cambios relevantes en datos_en_vivo.json"
           fi

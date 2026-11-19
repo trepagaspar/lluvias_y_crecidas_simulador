@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "region": "Gran Santa Fe",
+  "bbox": {
+    "lon_min": -60.82009781,
+    "lon_max": -60.53982345,
+    "lat_min": -31.72049460,
+    "lat_max": -31.48953774,
+    "world_w_km": 26.57257,
+    "world_h_km": 25.71012
+  },
+  "grid": {
+    "w": 1040,
+    "h": 857,
+    "mw": 520,
+    "mh": 429,
+    "sw": 260,
+    "sh": 215,
+    "dem_min_m": -10.0,
+    "dem_max_m": 75.0
+  },
+  "entre_rios_filter": {
+    "description": "Exclusión de margen entrerriana (esquina SE) y barranca entrerriana en LAYERS_SRC",
+    "osm_lat_lt": -31.685,
+    "osm_lon_gt": -60.605,
+    "cliff_dem_gt_m": 16.5,
+    "cliff_row_frac_gt": 0.72,
+    "cliff_col_frac_gt": 0.68
+  },
+  "hydrometry": {
+    "parana_normal_m": 3.30,
+    "salado_normal_m": 3.20,
+    "stations": [
+      {
+        "key": "parana_santa_fe",
+        "series_id": 30,
+        "nombre": "Paraná — Puerto Santa Fe",
+        "alerta_m": 5.30,
+        "evacuacion_m": 5.70,
+        "critica_m": null,
+        "cero_ign_m": 8.42,
+        "fuente": "INA (alerta.ina.gob.ar)"
+      },
+      {
+        "key": "salado_santo_tome",
+        "series_id": 3044,
+        "nombre": "Río Salado — Santo Tomé",
+        "alerta_m": 4.70,
+        "evacuacion_m": null,
+        "critica_m": 6.00,
+        "cero_ign_m": 8.97,
+        "fuente": "INA (alerta.ina.gob.ar)"
+      },
+      {
+        "key": "salado_recreo_rp70",
+        "series_id": 103,
+        "nombre": "Río Salado — Recreo RP 70",
+        "alerta_m": null,
+        "evacuacion_m": null,
+        "critica_m": null,
+        "cero_ign_m": null,
+        "fuente": "INA (alerta.ina.gob.ar)"
+      }
+    ]
+  },
+  "weather": {
+    "lat": -31.6333,
+    "lon": -60.7000,
+    "ciudad": "Santa Fe",
+    "timezone": "America/Argentina/Cordoba",
+    "fuente": "Open-Meteo (api.open-meteo.com)"
+  },
+  "places": [
+    { "name": "Microcentro / Plaza 25 de Mayo", "short_name": "Microcentro", "lon": -60.7105, "lat": -31.6574, "label": false, "res": false, "barrio_ref": false },
+    { "name": "Microcentro", "short_name": "Microcentro", "lon": -60.7100, "lat": -31.6466, "label": true, "res": false, "barrio_ref": true },
+    { "name": "Candioti / Bv. Gálvez", "short_name": "Candioti", "lon": -60.6960, "lat": -31.6400, "label": false, "res": false, "barrio_ref": true },
+    { "name": "Puerto / Diques", "short_name": "Puerto", "lon": -60.6960, "lat": -31.6490, "label": true, "res": false, "barrio_ref": true },
+    { "name": "Parque del Sur / Reservorio", "short_name": "Parque del Sur", "lon": -60.7115, "lat": -31.6625, "label": true, "res": true, "barrio_ref": true },
+    { "name": "Barrio Centenario", "short_name": "Centenario", "lon": -60.7220, "lat": -31.6620, "label": false, "res": false, "barrio_ref": true },
+    { "name": "Santa Rosa de Lima", "short_name": "Santa Rosa de Lima", "lon": -60.7335, "lat": -31.6435, "label": false, "res": false, "barrio_ref": true },
+    { "name": "Barranquitas", "short_name": "Barranquitas", "lon": -60.7285, "lat": -31.6225, "label": false, "res": false, "barrio_ref": true },
+    { "name": "Parque Garay", "short_name": "Parque Garay", "lon": -60.7203, "lat": -31.6359, "label": true, "res": false, "barrio_ref": true },
+    { "name": "Parque Federal", "short_name": "Parque Federal", "lon": -60.6955, "lat": -31.6221, "label": true, "res": false, "barrio_ref": true },
+    { "name": "Guadalupe", "short_name": "Guadalupe", "lon": -60.6785, "lat": -31.5980, "label": true, "res": false, "barrio_ref": true },
+    { "name": "Laguna Setúbal", "short_name": "Laguna Setúbal", "lon": -60.6540, "lat": -31.5920, "label": true, "res": false, "barrio_ref": false },
+    { "name": "Hipódromo / Las Flores", "short_name": "Las Flores / Hipódromo", "lon": -60.7190, "lat": -31.6020, "label": true, "res": false, "barrio_ref": true },
+    { "name": "Reservorios Oeste", "short_name": "Reservorios Oeste", "lon": -60.7425, "lat": -31.5880, "label": true, "res": true, "barrio_ref": true },
+    { "name": "Reservorio Norte", "short_name": "Reservorio Norte", "lon": -60.7526, "lat": -31.5727, "label": true, "res": true, "barrio_ref": true },
+    { "name": "Barrio Loyola / Los Troncos", "short_name": "Loyola / Los Troncos", "lon": -60.7420, "lat": -31.5765, "label": false, "res": false, "barrio_ref": true },
+    { "name": "Cabaña Leiva", "short_name": "Cabaña Leiva", "lon": -60.7260, "lat": -31.5590, "label": false, "res": false, "barrio_ref": true },
+    { "name": "Relleno Sanitario", "short_name": "Relleno Sanitario", "lon": -60.7585, "lat": -31.5985, "label": true, "res": false, "barrio_ref": false },
+    { "name": "Alto Verde", "short_name": "Alto Verde", "lon": -60.6650, "lat": -31.6480, "label": true, "res": false, "barrio_ref": true },
+    { "name": "Colastiné / Rincón", "short_name": "Colastiné / Rincón", "lon": -60.6080, "lat": -31.6300, "label": true, "res": false, "barrio_ref": true },
+    { "name": "Santo Tomé", "short_name": "Santo Tomé", "lon": -60.7640, "lat": -31.6710, "label": true, "res": false, "barrio_ref": true },
+    { "name": "Monte Vera", "short_name": "Monte Vera", "lon": -60.6800, "lat": -31.5250, "label": true, "res": false, "barrio_ref": true },
+    { "name": "Río Salado", "short_name": "Río Salado", "lon": -60.7700, "lat": -31.6220, "label": true, "res": false, "barrio_ref": false }
+  ]
+}

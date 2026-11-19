@@ -5,6 +5,10 @@ on:
     - cron: "0 6 1 * *"
   workflow_dispatch:
 
+concurrency:
+  group: actualizar-osm
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
@@ -23,14 +27,32 @@ jobs:
       - name: Descargar equipamiento critico y canales/defensas desde OSM
         run: python scripts/descargar_osm.py
 
-      - name: Guardar cambios si hubo actualizacion
+      - name: Validar integridad de GeoJSON y preservacion de cotas FABDEM
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          eq = json.loads(Path("datos/vectores/osm_equipamiento_critico.geojson").read_text(encoding="utf-8"))
+          ln = json.loads(Path("datos/vectores/osm_canales_defensas.geojson").read_text(encoding="utf-8"))
+          assert len(eq["features"]) > 100, "Muy pocos features de equipamiento OSM"
+          assert len(ln["features"]) > 20, "Muy pocos features de canales/defensas OSM"
+          eq_cotas = sum(1 for f in eq["features"] if "cota_fabdem_m" in f["properties"])
+          ln_len = sum(1 for f in ln["features"] if "longitud_m" in f["properties"])
+          assert eq_cotas > 0, "Se perdieron las cotas FABDEM en equipamiento"
+          assert ln_len == len(ln["features"]), "Falta longitud_m en lineas OSM"
+          print(f"OK OSM: {len(eq['features'])} equip ({eq_cotas} con cota), {len(ln['features'])} trazas ({ln_len} con longitud_m)")
+          PY
+
+      - name: Publicar cambios en rama bot/osm-update (sin desincronizar main)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           if ! git diff --quiet datos/vectores/osm_equipamiento_critico.geojson datos/vectores/osm_canales_defensas.geojson; then
+            git checkout -B bot/osm-update
             git add datos/vectores/osm_equipamiento_critico.geojson datos/vectores/osm_canales_defensas.geojson
-            git commit -m "chore: actualizar capas OSM (equipamiento critico y canales/defensas)"
-            git push
+            git commit -m "chore(osm): actualizar capas OSM preservando cotas FABDEM (requiere sync del visor)"
+            git push -u origin bot/osm-update --force-with-lease
           else
             echo "Sin cambios en capas OSM"
           fi

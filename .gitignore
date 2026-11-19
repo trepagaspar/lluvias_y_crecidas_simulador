@@ -1,7 +1,11 @@
-# Ignorar archivo que supera el límite de 100MB de GitHub
+# Ignorar shapefile que supera el límite de 100MB de GitHub y sus archivos auxiliares
 riesgo_hidrico.shp
+riesgo_hidrico.dbf
+riesgo_hidrico.shx
+riesgo_hidrico.prj
+riesgo_hidrico.cpg
 
-# Archivos temporales y de bloqueo
+# Archivos temporales, caché y builds locales
 .~lock.*
 ~$*
 *.tmp
@@ -9,3 +13,5 @@ riesgo_hidrico.shp
 Thumbs.db
 __pycache__/
 *.pyc
+.pytest_cache/
+dist/

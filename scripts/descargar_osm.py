@@ -10,6 +10,8 @@ para el area metropolitana de Santa Fe (excluyendo la margen entrerriana):
      - Canales, zanjas y desagues a cielo abierto (waterway=drain/ditch/canal)
      - Terraplenes y defensas (man_made=embankment/dyke/levee)
 
+Preserva atributos derivados de FABDEM (cota_fabdem_m, cota_media_fabdem_m)
+de features ya existentes por osm_id para evitar regresiones en CI.
 Solo usa la biblioteca estandar de Python.
 """
 
@@ -21,11 +23,16 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+CONFIG_FILE = ROOT / "config" / "region_santa_fe.json"
 OUT_DIR = ROOT / "datos" / "vectores"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-# Bounding box del visor 3D (south, west, north, east)
-BBOX = "-31.7205,-60.8201,-31.4895,-60.5398"
+_CFG = json.loads(CONFIG_FILE.read_text(encoding="utf-8"))
+_BB = _CFG["bbox"]
+_ER = _CFG["entre_rios_filter"]
+
+# Bounding box del visor 3D (south, west, north, east) desde config/region_santa_fe.json
+BBOX = f"{_BB['lat_min']:.6f},{_BB['lon_min']:.6f},{_BB['lat_max']:.6f},{_BB['lon_max']:.6f}"
 ENDPOINTS = [
     "https://overpass.openstreetmap.fr/api/interpreter",
     "https://overpass.osm.jp/api/interpreter",
@@ -33,28 +40,12 @@ ENDPOINTS = [
     "https://overpass.private.coffee/api/interpreter",
     "https://overpass.kumi.systems/api/interpreter",
 ]
-UA = "SantaFeSimulador3D/1.0 (https://github.com/trepagaspar/lluvias_y_crecidas_simulador)"
+UA = "SantaFeSimulador3D/2.0 (https://github.com/trepagaspar/lluvias_y_crecidas_simulador)"
 
 PLACES_REF = [
-    ("Microcentro", -60.7100, -31.6466),
-    ("Candioti", -60.6960, -31.6400),
-    ("Puerto", -60.6960, -31.6490),
-    ("Parque del Sur", -60.7115, -31.6625),
-    ("Centenario", -60.7220, -31.6620),
-    ("Santa Rosa de Lima", -60.7335, -31.6435),
-    ("Barranquitas", -60.7285, -31.6225),
-    ("Parque Garay", -60.7203, -31.6359),
-    ("Parque Federal", -60.6955, -31.6221),
-    ("Guadalupe", -60.6785, -31.5980),
-    ("Las Flores / Hipódromo", -60.7190, -31.6020),
-    ("Reservorios Oeste", -60.7425, -31.5880),
-    ("Reservorio Norte", -60.7526, -31.5727),
-    ("Loyola / Los Troncos", -60.7420, -31.5765),
-    ("Cabaña Leiva", -60.7260, -31.5590),
-    ("Alto Verde", -60.6650, -31.6480),
-    ("Colastiné / Rincón", -60.6080, -31.6300),
-    ("Santo Tomé", -60.7640, -31.6710),
-    ("Monte Vera", -60.6800, -31.5250),
+    (p.get("short_name") or p["name"], float(p["lon"]), float(p["lat"]))
+    for p in _CFG["places"]
+    if p.get("barrio_ref", False)
 ]
 
 SUBTIPO_ES = {
@@ -73,7 +64,7 @@ SUBTIPO_ES = {
 
 def is_entre_rios(lon: float, lat: float) -> bool:
     # Esquina SE al otro lado del canal principal del Rio Parana (Bajada Grande / Parana, Entre Rios)
-    return lat < -31.685 and lon > -60.605
+    return lat < float(_ER["osm_lat_lt"]) and lon > float(_ER["osm_lon_gt"])
 
 
 def nearest_barrio(lon: float, lat: float) -> str:
@@ -95,6 +86,40 @@ def format_facility_name(raw_name: str, subtipo: str, street: str, barrio: str) 
             return f"{label_es} ({street}, {barrio})"
         return f"{label_es} s/n (zona {barrio})"
     return clean
+
+
+def compute_line_length_m(coords) -> float:
+    length_m = 0.0
+    for (x0, y0), (x1, y1) in zip(coords[:-1], coords[1:]):
+        length_m += math.hypot((x1 - x0) * 94800.0, (y1 - y0) * 110880.0)
+    return round(length_m, 1)
+
+
+def load_existing_by_osm_id(path: Path) -> dict:
+    if not path.exists():
+        return {}
+    try:
+        fc = json.loads(path.read_text(encoding="utf-8"))
+        out = {}
+        for feat in fc.get("features", []):
+            oid = (feat.get("properties") or {}).get("osm_id")
+            if oid:
+                out[oid] = feat.get("properties") or {}
+        return out
+    except Exception:
+        return {}
+
+
+def write_geojson_if_changed(path: Path, fc: dict) -> bool:
+    new_text = json.dumps(fc, ensure_ascii=False, indent=2) + "\n"
+    if path.exists():
+        try:
+            if path.read_text(encoding="utf-8") == new_text:
+                return False
+        except Exception:
+            pass
+    path.write_text(new_text, encoding="utf-8")
+    return True
 
 
 def query_overpass(ql: str, timeout: int = 45):
@@ -121,10 +146,14 @@ def download_equipamiento():
     );
     out center tags;
     """
+    out_path = OUT_DIR / "osm_equipamiento_critico.geojson"
+    prev_by_id = load_existing_by_osm_id(out_path)
+
     print("Descargando equipamiento critico desde OSM...")
     doc = query_overpass(ql)
     features = []
     seen = set()
+    preserved_cotas = 0
     for el in doc.get("elements", []):
         tags = el.get("tags") or {}
         lat = el.get("lat") if "lat" in el else (el.get("center") or {}).get("lat")
@@ -155,28 +184,35 @@ def download_equipamiento():
             continue
         seen.add(key)
 
+        osm_id = f"{el.get('type')}/{el.get('id')}"
+        props = {
+            "osm_id": osm_id,
+            "categoria": cat,
+            "subtipo": subtipo,
+            "nombre": nombre,
+            "direccion": street,
+            "barrio_cercano": barrio,
+            "fuente": "OpenStreetMap (Overpass API)",
+        }
+        prev_props = prev_by_id.get(osm_id)
+        if prev_props and "cota_fabdem_m" in prev_props:
+            props["cota_fabdem_m"] = prev_props["cota_fabdem_m"]
+            preserved_cotas += 1
+
         features.append({
             "type": "Feature",
-            "properties": {
-                "osm_id": f"{el.get('type')}/{el.get('id')}",
-                "categoria": cat,
-                "subtipo": subtipo,
-                "nombre": nombre,
-                "direccion": street,
-                "barrio_cercano": barrio,
-                "fuente": "OpenStreetMap (Overpass API)",
-            },
+            "properties": props,
             "geometry": {"type": "Point", "coordinates": [round(lon_f, 6), round(lat_f, 6)]},
         })
 
-    out_path = OUT_DIR / "osm_equipamiento_critico.geojson"
     fc = {"type": "FeatureCollection", "name": "osm_equipamiento_critico", "features": features}
-    out_path.write_text(json.dumps(fc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    written = write_geojson_if_changed(out_path, fc)
     counts = {}
     for f in features:
         c = f["properties"]["categoria"]
         counts[c] = counts.get(c, 0) + 1
-    print(f"Guardado {out_path} ({len(features)} puntos Gran Santa Fe): {counts}")
+    status = "Guardado" if written else "Sin cambios en"
+    print(f"{status} {out_path} ({len(features)} puntos Gran Santa Fe, {preserved_cotas} cotas FABDEM preservadas): {counts}")
 
 
 def download_canales_defensas():
@@ -192,9 +228,13 @@ def download_canales_defensas():
     );
     out geom tags;
     """
+    out_path = OUT_DIR / "osm_canales_defensas.geojson"
+    prev_by_id = load_existing_by_osm_id(out_path)
+
     print("Descargando canales, zanjas y defensas desde OSM...")
     doc = query_overpass(ql)
     features = []
+    preserved_cotas = 0
     for el in doc.get("elements", []):
         if el.get("type") != "way":
             continue
@@ -209,26 +249,34 @@ def download_canales_defensas():
         mm = tags.get("man_made", "")
         tipo = "defensa" if mm in ("embankment", "dyke", "levee") else "canal_zanja"
         subtipo = mm if tipo == "defensa" else ww
+        osm_id = f"way/{el.get('id')}"
+        props = {
+            "osm_id": osm_id,
+            "tipo": tipo,
+            "subtipo": subtipo,
+            "nombre": tags.get("name", ""),
+            "fuente": "OpenStreetMap (Overpass API)",
+            "longitud_m": compute_line_length_m(coords),
+        }
+        prev_props = prev_by_id.get(osm_id)
+        if prev_props and "cota_media_fabdem_m" in prev_props:
+            props["cota_media_fabdem_m"] = prev_props["cota_media_fabdem_m"]
+            preserved_cotas += 1
+
         features.append({
             "type": "Feature",
-            "properties": {
-                "osm_id": f"way/{el.get('id')}",
-                "tipo": tipo,
-                "subtipo": subtipo,
-                "nombre": tags.get("name", ""),
-                "fuente": "OpenStreetMap (Overpass API)",
-            },
+            "properties": props,
             "geometry": {"type": "LineString", "coordinates": coords},
         })
 
-    out_path = OUT_DIR / "osm_canales_defensas.geojson"
     fc = {"type": "FeatureCollection", "name": "osm_canales_defensas", "features": features}
-    out_path.write_text(json.dumps(fc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    written = write_geojson_if_changed(out_path, fc)
     counts = {}
     for f in features:
         t = f["properties"]["tipo"]
         counts[t] = counts.get(t, 0) + 1
-    print(f"Guardado {out_path} ({len(features)} trazas): {counts}")
+    status = "Guardado" if written else "Sin cambios en"
+    print(f"{status} {out_path} ({len(features)} trazas, {preserved_cotas} cotas medias FABDEM preservadas): {counts}")
 
 
 if __name__ == "__main__":
