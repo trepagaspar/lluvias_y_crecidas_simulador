@@ -103,6 +103,9 @@ uniform sampler2D uLayers;
 uniform sampler2D uAcum;
 uniform sampler2D uWater;
 uniform sampler2D uBasemap;
+uniform sampler2D uDetailMap;
+uniform vec4 uDetailRect;
+uniform float uHasDetail;
 uniform float uBaseMix;
 uniform vec2 uTexSize;
 uniform float uHSStrength;
@@ -151,7 +154,15 @@ void main() {
     ? mix(lowAlluvial, midTerrace, tElev / 0.45)
     : mix(midTerrace, highUrban, (tElev - 0.45) / 0.55);
   float shade = mix(1.0, 0.56 + 0.58 * hs, uHSStrength);
-  if (uBaseMix > 0.01) baseCol = mix(baseCol, texture(uBasemap, vUV).rgb, uBaseMix);
+  if (uBaseMix > 0.01) {
+    vec3 bTex = texture(uBasemap, vUV).rgb;
+    if (uHasDetail > 0.5 && vUV.x > uDetailRect.x && vUV.x < uDetailRect.z && vUV.y > uDetailRect.y && vUV.y < uDetailRect.w) {
+      vec2 dUV = (vUV - uDetailRect.xy) / (uDetailRect.zw - uDetailRect.xy);
+      vec2 edge = smoothstep(0.0, 0.04, dUV) * (1.0 - smoothstep(0.96, 1.0, dUV));
+      bTex = mix(bTex, texture(uDetailMap, dUV).rgb, edge.x * edge.y);
+    }
+    baseCol = mix(baseCol, bTex, uBaseMix);
+  }
   float effShade = mix(shade, mix(1.0, 0.80 + 0.28 * hs, uHSStrength), uBaseMix);
   vec3 col = baseCol * effShade;
 
@@ -480,7 +491,7 @@ export function createWebGLRenderer({
   }
 
   let prog = null, vaoFull = null, vaoLod = null, loc = null;
-  let waterTex = null, basemapTex = null, osmFacTex = null;
+  let waterTex = null, basemapTex = null, detailTex = null, osmFacTex = null;
   let contextLost = false;
   let lightMode = false;
   let anisoExt = null, maxAniso = 1, maxTexSize = 4096;
@@ -488,11 +499,15 @@ export function createWebGLRenderer({
   let activeBasemapMode = "relief";
   const basemapCache = {};
   let basemapReqId = 0;
+  let basemapStatusCb = null;
+  let detailCache = null; // { mode, z, rect: [uMin, vMin, uMax, vMax], canvas }
+  let detailReqId = 0;
+  let detailTimer = null;
 
-  function bindBasemapSource(sourceCanvas) {
-    if (contextLost || !basemapTex) return;
-    gl.activeTexture(gl.TEXTURE3);
-    gl.bindTexture(gl.TEXTURE_2D, basemapTex);
+  function bindTexWithMipmaps(unit, tex, sourceCanvas) {
+    if (contextLost || !tex) return;
+    gl.activeTexture(gl.TEXTURE0 + unit);
+    gl.bindTexture(gl.TEXTURE_2D, tex);
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, sourceCanvas);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
@@ -558,7 +573,7 @@ export function createWebGLRenderer({
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
     if (basemapCache[activeBasemapMode]) {
-      bindBasemapSource(basemapCache[activeBasemapMode].canvas);
+      bindTexWithMipmaps(3, basemapTex, basemapCache[activeBasemapMode].canvas);
     } else {
       gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([255, 255, 255, 255]));
     }
@@ -566,6 +581,19 @@ export function createWebGLRenderer({
     makeTex(4, cpCanvas, gl.LINEAR);
     makeTex(5, osmLineCanvas, gl.LINEAR);
     osmFacTex = makeTex(6, osmFacCanvas, gl.LINEAR);
+
+    detailTex = gl.createTexture();
+    gl.activeTexture(gl.TEXTURE7);
+    gl.bindTexture(gl.TEXTURE_2D, detailTex);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    if (detailCache && detailCache.mode === activeBasemapMode) {
+      bindTexWithMipmaps(7, detailTex, detailCache.canvas);
+    } else {
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([255, 255, 255, 255]));
+    }
 
     const vbo = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
@@ -595,6 +623,7 @@ export function createWebGLRenderer({
 
     const names = [
       "uMVP", "uWorldSize", "uZScale", "uBaseM", "uLayers", "uAcum", "uWater", "uBasemap",
+      "uDetailMap", "uDetailRect", "uHasDetail",
       "uBaseMix", "uTexSize", "uHSStrength", "uRiskAlpha", "uRiskMask", "uShowBin", "uShowAcum",
       "uThreshLog", "uShowWater", "uShowParks", "uShowLandfill", "uShowRes", "uShowContours",
       "uPinUV", "uHasPin", "uPumps", "uPumpCount", "uCityPumpsTex", "uShowCityPumps",
@@ -608,6 +637,7 @@ export function createWebGLRenderer({
     gl.uniform1i(loc.uCityPumpsTex, 4);
     gl.uniform1i(loc.uOsmLinesTex, 5);
     gl.uniform1i(loc.uOsmFacTex, 6);
+    gl.uniform1i(loc.uDetailMap, 7);
     gl.uniform2f(loc.uWorldSize, cfg.worldW, cfg.worldH);
     gl.uniform2f(loc.uTexSize, cfg.W, cfg.H);
     gl.uniform1f(loc.uBaseM, -5.0);
@@ -736,9 +766,91 @@ export function createWebGLRenderer({
     return { ok, total, mercC, cancelled: false };
   }
 
+  function getBasemapUrlFn(mode, z, useOsmFallback = false) {
+    if (mode === "sat") {
+      return (tx, ty) => `https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${z}/${ty}/${tx}`;
+    }
+    if (useOsmFallback) {
+      return (tx, ty) => `https://tile.openstreetmap.org/${z}/${tx}/${ty}.png`;
+    }
+    return (tx, ty) => `https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/${z}/${ty}/${tx}`;
+  }
+
+  async function refreshDetailPatch() {
+    if (activeBasemapMode === "relief" || !basemapCache[activeBasemapMode]) return;
+    if (cam.dist >= 17.0) return;
+
+    const mode = activeBasemapMode;
+    const dz = cam.dist < 5.0 ? 17 : cam.dist < 10.5 ? 16 : 15;
+    const cu = Math.max(0, Math.min(1, cam.tx / cfg.worldW + 0.5));
+    const cv = Math.max(0, Math.min(1, cam.tz / cfg.worldH + 0.5));
+
+    // Si el parche actual ya cubre bien la zona de cámara al mismo zoom y modo, no re-descargar
+    if (detailCache && detailCache.mode === mode && detailCache.z === dz) {
+      const [u0, v0, u1, v1] = detailCache.rect;
+      const du = u1 - u0, dv = v1 - v0;
+      if (cu > u0 + 0.24 * du && cu < u1 - 0.24 * du && cv > v0 + 0.24 * dv && cv < v1 - 0.24 * dv) {
+        return;
+      }
+    }
+
+    const myDetailReq = ++detailReqId;
+    const cLon = cfg.lonMin + cu * (cfg.lonMax - cfg.lonMin);
+    const cLat = cfg.latMax - cv * (cfg.latMax - cfg.latMin);
+    const n = 1 << dz;
+    const lon2tx = lon => ((lon + 180) / 360) * n;
+    const lat2ty = lat => ((1 - Math.asinh(Math.tan((lat * Math.PI) / 180)) / Math.PI) / 2) * n;
+    const tx2lon = tx => (tx / n) * 360 - 180;
+    const ty2lat = ty => (Math.atan(Math.sinh(Math.PI * (1 - (2 * ty) / n))) * 180) / Math.PI;
+
+    const ctx = Math.floor(lon2tx(cLon));
+    const cty = Math.floor(lat2ty(cLat));
+    const half = 3; // 7x7 = 49 tiles -> 1792x1792 px (~1 a 4 m/px)
+    const tx0 = ctx - half, tx1 = ctx + half;
+    const ty0 = cty - half, ty1 = cty + half;
+    const useOsm = basemapCache[mode]?.attr === "Mapa: © OpenStreetMap";
+    const isCancelled = () => myDetailReq !== detailReqId || activeBasemapMode !== mode;
+
+    const res = await downloadTileMosaic({
+      tx0, tx1, ty0, ty1,
+      urlFn: getBasemapUrlFn(mode, dz, useOsm),
+      label: mode === "sat" ? `Detalle satélite z${dz}` : `Detalle calles z${dz}`,
+      onProgress: null,
+      isCancelled,
+    });
+    if (res.cancelled || res.ok < res.total * 0.65) return;
+
+    const uMin = (tx2lon(tx0) - cfg.lonMin) / (cfg.lonMax - cfg.lonMin);
+    const uMax = (tx2lon(tx1 + 1) - cfg.lonMin) / (cfg.lonMax - cfg.lonMin);
+    const vMin = (cfg.latMax - ty2lat(ty0)) / (cfg.latMax - cfg.latMin);
+    const vMax = (cfg.latMax - ty2lat(ty1 + 1)) / (cfg.latMax - cfg.latMin);
+
+    detailCache = { mode, z: dz, rect: [uMin, vMin, uMax, vMax], canvas: res.mercC };
+    bindTexWithMipmaps(7, detailTex, res.mercC);
+    basemapStatusCb?.({
+      status: mode === "sat" ? `Imagen satelital HD activa (detalle z${dz}).` : `Mapa de calles activo (detalle z${dz}).`,
+      attribution: basemapCache[mode].attr,
+      mode,
+      ok: true,
+    });
+    requestRender();
+  }
+
+  function scheduleDetailPatch() {
+    clearTimeout(detailTimer);
+    if (activeBasemapMode === "relief" || !basemapCache[activeBasemapMode]) return;
+    detailTimer = setTimeout(() => {
+      detailTimer = null;
+      refreshDetailPatch();
+    }, 260);
+  }
+
   async function loadOnlineBasemap(mode, onStatus) {
     const myReq = ++basemapReqId;
+    detailReqId++;
+    clearTimeout(detailTimer);
     activeBasemapMode = mode;
+    basemapStatusCb = onStatus || basemapStatusCb;
     if (mode === "relief") {
       baseMixTarget = 0.0;
       onStatus?.({ status: "Relieve topográfico offline.", attribution: "", mode: "relief", ok: true });
@@ -748,7 +860,7 @@ export function createWebGLRenderer({
 
     const cached = basemapCache[mode];
     if (cached) {
-      bindBasemapSource(cached.canvas);
+      bindTexWithMipmaps(3, basemapTex, cached.canvas);
       baseMixTarget = mode === "sat" ? 0.98 : 0.95;
       onStatus?.({
         status: mode === "sat" ? "Imagen satelital HD activa." : "Mapa de calles activo.",
@@ -757,6 +869,7 @@ export function createWebGLRenderer({
         ok: true,
       });
       requestRender();
+      scheduleDetailPatch();
       return;
     }
 
@@ -772,10 +885,7 @@ export function createWebGLRenderer({
     let usedAttr = mode === "sat" ? "Imagen: © Esri World Imagery (HD)" : "Mapa: © Esri · © OpenStreetMap";
     let res = await downloadTileMosaic({
       tx0, tx1, ty0, ty1,
-      urlFn: (tx, ty) =>
-        mode === "sat"
-          ? `https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${z}/${ty}/${tx}`
-          : `https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/${z}/${ty}/${tx}`,
+      urlFn: getBasemapUrlFn(mode, z, false),
       label,
       onProgress: msg => onStatus?.({ status: msg, attribution: "", mode, ok: true }),
       isCancelled,
@@ -787,7 +897,7 @@ export function createWebGLRenderer({
       onStatus?.({ status: "Usando respaldo OpenStreetMap...", attribution: "", mode, ok: true });
       res = await downloadTileMosaic({
         tx0, tx1, ty0, ty1,
-        urlFn: (tx, ty) => `https://tile.openstreetmap.org/${z}/${tx}/${ty}.png`,
+        urlFn: getBasemapUrlFn(mode, z, true),
         label: "Descargando OSM",
         onProgress: msg => onStatus?.({ status: msg, attribution: "", mode, ok: true }),
         isCancelled,
@@ -803,7 +913,8 @@ export function createWebGLRenderer({
       return;
     }
 
-    const targetW = Math.min(maxTexSize, mode === "sat" ? 2560 : 2048);
+    // Resolución nativa completa z=14 (~3264x3158) sin perder nitidez al reproyectar
+    const targetW = Math.min(maxTexSize, 3264);
     const targetH = Math.min(maxTexSize, Math.round(targetW * (cfg.worldH / cfg.worldW)));
     const wgsC = document.createElement("canvas");
     wgsC.width = targetW; wgsC.height = targetH;
@@ -824,7 +935,7 @@ export function createWebGLRenderer({
     }
 
     basemapCache[mode] = { canvas: wgsC, attr: usedAttr };
-    bindBasemapSource(wgsC);
+    bindTexWithMipmaps(3, basemapTex, wgsC);
     baseMixTarget = mode === "sat" ? 0.98 : 0.95;
     onStatus?.({
       status: mode === "sat" ? "Imagen satelital HD activa." : "Mapa de calles activo.",
@@ -833,6 +944,7 @@ export function createWebGLRenderer({
       ok: true,
     });
     requestRender();
+    scheduleDetailPatch();
   }
 
   function pickTerrain(clientX, clientY) {
@@ -970,6 +1082,9 @@ export function createWebGLRenderer({
     gl.uniformMatrix4fv(loc.uMVP, false, currentMVP);
     gl.uniform1f(loc.uZScale, vis.zScale);
     gl.uniform1f(loc.uBaseMix, baseMixTarget);
+    const hasDet = detailCache && detailCache.mode === activeBasemapMode && activeBasemapMode !== "relief";
+    gl.uniform1f(loc.uHasDetail, hasDet ? 1.0 : 0.0);
+    if (hasDet) gl.uniform4fv(loc.uDetailRect, detailCache.rect);
     gl.uniform1f(loc.uHSStrength, vis.hsStrength);
     gl.uniform1f(loc.uRiskAlpha, vis.riskAlpha);
     gl.uniform1f(loc.uRiskMask, vis.riskMask);
@@ -1063,6 +1178,9 @@ export function createWebGLRenderer({
       if (lastRenderedLod && !lightMode && !interacting) {
         scheduleHiRes();
       }
+      if (!interacting && activeBasemapMode !== "relief") {
+        scheduleDetailPatch();
+      }
     }
   }
 
@@ -1128,6 +1246,7 @@ export function createWebGLRenderer({
     dragMode = null;
     canvas.classList.remove("dragging");
     if (lastRenderedLod && !lightMode) scheduleHiRes();
+    scheduleDetailPatch();
   });
 
   window.addEventListener("mousemove", e => {
@@ -1168,6 +1287,7 @@ export function createWebGLRenderer({
     cam.dist = Math.max(1.4, Math.min(48.0, cam.dist * Math.exp(e.deltaY * 0.0011)));
     requestRender(true);
     if (!lightMode) scheduleHiRes();
+    scheduleDetailPatch();
   }, { passive: false });
 
   canvas.addEventListener("touchstart", e => {
@@ -1227,6 +1347,7 @@ export function createWebGLRenderer({
     }
     touchState = null;
     if (lastRenderedLod && !lightMode) scheduleHiRes();
+    scheduleDetailPatch();
   });
 
   // Navegación por teclado cuando el canvas tiene foco
