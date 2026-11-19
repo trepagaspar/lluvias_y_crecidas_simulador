@@ -1,5 +1,5 @@
 {
-  "actualizado_utc": "2026-11-18T19:09:39.577485+00:00",
+  "actualizado_utc": "2026-11-19T01:26:44.393657+00:00",
   "rios": {
     "parana_santa_fe": {
       "series_id": 30,
@@ -129,14 +129,14 @@
       "lon": -60.7,
       "ciudad": "Santa Fe"
     },
-    "fecha_local": "2026-11-18T16:00",
-    "temperatura_c": 26.9,
+    "fecha_local": "2026-11-18T22:15",
+    "temperatura_c": 22.9,
     "lluvia_actual_mm": 0.0,
     "lluvia_ultimas_24h_mm": 0.7,
-    "pronostico_24h_mm": 0.0,
-    "pronostico_48h_mm": 0.2,
-    "pico_horario_48h_mm": 0.2,
-    "prob_max_48h_pct": 53
+    "pronostico_24h_mm": 1.1,
+    "pronostico_48h_mm": 1.1,
+    "pico_horario_48h_mm": 0.9,
+    "prob_max_48h_pct": 54
   },
   "errores": []
 }
