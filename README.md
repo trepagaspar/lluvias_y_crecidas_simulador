@@ -1,21 +1,19 @@
-# Santa Fe 3D — Simulador de Lluvias, Crecidas y Bombeo
+# Santa Fe 3D — Simulador de Lluvias, Crecidas y Bombeo (v2)
 
-Visor topográfico 3D interactivo y análisis de acumulación hídrica para la ciudad de Santa Fe y su área metropolitana (Río Paraná / Laguna Setúbal, Río Salado, reservorios, defensas, estaciones de bombeo y equipamiento crítico).
+Visor topográfico 3D interactivo y simulador hidrológico modular para el Gran Santa Fe (Río Paraná / Laguna Setúbal, Río Salado, reservorios, defensas, 59 estaciones de bombeo y equipamiento crítico).
 
-**Abrir el visor online (GitHub Pages):**
+**Visor online (GitHub Pages):**
 `https://trepagaspar.github.io/lluvias_y_crecidas_simulador/`
 
 ---
 
-## Qué incluye el visor 3D (`visor_3d_santa_fe.html`)
+## Arquitectura y mejoras v2
 
-* **Relieve 3D "suelo desnudo" + hidrología D8 continua (FABDEM V1-2 ~30 m):** reemplaza el MDE satelital anterior eliminando falsos pozos por techos/árboles y la costura entre hojas IGN (`3160-26` / `3160-32` en `lat = -31,6666°`), con cotas ortométricas reales (Laguna Setúbal ~10,5 m; casco urbano ~17–20 m), llenado de depresiones Priority-Flood (`acumulacion_flujo_fabdem.tif`), red principal continua de norte a sur (`flujo_binario_fabdem.tif`) y sombreado topográfico multidireccional.
-* **Datos en vivo (gratuitos):** consulta automática de alturas oficiales de ríos desde la API del **INA** (`alerta.ina.gob.ar/a5`, Puerto Santa Fe `series_id=30` y Río Salado en Santo Tomé `series_id=3044`) y lluvia de últimas 24 h móviles + pronóstico a 48 h desde **Open-Meteo** (`api.open-meteo.com`).
-* **Escalas hidrométricas reales + anillo de defensas:** sliders calibrados en metros de escala oficial (Puerto SF: `0 = 8,42 m IGN`, Alerta 5,30 m / Evacuación 5,70 m · Salado Sto. Tomé: Alerta 4,70 m), modelando el anillo de defensa urbano y el "efecto tapón" sobre los desagües por gravedad.
-* **59 estaciones de bombeo** (`datos/vectores/estaciones_bombeo_aprox.geojson`, con cota FABDEM y coordenadas normalizadas) con encendido/apagado en un clic para evaluar su impacto en subcuencas urbanas y reservorios.
-* **Equipamiento crítico y desagües abiertos (OpenStreetMap — Gran Santa Fe):**
-  * **354 puntos críticos curados del Gran Santa Fe** (`79` centros de salud/hospitales/CAPS, `230` escuelas/jardines/universidades, `45` bomberos/comisarías, excluyendo la margen entrerriana y enriquecidos con barrio y cota FABDEM) con **píldoras interactivas en vivo de impacto (>10 cm)** que al hacer clic listan los establecimientos afectados.
-  * **108 trazas** (`93` canales/zanjas a cielo abierto y `15` terraplenes/defensas, con longitud en metros y cota media FABDEM) visibles como capa superpuesta en el 3D e integradas al ruteo superficial.
+* **Interfaz "Cartographic Dark Telemetry":** diseño limpio con mapa protagonista (≥ 85% del viewport), iconografía SVG monocroma (cero emojis), 3 zonas sin solapamientos (Command Bar + Panel lateral con rail `Simular / Capas / Impacto` + Dock inferior), leyenda oscura colapsable completa y soporte móvil (`<= 920px`).
+* **Relieve suelo desnudo + hidrología D8 continua (FABDEM V1-2 ~30 m):** assets binarios desacoplados en `assets/` (`dem.png`, `layers.png`, `acum.png`) cacheables por HTTP, con reconstrucción 100% reproducible desde vectores fuente en `datos/vectores/`.
+* **Motor WebGL2 optimizado y física consistente:** renderizado bajo demanda (*dirty flag*, ~0% GPU en reposo), `dt` independiente de la tasa de refresco (60/120/144 Hz), conservación de masa de lluvia, hietograma *Uniforme / Convectiva*, humedad previa automática (desde lluvia 24 h Open-Meteo), rugosidad Manning diferenciada, 93 canales y 15 defensas OSM integrados en la grilla dinámica y drenaje en los 4 bordes.
+* **Datos en vivo resilientes (INA + Open-Meteo):** consulta en tiempo real de Paraná (Puerto SF `series_id=30`), Salado (Santo Tomé `series_id=3044` y Recreo RP70 `series_id=103`) con sparklines de 7 días y lluvia 24 h / pronóstico 48 h, con fallback independiente por fuente hacia `datos_en_vivo.json`.
+* **Deep-linking compartible y seguridad:** botón **Compartir** con URL completa del escenario (`vista`, `parana`, `salado`, `lluvia`, `duracion`, `saturado`, `bombeo`, `perfil`), cero uso de `innerHTML` con datos externos (protección XSS) y versión portable offline opcional (`dist/visor_offline.html`).
 
 ---
 
@@ -23,34 +21,51 @@ Visor topográfico 3D interactivo y análisis de acumulación hídrica para la c
 
 ```text
 .
-├── index.html                        # Redirección automática para GitHub Pages
-├── visor_3d_santa_fe.html            # Simulador 3D WebGL2 autocontenido
-├── datos_en_vivo.json                # Caché actualizado cada 6 h (INA + Open-Meteo)
+├── index.html                        # Entrypoint directo del visor 3D (con OpenGraph y favicon)
+├── visor_3d_santa_fe.html            # Redirección compatible con enlaces previos
+├── datos_en_vivo.json                # Caché automático cada 6 h (INA + Open-Meteo)
+├── config/
+│   ├── region_santa_fe.json          # Fuente única de verdad (BBOX, grillas, estaciones, lugares)
+│   └── README_research.md            # Contratos JSON data-driven para Fase 6 (post-research)
+├── src/                              # Frontend modular ES (sin framework, sin bundler requerido)
+│   ├── styles.css                    # Design system Cartographic Dark Telemetry + responsive
+│   ├── icons.js                      # Iconos SVG Lucide + sparklines 7 días
+│   ├── format.js                     # Formateo es-AR uniforme + helper DOM seguro
+│   ├── live-data.js                  # INA + Open-Meteo con fallback parcial independiente
+│   ├── sim-engine.js                 # Motor hidráulico conservativo con dt real y Manning
+│   ├── webgl-renderer.js             # WebGL2 on-demand, picking cacheado y basemaps
+│   ├── story.js                      # Recorrido guiado dinámico de 5 pasos
+│   ├── ui.js                         # Controlador HUD de 3 zonas y deep-linking
+│   └── main.js                       # Bootstrap modular (HTTP + soporte bundle offline)
+├── assets/                           # Rasters PNG y JSON compactos servidos con caché HTTP
 ├── scripts/
-│   ├── actualizar_datos_vivo.py      # Consulta API INA + Open-Meteo -> datos_en_vivo.json
-│   ├── descargar_osm.py              # Descarga equipamiento crítico y canales/defensas (Overpass API)
-│   └── construir_visor_fabdem.py     # Re-genera relieve FABDEM, hillshade y capas OSM en el visor
-├── datos/
-│   ├── dem/                          # FABDEM suelo desnudo (fabdem_santa_fe.tif), IGN, SRTM, flujo
-│   ├── vectores/                     # Riesgo hídrico (.gpkg), bombeo, OSM GeoJSON, reservorios, IGN
-│   └── zips_originales/              # Archivos comprimidos originales de respaldo
-├── docs/                             # Informe técnico y capturas 3D estáticas
+│   ├── actualizar_datos_vivo.py      # INA + Open-Meteo -> datos_en_vivo.json (sin commits vacíos)
+│   ├── descargar_osm.py              # Overpass API -> GeoJSONs preservando cotas FABDEM
+│   ├── sync_assets_json.py           # Sincroniza assets/*.json desde datos/vectores/ (stdlib)
+│   ├── construir_visor_fabdem.py     # Pipeline GIS reproducible desde FABDEM + vectores fuente
+│   └── build_offline.py              # Genera dist/visor_offline.html autocontenido (file://)
+├── tests/
+│   └── test_project.py               # Suite unitaria, seguridad, sincronía y sintaxis JS
 └── .github/workflows/
-    ├── actualizar_datos.yml          # Cron cada 6 h: actualiza datos_en_vivo.json
-    ├── actualizar_osm.yml            # Cron mensual / manual: actualiza GeoJSONs de OSM
-    └── verificar_visor.yml           # CI en cada push: valida GeoJSON, JSON y sintaxis JS del visor
+    ├── actualizar_datos.yml          # Cron 6 h: actualiza datos_en_vivo.json solo si hay cambios
+    ├── actualizar_osm.yml            # Cron mensual: actualiza OSM + assets/*.json en rama bot/osm-update
+    ├── verificar_visor.yml           # CI: Python + tests unitarios + sintaxis JS + seguridad
+    └── deploy_pages.yml              # Deploy liviano (< 5 MB) en GitHub Pages
 ```
 
-## Activar GitHub Pages (única vez)
-
-1. Ir a **Settings → Pages** (`https://trepagaspar.github.io/lluvias_y_crecidas_simulador/` → `Settings → Pages` en GitHub).
-2. En **Build and deployment → Source**, elegir **Deploy from a branch**.
-3. Seleccionar rama **`main`** y carpeta **`/ (root)`**, luego clic en **Save**.
-
-## Reproducir la construcción del visor (QGIS / GDAL)
+## Comandos locales útiles
 
 ```powershell
-python scripts/descargar_osm.py
+# Ejecutar servidor local para probar el visor modular
+python -m http.server 8000
+
+# Correr suite completa de pruebas (sintaxis, sincronía, seguridad, bundle offline)
+python -m unittest discover -s tests -v
+
+# Generar versión portable de un solo archivo (dist/visor_offline.html)
+python scripts/build_offline.py
+
+# Reconstruir assets desde FABDEM + vectores fuente (QGIS / GDAL)
 & "C:\Program Files\QGIS 3.40.13\bin\python-qgis-ltr.bat" scripts/construir_visor_fabdem.py
 ```
 

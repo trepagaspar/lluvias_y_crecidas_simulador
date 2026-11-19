@@ -1,6 +1,12 @@
 {
   "schema_version": 1,
   "region": "Gran Santa Fe",
+  "research_overrides": {
+    "defensas": null,
+    "bombeo_capacidades": null,
+    "reservorios": null,
+    "eventos_calibracion": null
+  },
   "bbox": {
     "lon_min": -60.82009781,
     "lon_max": -60.53982345,

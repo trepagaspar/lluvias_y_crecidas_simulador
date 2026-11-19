@@ -1,4 +1,4 @@
-name: Verificar visor 3D y datos
+name: Verificar visor 3D, assets y tests
 
 on:
   push:
@@ -23,47 +23,10 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Validar configuracion regional, GeoJSON, JSON en vivo y estructura del visor 3D
+      - name: Validar sintaxis Python de scripts
         run: |
-          python - <<'PY'
-          import json, re, subprocess, tempfile
-          from pathlib import Path
+          python -m py_compile scripts/*.py tests/test_project.py
 
-          # 0. Validar config/region_santa_fe.json
-          cfg = json.loads(Path("config/region_santa_fe.json").read_text(encoding="utf-8"))
-          for k in ("bbox", "grid", "entre_rios_filter", "hydrometry", "weather", "places"):
-              assert k in cfg, f"Falta clave '{k}' en config/region_santa_fe.json"
-          assert len(cfg["places"]) >= 19, "Faltan lugares en config/region_santa_fe.json"
-          print(f"OK config/region_santa_fe.json: {len(cfg['places'])} lugares, {len(cfg['hydrometry']['stations'])} estaciones")
-
-          # 1. Validar datos_en_vivo.json
-          live = json.loads(Path("datos_en_vivo.json").read_text(encoding="utf-8"))
-          assert "rios" in live and "clima" in live, "Faltan claves en datos_en_vivo.json"
-
-          # 2. Validar GeoJSONs vectoriales
-          for p in sorted(Path("datos/vectores").glob("*.geojson")):
-              gj = json.loads(p.read_text(encoding="utf-8"))
-              assert gj.get("type") == "FeatureCollection", f"{p} no es FeatureCollection"
-              assert len(gj.get("features", [])) > 0, f"{p} sin features"
-              print(f"OK {p}: {len(gj['features'])} features")
-
-          # 3. Validar sintaxis Python de scripts
-          for py in sorted(Path("scripts").glob("*.py")):
-              subprocess.run(["python", "-m", "py_compile", str(py)], check=True)
-              print(f"OK sintaxis Python: {py}")
-
-          # 4. Validar visor_3d_santa_fe.html y sintaxis de todos los bloques <script> con Node
-          html = Path("visor_3d_santa_fe.html").read_text(encoding="utf-8")
-          for tok in ["DEM_SRC", "LAYERS_SRC", "ACUM_SRC", "CITY_PUMPS", "OSM_FACILITIES", "OSM_LINES", "uOsmLinesTex", "uOsmFacTex"]:
-              assert tok in html, f"Falta {tok} en visor_3d_santa_fe.html"
-          scripts = re.findall(r"<script(?:\s[^>]*)?>(.*?)</script>", html, re.S)
-          scripts = [s for s in scripts if s.strip()]
-          assert scripts, "No se encontro bloque <script>"
-          for idx, code in enumerate(scripts):
-              with tempfile.NamedTemporaryFile("w", suffix=".js", encoding="utf-8", delete=False) as tf:
-                  tf.write(code)
-                  js_path = tf.name
-              subprocess.run(["node", "--check", js_path], check=True)
-              Path(js_path).unlink(missing_ok=True)
-          print(f"OK sintaxis JS de visor_3d_santa_fe.html ({len(scripts)} bloques) verificada con Node")
-          PY
+      - name: Ejecutar suite de pruebas unitarias, seguridad, sincronía y sintaxis JS
+        run: |
+          python -m unittest discover -s tests -v
