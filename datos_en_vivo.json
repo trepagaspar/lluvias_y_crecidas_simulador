@@ -1,16 +1,12 @@
 {
-  "actualizado_utc": "2026-11-20T13:26:45.860660+00:00",
+  "actualizado_utc": "2026-11-20T19:13:42.876774+00:00",
   "rios": {
     "parana_santa_fe": {
       "series_id": 30,
-      "valor_m": 5.84,
-      "delta_m": -0.01,
-      "fecha_utc": "2026-11-19T03:00:00.000Z",
+      "valor_m": 5.88,
+      "delta_m": 0.04,
+      "fecha_utc": "2026-11-20T03:00:00.000Z",
       "ultimos_registros": [
-        {
-          "fecha_utc": "2026-11-13T03:00:00.000Z",
-          "valor_m": 5.54
-        },
         {
           "fecha_utc": "2026-11-14T03:00:00.000Z",
           "valor_m": 5.66
@@ -34,6 +30,10 @@
         {
           "fecha_utc": "2026-11-19T03:00:00.000Z",
           "valor_m": 5.84
+        },
+        {
+          "fecha_utc": "2026-11-20T03:00:00.000Z",
+          "valor_m": 5.88
         }
       ],
       "nombre": "Paraná — Puerto Santa Fe",
@@ -44,13 +44,9 @@
     "salado_santo_tome": {
       "series_id": 3044,
       "valor_m": 5.87,
-      "delta_m": 0.02,
-      "fecha_utc": "2026-11-19T10:53:00.000Z",
+      "delta_m": 0.0,
+      "fecha_utc": "2026-11-20T11:38:00.000Z",
       "ultimos_registros": [
-        {
-          "fecha_utc": "2026-11-13T12:31:00.000Z",
-          "valor_m": 5.54
-        },
         {
           "fecha_utc": "2026-11-14T13:22:00.000Z",
           "valor_m": 5.64
@@ -74,6 +70,10 @@
         {
           "fecha_utc": "2026-11-19T10:53:00.000Z",
           "valor_m": 5.87
+        },
+        {
+          "fecha_utc": "2026-11-20T11:38:00.000Z",
+          "valor_m": 5.87
         }
       ],
       "nombre": "Río Salado — Santo Tomé",
@@ -83,14 +83,10 @@
     },
     "salado_recreo_rp70": {
       "series_id": 103,
-      "valor_m": 2.97,
-      "delta_m": 0.05,
-      "fecha_utc": "2026-11-19T10:52:00.000Z",
+      "valor_m": 2.95,
+      "delta_m": -0.02,
+      "fecha_utc": "2026-11-20T11:38:00.000Z",
       "ultimos_registros": [
-        {
-          "fecha_utc": "2026-11-13T12:31:00.000Z",
-          "valor_m": 2.59
-        },
         {
           "fecha_utc": "2026-11-14T13:21:00.000Z",
           "valor_m": 2.72
@@ -114,6 +110,10 @@
         {
           "fecha_utc": "2026-11-19T10:52:00.000Z",
           "valor_m": 2.97
+        },
+        {
+          "fecha_utc": "2026-11-20T11:38:00.000Z",
+          "valor_m": 2.95
         }
       ],
       "nombre": "Río Salado — Recreo RP 70",
@@ -138,5 +138,7 @@
     "pico_horario_48h_mm": 2.2,
     "prob_max_48h_pct": 96
   },
-  "errores": []
+  "errores": [
+    "Open-Meteo: HTTP Error 503: Service Unavailable"
+  ]
 }
