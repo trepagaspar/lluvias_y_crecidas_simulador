@@ -1,5 +1,5 @@
 {
-  "actualizado_utc": "2026-11-20T07:30:02.935108+00:00",
+  "actualizado_utc": "2026-11-20T13:26:45.860660+00:00",
   "rios": {
     "parana_santa_fe": {
       "series_id": 30,
@@ -129,16 +129,14 @@
       "lon": -60.7,
       "ciudad": "Santa Fe"
     },
-    "fecha_local": "2026-11-19T22:15",
-    "temperatura_c": 23.8,
+    "fecha_local": "2026-11-20T10:15",
+    "temperatura_c": 23.6,
     "lluvia_actual_mm": 0.0,
-    "lluvia_ultimas_24h_mm": 0.2,
-    "pronostico_24h_mm": 0.8,
-    "pronostico_48h_mm": 0.8,
-    "pico_horario_48h_mm": 0.7,
-    "prob_max_48h_pct": 44
+    "lluvia_ultimas_24h_mm": 7.2,
+    "pronostico_24h_mm": 0.0,
+    "pronostico_48h_mm": 5.9,
+    "pico_horario_48h_mm": 2.2,
+    "prob_max_48h_pct": 96
   },
-  "errores": [
-    "Open-Meteo: <urlopen error _ssl.c:994: The handshake operation timed out>"
-  ]
+  "errores": []
 }
