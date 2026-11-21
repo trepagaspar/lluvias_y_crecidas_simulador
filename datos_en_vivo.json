@@ -1,5 +1,5 @@
 {
-  "actualizado_utc": "2026-11-20T19:13:42.876774+00:00",
+  "actualizado_utc": "2026-11-21T01:26:15.041326+00:00",
   "rios": {
     "parana_santa_fe": {
       "series_id": 30,
@@ -139,6 +139,6 @@
     "prob_max_48h_pct": 96
   },
   "errores": [
-    "Open-Meteo: HTTP Error 503: Service Unavailable"
+    "Open-Meteo: <urlopen error _ssl.c:994: The handshake operation timed out>"
   ]
 }
