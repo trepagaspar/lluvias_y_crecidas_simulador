@@ -1,16 +1,12 @@
 {
-  "actualizado_utc": "2026-11-25T13:36:50.888647+00:00",
+  "actualizado_utc": "2026-11-25T19:07:11.114475+00:00",
   "rios": {
     "parana_santa_fe": {
       "series_id": 30,
-      "valor_m": 5.8,
-      "delta_m": 0.0,
-      "fecha_utc": "2026-11-24T03:00:00.000Z",
+      "valor_m": 5.77,
+      "delta_m": -0.03,
+      "fecha_utc": "2026-11-25T03:00:00.000Z",
       "ultimos_registros": [
-        {
-          "fecha_utc": "2026-11-18T03:00:00.000Z",
-          "valor_m": 5.85
-        },
         {
           "fecha_utc": "2026-11-19T03:00:00.000Z",
           "valor_m": 5.84
@@ -34,6 +30,10 @@
         {
           "fecha_utc": "2026-11-24T03:00:00.000Z",
           "valor_m": 5.8
+        },
+        {
+          "fecha_utc": "2026-11-25T03:00:00.000Z",
+          "valor_m": 5.77
         }
       ],
       "nombre": "Paraná — Puerto Santa Fe",
@@ -43,14 +43,10 @@
     },
     "salado_santo_tome": {
       "series_id": 3044,
-      "valor_m": 5.81,
-      "delta_m": -0.02,
-      "fecha_utc": "2026-11-24T12:53:00.000Z",
+      "valor_m": 5.76,
+      "delta_m": -0.05,
+      "fecha_utc": "2026-11-25T12:49:00.000Z",
       "ultimos_registros": [
-        {
-          "fecha_utc": "2026-11-18T11:46:00.000Z",
-          "valor_m": 5.85
-        },
         {
           "fecha_utc": "2026-11-19T10:53:00.000Z",
           "valor_m": 5.87
@@ -74,6 +70,10 @@
         {
           "fecha_utc": "2026-11-24T12:53:00.000Z",
           "valor_m": 5.81
+        },
+        {
+          "fecha_utc": "2026-11-25T12:49:00.000Z",
+          "valor_m": 5.76
         }
       ],
       "nombre": "Río Salado — Santo Tomé",
@@ -83,14 +83,10 @@
     },
     "salado_recreo_rp70": {
       "series_id": 103,
-      "valor_m": 2.86,
-      "delta_m": -0.05,
-      "fecha_utc": "2026-11-24T12:53:00.000Z",
+      "valor_m": 2.84,
+      "delta_m": -0.02,
+      "fecha_utc": "2026-11-25T12:48:00.000Z",
       "ultimos_registros": [
-        {
-          "fecha_utc": "2026-11-18T11:46:00.000Z",
-          "valor_m": 2.92
-        },
         {
           "fecha_utc": "2026-11-19T10:52:00.000Z",
           "valor_m": 2.97
@@ -114,6 +110,10 @@
         {
           "fecha_utc": "2026-11-24T12:53:00.000Z",
           "valor_m": 2.86
+        },
+        {
+          "fecha_utc": "2026-11-25T12:48:00.000Z",
+          "valor_m": 2.84
         }
       ],
       "nombre": "Río Salado — Recreo RP 70",
@@ -129,14 +129,14 @@
       "lon": -60.7,
       "ciudad": "Santa Fe"
     },
-    "fecha_local": "2026-11-25T10:30",
-    "temperatura_c": 24.0,
+    "fecha_local": "2026-11-25T16:00",
+    "temperatura_c": 27.7,
     "lluvia_actual_mm": 0.0,
     "lluvia_ultimas_24h_mm": 0.0,
     "pronostico_24h_mm": 0.0,
     "pronostico_48h_mm": 0.0,
     "pico_horario_48h_mm": 0.0,
-    "prob_max_48h_pct": 0
+    "prob_max_48h_pct": 2
   },
   "errores": []
 }
