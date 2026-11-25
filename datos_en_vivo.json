@@ -1,5 +1,5 @@
 {
-  "actualizado_utc": "2026-11-24T19:13:25.310712+00:00",
+  "actualizado_utc": "2026-11-25T01:30:23.679992+00:00",
   "rios": {
     "parana_santa_fe": {
       "series_id": 30,
@@ -138,5 +138,7 @@
     "pico_horario_48h_mm": 0.0,
     "prob_max_48h_pct": 0
   },
-  "errores": []
+  "errores": [
+    "Open-Meteo: <urlopen error _ssl.c:994: The handshake operation timed out>"
+  ]
 }
