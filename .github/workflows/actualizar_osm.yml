@@ -24,7 +24,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Descargar equipamiento critico y canales/defensas desde OSM
+      - name: Descargar canales y defensas desde OSM
         run: python scripts/descargar_osm.py
 
       - name: Sincronizar assets/*.json del visor desde los GeoJSON actualizados
@@ -39,7 +39,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           if ! git diff --quiet datos/vectores/ assets/; then
             git checkout -B bot/osm-update
-            git add datos/vectores/osm_equipamiento_critico.geojson datos/vectores/osm_canales_defensas.geojson assets/osm_facilities.json assets/osm_lines.json assets/city_pumps.json
+            git add datos/vectores/osm_canales_defensas.geojson assets/osm_lines.json assets/city_pumps.json
             git commit -m "chore(osm): actualizar capas OSM y sincronizar assets JSON"
             git push -u origin bot/osm-update --force-with-lease
           else

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Sincroniza assets/*.json (osm_facilities.json, osm_lines.json, city_pumps.json)
+Sincroniza assets/*.json (osm_lines.json, city_pumps.json)
 desde los GeoJSON autoritativos de datos/vectores/ usando solo la biblioteca estandar de Python.
 Puede ejecutarse en CI sin dependencias de QGIS/GDAL.
 """
@@ -17,6 +17,62 @@ LAT_MIN, LAT_MAX = float(BB["lat_min"]), float(BB["lat_max"])
 
 ASSETS = ROOT / "assets"
 ASSETS.mkdir(exist_ok=True)
+
+
+def _clip_segment_01(u0: float, v0: float, u1: float, v1: float):
+    """Recorte Liang-Barsky de un segmento al dominio [0.0, 1.0] x [0.0, 1.0]."""
+    du, dv = u1 - u0, v1 - v0
+    t0, t1 = 0.0, 1.0
+    for p, q in ((-du, u0), (du, 1.0 - u0), (-dv, v0), (dv, 1.0 - v0)):
+        if abs(p) < 1e-12:
+            if q < 0.0:
+                return None
+        else:
+            r = q / p
+            if p < 0.0:
+                if r > t1:
+                    return None
+                if r > t0:
+                    t0 = r
+            else:
+                if r < t0:
+                    return None
+                if r < t1:
+                    t1 = r
+    return (
+        max(0.0, min(1.0, u0 + t0 * du)),
+        max(0.0, min(1.0, v0 + t0 * dv)),
+        max(0.0, min(1.0, u0 + t1 * du)),
+        max(0.0, min(1.0, v0 + t1 * dv)),
+    )
+
+
+def clip_polyline_uv(pts):
+    """Recorta una polilinea al rectangulo [0, 1]^2 preservando la cadena principal más larga."""
+    chains = []
+    cur = []
+    for (u0, v0), (u1, v1) in zip(pts[:-1], pts[1:]):
+        seg = _clip_segment_01(u0, v0, u1, v1)
+        if seg is None:
+            if len(cur) >= 2:
+                chains.append(cur)
+            cur = []
+            continue
+        cu0, cv0, cu1, cv1 = seg
+        if not cur:
+            cur = [(cu0, cv0), (cu1, cv1)]
+        else:
+            if math.hypot(cur[-1][0] - cu0, cur[-1][1] - cv0) > 1e-6:
+                if len(cur) >= 2:
+                    chains.append(cur)
+                cur = [(cu0, cv0), (cu1, cv1)]
+            else:
+                cur.append((cu1, cv1))
+    if len(cur) >= 2:
+        chains.append(cur)
+    if not chains:
+        return []
+    return max(chains, key=len)
 
 
 def simplify_uv(pts, tol: float = 0.00028):
@@ -40,34 +96,7 @@ def simplify_uv(pts, tol: float = 0.00028):
 
 
 def sync_all():
-    # 1. Equipamiento critico OSM
-    eq_path = ROOT / "datos" / "vectores" / "osm_equipamiento_critico.geojson"
-    eq_fc = json.loads(eq_path.read_text(encoding="utf-8"))
-    cat_map = {"salud": "s", "escuela": "e", "emergencia": "x"}
-    fac_out = []
-    for feat in eq_fc.get("features", []):
-        props = feat.get("properties") or {}
-        lon, lat = feat["geometry"]["coordinates"]
-        u = (lon - LON_MIN) / (LON_MAX - LON_MIN)
-        v = (LAT_MAX - lat) / (LAT_MAX - LAT_MIN)
-        if not (0.0 <= u <= 1.0 and 0.0 <= v <= 1.0):
-            continue
-        nombre = str(props.get("nombre") or "").strip()
-        if len(nombre) > 64:
-            nombre = nombre[:61] + "..."
-        fac_out.append({
-            "t": cat_map.get(props.get("categoria"), "e"),
-            "n": nombre,
-            "u": round(u, 5),
-            "v": round(v, 5),
-            "b": str(props.get("barrio_cercano") or ""),
-            "z": props.get("cota_fabdem_m"),
-        })
-    (ASSETS / "osm_facilities.json").write_text(
-        json.dumps(fac_out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8"
-    )
-
-    # 2. Canales y defensas OSM
+    # 1. Canales y defensas OSM
     ln_path = ROOT / "datos" / "vectores" / "osm_canales_defensas.geojson"
     ln_fc = json.loads(ln_path.read_text(encoding="utf-8"))
     ln_out = []
@@ -75,9 +104,10 @@ def sync_all():
         props = feat.get("properties") or {}
         coords = feat["geometry"]["coordinates"]
         uv = [((lon - LON_MIN) / (LON_MAX - LON_MIN), (LAT_MAX - lat) / (LAT_MAX - LAT_MIN)) for lon, lat in coords]
-        if not any(0.0 <= u <= 1.0 and 0.0 <= v <= 1.0 for u, v in uv):
+        clipped = clip_polyline_uv(uv)
+        if len(clipped) < 2:
             continue
-        simp = simplify_uv(uv, tol=0.00028)
+        simp = simplify_uv(clipped, tol=0.00028)
         ln_out.append({
             "t": "d" if props.get("tipo") == "defensa" else "c",
             "n": str(props.get("nombre") or ""),
@@ -87,7 +117,7 @@ def sync_all():
         json.dumps(ln_out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8"
     )
 
-    # 3. Estaciones de bombeo
+    # 2. Estaciones de bombeo
     pm_path = ROOT / "datos" / "vectores" / "estaciones_bombeo_aprox.geojson"
     pm_fc = json.loads(pm_path.read_text(encoding="utf-8"))
     pm_out = []
@@ -107,8 +137,8 @@ def sync_all():
         json.dumps(pm_out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8"
     )
 
-    print(f"Sincronizados assets/*.json: {len(fac_out)} equipamientos, {len(ln_out)} trazas, {len(pm_out)} bombeos")
-    return fac_out, ln_out, pm_out
+    print(f"Sincronizados assets/*.json: {len(ln_out)} trazas, {len(pm_out)} bombeos")
+    return ln_out, pm_out
 
 
 if __name__ == "__main__":

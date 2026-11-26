@@ -1,0 +1,28 @@
+# Normalización de finales de línea LF para código fuente, configs y CI multiplataforma
+* text=auto eol=lf
+
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.mjs text eol=lf
+*.json text eol=lf
+*.geojson text eol=lf
+*.py text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.md text eol=lf
+
+# Archivos binarios geoespaciales, imágenes y documentos
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.tif binary
+*.tiff binary
+*.img binary
+*.gpkg binary
+*.shp binary
+*.shx binary
+*.dbf binary
+*.zip binary
+*.docx binary

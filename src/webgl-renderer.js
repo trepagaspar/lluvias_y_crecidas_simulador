@@ -87,6 +87,7 @@ void main() {
   vUV = aUV; vHeightM = aHeightM; vSkirt = aIsSkirt;
   vec2 wTex = texture(uWater, aUV).rg;
   float wM = ((wTex.r * 255.0 * 256.0 + wTex.g * 255.0) / 65535.0) * 6.0;
+  if (aUV.x > 0.66 && aUV.y > 0.70 && aHeightM > 14.5) wM = 0.0;
   float x = (aUV.x - 0.5) * uWorldSize.x;
   float z = (aUV.y - 0.5) * uWorldSize.y;
   float y = ((aIsSkirt > 0.5 ? uBaseM : (aHeightM + wM)) - 10.0) * 0.001 * uZScale;
@@ -107,6 +108,7 @@ uniform sampler2D uDetailMap;
 uniform vec4 uDetailRect;
 uniform float uHasDetail;
 uniform float uBaseMix;
+uniform vec2 uWorldSize;
 uniform vec2 uTexSize;
 uniform float uHSStrength;
 uniform float uRiskAlpha;
@@ -128,8 +130,6 @@ uniform float uShowCityPumps;
 uniform float uCityPumpsActive;
 uniform sampler2D uOsmLinesTex;
 uniform float uShowOsmLines;
-uniform sampler2D uOsmFacTex;
-uniform float uShowOsmFac;
 uniform float uUncertaintyMode;
 out vec4 outColor;
 
@@ -245,8 +245,15 @@ void main() {
   vec3 wTex = texture(uWater, vUV).rgb;
   float wM = ((wTex.r * 255.0 * 256.0 + wTex.g * 255.0) / 65535.0) * 6.0;
   float wProb = wTex.b;
+  float edgeFade =
+    smoothstep(0.0, 0.025, vUV.x) *
+    smoothstep(0.0, 0.025, 1.0 - vUV.x) *
+    smoothstep(0.0, 0.025, vUV.y) *
+    smoothstep(0.0, 0.025, 1.0 - vUV.y);
+  float erFade = (vUV.x > 0.66 && vUV.y > 0.70) ? (1.0 - smoothstep(14.0, 16.0, vHeightM)) : 1.0;
+  float domainMask = edgeFade * erFade;
   if (uUncertaintyMode > 0.5) {
-    if (wProb >= 0.15) {
+    if (wProb >= 0.15 && domainMask > 0.01) {
       vec3 sensC = vec3(0.96, 0.62, 0.04); // #f59e0b Franja sensible (±0,6 m FABDEM)
       vec3 midC  = vec3(0.06, 0.65, 0.91); // #0ea5e9 Probabilidad media (40-80%)
       vec3 highC = vec3(0.12, 0.25, 0.69); // #1e40af Alta confianza (>80%)
@@ -266,9 +273,9 @@ void main() {
         uAlpha = mix(0.84, 0.94, t);
       }
       vec3 waterLit = uc * mix(0.88, 1.06, hs);
-      col = mix(col, clamp(waterLit, 0.0, 1.0), uAlpha);
+      col = mix(col, clamp(waterLit, 0.0, 1.0), uAlpha * domainMask);
     }
-  } else if (wM >= ${WATER_THRESHOLDS.VISIBLE_M.toFixed(2)}) {
+  } else if (wM >= ${WATER_THRESHOLDS.VISIBLE_M.toFixed(2)} && domainMask > 0.01) {
     vec3 shallowC = vec3(0.49, 0.83, 0.99); // #7dd3fc (4–15 cm)
     vec3 medC     = vec3(0.01, 0.52, 0.78); // #0284c7 (15–40 cm)
     vec3 deepC    = vec3(0.12, 0.23, 0.54); // #1e3a8a (> 40 cm)
@@ -278,29 +285,28 @@ void main() {
     float rim = (1.0 - smoothstep(0.04, 0.09, wM)) * 0.22;
     float spec = pow(clamp(hs * 1.12, 0.0, 1.0), 4.0) * 0.16;
     vec3 waterLit = wc * mix(0.88, 1.06, hs) + vec3(rim + spec);
-    col = mix(col, clamp(waterLit, 0.0, 1.0), mix(0.62, 0.94, clamp((wM - 0.04) / 0.36, 0.0, 1.0)));
-  }
-
-  if (uShowOsmFac > 0.5) {
-    vec4 of = texture(uOsmFacTex, vUV);
-    if (of.a > 0.02) col = mix(col, of.rgb, of.a * 0.95);
+    col = mix(col, clamp(waterLit, 0.0, 1.0), mix(0.62, 0.94, clamp((wM - 0.04) / 0.36, 0.0, 1.0)) * domainMask);
   }
 
   if (uShowCityPumps > 0.5) {
-    vec2 cp = texture(uCityPumpsTex, vUV).rg;
-    float cov = clamp(cp.r + cp.g, 0.0, 1.0);
-    if (cov > 0.02) {
-      vec3 fillC = uCityPumpsActive > 0.5 ? vec3(0.02, 0.88, 0.96) : vec3(0.55, 0.62, 0.70);
-      vec3 ringC = uCityPumpsActive > 0.5 ? vec3(0.03, 0.22, 0.34) : vec3(0.18, 0.22, 0.28);
-      vec3 pCol = mix(ringC, fillC, cp.r / max(0.001, cp.r + cp.g));
-      col = mix(col, pCol, cov * 0.95);
+    // Render siempre encima de la lámina de agua con alto contraste: R=estación fija (EB), G=móvil, B=borde oscuro
+    vec3 cp = texture(uCityPumpsTex, vUV).rgb;
+    float cov = clamp(max(max(cp.r, cp.g), cp.b), 0.0, 1.0);
+    if (cov > 0.04) {
+      vec3 ringC = vec3(0.02, 0.05, 0.12);
+      vec3 fixedC = uCityPumpsActive > 0.5 ? vec3(0.10, 0.94, 0.62) : vec3(0.58, 0.64, 0.72);
+      vec3 mobC   = uCityPumpsActive > 0.5 ? vec3(0.98, 0.86, 0.22) : vec3(0.48, 0.54, 0.62);
+      vec3 pCol = ringC;
+      pCol = mix(pCol, mobC, cp.g);
+      pCol = mix(pCol, fixedC, cp.r);
+      col = mix(col, pCol, clamp(cov * 1.08, 0.0, 1.0));
     }
   }
 
   if (uPumpCount > 0) {
     for (int k = 0; k < 5; k++) {
       if (k >= uPumpCount) break;
-      float pd = length((vUV - uPumps[k]) * vec2(26.5, 25.7));
+      float pd = length((vUV - uPumps[k]) * uWorldSize);
       if (pd < 0.50) {
         float halo = smoothstep(0.42, 0.46, pd) * (1.0 - smoothstep(0.46, 0.50, pd));
         float core = 1.0 - smoothstep(0.08, 0.14, pd);
@@ -310,7 +316,7 @@ void main() {
   }
 
   if (uHasPin > 0.5) {
-    float dist = length((vUV - uPinUV) * vec2(26.5, 25.7));
+    float dist = length((vUV - uPinUV) * uWorldSize);
     if (dist < 0.24) {
       float ring = smoothstep(0.12, 0.15, dist) * (1.0 - smoothstep(0.18, 0.22, dist));
       float dotC = 1.0 - smoothstep(0.05, 0.09, dist);
@@ -330,7 +336,8 @@ export function createWebGLRenderer({
   acumImg,
   cityPumps,
   osmLines,
-  osmFacilities,
+  defensas,
+  bombeoMeta,
   places,
   sim,
   getVisualState,
@@ -360,16 +367,45 @@ export function createWebGLRenderer({
   }
 
   // Pre-rasterizar capas vectoriales en canvases offscreen (reutilizables ante context restore)
+  // Jerarquía de bombeo: estaciones fijas principales (R, diamante grande) vs bombeo móvil/complementario (G, punto) + borde oscuro (B)
+  const fixedPumpIds = new Set(
+    (Array.isArray(bombeoMeta?.estaciones) ? bombeoMeta.estaciones : [])
+      .filter(s => s && s.tipo === "fija" && s.id != null)
+      .map(s => Number(s.id))
+  );
   const cpCanvas = document.createElement("canvas");
   cpCanvas.width = cfg.W; cpCanvas.height = cfg.H;
   const cpCtx = cpCanvas.getContext("2d");
+  const drawDiamond = (ctx, x, y, r) => {
+    ctx.beginPath();
+    ctx.moveTo(x, y - r);
+    ctx.lineTo(x + r, y);
+    ctx.lineTo(x, y + r);
+    ctx.lineTo(x - r, y);
+    ctx.closePath();
+    ctx.fill();
+  };
+  // 1) Borde oscuro (canal B) para todos
+  cpCtx.fillStyle = "rgb(0,0,255)";
+  for (const cp of cityPumps) {
+    const x = cp.u * cfg.W, y = cp.v * cfg.H;
+    if (fixedPumpIds.has(Number(cp.id))) {
+      drawDiamond(cpCtx, x, y, 10.5);
+    } else {
+      cpCtx.beginPath(); cpCtx.arc(x, y, 5.8, 0, Math.PI * 2); cpCtx.fill();
+    }
+  }
+  // 2) Relleno bombeo móvil (canal G)
   cpCtx.fillStyle = "rgb(0,255,0)";
   for (const cp of cityPumps) {
-    cpCtx.beginPath(); cpCtx.arc(cp.u * cfg.W, cp.v * cfg.H, 6.0, 0, Math.PI * 2); cpCtx.fill();
+    if (fixedPumpIds.has(Number(cp.id))) continue;
+    cpCtx.beginPath(); cpCtx.arc(cp.u * cfg.W, cp.v * cfg.H, 3.6, 0, Math.PI * 2); cpCtx.fill();
   }
+  // 3) Relleno estaciones fijas principales (canal R, encima de móviles)
   cpCtx.fillStyle = "rgb(255,0,0)";
   for (const cp of cityPumps) {
-    cpCtx.beginPath(); cpCtx.arc(cp.u * cfg.W, cp.v * cfg.H, 4.0, 0, Math.PI * 2); cpCtx.fill();
+    if (!fixedPumpIds.has(Number(cp.id))) continue;
+    drawDiamond(cpCtx, cp.u * cfg.W, cp.v * cfg.H, 7.6);
   }
 
   const osmLineCanvas = document.createElement("canvas");
@@ -392,26 +428,32 @@ export function createWebGLRenderer({
     olCtx.strokeStyle = "rgba(69, 26, 3, 0.95)"; olCtx.lineWidth = 4.6; olCtx.stroke();
     olCtx.strokeStyle = "rgba(245, 158, 11, 1.0)"; olCtx.lineWidth = 2.6; olCtx.stroke();
   }
-
-  const osmFacCanvas = document.createElement("canvas");
-  osmFacCanvas.width = cfg.W; osmFacCanvas.height = cfg.H;
-  const ofCtx = osmFacCanvas.getContext("2d");
-  const facMask = { s: false, e: false, x: false };
-  const drawFacLayer = (code, fill, stroke, rOuter, rInner) => {
-    for (const f of osmFacilities) {
-      if (f.t !== code) continue;
-      const x = f.u * cfg.W, y = f.v * cfg.H;
-      ofCtx.beginPath(); ofCtx.arc(x, y, rOuter, 0, Math.PI * 2); ofCtx.fillStyle = stroke; ofCtx.fill();
-      ofCtx.beginPath(); ofCtx.arc(x, y, rInner, 0, Math.PI * 2); ofCtx.fillStyle = fill; ofCtx.fill();
+  if (Array.isArray(defensas?.tramos)) {
+    for (const tr of defensas.tramos) {
+      const pts = Array.isArray(tr.uv) && tr.uv.length >= 2
+        ? tr.uv
+        : Array.isArray(tr.lonlat)
+          ? tr.lonlat.map(([lon, lat]) => [
+              (Number(lon) - cfg.lonMin) / (cfg.lonMax - cfg.lonMin),
+              (cfg.latMax - Number(lat)) / (cfg.latMax - cfg.latMin),
+            ])
+          : [];
+      if (pts.length < 2) continue;
+      olCtx.beginPath();
+      olCtx.moveTo(pts[0][0] * cfg.W, pts[0][1] * cfg.H);
+      for (let i = 1; i < pts.length; i++) olCtx.lineTo(pts[i][0] * cfg.W, pts[i][1] * cfg.H);
+      if (tr.tipologia === "sin_defensa") {
+        olCtx.save();
+        olCtx.setLineDash([10, 7]);
+        olCtx.strokeStyle = "rgba(40, 8, 16, 0.92)"; olCtx.lineWidth = 5.0; olCtx.stroke();
+        olCtx.strokeStyle = "rgba(244, 63, 94, 1.0)"; olCtx.lineWidth = 2.8; olCtx.stroke();
+        olCtx.restore();
+      } else {
+        olCtx.strokeStyle = "rgba(69, 26, 3, 0.95)"; olCtx.lineWidth = 4.6; olCtx.stroke();
+        olCtx.strokeStyle = "rgba(245, 158, 11, 1.0)"; olCtx.lineWidth = 2.6; olCtx.stroke();
+      }
     }
-  };
-  function redrawOsmFacCanvas() {
-    ofCtx.clearRect(0, 0, cfg.W, cfg.H);
-    if (facMask.e) drawFacLayer("e", "#f59e0b", "#0f172a", 4.1, 2.7);
-    if (facMask.x) drawFacLayer("x", "#a855f7", "#0f172a", 4.5, 3.0);
-    if (facMask.s) drawFacLayer("s", "#f43f5e", "#ffffff", 5.0, 3.4);
   }
-  redrawOsmFacCanvas();
 
   // Geometría de malla 3D con LOD de 2 niveles compartiendo un único VBO
   const nGrid = cfg.MW * cfg.MH;
@@ -491,7 +533,7 @@ export function createWebGLRenderer({
   }
 
   let prog = null, vaoFull = null, vaoLod = null, loc = null;
-  let waterTex = null, basemapTex = null, detailTex = null, osmFacTex = null;
+  let waterTex = null, basemapTex = null, detailTex = null;
   let contextLost = false;
   let lightMode = false;
   let anisoExt = null, maxAniso = 1, maxTexSize = 4096;
@@ -580,7 +622,6 @@ export function createWebGLRenderer({
 
     makeTex(4, cpCanvas, gl.LINEAR);
     makeTex(5, osmLineCanvas, gl.LINEAR);
-    osmFacTex = makeTex(6, osmFacCanvas, gl.LINEAR);
 
     detailTex = gl.createTexture();
     gl.activeTexture(gl.TEXTURE7);
@@ -627,7 +668,7 @@ export function createWebGLRenderer({
       "uBaseMix", "uTexSize", "uHSStrength", "uRiskAlpha", "uRiskMask", "uShowBin", "uShowAcum",
       "uThreshLog", "uShowWater", "uShowParks", "uShowLandfill", "uShowRes", "uShowContours",
       "uPinUV", "uHasPin", "uPumps", "uPumpCount", "uCityPumpsTex", "uShowCityPumps",
-      "uCityPumpsActive", "uOsmLinesTex", "uShowOsmLines", "uOsmFacTex", "uShowOsmFac", "uUncertaintyMode",
+      "uCityPumpsActive", "uOsmLinesTex", "uShowOsmLines", "uUncertaintyMode",
     ];
     loc = Object.fromEntries(names.map(n => [n, gl.getUniformLocation(prog, n)]));
     gl.uniform1i(loc.uLayers, 0);
@@ -636,7 +677,6 @@ export function createWebGLRenderer({
     gl.uniform1i(loc.uBasemap, 3);
     gl.uniform1i(loc.uCityPumpsTex, 4);
     gl.uniform1i(loc.uOsmLinesTex, 5);
-    gl.uniform1i(loc.uOsmFacTex, 6);
     gl.uniform1i(loc.uDetailMap, 7);
     gl.uniform2f(loc.uWorldSize, cfg.worldW, cfg.worldH);
     gl.uniform2f(loc.uTexSize, cfg.W, cfg.H);
@@ -658,26 +698,44 @@ export function createWebGLRenderer({
     requestRender();
   });
 
-  // Etiquetas de barrios posicionadas con translate3d (sin reflow)
-  const labelNodes = places.filter(p => p.label).map(lm => {
-    const [wx, wz, u, v] = lonLatToWorldXZ(lm.lon, lm.lat);
-    const el = document.createElement("button");
-    el.type = "button";
-    el.className = "map-label" + (lm.res ? " res-lbl" : "");
-    el.textContent = lm.name;
-    el.title = "Ir a " + lm.name;
-    el.addEventListener("click", e => {
-      e.stopPropagation();
-      onLabelClick?.(lm.name);
-    });
-    labelsLayer.appendChild(el);
-    return { el, wx, wz, hM: sim.sampleHeightAtUV(u, v), isRes: !!lm.res, visible: false };
-  });
+  // Etiquetas de barrios posicionadas con translate3d (sin reflow) y prioridad anti-colisión
+  const PRIMARY_LABELS = new Set([
+    "Microcentro",
+    "Alto Verde",
+    "Santo Tomé",
+    "Guadalupe",
+    "San José del Rincón",
+    "Colastiné Norte",
+    "Monte Vera",
+    "Laguna Setúbal",
+    "Río Salado",
+  ]);
+  const labelNodes = places
+    .filter(p => p.label)
+    .map(lm => {
+      const [wx, wz, u, v] = lonLatToWorldXZ(lm.lon, lm.lat);
+      const displayTxt = lm.short_name || lm.name;
+      const el = document.createElement("button");
+      el.type = "button";
+      el.className = "map-label" + (lm.res ? " res-lbl" : "");
+      el.textContent = displayTxt;
+      el.title = "Ir a " + lm.name;
+      el.addEventListener("click", e => {
+        e.stopPropagation();
+        onLabelClick?.(lm.name);
+      });
+      labelsLayer.appendChild(el);
+      const estHalfW = Math.max(26, displayTxt.length * 3.25 + 9);
+      const priority = PRIMARY_LABELS.has(lm.name) ? 0 : lm.res ? 2 : 1;
+      return { el, wx, wz, hM: sim.sampleHeightAtUV(u, v), isRes: !!lm.res, halfW: estHalfW, priority, visible: false };
+    })
+    .sort((a, b) => a.priority - b.priority);
 
-  // Cámara y presets
-  const cam = { tx: 0, ty: 0.2, tz: 0, yaw: -1.32, pitch: 0.48, dist: 14.2 };
+  // Cámara y presets (vista Planta aérea por defecto)
+  const [initTx, initTz] = lonLatToWorldXZ(-60.695, -31.602);
+  const cam = { tx: initTx, ty: 0.2, tz: initTz, yaw: 0.0, pitch: 1.50, dist: 24.5 };
   let animCam = null;
-  let currentPreset = "cap1";
+  let currentPreset = "top";
   let currentMVP = null;
   let cachedInvMVP = null;
   let invMVPDirty = true;
@@ -706,7 +764,7 @@ export function createWebGLRenderer({
 
   function setPreset(name, immediate = false) {
     const valid = ["cap1", "cap2", "res", "costa", "top"];
-    const p = valid.includes(name) ? name : "cap1";
+    const p = valid.includes(name) ? name : "top";
     currentPreset = p;
     onPresetChange?.(p);
     if (p === "cap1") flyTo(-60.708, -31.606, -1.32, 0.48, 14.2, immediate);
@@ -1007,6 +1065,7 @@ export function createWebGLRenderer({
     const minX = vw > 920 && vis.sidebarOpen ? 372 : 56;
     const minY = 64;
     const maxY = vh - 72;
+    const occupied = []; // [x0, y0, x1, y1] para culling anti-solapamiento en pantalla
 
     for (const lm of labelNodes) {
       if (lm.isRes && !vis.showRes) {
@@ -1021,13 +1080,25 @@ export function createWebGLRenderer({
         const sx = (cx / cw * 0.5 + 0.5) * vw;
         const sy = (-cy / cw * 0.5 + 0.5) * vh;
         if (sx > minX && sx < vw - 34 && sy > minY && sy < maxY) {
-          if (!lm.visible) { lm.el.style.display = "block"; lm.visible = true; }
-          lm.el.style.transform = `translate3d(${sx.toFixed(1)}px, ${sy.toFixed(1)}px, 0) translate(-50%, -100%)`;
-        } else if (lm.visible) {
-          lm.el.style.display = "none";
-          lm.visible = false;
+          const x0 = sx - lm.halfW - 4, x1 = sx + lm.halfW + 4;
+          const y0 = sy - 24, y1 = sy + 2;
+          let collides = false;
+          for (let i = 0; i < occupied.length; i++) {
+            const b = occupied[i];
+            if (x0 < b[2] && x1 > b[0] && y0 < b[3] && y1 > b[1]) {
+              collides = true;
+              break;
+            }
+          }
+          if (!collides) {
+            occupied.push([x0, y0, x1, y1]);
+            if (!lm.visible) { lm.el.style.display = "block"; lm.visible = true; }
+            lm.el.style.transform = `translate3d(${sx.toFixed(1)}px, ${sy.toFixed(1)}px, 0) translate(-50%, -100%)`;
+            continue;
+          }
         }
-      } else if (lm.visible) {
+      }
+      if (lm.visible) {
         lm.el.style.display = "none";
         lm.visible = false;
       }
@@ -1103,7 +1174,6 @@ export function createWebGLRenderer({
     gl.uniform1f(loc.uShowCityPumps, vis.showCityPumps ? 1.0 : 0.0);
     gl.uniform1f(loc.uCityPumpsActive, sim.state.cityPumpsActive ? 1.0 : 0.0);
     gl.uniform1f(loc.uShowOsmLines, vis.showOsmLines ? 1.0 : 0.0);
-    gl.uniform1f(loc.uShowOsmFac, vis.showOsmFac ? 1.0 : 0.0);
     gl.uniform1f(loc.uUncertaintyMode, vis.uncertaintyMode !== false ? 1.0 : 0.0);
 
     const drawLod = useLod || lightMode;
@@ -1210,19 +1280,6 @@ export function createWebGLRenderer({
   function setLightMode(enabled) {
     lightMode = !!enabled;
     resize();
-  }
-
-  function updateOsmFacilitiesMask(showSalud, showEscuelas, showEmerg) {
-    facMask.s = !!showSalud;
-    facMask.e = !!showEscuelas;
-    facMask.x = !!showEmerg;
-    redrawOsmFacCanvas();
-    if (!contextLost && osmFacTex) {
-      gl.activeTexture(gl.TEXTURE6);
-      gl.bindTexture(gl.TEXTURE_2D, osmFacTex);
-      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, osmFacCanvas);
-    }
-    requestRender();
   }
 
   // Controles de ratón (con hover throttled a ~16/s), tacto y teclado
@@ -1372,7 +1429,6 @@ export function createWebGLRenderer({
     uploadWaterTexture,
     loadOnlineBasemap,
     setLightMode,
-    updateOsmFacilitiesMask,
     requestRender,
     renderNow,
     capturePNG: () => {

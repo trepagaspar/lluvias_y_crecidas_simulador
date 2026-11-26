@@ -1,0 +1,159 @@
+{
+  "nota": "Jerarquía operativa de estaciones fijas principales (capacidades nominales orientativas de referencia) vs. puntos de bombeo complementario/móvil.",
+  "estaciones": [
+    {
+      "id": 3,
+      "codigo": "EB5",
+      "nombre": "Estación de Bombeo N.º 5 (Norte / Las Flores)",
+      "tipo": "fija",
+      "caudal_m3s": 17.4,
+      "caudal_m3h": 62640,
+      "bombas_ref": "6 electrobombas (ampliación cuenca norte)",
+      "reservorio": "Reservorio Norte",
+      "fuente": "Referencia pública Plan Director / proyecto ampliación EB5"
+    },
+    {
+      "id": 7,
+      "codigo": "EB6",
+      "nombre": "Estación de Bombeo N.º 6 (Noroeste / Loyola)",
+      "tipo": "fija",
+      "caudal_m3s": 6.5,
+      "caudal_m3h": 23400,
+      "bombas_ref": "4 electrobombas",
+      "reservorio": "Reservorio Noroeste",
+      "fuente": "Referencia pública sistema Oeste"
+    },
+    {
+      "id": 14,
+      "codigo": "EB4",
+      "nombre": "Estación de Bombeo N.º 4 (Hipódromo / Oeste Norte)",
+      "tipo": "fija",
+      "caudal_m3s": 9.0,
+      "caudal_m3h": 32400,
+      "bombas_ref": "4 electrobombas",
+      "reservorio": "Reservorio Oeste (sector Norte)",
+      "fuente": "Referencia pública sistema Oeste"
+    },
+    {
+      "id": 15,
+      "codigo": "EB3",
+      "nombre": "Estación de Bombeo N.º 3 (Barranquitas / Oeste)",
+      "tipo": "fija",
+      "caudal_m3s": 11.5,
+      "caudal_m3h": 41400,
+      "bombas_ref": "5 electrobombas principales",
+      "reservorio": "Reservorio Oeste",
+      "fuente": "Referencia pública sistema Oeste"
+    },
+    {
+      "id": 21,
+      "codigo": "EB2",
+      "nombre": "Estación de Bombeo N.º 2 (Villa del Parque)",
+      "tipo": "fija",
+      "caudal_m3s": 8.5,
+      "caudal_m3h": 30600,
+      "bombas_ref": "4 electrobombas",
+      "reservorio": "Reservorio Oeste",
+      "fuente": "Referencia pública sistema Oeste"
+    },
+    {
+      "id": 27,
+      "codigo": "EB1",
+      "nombre": "Estación de Bombeo N.º 1 (Santa Rosa de Lima)",
+      "tipo": "fija",
+      "caudal_m3s": 9.5,
+      "caudal_m3h": 34200,
+      "bombas_ref": "4 electrobombas",
+      "reservorio": "Reservorio Oeste Sur",
+      "fuente": "Referencia pública sistema Oeste"
+    },
+    {
+      "id": 39,
+      "codigo": "EB1-S",
+      "nombre": "Estación de Bombeo Oeste Sur (Arenales)",
+      "tipo": "fija",
+      "caudal_m3s": 6.0,
+      "caudal_m3h": 21600,
+      "bombas_ref": "3 electrobombas",
+      "reservorio": "Cordón Oeste Sur",
+      "fuente": "Referencia pública sistema Oeste"
+    },
+    {
+      "id": 48,
+      "codigo": "EB0",
+      "nombre": "Estación de Bombeo N.º 0 (Centenario / Canal Tacca)",
+      "tipo": "fija",
+      "caudal_m3s": 10.0,
+      "caudal_m3h": 36000,
+      "bombas_ref": "4 electrobombas",
+      "reservorio": "Cuenca Centenario / Sur",
+      "fuente": "Referencia pública sistema Oeste"
+    },
+    {
+      "id": 57,
+      "codigo": "EB0-S",
+      "nombre": "Estación de Bombeo Varadero Sarsotti / Sur",
+      "tipo": "fija",
+      "caudal_m3s": 7.5,
+      "caudal_m3h": 27000,
+      "bombas_ref": "3 electrobombas",
+      "reservorio": "Cuenca Sur / Defensa Sur",
+      "fuente": "Referencia pública sistema Sur"
+    },
+    {
+      "id": 52,
+      "codigo": "EB-PS",
+      "nombre": "Estación de Bombeo Parque del Sur",
+      "tipo": "fija",
+      "caudal_m3s": 8.0,
+      "caudal_m3h": 28800,
+      "bombas_ref": "3 electrobombas",
+      "reservorio": "Parque del Sur",
+      "fuente": "Referencia pública sistema Sur"
+    },
+    {
+      "id": 32,
+      "codigo": "EB-EP",
+      "nombre": "Estación de Bombeo Barrio El Pozo / UNL",
+      "tipo": "fija",
+      "caudal_m3s": 5.5,
+      "caudal_m3h": 19800,
+      "bombas_ref": "3 electrobombas",
+      "reservorio": "Anillo El Pozo",
+      "fuente": "Referencia pública sistema Este"
+    },
+    {
+      "id": 50,
+      "codigo": "EB-AV",
+      "nombre": "Estación de Bombeo Alto Verde (Casco Defendido)",
+      "tipo": "fija",
+      "caudal_m3s": 4.5,
+      "caudal_m3h": 16200,
+      "bombas_ref": "2 electrobombas",
+      "reservorio": "Anillo Alto Verde",
+      "fuente": "Referencia pública sistema Costero"
+    },
+    {
+      "id": 35,
+      "codigo": "EB-LG",
+      "nombre": "Estación de Bombeo La Guardia",
+      "tipo": "fija",
+      "caudal_m3s": 4.0,
+      "caudal_m3h": 14400,
+      "bombas_ref": "2 electrobombas",
+      "reservorio": "Anillo La Costa / La Guardia",
+      "fuente": "Referencia pública sistema Costero"
+    },
+    {
+      "id": 51,
+      "codigo": "EB-CS",
+      "nombre": "Estación de Bombeo Colastiné Sur",
+      "tipo": "fija",
+      "caudal_m3s": 3.5,
+      "caudal_m3h": 12600,
+      "bombas_ref": "2 electrobombas",
+      "reservorio": "Anillo Colastiné Sur",
+      "fuente": "Referencia pública sistema Costero"
+    }
+  ]
+}

@@ -2,11 +2,11 @@
   "schema_version": 1,
   "region": "Gran Santa Fe",
   "research_overrides": {
-    "defensas": null,
-    "bombeo_capacidades": null,
+    "defensas": "./config/defensas.json",
+    "bombeo_capacidades": "./config/bombeo_capacidades.json",
     "reservorios": null,
-    "eventos_calibracion": null,
-    "puntos_criticos_empiricos": null
+    "eventos_calibracion": "./config/eventos_calibracion.json",
+    "puntos_criticos_empiricos": "./config/puntos_criticos_empiricos.json"
   },
   "bbox": {
     "lon_min": -60.82009781,
@@ -45,7 +45,7 @@
         "alerta_m": 5.30,
         "evacuacion_m": 5.70,
         "critica_m": null,
-        "cero_ign_m": 8.42,
+        "cero_ign_m": 8.20,
         "fuente": "INA (alerta.ina.gob.ar)"
       },
       {
@@ -81,7 +81,7 @@
     { "name": "Microcentro / Plaza 25 de Mayo", "short_name": "Microcentro", "lon": -60.7104, "lat": -31.6572, "label": false, "res": false, "barrio_ref": false },
     { "name": "Microcentro", "short_name": "Microcentro", "lon": -60.7080, "lat": -31.6495, "label": true, "res": false, "barrio_ref": true },
     { "name": "Candioti / Bv. Gálvez", "short_name": "Candioti", "lon": -60.6920, "lat": -31.6380, "label": false, "res": false, "barrio_ref": true },
-    { "name": "Puerto / Diques", "short_name": "Puerto", "lon": -60.7010, "lat": -31.6512, "label": true, "res": false, "barrio_ref": true },
+    { "name": "Puerto / Diques", "short_name": "Puerto", "lon": -60.7038, "lat": -31.6495, "label": true, "res": false, "barrio_ref": true },
     { "name": "Parque del Sur / Reservorio", "short_name": "Parque del Sur", "lon": -60.7104, "lat": -31.6626, "label": true, "res": true, "barrio_ref": true },
     { "name": "Barrio Centenario", "short_name": "Centenario", "lon": -60.7235, "lat": -31.6645, "label": false, "res": false, "barrio_ref": true },
     { "name": "Santa Rosa de Lima", "short_name": "Santa Rosa de Lima", "lon": -60.7335, "lat": -31.6435, "label": false, "res": false, "barrio_ref": true },

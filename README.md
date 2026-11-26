@@ -1,6 +1,6 @@
 # Santa Fe 3D — Simulador de Lluvias, Crecidas y Bombeo (v2)
 
-Visor topográfico 3D interactivo y simulador hidrológico modular para el Gran Santa Fe (Río Paraná / Laguna Setúbal, Río Salado, reservorios, defensas, 59 estaciones de bombeo y equipamiento crítico).
+Visor topográfico 3D interactivo y simulador hidrológico modular para el Gran Santa Fe (Río Paraná / Laguna Setúbal, Río Salado, reservorios, defensas y 59 estaciones de bombeo).
 
 **Visor online (GitHub Pages):**
 `https://trepagaspar.github.io/lluvias_y_crecidas_simulador/`

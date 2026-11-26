@@ -1,0 +1,33 @@
+{
+  "eventos": [
+    {
+      "nombre": "Tormenta Pluvial Extraordinaria Marzo 2007 (referencia)",
+      "lluvia_mm": 180,
+      "duracion_h": 6.0,
+      "perfil": "convective",
+      "drenaje": "saturated",
+      "parana_m": 4.20,
+      "salado_m": 4.10,
+      "barrios_anegados_reales": [
+        "Santa Rosa de Lima",
+        "Barranquitas",
+        "Barrio Centenario",
+        "Barrio Loyola / Los Troncos"
+      ]
+    },
+    {
+      "nombre": "Crecida + Lluvia Abril 2016 (referencia hidrométrica)",
+      "lluvia_mm": 110,
+      "duracion_h": 3.0,
+      "perfil": "convective",
+      "drenaje": "saturated",
+      "parana_m": 6.62,
+      "salado_m": 6.20,
+      "barrios_anegados_reales": [
+        "La Boca (Alto Verde)",
+        "Alto Verde",
+        "Santa Rosa de Lima"
+      ]
+    }
+  ]
+}

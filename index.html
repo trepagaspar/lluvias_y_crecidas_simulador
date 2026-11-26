@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Santa Fe 3D — Simulador de Lluvias, Crecidas y Bombeo</title>
-  <meta name="description" content="Visor topográfico 3D interactivo y simulador de lluvias, crecidas de los ríos Paraná y Salado, reservorios, estaciones de bombeo y equipamiento crítico del Gran Santa Fe.">
+  <meta name="description" content="Visor topográfico 3D interactivo y simulador de lluvias, crecidas de los ríos Paraná y Salado, reservorios y estaciones de bombeo del Gran Santa Fe.">
   <meta property="og:title" content="Santa Fe 3D — Simulador de Lluvias, Crecidas y Bombeo">
-  <meta property="og:description" content="Explorá el relieve suelo desnudo FABDEM, datos hidrométricos oficiales del INA, pronóstico Open-Meteo, 59 estaciones de bombeo y equipamiento crítico de Santa Fe en 3D.">
+  <meta property="og:description" content="Explorá el relieve suelo desnudo FABDEM, datos hidrométricos oficiales del INA, pronóstico Open-Meteo y 59 estaciones de bombeo de Santa Fe en 3D.">
   <meta property="og:type" content="website">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b1120'/%3E%3Cpath d='M5 20c3-2 5 2 8 0s5 2 8 0 4-2 6 0' stroke='%2338bdf8' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3Cpath d='M5 13c3-2 5 2 8 0s5 2 8 0 4-2 6 0' stroke='%230ea5e9' stroke-width='2.2' fill='none' stroke-linecap='round' opacity='.75'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="./src/styles.css">
@@ -37,18 +37,18 @@
         <datalist id="barrios-list"></datalist>
       </div>
       <div id="preset-buttons" class="segmented" role="group" aria-label="Vistas de cámara">
-        <button data-preset="cap1" class="active">Oeste</button>
+        <button data-preset="cap1">Oeste</button>
         <button data-preset="cap2">Ciudad</button>
         <button data-preset="res">Reservorios</button>
         <button data-preset="costa">Costa</button>
-        <button data-preset="top">Planta</button>
+        <button data-preset="top" class="active">Planta</button>
       </div>
       <select id="preset-select" aria-label="Vista de cámara">
-        <option value="cap1" selected>Oeste</option>
+        <option value="cap1">Oeste</option>
         <option value="cap2">Ciudad</option>
         <option value="res">Reservorios</option>
         <option value="costa">Costa</option>
-        <option value="top">Planta</option>
+        <option value="top" selected>Planta</option>
       </select>
     </div>
 
@@ -70,6 +70,14 @@
       </button>
     </div>
   </header>
+
+  <!-- Banner persistente para distinguir escenarios simulados de datos reales en vivo -->
+  <div id="sim-banner" class="sim-banner hidden" role="status" aria-live="polite">
+    <span class="sim-banner-dot" aria-hidden="true"></span>
+    <strong class="sim-banner-title">ESCENARIO SIMULADO</strong>
+    <span id="sim-banner-detail" class="sim-banner-detail tabular">No representa estado real en vivo</span>
+    <button id="btn-back-live" class="btn-xs" type="button">Volver a hoy</button>
+  </div>
 
   <!-- ZONA 2: Panel lateral único con Rail de 3 modos -->
   <aside id="sidebar" aria-label="Controles del simulador">
@@ -126,25 +134,25 @@
             <div id="live-meta" class="live-meta">Iniciando telemetría...</div>
           </div>
 
-          <!-- Escenarios rápidos -->
+          <!-- Escenarios anclados a recurrencias hidrológicas (Tr - IDF Santa Fe) -->
           <div>
-            <div class="section-label">Escenarios rápidos</div>
+            <div class="section-label">Escenarios (recurrencia Tr · IDF Santa Fe)</div>
             <div class="grid-2" style="margin-top:5px;">
               <button class="scenario-btn active" data-sc="hoy">
-                <strong>Ríos hoy</strong>
+                <strong>Ríos hoy (INA)</strong>
                 <span id="sc-hoy-sub" class="tabular">Cargando escala...</span>
               </button>
-              <button class="scenario-btn" data-sc="rain_hoy">
-                <strong>Lluvia + Ríos hoy</strong>
-                <span id="sc-rhoy-sub" class="tabular">90 mm · Ríos hoy</span>
+              <button class="scenario-btn" data-sc="tr5">
+                <strong>Tr 2–5 años · 65 mm</strong>
+                <span id="sc-rhoy-sub" class="tabular">2 h · Ríos hoy</span>
               </button>
-              <button class="scenario-btn" data-sc="rain90">
-                <strong>Lluvia normal</strong>
-                <span class="tabular">90 mm · Ríos 3,30 m</span>
+              <button class="scenario-btn" data-sc="tr10">
+                <strong>Tr 10 años · 95 mm</strong>
+                <span class="tabular">2 h · Ríos 3,30 m</span>
               </button>
-              <button class="scenario-btn" data-sc="combo">
-                <strong>Crecida extrema</strong>
-                <span class="tabular">120 mm · Ríos &gt;7,0 m</span>
+              <button class="scenario-btn" data-sc="tr50">
+                <strong>Tr 25–50 años · 140 mm</strong>
+                <span class="tabular">2,5 h · Crecida + conv.</span>
               </button>
             </div>
           </div>
@@ -152,7 +160,7 @@
           <!-- Controles principales (Nivel 1) -->
           <div class="card">
             <div class="section-label">
-              <span>Nivel de ríos y tormenta</span>
+              <span>Hidrometría (Paraná / Salado) y tormenta</span>
             </div>
 
             <div class="slider-block">
@@ -168,13 +176,24 @@
 
             <div class="slider-block">
               <div class="slider-head">
-                <span>Salado (Sto. Tomé)</span>
+                <span title="Nivel de desembocadura influenciado por remanso del Río Paraná">Salado — Sto. Tomé (remanso)</span>
                 <span class="slider-val tabular">
                   <span id="val-salado">-- m</span>
                   <span id="tag-salado" class="badge badge-ok">Normal</span>
                 </span>
               </div>
-              <input id="sl-salado" type="range" min="2.0" max="8.0" step="0.01" value="3.20" aria-label="Altura Río Salado en Santo Tomé">
+              <input id="sl-salado" type="range" min="2.0" max="8.0" step="0.01" value="3.20" aria-label="Altura Río Salado en Santo Tomé (desembocadura y remanso Paraná)">
+            </div>
+
+            <div class="slider-block">
+              <div class="slider-head">
+                <span title="Estación INA Recreo RP 70: indica aporte propio de la cuenca del Salado">Salado — Recreo RP 70 (cuenca)</span>
+                <span class="slider-val tabular">
+                  <span id="val-recreo">2,90 m</span>
+                  <span id="tag-recreo" class="badge badge-ok">Base</span>
+                </span>
+              </div>
+              <input id="sl-recreo" type="range" min="0.5" max="7.5" step="0.05" value="2.90" aria-label="Altura Río Salado en Recreo Ruta 70 (aporte de cuenca)">
             </div>
 
             <div class="slider-block">
@@ -183,6 +202,16 @@
                 <span id="val-rain" class="slider-val tabular">0 mm</span>
               </div>
               <input id="sl-rain" type="range" min="0" max="250" step="5" value="0" aria-label="Lluvia acumulada en milímetros">
+            </div>
+
+            <div>
+              <div class="section-label" style="margin-bottom:4px;">Humedad antecedente del suelo</div>
+              <div class="grid-4">
+                <button class="active btn-xs" data-soil="auto" title="Calculada según lluvia real 24 h">Auto</button>
+                <button class="btn-xs" data-soil="dry">Seco</button>
+                <button class="btn-xs" data-soil="wet">Normal</button>
+                <button class="btn-xs" data-soil="saturated">Satur.</button>
+              </div>
             </div>
 
             <div class="grid-2" style="margin-top:2px;">
@@ -202,7 +231,7 @@
                 <button class="btn-xs" data-wvis="depth" title="Lámina estimada en cm (orientativa)">Lámina est. (cm)</button>
               </div>
             </div>
-            <div class="hint-line">Puerto SF: Alerta 5,30 m · Evac. 5,70 m | Salado: Alerta 4,70 m</div>
+            <div class="hint-line">Puerto SF: Alerta 5,30 m · Evac. 5,70 m | Salado Sto. Tomé: Alerta 4,70 m</div>
           </div>
 
           <!-- Nivel 2: Parámetros hidráulicos avanzados (colapsado por defecto) -->
@@ -229,16 +258,6 @@
               </div>
 
               <div>
-                <div class="section-label" style="margin-bottom:4px;">Humedad previa del suelo</div>
-                <div class="grid-4">
-                  <button class="active btn-xs" data-soil="auto" title="Calculada según lluvia real 24 h">Auto</button>
-                  <button class="btn-xs" data-soil="dry">Seco</button>
-                  <button class="btn-xs" data-soil="wet">Húmedo</button>
-                  <button class="btn-xs" data-soil="saturated">Satur.</button>
-                </div>
-              </div>
-
-              <div>
                 <div class="section-label" style="margin-bottom:4px;">Desagüe pluvial urbano</div>
                 <div class="grid-2">
                   <button id="btn-drain-ok" class="active" data-drain="partial">Parcial</button>
@@ -247,7 +266,7 @@
               </div>
 
               <div>
-                <div class="section-label" style="margin-bottom:4px;">Estaciones de bombeo (59)</div>
+                <div class="section-label" style="margin-bottom:4px;">Estaciones de bombeo (14 fijas + 45 móviles)</div>
                 <div class="grid-2">
                   <button id="btn-cpump-on" class="active" data-cpump="on">Activas (59)</button>
                   <button id="btn-cpump-off" data-cpump="off">Apagadas</button>
@@ -262,11 +281,11 @@
           <div class="card">
             <div class="section-label">Mapa base</div>
             <div class="grid-3">
-              <button class="active" data-base="relief">Relieve</button>
+              <button data-base="relief">Relieve</button>
               <button data-base="streets">Calles</button>
-              <button data-base="sat">Satélite</button>
+              <button class="active" data-base="sat">Satélite</button>
             </div>
-            <div id="basemap-status" class="hint-line">Relieve topográfico offline (FABDEM).</div>
+            <div id="basemap-status" class="hint-line">Cargando imagen satelital HD...</div>
             <div id="basemap-attr" class="basemap-attr hidden"></div>
           </div>
 
@@ -304,18 +323,6 @@
           <div class="card">
             <div class="section-label">Referencias urbanas</div>
             <label class="switch-row">
-              <span class="switch-left"><span class="swatch round" style="background:#f43f5e"></span>Centros de salud / médicos</span>
-              <input class="switch-input" type="checkbox" id="chk-osm-salud">
-            </label>
-            <label class="switch-row">
-              <span class="switch-left"><span class="swatch round" style="background:#f59e0b"></span>Escuelas y educación</span>
-              <input class="switch-input" type="checkbox" id="chk-osm-escuelas">
-            </label>
-            <label class="switch-row">
-              <span class="switch-left"><span class="swatch round" style="background:#a855f7"></span>Bomberos y comisarías</span>
-              <input class="switch-input" type="checkbox" id="chk-osm-emerg">
-            </label>
-            <label class="switch-row">
               <span class="switch-left"><span class="swatch" style="background:linear-gradient(135deg,#0816d8 50%,#34e08a 50%)"></span>Capa de riesgo hídrico base</span>
               <input class="switch-input" type="checkbox" id="chk-risk-layer">
             </label>
@@ -350,10 +357,10 @@
                 </div>
                 <input id="sl-risk-alpha" type="range" min="0" max="100" step="2" value="62">
               </div>
-              <label class="switch-row"><span class="switch-left"><span class="swatch" style="background:#0816d8"></span>Zona I / Riesgo I</span><input class="switch-input" type="checkbox" id="chk-r1" checked></label>
-              <label class="switch-row"><span class="switch-left"><span class="swatch" style="background:#3cd6ff"></span>Zona II / Riesgo II</span><input class="switch-input" type="checkbox" id="chk-r2" checked></label>
-              <label class="switch-row"><span class="switch-left"><span class="swatch" style="background:#34e08a"></span>Zona III / Riesgo III</span><input class="switch-input" type="checkbox" id="chk-r3" checked></label>
-              <label class="switch-row"><span class="switch-left"><span class="swatch" style="background:#f4f2ec"></span>Zona IV / Sin riesgo</span><input class="switch-input" type="checkbox" id="chk-r4" checked></label>
+              <label class="switch-row"><span class="switch-left"><span class="swatch" style="background:#0816d8"></span>Zona I · Extramuros sin defensa</span><input class="switch-input" type="checkbox" id="chk-r1" checked></label>
+              <label class="switch-row"><span class="switch-left"><span class="swatch" style="background:#3cd6ff"></span>Zona II · Terraza baja fluvial</span><input class="switch-input" type="checkbox" id="chk-r2" checked></label>
+              <label class="switch-row"><span class="switch-left"><span class="swatch" style="background:#34e08a"></span>Zona III · Defendida / periurbana</span><input class="switch-input" type="checkbox" id="chk-r3" checked></label>
+              <label class="switch-row"><span class="switch-left"><span class="swatch" style="background:#f4f2ec"></span>Zona IV · Intramuros protegido</span><input class="switch-input" type="checkbox" id="chk-r4" checked></label>
             </div>
           </details>
 
@@ -395,25 +402,13 @@
             </div>
           </div>
 
-          <div>
-            <div class="section-label">Equipamiento OSM afectado (&gt;10 cm)</div>
-            <div class="grid-3" style="margin-top:6px;">
-              <button id="pill-salud" class="impact-btn" type="button" aria-label="Ver centros de salud afectados">
-                <span id="kpi-salud" class="imp-count tabular">0</span>
-                <span class="imp-lbl"><span data-icon="health" data-icon-size="11"></span>Salud</span>
-              </button>
-              <button id="pill-esc" class="impact-btn" type="button" aria-label="Ver escuelas afectadas">
-                <span id="kpi-escuelas" class="imp-count tabular">0</span>
-                <span class="imp-lbl"><span data-icon="school" data-icon-size="11"></span>Escuelas</span>
-              </button>
-              <button id="pill-emerg" class="impact-btn" type="button" aria-label="Ver cuarteles y comisarías afectados">
-                <span id="kpi-emerg" class="imp-count tabular">0</span>
-                <span class="imp-lbl"><span data-icon="shield" data-icon-size="11"></span>Emerg.</span>
-              </button>
-            </div>
+          <!-- Alertas operativas empíricas activas (Fase 6) -->
+          <div id="emp-alerts-wrap" class="hidden">
+            <div class="section-label">Umbrales territoriales activos</div>
+            <div id="emp-alerts-list" class="emp-alerts-list"></div>
           </div>
 
-          <!-- Diagnóstico del punto o listado de establecimientos -->
+          <!-- Diagnóstico del punto -->
           <div id="diag-panel" class="diag-box selectable">
             <div class="diag-head">
               <span id="diag-title" class="diag-title">Diagnóstico por sector</span>
@@ -422,9 +417,8 @@
               </button>
             </div>
             <div id="diag-body" class="diag-meta">
-              Hacé clic en cualquier punto del mapa 3D o seleccioná una categoría arriba para inspeccionar cotas, agua simulada y equipamiento cercano.
+              Hacé clic en cualquier punto del mapa 3D para inspeccionar cotas, agua simulada y bombeo cercano.
             </div>
-            <div id="diag-list" class="diag-list hidden"></div>
           </div>
         </div>
       </div>
@@ -495,12 +489,12 @@
           <span id="i-water" class="insp-v water tabular">0 cm</span>
         </div>
         <div class="insp-col insp-hide-md">
-          <span class="insp-k">Riesgo</span>
+          <span class="insp-k">Condición</span>
           <span id="i-risk" class="insp-v">--</span>
         </div>
         <div class="insp-col insp-hide-md">
-          <span class="insp-k">Acum. D8</span>
-          <span id="i-acum" class="insp-v tabular">--</span>
+          <span class="insp-k">Exposición (&gt;10cm)</span>
+          <span id="i-acum" class="insp-v tabular">0 ha int. · 0 ha ext.</span>
         </div>
       </div>
       <div class="dock-divider"></div>
@@ -527,26 +521,23 @@
         <div class="leg-row"><span class="leg-box" style="background:#0284c7"></span>Media (15–40 cm)</div>
         <div class="leg-row"><span class="leg-box" style="background:#1e3a8a"></span>Profunda (&gt; 40 cm)</div>
 
-        <div class="leg-group-title">Riesgo hídrico base</div>
-        <div class="leg-row"><span class="leg-box" style="background:#f8fafc"></span>Zona IV / Sin riesgo (ciudad alta)</div>
-        <div class="leg-row"><span class="leg-box" style="background:#34e08a"></span>Zona III / Riesgo III</div>
-        <div class="leg-row"><span class="leg-box" style="background:#33e0b3"></span>Zona II/III (transición)</div>
-        <div class="leg-row"><span class="leg-box" style="background:#3cd6ff"></span>Zona II / Riesgo II</div>
-        <div class="leg-row"><span class="leg-box" style="background:#0816d8"></span>Zona I / Riesgo I</div>
+        <div class="leg-group-title">Zonificación física territorial</div>
+        <div class="leg-row"><span class="leg-box" style="background:#f8fafc"></span>Intramuros protegido (terraza alta)</div>
+        <div class="leg-row"><span class="leg-box" style="background:#34e08a"></span>Área defendida / periurbana condicionada</div>
+        <div class="leg-row"><span class="leg-box" style="background:#33e0b3"></span>Franja de transición</div>
+        <div class="leg-row"><span class="leg-box" style="background:#3cd6ff"></span>Terraza baja / transición fluvial</div>
+        <div class="leg-row"><span class="leg-box" style="background:#0816d8"></span>Extramuros sin defensa (valle aluvial)</div>
 
-        <div class="leg-group-title">Infraestructura y equipamiento</div>
+        <div class="leg-group-title">Infraestructura hídrica y defensas</div>
         <div class="leg-row"><span class="leg-line" style="background:#0077ff"></span>Corredor de escurrimiento D8</div>
-        <div class="leg-row"><span class="leg-box" style="background:rgba(20,184,166,0.35);border-color:#14b8a6"></span>Reservorio / cuenco</div>
-        <div class="leg-row"><span class="leg-dot" style="background:#06b6d4;border:1.5px solid #0f172a"></span>Estación de bombeo (59 aprox.)</div>
-        <div class="leg-row"><span class="leg-line" style="background:#f59e0b"></span>Defensa · <span class="leg-line" style="background:#0ea5e9"></span>Canal (OSM)</div>
-        <div class="leg-row">
-          <span class="leg-dot" style="background:#f43f5e"></span>Salud ·
-          <span class="leg-dot" style="background:#f59e0b"></span>Escuelas ·
-          <span class="leg-dot" style="background:#a855f7"></span>Emergencia
-        </div>
+        <div class="leg-row"><span class="leg-box" style="background:rgba(20,184,166,0.35);border-color:#14b8a6"></span>Área de reservorio / cuenco</div>
+        <div class="leg-row"><span class="leg-dot" style="background:#10f09e;border:1.5px solid #020617;border-radius:2px;transform:rotate(45deg)"></span>Estación fija principal (EB0–EB6)</div>
+        <div class="leg-row"><span class="leg-dot" style="background:#facc15;border:1.5px solid #020617"></span>Punto de bombeo móvil / complementario</div>
+        <div class="leg-row"><span class="leg-line" style="background:#f59e0b"></span>Defensa consolidada · <span class="leg-line" style="background:#0ea5e9"></span>Canal (OSM)</div>
+        <div class="leg-row"><span class="leg-line" style="background:repeating-linear-gradient(90deg,#f43f5e 0 6px,transparent 6px 10px)"></span>Sector extramuros sin defensa</div>
 
         <div class="leg-disclaimer">
-          FABDEM suelo desnudo (~30 m) · OSM · INA (Puerto SF 0 = 8,42 m IGN) · Open-Meteo. Modelo orientativo; no reemplaza alertas oficiales.
+          FABDEM suelo desnudo (~30 m) · OSM · INA (Puerto SF 0 = 8,20 m IGN) · Open-Meteo. Modelo orientativo; no reemplaza alertas oficiales.
         </div>
       </div>
     </div>

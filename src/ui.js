@@ -2,30 +2,31 @@
 // 3 zonas sin solapamiento, cero emojis, DOM 100% seguro contra XSS, deep-linking bidireccional y responsive móvil.
 import { createIcon, createSparklineSVG, hydrateIcons } from "./icons.js";
 import { el, fmtDelta, fmtInt, fmtNum, fmtShortDate } from "./format.js";
+import { isRiverElevated } from "./sim-engine.js";
 import { createStorySteps } from "./story.js";
 
 const MODE_META = {
   sim: { title: "Simulador Hídrico", sub: "Ríos Paraná/Salado, tormenta y bombeo" },
   layers: { title: "Capas y Relieve 3D", sub: "Mapa base, drenaje, riesgo y topografía" },
-  impact: { title: "Impacto y Diagnóstico", sub: "KPIs, equipamiento OSM y ficha por sector" },
+  impact: { title: "Impacto y Diagnóstico", sub: "KPIs, alertas territoriales y ficha por sector" },
 };
 
 const RISK_NAMES = [
-  "Fuera",
-  "Zona IV (Sin riesgo)",
-  "Zona III (Riesgo III)",
-  "Zona II/III",
-  "Zona II (Riesgo II)",
-  "Zona I (Riesgo I)",
+  "Fuera de dominio",
+  "Intramuros protegido",
+  "Defendida / periurbana",
+  "Franja de transición",
+  "Terraza baja fluvial",
+  "Extramuros sin defensa",
 ];
 
 const RISK_DESC = [
   "fuera de análisis",
-  "zona alta urbanizada (Sin riesgo base)",
-  "zona baja rural/islas (Riesgo III)",
-  "zona de transición (Riesgo II/III)",
-  "franja ribereña o baja (Riesgo II)",
-  "zona de mayor riesgo hídrico (Riesgo I)",
+  "intramuros protegido sobre terraza alta urbanizada",
+  "área defendida o periurbana condicionada",
+  "franja de transición topográfica",
+  "terraza baja o franja de transición fluvial",
+  "extramuros sin defensa (valle aluvial activo, bañados e islas)",
 ];
 
 export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, renderer }) {
@@ -52,9 +53,6 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     r4: $("chk-r4"),
     cityPumps: $("chk-city-pumps"),
     osmCanales: $("chk-osm-canales"),
-    osmSalud: $("chk-osm-salud"),
-    osmEscuelas: $("chk-osm-escuelas"),
-    osmEmerg: $("chk-osm-emerg"),
     res: $("chk-res"),
     bin: $("chk-bin"),
     acflow: $("chk-acflow"),
@@ -68,6 +66,7 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     dur: $("sl-dur"),
     parana: $("sl-parana"),
     salado: $("sl-salado"),
+    recreo: $("sl-recreo"),
   };
 
   let activeMode = "sim";
@@ -152,7 +151,6 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
       showContours: ui.contours.checked,
       showCityPumps: ui.cityPumps.checked,
       showOsmLines: ui.osmCanales.checked,
-      showOsmFac: ui.osmSalud.checked || ui.osmEscuelas.checked || ui.osmEmerg.checked,
       uncertaintyMode,
       lightMode: ui.lightMode.checked,
       showLabels: ui.labels.checked,
@@ -173,8 +171,41 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     else { node.textContent = "Crítica"; node.className = "badge badge-crit"; }
   }
 
+  function setRecreoTag(node, val) {
+    if (!node) return;
+    if (val < 3.30) { node.textContent = "Base"; node.className = "badge badge-ok"; }
+    else if (val < 4.80) { node.textContent = "Aporte"; node.className = "badge badge-warn"; }
+    else { node.textContent = "Crecida"; node.className = "badge badge-crit"; }
+  }
+
   function clearActiveScenario() {
     document.querySelectorAll("[data-sc]").forEach(b => b.classList.remove("active"));
+  }
+
+  function updateSimBanner() {
+    const banner = $("sim-banner");
+    const detail = $("sim-banner-detail");
+    if (!banner || !detail) return;
+    const st = sim.state;
+    const liveRec = liveState.recreo !== null && Number.isFinite(liveState.recreo) ? liveState.recreo : 2.90;
+    const riverChanged =
+      Math.abs(st.paranaScale - liveState.parana) > 0.08 ||
+      Math.abs(st.saladoScale - liveState.salado) > 0.08 ||
+      Math.abs(st.recreoScale - liveRec) > 0.15;
+    const rainActive = st.fallenMm > 0.5 || st.targetMm > 0;
+    const infraAltered = !st.cityPumpsActive || st.drainMode === "saturated" || sim.manualPumps.length > 0;
+    const isSimulated = riverChanged || rainActive || infraAltered;
+
+    banner.classList.toggle("hidden", !isSimulated);
+    document.body.classList.toggle("sim-mode", isSimulated);
+    if (!isSimulated) return;
+
+    const tags = [];
+    if (rainActive) tags.push(`Lluvia ${fmtInt(Math.max(st.fallenMm, st.targetMm))} mm`);
+    if (riverChanged) tags.push(`Paraná ${fmtNum(st.paranaScale, 2)} m · Salado ${fmtNum(st.saladoScale, 2)} m`);
+    if (!st.cityPumpsActive) tags.push("Bombeo apagado");
+    if (st.drainMode === "saturated") tags.push("Drenaje saturado");
+    detail.textContent = tags.join(" · ") || "Parámetros modificados respecto a telemetría INA";
   }
 
   function updateTextLabels() {
@@ -189,18 +220,22 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     sim.state.durationHr = parseFloat(ui.dur.value);
     sim.state.paranaScale = parseFloat(ui.parana.value);
     sim.state.saladoScale = parseFloat(ui.salado.value);
+    if (ui.recreo) sim.state.recreoScale = parseFloat(ui.recreo.value);
 
     const rate = Math.round(sim.state.targetMm / Math.max(0.25, sim.state.durationHr));
     $("val-rain").textContent = fmtInt(sim.state.targetMm) + " mm";
     $("val-dur").textContent = `${fmtNum(sim.state.durationHr, 1)} h (${fmtInt(rate)} mm/h)`;
     $("val-parana").textContent = fmtNum(sim.state.paranaScale, 2) + " m";
     $("val-salado").textContent = fmtNum(sim.state.saladoScale, 2) + " m";
+    if ($("val-recreo")) $("val-recreo").textContent = fmtNum(sim.state.recreoScale, 2) + " m";
     setParanaTag($("tag-parana"), sim.state.paranaScale);
     setSaladoTag($("tag-salado"), sim.state.saladoScale);
+    setRecreoTag($("tag-recreo"), sim.state.recreoScale);
 
     if (!sim.state.running && sim.state.fallenMm === 0) {
       $("sim-mm").textContent = `0 / ${fmtInt(sim.state.targetMm)} mm`;
     }
+    updateSimBanner();
   }
 
   function updateSimUI() {
@@ -223,7 +258,7 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     $("sim-mm").textContent = `${fmtInt(st.fallenMm)} / ${fmtInt(st.targetMm)} mm`;
 
     let stText = "Listo";
-    const riverHigh = st.paranaScale > 3.5 || st.saladoScale > 3.5;
+    const riverHigh = isRiverElevated(st.paranaScale, st.saladoScale);
     if (st.running) {
       stText = st.fallenMm < st.targetMm ? "Lloviendo..." : sim.manualPumps.length > 0 ? "Bombeando..." : "Escurriendo...";
     } else if (riverHigh) {
@@ -239,15 +274,41 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     $("kpi-ext").textContent = `${fmtInt(st.extFloodHa)} ha`;
     $("kpi-res").textContent = `${fmtInt(st.resFillPct)}%`;
     $("kpi-max").textContent = `${fmtInt(st.maxUrbanCm)} cm`;
-    $("kpi-salud").textContent = String(st.saludFlood);
-    $("kpi-escuelas").textContent = String(st.escuelasFlood);
-    $("kpi-emerg").textContent = String(st.emergFlood);
+    $("i-acum").textContent = `${fmtInt(st.urbanFloodHa)} ha int. · ${fmtInt(st.extFloodHa)} ha ext.`;
+    updateSimBanner();
 
-    $("pill-salud").classList.toggle("hit", st.saludFlood > 0);
-    $("pill-esc").classList.toggle("hit", st.escuelasFlood > 0);
-    $("pill-emerg").classList.toggle("hit", st.emergFlood > 0);
+    const activeCrit = sim.getActiveCriticalPoints ? sim.getActiveCriticalPoints() : [];
+    const empWrap = $("emp-alerts-wrap");
+    const empList = $("emp-alerts-list");
+    if (empWrap && empList) {
+      empWrap.classList.toggle("hidden", activeCrit.length === 0);
+      empList.replaceChildren(
+        ...activeCrit.map(pt =>
+          el(
+            "button",
+            {
+              type: "button",
+              className: "emp-alert-item",
+              onClick: () => {
+                renderer.setPin({ u: pt.u, v: pt.v });
+                renderer.flyTo(Number(pt.lon), Number(pt.lat), -0.50, 0.56, 6.5);
+                updateInspector(pt.u, pt.v);
+                showPointDiagnosis(pt.u, pt.v, pt.nombre, false);
+              },
+            },
+            el(
+              "div",
+              { className: "emp-alert-top" },
+              el("span", { text: pt.nombre }),
+              el("span", { className: "emp-alert-tag tabular", text: pt.reason })
+            ),
+            el("div", { className: "emp-alert-desc", text: pt.efecto_operativo || "" })
+          )
+        )
+      );
+    }
 
-    const totalHits = st.saludFlood + st.escuelasFlood + st.emergFlood;
+    const totalHits = activeCrit.length;
     railBadge.textContent = totalHits > 99 ? "99+" : String(totalHits);
     railBadge.classList.toggle("hidden", totalHits === 0);
 
@@ -261,19 +322,19 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     const pTxt = fmtNum(liveState.parana, 2);
     const sTxt = fmtNum(liveState.salado, 2);
     $("sc-hoy-sub").textContent = `Paraná ${pTxt} · Salado ${sTxt}`;
-    $("sc-rhoy-sub").textContent = `90 mm · Ríos ${pTxt}/${sTxt}`;
+    $("sc-rhoy-sub").textContent = `2 h · Ríos ${pTxt}/${sTxt}`;
 
     const list = $("live-rivers-list");
     const rows = [
       {
-        name: "Paraná (Puerto SF)",
+        name: "Paraná — Puerto SF",
         val: liveState.parana,
         delta: liveState.paranaDelta,
         hist: liveState.paranaHistory,
         alert: 5.30,
       },
       {
-        name: "Salado (Sto. Tomé)",
+        name: "Salado — Sto. Tomé (remanso)",
         val: liveState.salado,
         delta: liveState.saladoDelta,
         hist: liveState.saladoHistory,
@@ -282,7 +343,7 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     ];
     if (liveState.recreo !== null && Number.isFinite(liveState.recreo)) {
       rows.push({
-        name: "Salado (Recreo RP70)",
+        name: "Salado — Recreo RP 70 (cuenca)",
         val: liveState.recreo,
         delta: liveState.recreoDelta,
         hist: liveState.recreoHistory,
@@ -339,6 +400,11 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     }
 
     sim.state.antecedentRain24h = liveState.rain24h || 0;
+    if (liveState.recreo !== null && Number.isFinite(liveState.recreo) && !sim.state.running && sim.state.fallenMm === 0) {
+      sim.state.recreoScale = liveState.recreo;
+      if (ui.recreo) ui.recreo.value = liveState.recreo.toFixed(2);
+    }
+    updateSimBanner();
   }
 
   // Inspector inferior (muestreo liviano sin iterar equipamiento/lugares en hover)
@@ -354,9 +420,7 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     } else {
       $("i-water").textContent = `${d.wCm} cm`;
     }
-    $("i-risk").textContent = RISK_NAMES[d.rId] || "--";
-    $("i-acum").textContent =
-      (d.acVal >= 1 ? `${fmtInt(d.acVal)} cel.` : "0") + (d.binVal > 128 ? " (Corredor)" : "");
+    $("i-risk").textContent = d.zoneCat || RISK_NAMES[d.rId] || "--";
   }
 
   // Diagnóstico en Modo 3 (Impacto) — 100% DOM seguro, sin XSS, sin solapamiento
@@ -364,10 +428,9 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     const d = sim.getPointDiagnostics(u, v, places, forcedName);
     $("diag-title").textContent = d.placeName;
     $("diag-clear").classList.remove("hidden");
-    $("diag-list").classList.add("hidden");
 
     const parts = [
-      el("div", {}, "Cota FABDEM: ", el("strong", { text: `${fmtNum(d.elev, 1)} m` }), ` (±0,6 m) · ${RISK_DESC[d.rId] || ""}`),
+      el("div", {}, "Cota FABDEM: ", el("strong", { text: `${fmtNum(d.elev, 1)} m` }), ` (±0,6 m) · `, el("strong", { text: d.zoneCat || RISK_NAMES[d.rId] || "" })),
     ];
 
     if (d.cId === 7 || d.cId === 8) {
@@ -375,7 +438,7 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     } else if (d.cId === 1 || d.cId === 2 || d.cId === 9 || d.cId === 10) {
       parts.push(el("div", { text: "Pertenece al cauce o laguna fluvial." }));
     } else if (d.binVal > 128) {
-      parts.push(el("div", { text: "Pasa un corredor principal de escurrimiento D8 por este punto." }));
+      parts.push(el("div", { text: `Corredor de escurrimiento natural (acum. ~${fmtInt(d.acVal)} cel.).` }));
     }
 
     if (uncertaintyMode) {
@@ -387,109 +450,57 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
         parts.push(el("div", {}, "Probabilidad ", el("strong", { text: "media (40–80%)" }), `: rango orientativo ~${lo}–${hi} cm (sensible a desagües u obras locales).`));
       } else if (d.prob >= 0.15) {
         parts.push(el("div", {}, "Franja ", el("strong", { text: "sensible (±0,6 m FABDEM)" }), ": el modelo marca seco, pero el terreno está próximo a la cota de agua vecina; requiere verificación en campo."));
-      } else if (sim.state.fallenMm > 0 || sim.state.paranaScale > 3.5 || sim.state.saladoScale > 3.5) {
+      } else if (sim.state.fallenMm > 0 || isRiverElevated(sim.state.paranaScale, sim.state.saladoScale)) {
         parts.push(el("div", { text: "Baja probabilidad de anegamiento (< 15%) en el escenario actual." }));
       }
     } else {
       if (d.wCm >= 40) parts.push(el("div", {}, "Lámina estimada: ", el("strong", { text: `${d.wCm} cm` }), " (inundación profunda, orientativa)."));
       else if (d.wCm >= 15) parts.push(el("div", {}, "Lámina estimada: ", el("strong", { text: `${d.wCm} cm` }), " (anegamiento medio, orientativo)."));
       else if (d.wCm >= 4) parts.push(el("div", {}, "Encharcamiento somero estimado: ", el("strong", { text: `${d.wCm} cm` }), "."));
-      else if (sim.state.fallenMm > 0 || sim.state.paranaScale > 3.5 || sim.state.saladoScale > 3.5) {
+      else if (sim.state.fallenMm > 0 || isRiverElevated(sim.state.paranaScale, sim.state.saladoScale)) {
         parts.push(el("div", { text: "Sector seco (< 4 cm) en el escenario actual." }));
       }
     }
 
     if (d.nearPump) {
+      const p = d.nearPump;
+      const isFixed = p.tipo === "fija";
+      const capTxt = p.caudal_m3h
+        ? ` · cap. ref. ${fmtInt(p.caudal_m3h)} m³/h (${fmtNum(p.caudal_m3s, 1)} m³/s)`
+        : "";
+      const eqTxt = p.bombas_ref ? ` · ${p.bombas_ref}` : "";
       parts.push(
         el(
           "div",
           {},
-          "Bombeo cercano: ",
-          el("strong", { text: `Estación #${d.nearPump.id}` }),
-          ` (${d.nearPump.s}, a ${fmtInt(d.nearPump.distM)} m · ${sim.state.cityPumpsActive ? "activa" : "apagada"}).`
+          isFixed ? "Estación fija cercana: " : "Bombeo móvil cercano: ",
+          el("strong", { text: isFixed ? `${p.codigo} — ${p.nombre}` : p.nombre }),
+          ` (a ${fmtInt(p.distM)} m · ${sim.state.cityPumpsActive ? "activa" : "apagada"}${capTxt}${eqTxt}).`
         )
       );
     }
 
-    if (d.nearFac) {
-      const tipoTxt = d.nearFac.t === "s" ? "salud" : d.nearFac.t === "e" ? "educación" : "emergencia";
-      parts.push(
-        el(
-          "div",
-          {},
-          "Equipamiento OSM cercano: ",
-          el("strong", { text: d.nearFac.n }),
-          ` (${tipoTxt}, a ${fmtInt(d.nearFac.distM)} m).`
-        )
-      );
+    const over = sim.getOvertoppedDefenses ? sim.getOvertoppedDefenses() : [];
+    if (over.length > 0) {
+      const ovTxt = over
+        .map(o => `${o.nombre} (río ${fmtNum(o.riverWlM, 2)} m vs coronamiento ${fmtNum(o.crownM, 2)} m)`)
+        .join("; ");
+      parts.push(el("div", {}, el("strong", { text: "Alerta de sobrepaso / revancha crítica: " }), ovTxt));
     }
 
     $("diag-body").replaceChildren(...parts);
     if (openImpactTab) setMode("impact", true);
   }
 
-  function showFacilityImpactList(catCode) {
-    const titles = {
-      s: "Salud / Hospitales",
-      e: "Escuelas / Educación",
-      x: "Bomberos / Comisarías",
-    };
-    const { hits, totalCat } = sim.getFacilityImpacts(catCode);
-    $("diag-title").textContent = `${titles[catCode]} (>10 cm: ${hits.length}/${totalCat})`;
-    $("diag-clear").classList.remove("hidden");
-
-    const listEl = $("diag-list");
-    if (!hits.length) {
-      $("diag-body").textContent =
-        "Ningún establecimiento de esta categoría supera 10 cm de agua simulada en el escenario actual.";
-      listEl.classList.add("hidden");
-      listEl.replaceChildren();
-      return;
-    }
-
-    const top = hits[0];
-    const focusFacility = fac => {
-      const lon = cfg.lonMin + fac.u * (cfg.lonMax - cfg.lonMin);
-      const lat = cfg.latMax - fac.v * (cfg.latMax - cfg.latMin);
-      renderer.setPin({ u: fac.u, v: fac.v });
-      renderer.flyTo(lon, lat, -0.50, 0.56, 6.2);
-      updateInspector(fac.u, fac.v);
-    };
-    focusFacility(top);
-
-    $("diag-body").textContent =
-      `Mostrando ${Math.min(20, hits.length)} de ${hits.length} afectados (clic para enfocar en 3D):`;
-
-    const buttons = hits.slice(0, 20).map(h =>
-      el(
-        "button",
-        {
-          type: "button",
-          className: "diag-list-item",
-          onClick: () => focusFacility(h),
-        },
-        el("span", { text: h.n }),
-        el("span", { className: "cm-tag tabular", text: `${h.wCm} cm` })
-      )
-    );
-    listEl.replaceChildren(...buttons);
-    listEl.classList.remove("hidden");
-  }
-
   function clearDiagnosis() {
     renderer.setPin(null);
     $("diag-title").textContent = "Diagnóstico por sector";
     $("diag-clear").classList.add("hidden");
-    $("diag-list").classList.add("hidden");
-    $("diag-list").replaceChildren();
     $("diag-body").textContent =
-      "Hacé clic en cualquier punto del mapa 3D o seleccioná una categoría arriba para inspeccionar cotas, agua simulada y equipamiento cercano.";
+      "Hacé clic en cualquier punto del mapa 3D para inspeccionar cotas, agua simulada y bombeo cercano.";
   }
 
   $("diag-clear").addEventListener("click", clearDiagnosis);
-  $("pill-salud").addEventListener("click", () => showFacilityImpactList("s"));
-  $("pill-esc").addEventListener("click", () => showFacilityImpactList("e"));
-  $("pill-emerg").addEventListener("click", () => showFacilityImpactList("x"));
 
   // Acciones de simulación coherentes
   function setDrainMode(mode) {
@@ -505,7 +516,7 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     if (
       sim.state.cityPumpsActive &&
       !sim.state.running &&
-      (sim.state.fallenMm > 0 || sim.state.paranaScale > 3.5 || sim.state.saladoScale > 3.5)
+      (sim.state.fallenMm > 0 || isRiverElevated(sim.state.paranaScale, sim.state.saladoScale))
     ) {
       sim.state.pumpSettle = 90;
     }
@@ -538,6 +549,7 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     clearDiagnosis();
     ui.parana.value = cfg.PARANA_NORMAL.toFixed(2);
     ui.salado.value = cfg.SALADO_NORMAL.toFixed(2);
+    if (ui.recreo) ui.recreo.value = "2.90";
     ui.rain.value = "0";
     ui.dur.value = "2";
     setDrainMode("partial");
@@ -547,11 +559,13 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     document.querySelectorAll("[data-cpump]").forEach(b => b.classList.toggle("active", b.dataset.cpump === "on"));
     lastP = cfg.PARANA_NORMAL;
     lastS = cfg.SALADO_NORMAL;
+    lastR = 2.90;
     sim.resetWaterOnly();
     updateTextLabels();
     sim.updateMetrics();
     renderer.uploadWaterTexture();
     updateSimUI();
+    updateInspector(0.5, 0.5);
     renderer.requestRender();
   }
 
@@ -560,6 +574,7 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     dur = 2.0,
     parana = cfg.PARANA_NORMAL,
     salado = cfg.SALADO_NORMAL,
+    recreo = null,
     drainMode = "partial",
     stormProfile = "uniform",
     runRain = false,
@@ -574,11 +589,16 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     ui.dur.value = String(dur);
     ui.parana.value = Number(parana).toFixed(2);
     ui.salado.value = Number(salado).toFixed(2);
+    const recVal = recreo !== null && Number.isFinite(Number(recreo))
+      ? Number(recreo)
+      : (liveState.recreo !== null && Number.isFinite(liveState.recreo) ? liveState.recreo : 2.90);
+    if (ui.recreo) ui.recreo.value = recVal.toFixed(2);
     setDrainMode(drainMode);
     setStormProfile(stormProfile);
     updateTextLabels();
     lastP = sim.state.paranaScale;
     lastS = sim.state.saladoScale;
+    lastR = sim.state.recreoScale;
 
     if (settleRiverSubsteps > 0) {
       sim.stepSubsteps(settleRiverSubsteps, false);
@@ -587,50 +607,60 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
       sim.stepSubsteps(preRunSubsteps, true);
       renderer.uploadWaterTexture();
     } else {
-      if (sim.state.paranaScale > 3.5 || sim.state.saladoScale > 3.5) sim.state.riverSettle = 18;
+      if (isRiverElevated(sim.state.paranaScale, sim.state.saladoScale)) sim.state.riverSettle = 18;
       if (runRain) sim.state.running = true;
     }
     updateSimUI();
     renderer.requestRender();
   }
 
-  // Escenarios rápidos (coherentes con el estado inicial)
+  // Escenarios anclados a recurrencias hidrológicas (IDF Santa Fe / INA)
   function triggerScenario(sc, changeCamera = true) {
     document.querySelectorAll("[data-sc]").forEach(b => b.classList.toggle("active", b.dataset.sc === sc));
+    const liveRec = liveState.recreo !== null && Number.isFinite(liveState.recreo) ? liveState.recreo : 2.90;
     if (sc === "hoy") {
-      if (changeCamera) renderer.setPreset("cap1");
+      if (changeCamera) renderer.setPreset("top");
+      sim.state.cityPumpsActive = true;
+      document.querySelectorAll("[data-cpump]").forEach(b => b.classList.toggle("active", b.dataset.cpump === "on"));
+      sim.clearManualPumps();
       applyCustomScenario({
         rain: 0,
         dur: 2.0,
         parana: liveState.parana,
         salado: liveState.salado,
+        recreo: liveRec,
         drainMode: "partial",
       });
-    } else if (sc === "rain_hoy") {
+    } else if (sc === "tr5" || sc === "rain_hoy") {
       applyCustomScenario({
-        rain: 90,
+        rain: 65,
         dur: 2.0,
         parana: liveState.parana,
         salado: liveState.salado,
+        recreo: liveRec,
         drainMode: "partial",
+        stormProfile: "uniform",
         runRain: true,
       });
-    } else if (sc === "rain90") {
+    } else if (sc === "tr10" || sc === "rain90") {
       applyCustomScenario({
-        rain: 90,
+        rain: 95,
         dur: 2.0,
         parana: cfg.PARANA_NORMAL,
         salado: cfg.SALADO_NORMAL,
+        recreo: 2.90,
         drainMode: "partial",
+        stormProfile: "convective",
         runRain: true,
       });
-    } else if (sc === "combo") {
+    } else if (sc === "tr50" || sc === "combo") {
       if (changeCamera) renderer.setPreset("cap2");
       applyCustomScenario({
-        rain: 120,
+        rain: 140,
         dur: 2.5,
-        parana: 7.1,
-        salado: 7.3,
+        parana: 6.40,
+        salado: 6.50,
+        recreo: 4.60,
         drainMode: "saturated",
         stormProfile: "convective",
         runRain: true,
@@ -649,14 +679,6 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
       renderer.requestRender(input === ui.z || input === ui.labels || input === ui.res);
     });
   });
-
-  const syncOsmFacLayer = () => {
-    renderer.updateOsmFacilitiesMask(ui.osmSalud.checked, ui.osmEscuelas.checked, ui.osmEmerg.checked);
-    renderer.requestRender();
-  };
-  ui.osmSalud.addEventListener("change", syncOsmFacLayer);
-  ui.osmEscuelas.addEventListener("change", syncOsmFacLayer);
-  ui.osmEmerg.addEventListener("change", syncOsmFacLayer);
 
   ui.riskLayer.addEventListener("change", () => {
     if (ui.riskLayer.checked && !ui.r1.checked && !ui.r2.checked && !ui.r3.checked && !ui.r4.checked) {
@@ -680,11 +702,18 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
 
   let lastP = parseFloat(ui.parana.value);
   let lastS = parseFloat(ui.salado.value);
+  let lastR = ui.recreo ? parseFloat(ui.recreo.value) : 2.90;
 
-  function onRiverManualMove(prevP, prevS) {
+  function onRiverManualMove(prevP, prevS, prevR) {
     clearActiveScenario();
-    const lowered = (sim.state.paranaScale < prevP || sim.state.saladoScale < prevS) && sim.state.fallenMm === 0;
-    if (lowered) sim.resetWaterOnly();
+    const lowered =
+      sim.state.paranaScale < prevP ||
+      sim.state.saladoScale < prevS ||
+      sim.state.recreoScale < prevR;
+    if (lowered && sim.reconcileRiverDrop) {
+      sim.reconcileRiverDrop();
+      renderer.uploadWaterTexture();
+    }
     sim.state.riverSettle = 18;
     updateSimUI();
     renderer.requestRender();
@@ -692,14 +721,27 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
 
   ui.parana.addEventListener("input", () => {
     const p = lastP; lastP = parseFloat(ui.parana.value);
-    onRiverManualMove(p, lastS);
+    onRiverManualMove(p, lastS, lastR);
   });
   ui.salado.addEventListener("input", () => {
     const s = lastS; lastS = parseFloat(ui.salado.value);
-    onRiverManualMove(lastP, s);
+    onRiverManualMove(lastP, s, lastR);
   });
+  if (ui.recreo) {
+    ui.recreo.addEventListener("input", () => {
+      const r = lastR; lastR = parseFloat(ui.recreo.value);
+      onRiverManualMove(lastP, lastS, r);
+    });
+  }
   ui.rain.addEventListener("input", clearActiveScenario);
   ui.dur.addEventListener("input", clearActiveScenario);
+
+  if ($("btn-back-live")) {
+    $("btn-back-live").addEventListener("click", () => {
+      triggerScenario("hoy", false);
+      showToast("Escenario restaurado a niveles reales del INA.");
+    });
+  }
 
   document.querySelectorAll("[data-drain]").forEach(btn =>
     btn.addEventListener("click", () => { clearActiveScenario(); setDrainMode(btn.dataset.drain); })
@@ -738,7 +780,7 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     }
     if (sim.state.fallenMm >= sim.state.targetMm && !sim.state.running) {
       sim.resetWaterOnly();
-      if (sim.state.paranaScale > 3.5 || sim.state.saladoScale > 3.5) sim.state.riverSettle = 24;
+      if (isRiverElevated(sim.state.paranaScale, sim.state.saladoScale)) sim.state.riverSettle = 24;
     }
     sim.state.running = !sim.state.running;
     updateSimUI();
@@ -797,20 +839,23 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
   });
 
   // Basemaps con atribución y cancelación
-  document.querySelectorAll("[data-base]").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const mode = btn.dataset.base;
-      document.querySelectorAll("[data-base]").forEach(b => b.classList.toggle("active", b === btn));
-      renderer.loadOnlineBasemap(mode, res => {
-        $("basemap-status").textContent = res.status;
-        const attrEl = $("basemap-attr");
-        attrEl.textContent = res.attribution || "";
-        attrEl.classList.toggle("hidden", !res.attribution);
-        if (!res.ok) {
-          document.querySelectorAll("[data-base]").forEach(b => b.classList.toggle("active", b.dataset.base === "relief"));
-        }
-      });
+  function setBasemap(mode) {
+    const valid = ["relief", "streets", "sat"];
+    const m = valid.includes(mode) ? mode : "sat";
+    document.querySelectorAll("[data-base]").forEach(b => b.classList.toggle("active", b.dataset.base === m));
+    renderer.loadOnlineBasemap(m, res => {
+      $("basemap-status").textContent = res.status;
+      const attrEl = $("basemap-attr");
+      attrEl.textContent = res.attribution || "";
+      attrEl.classList.toggle("hidden", !res.attribution);
+      if (!res.ok) {
+        document.querySelectorAll("[data-base]").forEach(b => b.classList.toggle("active", b.dataset.base === "relief"));
+      }
     });
+  }
+
+  document.querySelectorAll("[data-base]").forEach(btn => {
+    btn.addEventListener("click", () => setBasemap(btn.dataset.base));
   });
 
   // Presets de cámara (desktop buttons + mobile select sincronizados)
@@ -944,6 +989,8 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     if (sim.state.drainMode === "saturated") p.set("saturado", "1"); else p.delete("saturado");
     if (!sim.state.cityPumpsActive) p.set("bombeo", "0"); else p.delete("bombeo");
     if (sim.state.stormProfile === "convective") p.set("perfil", "convective"); else p.delete("perfil");
+    if (sim.state.soilMode !== "auto") p.set("suelo", sim.state.soilMode); else p.delete("suelo");
+    if (!uncertaintyMode) p.set("vis", "depth"); else p.delete("vis");
     p.delete("paso");
     return url.toString();
   }
@@ -995,13 +1042,20 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
 
   // Inicialización desde query params
   function applyURLParams(params) {
-    renderer.setPreset(params.get("vista") || "cap1", true);
+    renderer.setPreset(params.get("vista") || "top", true);
     if (params.get("saturado") === "1") setDrainMode("saturated");
     if (params.get("bombeo") === "0") {
       sim.state.cityPumpsActive = false;
       document.querySelectorAll("[data-cpump]").forEach(b => b.classList.toggle("active", b.dataset.cpump === "off"));
     }
     if (params.get("perfil") === "convective") setStormProfile("convective");
+    if (params.has("suelo")) setSoilMode(params.get("suelo"));
+    if (params.get("vis") === "depth") {
+      uncertaintyMode = false;
+      document.querySelectorAll("[data-wvis]").forEach(b =>
+        b.classList.toggle("active", b.dataset.wvis === "depth")
+      );
+    }
     if (params.has("duracion")) {
       const d = parseFloat(params.get("duracion"));
       if (Number.isFinite(d)) ui.dur.value = String(Math.max(0.5, Math.min(6, d)));
@@ -1014,28 +1068,40 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
       const v = parseFloat(params.get("salado"));
       if (Number.isFinite(v)) ui.salado.value = Math.max(2.0, Math.min(8.0, v)).toFixed(2);
     }
+    if (params.has("recreo") && ui.recreo) {
+      const v = parseFloat(params.get("recreo"));
+      if (Number.isFinite(v)) ui.recreo.value = Math.max(0.5, Math.min(7.5, v)).toFixed(2);
+    }
     if (params.has("lluvia")) {
       const v = parseFloat(params.get("lluvia"));
       if (Number.isFinite(v)) ui.rain.value = String(Math.max(0, Math.min(250, v)));
     }
 
-    const hasCustom = params.has("parana") || params.has("salado") || params.has("lluvia");
+    const hasCustom = params.has("parana") || params.has("salado") || params.has("recreo") || params.has("lluvia");
     if (hasCustom) {
       clearActiveScenario();
       updateTextLabels();
       lastP = sim.state.paranaScale;
       lastS = sim.state.saladoScale;
+      lastR = sim.state.recreoScale;
       const hasRain = sim.state.targetMm > 0 && params.has("lluvia");
-      sim.stepSubsteps(280, hasRain);
+      const substeps = hasRain
+        ? Math.max(280, Math.ceil((sim.state.durationHr + 1.5) / 0.015))
+        : 240;
+      sim.stepSubsteps(substeps, hasRain);
       renderer.uploadWaterTexture();
       updateSimUI();
     } else {
       ui.parana.value = liveState.parana.toFixed(2);
       ui.salado.value = liveState.salado.toFixed(2);
+      if (ui.recreo && liveState.recreo !== null && Number.isFinite(liveState.recreo)) {
+        ui.recreo.value = liveState.recreo.toFixed(2);
+      }
       ui.rain.value = "0";
       updateTextLabels();
       lastP = sim.state.paranaScale;
       lastS = sim.state.saladoScale;
+      lastR = sim.state.recreoScale;
       sim.stepSubsteps(210, false);
       renderer.uploadWaterTexture();
       updateSimUI();
@@ -1052,13 +1118,17 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
   }
 
   function applyLiveRiversIfIdle() {
+    const liveRec = liveState.recreo !== null && Number.isFinite(liveState.recreo) ? liveState.recreo : 2.90;
     const changed =
       Math.abs(sim.state.paranaScale - liveState.parana) > 0.02 ||
-      Math.abs(sim.state.saladoScale - liveState.salado) > 0.02;
+      Math.abs(sim.state.saladoScale - liveState.salado) > 0.02 ||
+      Math.abs(sim.state.recreoScale - liveRec) > 0.05;
     ui.parana.value = liveState.parana.toFixed(2);
     ui.salado.value = liveState.salado.toFixed(2);
+    if (ui.recreo) ui.recreo.value = liveRec.toFixed(2);
     lastP = liveState.parana;
     lastS = liveState.salado;
+    lastR = liveRec;
     updateTextLabels();
     if (changed && !sim.state.running && sim.state.fallenMm === 0) {
       sim.resetWaterOnly();
@@ -1079,6 +1149,7 @@ export function initUI({ cfg, regionCfg, places, sim, liveState, onRefreshLive, 
     handleTerrainClick,
     applyURLParams,
     applyLiveRiversIfIdle,
+    setBasemap,
     showToast,
   };
 }

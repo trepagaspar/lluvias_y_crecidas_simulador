@@ -44,7 +44,6 @@ async function bootstrap() {
   const [
     regionCfg,
     cityPumps,
-    osmFacilities,
     osmLines,
     demImg,
     layersImg,
@@ -53,7 +52,6 @@ async function bootstrap() {
   ] = await Promise.all([
     bundle ? Promise.resolve(bundle.regionCfg) : fetchJSON("./config/region_santa_fe.json"),
     bundle ? Promise.resolve(bundle.cityPumps) : fetchJSON("./assets/city_pumps.json"),
-    bundle ? Promise.resolve(bundle.osmFacilities) : fetchJSON("./assets/osm_facilities.json"),
     bundle ? Promise.resolve(bundle.osmLines) : fetchJSON("./assets/osm_lines.json"),
     loadImage(bundle ? bundle.demSrc : "./assets/dem.png"),
     loadImage(bundle ? bundle.layersSrc : "./assets/layers.png"),
@@ -62,10 +60,12 @@ async function bootstrap() {
   ]);
 
   const ovPaths = regionCfg.research_overrides || {};
-  const [defensasOv, bombeoOv, reservoriosOv] = await Promise.all([
-    ovPaths.defensas ? fetchOptionalJSON(ovPaths.defensas) : Promise.resolve(null),
-    ovPaths.bombeo_capacidades ? fetchOptionalJSON(ovPaths.bombeo_capacidades) : Promise.resolve(null),
-    ovPaths.reservorios ? fetchOptionalJSON(ovPaths.reservorios) : Promise.resolve(null),
+  const embOv = (bundle && bundle.researchOverrides) || {};
+  const [defensasOv, bombeoOv, reservoriosOv, puntosCriticosOv] = await Promise.all([
+    embOv.defensas ? Promise.resolve(embOv.defensas) : ovPaths.defensas ? fetchOptionalJSON(ovPaths.defensas) : Promise.resolve(null),
+    embOv.bombeo_capacidades ? Promise.resolve(embOv.bombeo_capacidades) : ovPaths.bombeo_capacidades ? fetchOptionalJSON(ovPaths.bombeo_capacidades) : Promise.resolve(null),
+    embOv.reservorios ? Promise.resolve(embOv.reservorios) : ovPaths.reservorios ? fetchOptionalJSON(ovPaths.reservorios) : Promise.resolve(null),
+    embOv.puntos_criticos_empiricos ? Promise.resolve(embOv.puntos_criticos_empiricos) : ovPaths.puntos_criticos_empiricos ? fetchOptionalJSON(ovPaths.puntos_criticos_empiricos) : Promise.resolve(null),
   ]);
 
   const bb = regionCfg.bbox;
@@ -108,12 +108,12 @@ async function bootstrap() {
     layersRGBA,
     acumRGBA,
     cityPumps,
-    osmFacilities,
     osmLines,
     researchOverrides: {
       defensas: defensasOv,
       bombeo_capacidades: bombeoOv,
       reservorios: reservoriosOv,
+      puntos_criticos_empiricos: puntosCriticosOv,
     },
   });
 
@@ -127,7 +127,8 @@ async function bootstrap() {
     acumImg,
     cityPumps,
     osmLines,
-    osmFacilities,
+    defensas: defensasOv,
+    bombeoMeta: bombeoOv,
     places: regionCfg.places,
     sim,
     getVisualState: () =>
@@ -148,7 +149,6 @@ async function bootstrap() {
             showContours: false,
             showCityPumps: true,
             showOsmLines: true,
-            showOsmFac: false,
             uncertaintyMode: true,
             lightMode: false,
             showLabels: true,
@@ -190,9 +190,13 @@ async function bootstrap() {
   const params = new URLSearchParams(window.location.search);
   const { hasCustom, hasStep } = uiController.applyURLParams(params);
   uiController.renderLiveBox();
+  uiController.updateInspector(0.5, 0.5);
 
   document.getElementById("loading").classList.add("hidden");
   renderer.requestRender(true);
+
+  // Cargar imagen satelital HD por defecto (con respaldo automático a relieve offline)
+  uiController.setBasemap(params.get("base") || "sat");
 
   // Refrescar telemetría en vivo sin bloquear el primer render
   doRefreshLive(!hasCustom && !hasStep);

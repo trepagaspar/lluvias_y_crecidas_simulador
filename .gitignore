@@ -4,8 +4,14 @@ riesgo_hidrico.dbf
 riesgo_hidrico.shx
 riesgo_hidrico.prj
 riesgo_hidrico.cpg
+riesgo_hidrico.sbn
+riesgo_hidrico.sbx
+riesgo_hidrico.qix
 
-# Archivos temporales, caché y builds locales
+# Archivos temporales, caché QGIS/GDAL y builds locales
+*.gpkg-wal
+*.gpkg-shm
+*.qgz~
 .~lock.*
 ~$*
 *.tmp

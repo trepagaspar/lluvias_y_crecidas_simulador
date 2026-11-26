@@ -41,24 +41,44 @@ def png_b64(path: Path) -> str:
     return "data:image/png;base64," + base64.b64encode(path.read_bytes()).decode("ascii")
 
 
+def safe_json_for_inline_script(obj) -> str:
+    """Serializa JSON escapando secuencias '</' para impedir cierre prematuro de <script> o XSS."""
+    raw = json.dumps(obj, ensure_ascii=False, separators=(",", ":"))
+    return raw.replace("</", "<\\/").replace("<!--", "<\\!--")
+
+
+def load_optional_override(region_cfg: dict, key: str):
+    rel = (region_cfg.get("research_overrides") or {}).get(key)
+    if not rel:
+        return None
+    p = (ROOT / rel).resolve()
+    if p.exists():
+        return json.loads(p.read_text(encoding="utf-8"))
+    return None
+
+
 def main():
     html = (ROOT / "index.html").read_text(encoding="utf-8")
     css = (ROOT / "src" / "styles.css").read_text(encoding="utf-8")
+    region_cfg = json.loads((ROOT / "config" / "region_santa_fe.json").read_text(encoding="utf-8"))
 
     bundle = {
-        "regionCfg": json.loads((ROOT / "config" / "region_santa_fe.json").read_text(encoding="utf-8")),
+        "regionCfg": region_cfg,
         "cityPumps": json.loads((ROOT / "assets" / "city_pumps.json").read_text(encoding="utf-8")),
-        "osmFacilities": json.loads((ROOT / "assets" / "osm_facilities.json").read_text(encoding="utf-8")),
         "osmLines": json.loads((ROOT / "assets" / "osm_lines.json").read_text(encoding="utf-8")),
         "liveCache": json.loads((ROOT / "datos_en_vivo.json").read_text(encoding="utf-8"))
         if (ROOT / "datos_en_vivo.json").exists()
         else None,
+        "researchOverrides": {
+            k: load_optional_override(region_cfg, k)
+            for k in ("defensas", "bombeo_capacidades", "reservorios", "puntos_criticos_empiricos", "eventos_calibracion")
+        },
         "demSrc": png_b64(ROOT / "assets" / "dem.png"),
         "layersSrc": png_b64(ROOT / "assets" / "layers.png"),
         "acumSrc": png_b64(ROOT / "assets" / "acum.png"),
     }
 
-    js_parts = [f"window.__OFFLINE_BUNDLE__ = {json.dumps(bundle, ensure_ascii=False, separators=(',', ':'))};", "(() => {"]
+    js_parts = [f"window.__OFFLINE_BUNDLE__ = {safe_json_for_inline_script(bundle)};", "(() => {"]
     for mod in MODULE_ORDER:
         src = (ROOT / "src" / mod).read_text(encoding="utf-8")
         js_parts.append(f"// --- {mod} ---")

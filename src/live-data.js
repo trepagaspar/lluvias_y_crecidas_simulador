@@ -1,5 +1,14 @@
 // Servicio de datos en vivo (INA + Open-Meteo) con fallback independiente por fuente hacia datos_en_vivo.json.
 
+// Rango físico hidrométrico admisible para descartar valores centinela corruptos (-9999, 99.99) de sensores automáticos
+export const RIVER_STAGE_BOUNDS_M = Object.freeze({ MIN: -1.5, MAX: 12.0 });
+
+export function isValidRiverStage(v) {
+  if (v === null || v === undefined || v === "") return false;
+  const n = Number(v);
+  return Number.isFinite(n) && n >= RIVER_STAGE_BOUNDS_M.MIN && n <= RIVER_STAGE_BOUNDS_M.MAX;
+}
+
 async function fetchWithTimeout(url, ms = 8500) {
   const ctrl = new AbortController();
   const t = setTimeout(() => ctrl.abort(), ms);
@@ -18,9 +27,7 @@ async function fetchINASeries(seriesId) {
   const end = new Date(now.getTime() + 2 * 86400000).toISOString().slice(0, 10);
   const url = `https://alerta.ina.gob.ar/a5/obs/puntual/series/${seriesId}/observaciones?timestart=${start}&timeend=${end}`;
   const rows = await fetchWithTimeout(url, 8500);
-  const valid = (Array.isArray(rows) ? rows : []).filter(
-    r => r && r.valor !== null && r.valor !== undefined && Number.isFinite(Number(r.valor))
-  );
+  const valid = (Array.isArray(rows) ? rows : []).filter(r => r && isValidRiverStage(r.valor));
   if (!valid.length) return null;
   valid.sort((a, b) => String(a.timestart || "").localeCompare(String(b.timestart || "")));
   const last = valid[valid.length - 1];
@@ -115,8 +122,11 @@ export function createLiveState(regionCfg, embeddedCache = null) {
 }
 
 function clampRiver(v, lo, hi) {
-  const n = Number(v);
-  return Number.isFinite(n) ? Math.max(lo, Math.min(hi, n)) : null;
+  return isValidRiverStage(v) ? Math.max(lo, Math.min(hi, Number(v))) : null;
+}
+
+function sanitizeHistory(records) {
+  return (Array.isArray(records) ? records : []).filter(r => r && isValidRiverStage(r.valor_m));
 }
 
 function applyCacheToMissing(state, cached, hasLive) {
@@ -129,7 +139,7 @@ function applyCacheToMissing(state, cached, hasLive) {
       state.parana = v;
       state.paranaDelta = Number(rios.parana_santa_fe.delta_m || 0);
       state.paranaDate = rios.parana_santa_fe.fecha_utc || null;
-      state.paranaHistory = rios.parana_santa_fe.ultimos_registros || [];
+      state.paranaHistory = sanitizeHistory(rios.parana_santa_fe.ultimos_registros);
       state.sourcesDetail.parana = "cache";
       usedCache = true;
     }
@@ -140,7 +150,7 @@ function applyCacheToMissing(state, cached, hasLive) {
       state.salado = v;
       state.saladoDelta = Number(rios.salado_santo_tome.delta_m || 0);
       state.saladoDate = rios.salado_santo_tome.fecha_utc || null;
-      state.saladoHistory = rios.salado_santo_tome.ultimos_registros || [];
+      state.saladoHistory = sanitizeHistory(rios.salado_santo_tome.ultimos_registros);
       state.sourcesDetail.salado = "cache";
       usedCache = true;
     }
@@ -151,7 +161,7 @@ function applyCacheToMissing(state, cached, hasLive) {
       state.recreo = v;
       state.recreoDelta = Number(rios.salado_recreo_rp70.delta_m || 0);
       state.recreoDate = rios.salado_recreo_rp70.fecha_utc || null;
-      state.recreoHistory = rios.salado_recreo_rp70.ultimos_registros || [];
+      state.recreoHistory = sanitizeHistory(rios.salado_recreo_rp70.ultimos_registros);
       state.sourcesDetail.recreo = "cache";
       usedCache = true;
     }

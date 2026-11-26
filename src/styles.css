@@ -306,6 +306,61 @@ button.btn-xs {
   flex-shrink: 0;
 }
 
+/* Banner persistente de Escenario Simulado */
+.sim-banner {
+  position: fixed;
+  top: 62px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 19;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 11px;
+  background: rgba(30, 18, 6, 0.94);
+  border: 1px solid rgba(245, 158, 11, 0.72);
+  border-radius: 999px;
+  box-shadow: 0 6px 20px rgba(2, 6, 23, 0.55);
+  color: #fef3c7;
+  font-size: 11px;
+  max-width: calc(100vw - 28px);
+  white-space: nowrap;
+}
+.sim-banner-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #f59e0b;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.85);
+  flex-shrink: 0;
+}
+.sim-banner-title {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #fbbf24;
+}
+.sim-banner-detail {
+  color: #fde68a;
+  font-size: 10.5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sim-banner button {
+  background: rgba(245, 158, 11, 0.22);
+  border-color: rgba(251, 191, 36, 0.55);
+  color: #fffbeb;
+  padding: 2px 8px;
+  font-size: 10px;
+  font-weight: 600;
+}
+.sim-banner button:hover {
+  background: rgba(245, 158, 11, 0.36);
+}
+body.sim-mode #glcanvas {
+  box-shadow: inset 0 0 0 2px rgba(245, 158, 11, 0.45);
+}
+
 /* ZONE 2: Left Sidebar with 3-Mode Icon Rail */
 #sidebar {
   position: fixed;
@@ -661,19 +716,47 @@ details.accordion[open] summary .acc-chev { transform: rotate(180deg); }
 .kpi-v { font-size: 12.5px; font-weight: 700; color: var(--text-1); }
 .kpi-k { font-size: 9px; color: var(--text-3); margin-top: 2px; }
 
-.impact-btn {
+.emp-alerts-list {
+  display: flex;
   flex-direction: column;
-  padding: 7px 5px;
-  gap: 3px;
-  background: rgba(15, 23, 42, 0.72);
+  gap: 5px;
+  margin-top: 6px;
 }
-.impact-btn .imp-count { font-size: 13px; font-weight: 700; color: var(--text-1); }
-.impact-btn .imp-lbl { font-size: 9.5px; color: var(--text-3); display: inline-flex; align-items: center; gap: 3px; }
-.impact-btn.hit {
-  border-color: rgba(244, 63, 94, 0.55);
-  background: rgba(244, 63, 94, 0.14);
+.emp-alert-item {
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 6px 8px;
+  gap: 2px;
+  background: rgba(245, 158, 11, 0.11);
+  border: 1px solid rgba(245, 158, 11, 0.38);
 }
-.impact-btn.hit .imp-count { color: #fda4af; }
+.emp-alert-item:hover:not(:disabled) {
+  background: rgba(245, 158, 11, 0.18);
+  border-color: rgba(245, 158, 11, 0.62);
+}
+.emp-alert-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fde68a;
+}
+.emp-alert-tag {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #fcd34d;
+  white-space: nowrap;
+}
+.emp-alert-desc {
+  font-size: 10px;
+  color: var(--text-2);
+  line-height: 1.32;
+}
 
 .diag-box {
   background: rgba(15, 23, 42, 0.68);
@@ -692,29 +775,6 @@ details.accordion[open] summary .acc-chev { transform: rotate(180deg); }
 }
 .diag-title { font-size: 12px; font-weight: 700; color: var(--accent); }
 .diag-meta { font-size: 11px; color: var(--text-2); line-height: 1.42; }
-.diag-list {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  max-height: 220px;
-  overflow-y: auto;
-  padding-right: 2px;
-}
-.diag-list-item {
-  width: 100%;
-  justify-content: space-between;
-  padding: 5px 8px;
-  font-size: 11px;
-  text-align: left;
-  background: rgba(30, 41, 59, 0.55);
-}
-.diag-list-item .cm-tag {
-  font-size: 10.5px;
-  font-weight: 700;
-  color: #fda4af;
-  flex-shrink: 0;
-  margin-left: 6px;
-}
 
 /* ZONE 3: Unified Bottom Dock */
 #bottom-dock {

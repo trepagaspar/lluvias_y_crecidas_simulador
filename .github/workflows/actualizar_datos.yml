@@ -34,6 +34,7 @@ jobs:
           if ! git diff --quiet datos_en_vivo.json; then
             git add datos_en_vivo.json
             git commit -m "chore: actualizar datos en vivo INA + Open-Meteo"
+            git pull --rebase origin main
             git push
           else
             echo "Sin cambios relevantes en datos_en_vivo.json"

@@ -11,7 +11,9 @@ import argparse
 import copy
 import datetime
 import json
+import math
 import sys
+import time
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -21,6 +23,8 @@ CONFIG_FILE = ROOT / "config" / "region_santa_fe.json"
 OUT_FILE = ROOT / "datos_en_vivo.json"
 
 UA = "SantaFeSimulador3D/2.0 (https://github.com/trepagaspar/lluvias_y_crecidas_simulador)"
+MIN_VALID_RIVER_M = -1.5
+MAX_VALID_RIVER_M = 12.0
 
 WEATHER_COMPARE_KEYS = (
     "temperatura_c",
@@ -37,10 +41,28 @@ def load_region_config() -> dict:
     return json.loads(CONFIG_FILE.read_text(encoding="utf-8"))
 
 
-def fetch_json(url: str, timeout: int = 20):
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=timeout) as resp:
-        return json.loads(resp.read().decode("utf-8", errors="replace"))
+def is_valid_river_stage(val) -> bool:
+    if val is None or isinstance(val, bool):
+        return False
+    try:
+        v = float(val)
+    except (TypeError, ValueError):
+        return False
+    return math.isfinite(v) and MIN_VALID_RIVER_M <= v <= MAX_VALID_RIVER_M
+
+
+def fetch_json(url: str, timeout: int = 20, retries: int = 2, backoff_s: float = 1.2):
+    last_exc = None
+    for attempt in range(retries + 1):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": UA})
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                return json.loads(resp.read().decode("utf-8", errors="replace"))
+        except Exception as exc:
+            last_exc = exc
+            if attempt < retries:
+                time.sleep(backoff_s * (2 ** attempt))
+    raise last_exc
 
 
 def fetch_ina_series(series_id: int, days_back: int = 10):
@@ -52,7 +74,7 @@ def fetch_ina_series(series_id: int, days_back: int = 10):
         f"?timestart={t_start}&timeend={t_end}"
     )
     rows = fetch_json(url)
-    valid = [r for r in rows if r.get("valor") is not None]
+    valid = [r for r in (rows or []) if isinstance(r, dict) and is_valid_river_stage(r.get("valor"))]
     if not valid:
         return None
     valid.sort(key=lambda r: r.get("timestart", ""))

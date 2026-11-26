@@ -2,7 +2,7 @@ name: Verificar visor 3D, assets y tests
 
 on:
   push:
-    branches: [ main, "feat/**" ]
+    branches: [ main, "feat/**", "fix/**", "chore/**", "bot/**" ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:

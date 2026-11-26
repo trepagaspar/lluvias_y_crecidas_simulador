@@ -100,7 +100,6 @@ import { createSimEngine } from "./src/sim-engine.js";
 const tmpDir = process.argv[2];
 const regionCfg = JSON.parse(fs.readFileSync("./config/region_santa_fe.json", "utf8"));
 const cityPumps = JSON.parse(fs.readFileSync("./assets/city_pumps.json", "utf8"));
-const osmFacilities = JSON.parse(fs.readFileSync("./assets/osm_facilities.json", "utf8"));
 const osmLines = JSON.parse(fs.readFileSync("./assets/osm_lines.json", "utf8"));
 const liveData = fs.existsSync("./datos_en_vivo.json")
   ? JSON.parse(fs.readFileSync("./datos_en_vivo.json", "utf8"))
@@ -147,12 +146,12 @@ const sim = createSimEngine({
   layersRGBA,
   acumRGBA,
   cityPumps,
-  osmFacilities,
   osmLines,
   researchOverrides: {
     defensas: loadOv("defensas"),
     bombeo_capacidades: loadOv("bombeo_capacidades"),
     reservorios: loadOv("reservorios"),
+    puntos_criticos_empiricos: loadOv("puntos_criticos_empiricos"),
   },
 });
 
@@ -195,12 +194,37 @@ sim.state.running = true;
 sim.stepSubsteps(260, true);
 
 const mb = { ...sim.state.massBalance };
+const totalIn = mb.rainInM3 + (mb.riverInM3 || 0);
 const accounted = mb.storedM3 + mb.drainOutM3 + mb.pumpOutM3 + mb.borderOutM3 + mb.riverOutM3;
-const errAbs = Math.abs(mb.rainInM3 - accounted);
-const errPct = mb.rainInM3 > 0 ? (errAbs / mb.rainInM3) * 100 : 0;
+const errAbs = Math.abs(totalIn - accounted);
+const errPct = totalIn > 0 ? (errAbs / totalIn) * 100 : 0;
+
+// 2b. Test A2: Balance de masa combinado (crecida actual + tormenta 90 mm / 2 h)
+sim.resetWaterOnly();
+sim.state.paranaScale = liveParana;
+sim.state.saladoScale = liveSalado;
+sim.state.targetMm = 90;
+sim.state.durationHr = 2.0;
+sim.state.drainMode = "saturated";
+sim.state.stormProfile = "convective";
+sim.state.soilMode = "saturated";
+sim.state.cityPumpsActive = true;
+sim.state.running = true;
+sim.stepSubsteps(260, true);
+
+const mb2 = { ...sim.state.massBalance };
+const totalIn2 = mb2.rainInM3 + (mb2.riverInM3 || 0);
+const accounted2 = mb2.storedM3 + mb2.drainOutM3 + mb2.pumpOutM3 + mb2.borderOutM3 + mb2.riverOutM3;
+const errAbs2 = Math.abs(totalIn2 - accounted2);
+const errPct2 = totalIn2 > 0 ? (errAbs2 / totalIn2) * 100 : 0;
 
 // 3. Test B: Benchmark CPU (100 frames x 4 substeps + 25 updateMetrics)
 sim.resetWaterOnly();
+sim.state.paranaScale = cfg.PARANA_NORMAL;
+sim.state.saladoScale = cfg.SALADO_NORMAL;
+sim.state.drainMode = "partial";
+sim.state.stormProfile = "uniform";
+sim.state.soilMode = "wet";
 sim.state.targetMm = 90;
 sim.state.durationHr = 2.0;
 sim.state.running = true;
@@ -211,6 +235,25 @@ for (let f = 0; f < 100; f++) {
 const dtMs = performance.now() - t0;
 
 // 4. Test C: Eventos historicos de calibracion (si existen)
+// Evalua profundidad pico al cierre de tormenta en radio barrial (~450 m) para evitar sesgo de 1 solo pixel
+function sampleBarrioPeakCm(u, v, radKm = 0.45) {
+  let maxM = sim.sampleWaterAtUV(u, v);
+  const du = radKm / cfg.worldW;
+  const dv = radKm / cfg.worldH;
+  for (let dy = -2; dy <= 2; dy++) {
+    for (let dx = -2; dx <= 2; dx++) {
+      if (dx === 0 && dy === 0) continue;
+      const dist2 = (dx * 0.5) * (dx * 0.5) + (dy * 0.5) * (dy * 0.5);
+      if (dist2 > 1.05) continue;
+      const su = Math.max(0, Math.min(1, u + dx * 0.5 * du));
+      const sv = Math.max(0, Math.min(1, v + dy * 0.5 * dv));
+      const w = sim.sampleWaterAtUV(su, sv);
+      if (w > maxM) maxM = w;
+    }
+  }
+  return Math.round(maxM * 100);
+}
+
 const eventosCfg = loadOv("eventos_calibracion");
 const eventosOut = [];
 if (eventosCfg && Array.isArray(eventosCfg.eventos)) {
@@ -222,25 +265,29 @@ if (eventosCfg && Array.isArray(eventosCfg.eventos)) {
     sim.state.durationHr = Number(ev.duracion_h ?? 2.0);
     sim.state.stormProfile = ev.perfil || "uniform";
     sim.state.drainMode = ev.drenaje || "partial";
+    sim.state.soilMode = ev.suelo || (ev.drenaje === "saturated" ? "saturated" : "wet");
     sim.state.running = true;
-    const steps = Math.max(220, Math.ceil(((sim.state.durationHr + 1.5) / 0.015)));
+    // Evaluar al cierre del pico de tormenta (+0,25 h de concentracion)
+    const steps = Math.max(120, Math.ceil(((sim.state.durationHr + 0.25) / 0.015)));
     sim.stepSubsteps(steps, sim.state.targetMm > 0);
     const affectedPlaces = [];
     for (const p of regionCfg.places) {
       if (!p.barrio_ref) continue;
       const u = (p.lon - cfg.lonMin) / (cfg.lonMax - cfg.lonMin);
       const v = (cfg.latMax - p.lat) / (cfg.latMax - cfg.latMin);
-      const wCm = Math.round(sim.sampleWaterAtUV(u, v) * 100);
-      if (wCm >= 4) affectedPlaces.push({ name: p.name, wCm });
+      const wCm = sampleBarrioPeakCm(u, v, 0.45);
+      if (wCm >= 8) affectedPlaces.push({ name: p.name, wCm });
     }
+    affectedPlaces.sort((a, b) => b.wCm - a.wCm);
+    const realSet = new Set(ev.barrios_anegados_reales || []);
+    const hits = affectedPlaces.filter(x => realSet.has(x.name)).map(x => `${x.name} (${x.wCm} cm)`);
     eventosOut.push({
       nombre: ev.nombre,
       urbanFloodHa: sim.state.urbanFloodHa,
       extFloodHa: sim.state.extFloodHa,
-      saludFlood: sim.state.saludFlood,
-      escuelasFlood: sim.state.escuelasFlood,
-      emergFlood: sim.state.emergFlood,
-      affectedPlaces,
+      hits,
+      hitRate: realSet.size > 0 ? Math.round((hits.length / realSet.size) * 100) : null,
+      affectedPlaces: affectedPlaces.slice(0, 10),
       barrios_reales: ev.barrios_anegados_reales || [],
     });
   }
@@ -249,7 +296,8 @@ if (eventosCfg && Array.isArray(eventosCfg.eventos)) {
 console.log(JSON.stringify({
   normalState,
   todayState,
-  massBalance: { ...mb, accounted: Math.round(accounted), errAbs: Math.round(errAbs), errPct },
+  massBalance: { ...mb, totalIn: Math.round(totalIn), accounted: Math.round(accounted), errAbs: Math.round(errAbs), errPct },
+  massBalanceFloodStorm: { ...mb2, totalIn: Math.round(totalIn2), accounted: Math.round(accounted2), errAbs: Math.round(errAbs2), errPct: errPct2 },
   benchmark: { totalMs100Frames: dtMs, msPerFrame4Substeps: dtMs / 100, msPerSubstep: dtMs / 400 },
   eventos: eventosOut,
 }, null, 2));
@@ -283,15 +331,20 @@ def main() -> int:
     ns = report["normalState"]
     ts = report["todayState"]
     mb = report["massBalance"]
+    mb_fs = report["massBalanceFloodStorm"]
     bm = report["benchmark"]
 
     print(f"[Base Normal 3,30/3,20 m] Ciudad >10cm: {ns['urbanFloodHa']} ha | Costa/Islas: {ns['extFloodHa']} ha | Max ciudad: {ns['maxUrbanCm']} cm")
     print(f"[Rios Hoy {ts['parana']:.2f}/{ts['salado']:.2f} m] Ciudad >10cm: {ts['urbanFloodHa']} ha | Costa/Islas: {ts['extFloodHa']} ha | Max ciudad: {ts['maxUrbanCm']} cm")
     print(
-        f"[Test A - Balance de masa 90 mm/2h] Ingreso: {mb['rainInM3']:,} m3 | "
-        f"Salidas+Almac.: {mb['accounted']:,} m3 (almac={mb['storedM3']:,}, dren={mb['drainOutM3']:,}, "
-        f"bomb={mb['pumpOutM3']:,}, borde={mb['borderOutM3']:,}, rios={mb['riverOutM3']:,}) | "
+        f"[Test A - Balance de masa 90 mm/2h] Ingreso: {mb['totalIn']:,} m3 | "
+        f"Salidas+Almac.: {mb['accounted']:,} m3 (almac={mb['storedM3']:,}, dren={mb['drainOutM3']:,.0f}, "
+        f"bomb={mb['pumpOutM3']:,.0f}, borde={mb['borderOutM3']:,.0f}, rios={mb['riverOutM3']:,.0f}) | "
         f"Error: {mb['errPct']:.4f}%"
+    )
+    print(
+        f"[Test A2 - Balance crecida+tormenta] Ingreso total: {mb_fs['totalIn']:,} m3 | "
+        f"Salidas+Almac.: {mb_fs['accounted']:,} m3 | Error: {mb_fs['errPct']:.4f}%"
     )
     print(
         f"[Test B - Benchmark CPU] 100 frames (4 subpasos c/u): {bm['totalMs100Frames']:.1f} ms | "
@@ -300,12 +353,13 @@ def main() -> int:
     if report["eventos"]:
         print("[Test C - Eventos historicos]")
         for ev in report["eventos"]:
-            print(f"  - {ev['nombre']}: ciudad={ev['urbanFloodHa']} ha, costa={ev['extFloodHa']} ha, lugares={ev['affectedPlaces']}")
+            hr = f" | aciertos={ev['hitRate']}% ({ev['hits']})" if ev.get("hitRate") is not None else ""
+            print(f"  - {ev['nombre']}: ciudad={ev['urbanFloodHa']} ha, costa={ev['extFloodHa']} ha{hr}")
     else:
         print("[Test C - Eventos historicos] Sin config/eventos_calibracion.json configurado (omitido).")
 
-    if mb["errPct"] >= 1.0:
-        print(f"FALLO: error de balance de masa {mb['errPct']:.4f}% >= 1.0%", file=sys.stderr)
+    if mb["errPct"] >= 1.0 or mb_fs["errPct"] >= 1.0:
+        print(f"FALLO: error de balance de masa ({mb['errPct']:.4f}% / {mb_fs['errPct']:.4f}%) >= 1.0%", file=sys.stderr)
         return 1
     return 0
 

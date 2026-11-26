@@ -9,13 +9,14 @@ y enriquece los GeoJSON locales directamente desde los archivos fuente (sin lect
      - B: flujo binario Priority-Flood + D8 continuo sobre FABDEM (con quemado de canales OSM)
   3) Priority-Flood + D8 + hillshade multidireccional -> assets/acum.png (1040x857)
      + datos/dem/acumulacion_flujo_fabdem.tif y datos/dem/flujo_binario_fabdem.tif
-  4) Curacion y enriquecimiento FABDEM de osm_equipamiento_critico.geojson, osm_canales_defensas.geojson
+  4) Curacion y enriquecimiento FABDEM de osm_canales_defensas.geojson
      y estaciones_bombeo_aprox.geojson -> sync a assets/*.json
 
 Ejecutar con Python de QGIS (Windows) o Python con GDAL/NumPy/Pillow (Linux):
   & "C:\Program Files\QGIS 3.40.13\bin\python-qgis-ltr.bat" scripts/construir_visor_fabdem.py
 """
 
+import collections
 import heapq
 import json
 import math
@@ -46,7 +47,6 @@ RELLENO_SHP = VEC_DIR / "areas_de_gestion_de_residuos_relleno_sanitarioPolygon.s
 RESIDUOS_SHP = VEC_DIR / "areas_de_gestion_de_residuos_AB000Polygon.shp"
 RESERVORIOS_GJ = VEC_DIR / "reservorios_santa_fe.geojson"
 
-OSM_EQUIP_PATH = VEC_DIR / "osm_equipamiento_critico.geojson"
 OSM_LINES_PATH = VEC_DIR / "osm_canales_defensas.geojson"
 PUMPS_PATH = VEC_DIR / "estaciones_bombeo_aprox.geojson"
 
@@ -62,8 +62,27 @@ MW, MH = int(_GR["mw"]), int(_GR["mh"])
 W, H = int(_GR["w"]), int(_GR["h"])
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from descargar_osm import compute_line_length_m, format_facility_name, is_entre_rios, nearest_barrio
+from descargar_osm import compute_line_length_m, is_entre_rios
 from sync_assets_json import simplify_uv, sync_all
+
+
+def despike_santa_fe_dem(arr: np.ndarray) -> np.ndarray:
+    """Filtra picos anómalos (antenas, silos, ruido radar > 23,5 m) en la llanura santafesina sin tocar la barranca SE."""
+    h, w = arr.shape
+    rr, cc = np.indices((h, w))
+    se_er = (rr > int(h * float(_ER["cliff_row_frac_gt"]))) & (cc > int(w * float(_ER["cliff_col_frac_gt"])))
+    out = arr.copy()
+    for _ in range(2):
+        padded = np.pad(out, 3, mode="edge")
+        win = np.lib.stride_tricks.sliding_window_view(padded, (7, 7))
+        med = np.median(win, axis=(-2, -1)).astype(np.float32)
+        bad = (~se_er) & ((out > 23.5) | ((out - med) > 2.2))
+        if not np.any(bad):
+            break
+        out = np.where(bad, np.minimum(med, 23.0), out)
+    # Tope de seguridad sobre clusters aislados en margen santafesina (llanura real <= 23,5 m)
+    out = np.where((~se_er) & (out > 23.8), 23.0, out)
+    return out.astype(np.float32)
 
 
 def warp_fabdem(width: int, height: int) -> np.ndarray:
@@ -77,7 +96,8 @@ def warp_fabdem(width: int, height: int) -> np.ndarray:
         resampleAlg=gdal.GRA_Bilinear,
     )
     arr = ds.ReadAsArray().astype(np.float32)
-    return np.where(np.isfinite(arr), arr, 12.0)
+    arr = np.where(np.isfinite(arr), arr, 12.0)
+    return despike_santa_fe_dem(arr)
 
 
 def sample_dem_grid(dem_hi: np.ndarray, lon: float, lat: float) -> float:
@@ -187,6 +207,24 @@ def rasterize_layers_from_vectors(dem_hi: np.ndarray) -> tuple[np.ndarray, np.nd
     )
     parana_mask = parana_mask & (~se_cliff)
 
+    # Continuar cauces/lagunas conectados desde Laguna Setúbal hacia el NE (Arroyo Leyes/Ubajay) donde BH140 se cortaba recto en lon -60,62
+    ne_col_min = int(W * 0.65)
+    ne_row_max = int(H * 0.62)
+    elig_ne = (~se_cliff) & (~salado_mask) & (risk != 1) & (dem_hi <= 11.25)
+    elig_ne[:ne_row_max, ne_col_min:] |= (~se_cliff[:ne_row_max, ne_col_min:]) & (~salado_mask[:ne_row_max, ne_col_min:]) & (risk[:ne_row_max, ne_col_min:] != 1) & (dem_hi[:ne_row_max, ne_col_min:] <= 11.65)
+    # Solo expandir desde el borde conectado de parana_mask (evita llenar depresiones aisladas)
+    seed_pts = np.argwhere(parana_mask)
+    q = collections.deque((int(r), int(c)) for r, c in seed_pts)
+    while q:
+        r, c = q.popleft()
+        for nr, nc in ((r - 1, c), (r + 1, c), (r, c - 1), (r, c + 1)):
+            if 0 <= nr < H and 0 <= nc < W and not parana_mask[nr, nc]:
+                if (nr < ne_row_max and nc >= ne_col_min and elig_ne[nr, nc]) or (
+                    not se_cliff[nr, nc] and not salado_mask[nr, nc] and risk[nr, nc] != 1 and dem_hi[nr, nc] <= 10.65
+                ):
+                    parana_mask[nr, nc] = True
+                    q.append((nr, nc))
+
     ctx = np.where(parana_mask, np.where(_inner_edge(parana_mask), 2, 1), ctx)
     ctx = np.where(salado_mask, np.where(_inner_edge(salado_mask), 10, 9), ctx)
 
@@ -203,32 +241,6 @@ def rasterize_layers_from_vectors(dem_hi: np.ndarray) -> tuple[np.ndarray, np.nd
 
 
 def curate_and_enrich_vectors(dem_hi: np.ndarray):
-    if OSM_EQUIP_PATH.exists():
-        fc = json.loads(OSM_EQUIP_PATH.read_text(encoding="utf-8"))
-        clean_feats = []
-        seen = set()
-        for feat in fc.get("features", []):
-            lon, lat = feat["geometry"]["coordinates"]
-            if is_entre_rios(lon, lat):
-                continue
-            props = feat.get("properties") or {}
-            cat = props.get("categoria", "escuela")
-            subtipo = props.get("subtipo", "school")
-            street = (props.get("direccion") or "").strip()
-            barrio = nearest_barrio(lon, lat)
-            nombre = format_facility_name(props.get("nombre", ""), subtipo, street, barrio)
-            key = (cat, round(lon, 4), round(lat, 4), nombre.lower())
-            if key in seen:
-                continue
-            seen.add(key)
-            props["nombre"] = nombre
-            props["barrio_cercano"] = barrio
-            props["cota_fabdem_m"] = sample_dem_grid(dem_hi, lon, lat)
-            feat["properties"] = props
-            clean_feats.append(feat)
-        fc["features"] = clean_feats
-        OSM_EQUIP_PATH.write_text(json.dumps(fc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-
     if OSM_LINES_PATH.exists():
         fc = json.loads(OSM_LINES_PATH.read_text(encoding="utf-8"))
         clean_lines = []
@@ -396,11 +408,11 @@ def main():
     Image.fromarray(acum_arr, mode="RGBA").save(ASSETS_DIR / "acum.png", format="PNG", optimize=True)
 
     # 5) Sincronizar assets/*.json desde GeoJSONs curados
-    fac_out, ln_out, pm_out = sync_all()
+    ln_out, pm_out = sync_all()
     print(f"FABDEM assets/dem.png: {MW}x{MH} ({(ASSETS_DIR / 'dem.png').stat().st_size // 1024} KB)")
     print(f"Vectores -> assets/layers.png: {W}x{H} ({(ASSETS_DIR / 'layers.png').stat().st_size // 1024} KB) | binFlow={int((bin_flow > 0).sum())} px")
     print(f"FABDEM assets/acum.png: {W}x{H} ({(ASSETS_DIR / 'acum.png').stat().st_size // 1024} KB)")
-    print(f"Assets JSON sincronizados: {len(fac_out)} equip, {len(ln_out)} trazas, {len(pm_out)} bombeos")
+    print(f"Assets JSON sincronizados: {len(ln_out)} trazas, {len(pm_out)} bombeos")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,64 @@
+{
+  "puntos": [
+    {
+      "id": "alto_verde_la_boca_acceso",
+      "nombre": "Camino a La Boca (Alto Verde)",
+      "lon": -60.6845,
+      "lat": -31.6860,
+      "umbral_rio": "parana_santa_fe",
+      "umbral_hidrometrico_m": 5.70,
+      "umbral_lluvia_mm": null,
+      "efecto_operativo": "Camino intransitable y aislamiento vehicular de La Boca (Nivel Evacuación Puerto SF)",
+      "evidencia_campo": "Umbral operativo Evacuación PNA/INA en Puerto Santa Fe >= 5,70 m",
+      "fecha_registro": "2026-11-24"
+    },
+    {
+      "id": "vuelta_del_paraguayo",
+      "nombre": "Vuelta del Paraguayo (ribera este)",
+      "lon": -60.6640,
+      "lat": -31.6485,
+      "umbral_rio": "parana_santa_fe",
+      "umbral_hidrometrico_m": 5.30,
+      "umbral_lluvia_mm": null,
+      "efecto_operativo": "Anegamiento de sectores bajos extramuros y caminos ribereños",
+      "evidencia_campo": "Nivel de Alerta INA en Puerto Santa Fe >= 5,30 m",
+      "fecha_registro": "2026-11-24"
+    },
+    {
+      "id": "salado_banados_oeste",
+      "nombre": "Bañados del Salado (margen externa Oeste)",
+      "lon": -60.7448,
+      "lat": -31.6350,
+      "umbral_rio": "salado_santo_tome",
+      "umbral_hidrometrico_m": 4.70,
+      "umbral_lluvia_mm": null,
+      "efecto_operativo": "Ocupación de bañados del Salado y operación preventiva de compuertas por remanso",
+      "evidencia_campo": "Nivel de Alerta INA Río Salado en Santo Tomé >= 4,70 m",
+      "fecha_registro": "2026-11-24"
+    },
+    {
+      "id": "cuenca_suroeste_santa_rosa",
+      "nombre": "Subcuenca Suroeste (Santa Rosa de Lima)",
+      "lon": -60.7335,
+      "lat": -31.6435,
+      "umbral_rio": null,
+      "umbral_hidrometrico_m": null,
+      "umbral_lluvia_mm": 80,
+      "efecto_operativo": "Alta exigencia sobre reservorios del cordón Oeste y estaciones de bombeo",
+      "evidencia_campo": "Informe Riesgo Hídrico Agencia Hábitat — acumulación crítica Suroeste",
+      "fecha_registro": "2026-11-24"
+    },
+    {
+      "id": "corredor_noroeste_loyola",
+      "nombre": "Corredor Noroeste (Loyola / Los Troncos)",
+      "lon": -60.7420,
+      "lat": -31.5765,
+      "umbral_rio": null,
+      "umbral_hidrometrico_m": null,
+      "umbral_lluvia_mm": 90,
+      "efecto_operativo": "Concentración de escurrimiento en corredores naturales con déficit de red pluvial",
+      "evidencia_campo": "Informe Riesgo Hídrico Agencia Hábitat — corredores críticos Noroeste",
+      "fecha_registro": "2026-11-24"
+    }
+  ]
+}
